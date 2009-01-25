@@ -1,0 +1,47 @@
+==========================
+Choosing A Profile Picture
+==========================
+
+:X-Created: [2008-06-29, 08:20]
+
+Some people are `photogenic <http://en.wikipedia.org/wiki/Photogenic>`_. Some
+are not. Some people love seeing pictures of themselves. Some people don't. I
+belong to the second category in both cases.
+
+Having generally avoided cameras my entire life, I was a bit lost when friends
+suggested that I should change the "profile" picture I was using in video
+presentations.
+
+First of all, there were few photos in existence. Secondly, they pretty much
+always had other people in them or weren't taken in a professional context.
+
+How do other people choose profile pictures? Do people have so many pictures of
+themselves that it's not much of hassle? Am I abnormal to have so few pictures
+of myself?
+
+In fact, one of the few suitable pictures was the one of `me on wikipedia
+<http://commons.wikimedia.org/wiki/Image:Ian_Clarke_and_Espra%27s_tav_2001.jpg>`_:
+
+.. raw:: html
+
+  <div class="center">
+    <img src="http://upload.wikimedia.org/wikipedia/commons/f/f9/Ian_Clarke_and_Espra%27s_tav_2001.jpg"
+         alt="Ian Clarke and Espra's Tav -- 2001" />
+  </div>
+
+But it was taken when I was 18 -- in 2001. *Sigh*! I was left with no choice but
+to go down the narcissistic route. Time to have pictures taken of myself! Woo!
+
+Cameras have always failed to capture my charisma. But what the hell -- time to
+face the camera. After 15 minutes of having photos taken by Tommy and Xiao, we
+arrived at:
+
+.. raw:: html
+
+  <div class="center">
+    <img src="http://release.plexnet.org/gfx/tav.profile.jpg"
+         alt="Tav Espian" width="200px" height="300px" />
+  </div>
+
+It's my new "official" profile picture. What does everyone think? Does it convey
+the "Tav Essence" at all?

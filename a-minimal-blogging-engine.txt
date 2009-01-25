@@ -1,0 +1,74 @@
+=========================
+A Minimal Blogging Engine
+=========================
+
+:X-Created: [2008-06-28, 09:21]
+
+I became a blogger in 2002 with `Radio Userland <http://radio.userland.com/>`_.
+As the trial expired, I decided to wait till better tools were available. 6
+years and an active blogosphere later, I presumed things had improved.
+
+So I tried out `Wordpress <http://asktav.wordpress.com>`_ and `Blogger
+<http://asktav.blogspot.com>`_. What did I find? Crap. Now don't get me wrong.
+They are decent publishing tools. I've set up various Wordpress blogs and even
+convinced my mother to start a blog on Blogger due its funky `transliteration
+tools <http://help.blogger.com/bin/answer.py?hl=en&answer=58226>`_.
+
+But if all I'm getting is a publishing tool, then I at least expect ease of
+customisation and ability to add my own HTML when needed. After all, this was a
+basic feature of the `original web browser
+<http://en.wikipedia.org/wiki/WorldWideWeb>`_! But no.
+
+Instead you can spend hours trying to customise the overly complex CSS. You will
+have your line breaks broken up in weird and arbitary ways. And unless you are a
+masochist, don't even try mixing WYSIWYG and raw HTML editing!
+
+So, after spending an entire night trying to bend Blogger to my will, I decided
+enough was enough. And in less time than it took to figure out Blogger's CSS
+class names, I was able to hack together this minimal blogging engine.
+
+It's just a simple Makefile, 2 little python scripts and a template file with
+bits of HTML and Javascript. To write a new blog entry: create a new
+`restructured text <http://docutils.sourceforge.net/rst.html>`_ file and then
+run ``make && svn commit``. Tada!
+
+If you are interested, here is the text file from which this article was
+generated:
+
+* `a-minimal-blogging-engine.jen
+  <http://pleinair.googlecode.com/svn/trunk/documentation/asktav/rst/a-minimal-blogging-engine.jen>`_
+  -- it's plain text despite the .jen ending
+
+Now this particular solution is definitely not for most people. But I was
+pleasantly surprised at just how much functionality I could put together in a
+few hours -- and still maintain full control over the content and style!
+
+This has only been made possible thanks to the following tools which have come
+along in the last few years:
+
+* `Disqus <http://www.disqus.com>`_ -- for distributed comments
+* `Docutils <http://docutils.sourceforge.net/>`_ -- for converting restructuredtext to html
+* `Google Analytics <http://www.google.com/analytics/>`_ -- for visitor statistics
+* `Google Code <http://code.google.com/>`_ -- for hosting the subversion repository
+* `Feedburner <http://www.feedburner.com/>`_ -- for handling the RSS feeds
+* `FriendFeed <http://friendfeed.com/>`_ -- for aggregating my web activities
+* `jQuery <http://jquery.com/>`_ -- for manipulating the Disqus API
+* `Subversion <http://en.wikipedia.org/wiki/Subversion_(software)>`_ -- for version control of the articles
+
+I am particularly excited by that last feature. As I get full versioning support
+for free. Looking at it another way, I get a personal wiki without any
+additional work on my part!
+
+Of course, this setup is not geared for multiple authors and doesn't have fancy
+web interfaces. But it is definitely a better publishing tool *for me* than the
+other options that I can see out there.
+
+Please let me know if there are decent alternatives that I should be using
+instead. And if you care to use this setup, then checkout the `subversion
+repository <http://pleinair.googlecode.com/svn/trunk/documentation/asktav/>`_.
+All my code is placed in the public domain.
+
+And now that I've done what several thousands of others have `done before me
+<http://diveintomark.org/archives/2001/07/30/why_i_dont_use_blogger>`_, I can
+hopefully focus on creating tools that are *actually* geared towards enabling
+dialogue and active collaboration.

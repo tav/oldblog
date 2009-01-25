@@ -1,0 +1,34 @@
+========================
+Coincidences Don't Exist
+========================
+
+:X-Created: [2008-07-02, 17:02]
+
+.. image:: http://upload.wikimedia.org/wikipedia/commons/1/1b/Deux_furies.png
+           :alt: Two Furies from an ancient vase
+           :width: 165
+           :height: 299
+           :class: float-right
+
+Not to be a `fatalist <http://en.wikipedia.org/wiki/Fatalism>`_, but I'm
+increasingly observing how frequently "coincidences" seem to be taking place.
+
+Case in point, this morning `Zooko <https://zooko.com/log.html>`_ messaged me
+out of the blue. It's been a few months since we last spoke and was nice to
+briefly catch up. He pointed me to his latest work -- `AllMyData.com
+<http://www.allmydata.com>`_ -- an online storage service running on `Tahoe
+<http://www.allmydata.org>`_, the P2P network he's been working on.
+
+And it just so happened that earlier this evening, I was in need of a storage
+service to integrate into the coming Bootstrap specification. AllMyData happens
+to be one of the best fits -- closely shadowed by `box.net
+<http://www.box.net>`_.
+
+Neither contact from Zooko nor the need for a storage service is particularly
+surprising. But for it to happen on the same day is a pretty low probability.
+And on its own, not so surprising.
+
+But taken together with all the other hundreds of little opportune coincidences
+that seem to take place in my life, I begin to wonder if coincidences really are
+coincidences?
+

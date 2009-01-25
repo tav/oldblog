@@ -1,0 +1,28 @@
+=============================
+Bootstrap Draft Specification
+=============================
+
+:X-Created: [2008-07-03, 08:48]
+
+.. image:: http://release.plexnet.org/gfx/bootstrap.png
+           :alt: Espra Bootstrap Logo
+           :class: float-right
+           :width: 300
+           :height: 111
+
+After a week of heavy pondering, I have nailed down the required functionality
+for Bootstrap. Have a read:
+
+* `Boostrap draft specification <espra-bootstrap.html>`_
+
+Then let me know what you think in the comments below!
+
+Bear in mind that this is *not* Espra. It is *not* based on the Plexnet. It is
+*not* decentralised. It is *not* meant to scale to millions of users. It is only
+meant to achieve the following:
+
+1. Enable interesting small-scale communities, e.g. socialaction.tv
+2. Demonstrate *some* of Espra's utility, e.g. Trust Maps.
+3. Establish credibility with the world that the Espians can code =)
+4. Be a powerful communications tool to facilitate Espra's development.
+5. Bring in short-term consultancy revenue.

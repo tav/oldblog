@@ -1,0 +1,16 @@
+================
+Shorter Blog URL
+================
+
+:X-Created: [2008-06-30, 07:14]
+
+Some people have complained that it is impossible to remember the URL for this
+blog. Unfortunately Google Code don't allow for redirecting domains to it.
+
+At some point this blog will transfer over to http://tav.espians.com -- but,
+until then, here's a persistent URL:
+
+* http://purl.org/asktav
+
+Bookmark it now! =) And, in case you didn't know, `PURL <http://purl.org>`_ is a
+great "Persistent" URL service.

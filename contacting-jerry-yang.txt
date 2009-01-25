@@ -1,0 +1,297 @@
+=====================
+Contacting Jerry Yang
+=====================
+
+:X-Created: [2008-07-05, 14:12]
+
+.. image:: http://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Jerry_Yang.jpg/225px-Jerry_Yang.jpg
+           :alt: Jerry Yang
+           :width: 225
+           :height: 273
+           :class: float-right
+
+A fortnight ago, I emailed Jerry Yang, the co-founder and CEO of Yahoo!. It was
+yet another unsolicited `Yahoo! Turnaround Strategy
+<http://www.readwriteweb.com/archives/yahoo_turnaround_strategy.php>`_ proposal.
+My little offer to help turn Yahoo! around.
+
+Given that Jerry doesn't know me from Adam I wasn't expecting an immediate
+reply. But it's now been 2 weeks and still no reply. If anyone knows Jerry Yang
+and finds my proposal useful, I'd appreciate it if you could prod him to get
+back to me.
+
+You can find the email I sent below. Apologies for the message being in
+lower-case -- Jerry is famous for writing in that way. And given that for a long
+time I also had a fascination for the `miniscule
+<http://en.wikipedia.org/wiki/Lower_case>`_, I found it rather natural to write
+to him in that manner.
+
+The email also serves as an introduction to some of the Espian ideas. Would love
+to hear your comments on those aspects too. Thanks!
+
+:From: tav <tav@espians.com>
+:Date: Mon, Jun 23, 2008 at 7:28 AM
+:Subject: i'd like to help you turn yahoo around
+:To: jerry@yahoo-inc.com
+:Cc: esp@googlegroups.com
+:Body:
+
+ ·
+
+ dearest jerry,
+
+ congratulations on having beaten off the microsoft takeover and, as a
+ fellow entrepreneur, my deepest emphaties for the unnecessary shit now
+ being thrown your way. the way of the entrepreneur is little
+ understood and it's easy for people who have never been in similar
+ situations to criticize. i just hope that you have people around you
+ to provide the emotional support that's critical at junctures like
+ this.
+
+ it would be very easy for you to walk away from all of this. but if
+ you are intent on working through, then i would be truly happy to be
+ of service.
+
+ you might be wondering what a random 26 year old in london has to
+ offer, but hear me out =)
+
+ and if you like what i am saying, then fly me over to sunnydale!
+
+ of the many things that need to be tackled, i'd like to focus on 2
+ aspects in this email:
+
+ * business model
+ * external brand and internal morale
+
+ yahoo! was the undisputed king of web 1.0. not only was yahoo the
+ first search engine i ever used, but all the other services that i and
+ others used -- rocketmail, geocities, egroups -- all became yahoo!
+ properties. it consolidated its position effectively.
+
+ but despite making some really wise acquisitions -- flickr, delicious,
+ upcoming, &c. -- yahoo! passed up on being the web 2.0 player that it
+ could have been. it's too late to do anything about that now.
+
+ innovation happens in curves --
+ http://blog.guykawasaki.com/2006/01/the_art_of_inno.html
+
+ "Too many companies duke it out on the same curve. If they were daisy
+ wheel printer companies, they think innovation means adding Helvetica
+ in 24 points. Instead, they should invent laser printing. True
+ innovation happens when a company jumps to the next curve--or better
+ still, invents the next curve, so set your goals high."
+
+ and this is the opportunity that i believe you now have. time to jump
+ to web 4.0 -- a web 4 the people by the people.
+
+ because none of the approaches being taken by your competitors are
+ tackling the real problems that we all face:
+
+ * everything being dependent on advertising revenue
+ * information/communication overload
+ * intellectual property and surviving in an "economy of free"
+ * the depleted social and environmental fabric
+ * the lack of identity/meaning in most people's lives
+
+ you've reaped the benefits by being a pioneer with yahoo! it's time to
+ be a pioneer again and let the others play catch up!
+
+ your major competitors are now focused on being the ultimate
+ middle-men. but if you can jump ahead and totally disrupt the market
+ -- much like paid search has done to tv advertising -- then not only
+ do you strengthen your position and revenues, but also take away from
+ the others.
+
+ how can this be done? well, with a series of simple developments.
+
+ the first, i call "trust maps". this is an extension of the concept of
+ "friends" introduced by the various social networking sites. but
+ instead of being just fun, it can be used as a basis for a whole new
+ economic model. and you already have the largest social network on the
+ world to bootstrap this -- yahoo! mail/messenger.
+
+ how does it work? well, a user simply states who they trust and in
+ what context, e.g. i trust "Indy, Katy and Alice" in the context of
+ "architecture". this trust map can then be used as a filter for
+ information flow. taking what already happens in real life -- but
+ making it more automated.
+
+ a way of enabling people to overcome information overload.
+
+ and yahoo! has one of the best properties on the internet to make this
+ happen: del.icio.us.
+
+ delicious has already come very close to implementing this. you can
+ setup what is called a "network" and subscribe to links under certain
+ tags, e.g. i can subscribe to alice/architecture. unfortunately,
+ delicious never added a transitive element to this. that is, if Alice
+ also subscribed to Xiao, then i never receive Xiao's links.
+
+ some of yahoo!'s researchers have also written a paper on something
+ called "TrustRank". this can be used to evaluate the entire network
+ from the perspective of the various individuals relatively well.
+
+ so instead of sites like google, where users are limited to the same
+ global perspective, yahoo! could start offering search results in a
+ way that reflects their personal tastes and perspectives.
+
+ now, with this new form of search -- which in many ways, takes us back
+ to yahoo's original roots -- you can in one stroke help people
+ overcome information overload, take back market share in search *and*
+ make social networking actually useful. but it does not stop there =)
+
+ as a next step, you can completely destroy the paid search market.
+ microsoft is currently accidentally stumbling towards this with their
+ live search cashback scheme.
+
+ this is what i call plexchange.
+
+ to faciliate this, transactions simply take place in specific
+ contexts. for example, let's say that i go and buy the book "Timeless
+ Way of Building" from a supplier for $30. given that this is in the
+ context of architecture, a certain commission set by the supplier (say
+ 10%) is split between the various individuals in my trust map. that
+ is, Indy, Katy and Alice would get $1 each (the $3 commission split
+ between each of them equally).
+
+ unlike the current setup, this creates a win-win-win proposition. the
+ supplier can increase/decrease their commission appropriately to
+ compensate for how good/established their offering already is. they
+ don't need to waste money on intermediary search advertising. the
+ various individuals in my trust map get compensated for keeping me
+ informed. and if they start spamming me, i simply take them out of my
+ trust map and thus they are incentivized to provide value. and myself,
+ i benefit from being well informed and being able to have a higher
+ quality of life.
+
+ and in terms of gaining adoption for this, this gives a true business
+ model for all the millions of bloggers (early adopters) out there.
+ it's good to have them on your side. and by giving them a working
+ model -- taking them away from being dependent on adsense dollars --
+ you gain their trust and support.
+
+ i don't know if you still have the stake in alibaba -- but it'd tie in
+ quite nicely with that investment too. not to mention revitalizing
+ subsidiaries like kelkoo.
+
+ next up, you can create a working economy for all the cultural
+ creatives out there -- starting with musicians. the music industry is
+ currently in turmoil. and their attempt to regulate the market of
+ "file sharers" simply hasn't worked. and as more and more things go
+ digital, e.g. movies, designs of cars, &c., the need for a new working
+ model for intellectual property becomes important.
+
+ the only inevitable solution is to create a "gift economy".
+
+ imagine that your browser kept tab of everything you've been
+ reading/listening/watching and asked you every month about what you
+ want to give. and say a user decides to give $50 -- this then gets
+ split up between all the artists/bloggers/developers/musicians that
+ they've been benefiting from.
+
+ creators may provide incentives to encourage more giving. for example,
+ the band radiohead may say that the top 100 and a random 50 from the
+ top 10,000 givers in any city get invited to an intimate performance
+ when they are next in the given city. by creating a generic platform
+ for all of this, yahoo! can get the millions of cultural creatives on
+ its side and truly disrupt many markets.
+
+ building upon this, yahoo! can go onto enabling a new reputation
+ economy. based on something that i call pecus -- personal economic
+ currency units -- pseudo shares in individuals -- individuals can
+ actively promote those who are working towards creating the conditions
+ they want. not only does this allow for fluid, fast-paced and
+ decentralized organizational structures, but it reflects the way that
+ the markets are heading in.
+
+ such decentralization would focus the world's efforts on truly vital
+ efforts like rebuilding the biosocial infrastructure. because as the
+ new opportunities for growth cease to be in growth and various aspects
+ of the market disappear into economies of free, there is very little
+ left to "capitalise" upon. opportunity lies in the new non-growth
+ growth markets.
+
+ and biosocial infrastructure is interesting in this regard because due
+ to its scarcity one could set its price as infinite. and anything that
+ has a theoretical infinite value is interesting!
+
+ and, finally, if yahoo! just did all of this through the web, then
+ it'd do well, but not be truly placed to profit as it could. to truly
+ do this, an open platform needs to be created. the work that yahoo has
+ been doing with regards to building an open platform has been great.
+ extremely under-appreciated by the developer communities, but good
+ work regardless.
+
+ this work now needs to be taken to a whole new level. to reformulate
+ the web into a more peer-to-peer infrastructure. some of the work
+ being done by your javascript teams have already been accidentally
+ laying down the foundations for this. and by reformulating the web
+ into a new architecture, there is a lot to be gained.
+
+ things like search can become an integral part of this new network --
+ obviating the need for external search providers. all the information
+ could be stored locally. letting people overcome concerns of privacy
+ because it's not sitting on centralized servers outside of their
+ control. and the various post-PC devices like mobile phones can be
+ leveraged to create effective "peer computing".
+
+ and by making all of this totally open source and public, yahoo! can
+ totally blow the efforts of others like microsoft, google and adobe
+ out of the water. the web is nearly 20 years old. and the time has
+ come for a major upgrade!
+
+ now, by following down the line i've sketched out above, yahoo! can
+ re-establish itself as a pioneer. and this is the key to regaining
+ brand value and revitalizing internal morale.
+
+ the above solves real problems that people face *and* can make yahoo!
+ the ultimate middle man for the world.
+
+ by appealing to people's imagination, hopes and aspirations, you can
+ propel yahoo! back to the center-stage.
+
+ and, as you already know, on wall street it is all about perception!
+
+ the old adage of an attack being the best defense needs to be brought
+ into play. with this new model, yahoo! can question the model of its
+ competitors and take the negative focus away from yahoo!
+
+ i would also recommend doing this as a grand 10-month project in which
+ all of this is developed totally openly and executed. and to do this
+ in a "reality tv"-esque style that will engage with the imagination of
+ the world.
+
+ get back to the yahooligan roots! make it truly engaging and sexy.
+ like it was back at the start.
+
+ spin the exodus of the various executives as an advantage -- free-ing
+ yahoo! to truly pioneer again -- unburdened by egos.
+
+ and with a solid plan in place with the imagination flaring, getting
+ your shareholders appeased and supportive should be an easy task. they
+ will be slightly reticent to start with, but they can be won over with
+ conviction.
+
+ i would like to help you do all this. i have the charisma, strategic
+ capacity and technical know-how to make this happen. i can even bring
+ together many of the appropriate people to make this happen -- and if
+ you will let me, put together appropriate people from within yahoo!
+
+ anyways, that should be enough for a first email =)
+
+ i'm much better at communicating in person. so if you find it at all
+ useful to your current situation, then please fly me over. i'm based
+ in london, but can be over at short notice.
+
+ PS. i'm cc'ing a list of my collaborators -- hope that's okay.
+
+ good luck and speak soon!
+
+ .. raw:: html
+
+   --<br />
+
+ love, tav
+
+ plex:espians/tav | tav@espians.com | +44 (0) 7809 569 369
+

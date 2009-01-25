@@ -1,0 +1,116 @@
+=======================
+Variable Sleep Schedule
+=======================
+
+:X-Created: [2008-07-06, 20:52]
+
+.. raw:: html
+
+  <div class="float-right">
+  <a href="http://www.flickr.com/photos/asktav/2688721258/" title="Sleep requirements map"><img src="http://farm4.static.flickr.com/3174/2688721258_3ea3894241.jpg" width="411px" height="240px" alt="Sleep requirements map" /></a><br />
+  <div class="image-caption">by <a href="http://www.flickr.com/photos/asktav/2688721258/">asktav</a></div>
+  </div>
+
+My mother emailed me saying:
+
+  "We see what we believe, and not just the opposite; and to change what we see,
+  it is sometimes necessary to change what we believe."
+
+I love my mum. She so wise! What she says seems to be the core message in
+personal development processes like `"The Work"
+<http://www.thework.com/thework.asp>`_ by `Byron Katie
+<http://en.wikipedia.org/wiki/Byron_Katie>`_.
+
+And it also ties into what I've been pondering lately regarding sleep cycles.
+Especially since, whilst growing up, I experienced different sleep cycles with
+my mother. When really young, she'd wake me up really early. And then as a kid,
+we'd often talk late into the night whilst she worked on some poetry or did some
+research.
+
+`Sleep <http://en.wikipedia.org/wiki/Sleep>`_ is one of those topics which many
+of us have rather fixed preconceptions about. We all need it. It plays a vital
+role in our well being. It plays a large part in defining our lifestyles. Yet,
+despite enjoyable dreams, it takes up so much of our short lives.
+
+Now I've experimented with lots of different sleeping patterns. Everything from
+intense sleep deprivation to the `Uberman sleep
+schedule <http://www.kuro5hin.org/story/2002/4/15/103358/720>`_. But I have yet
+to find the ideal sleep pattern. So I decided to map out my requirements:
+
+* An average of 6 hours of sleep a day.
+
+* Awake at dawn -- the most magical time of the day.
+
+* Time for regular "meta" activities which are vital for a balanced life.
+
+* At least 10 hours "quiet" time every other day for highly productive work --
+  for me this is often at night time hours when distractions are minimal.
+
+* Awake and alert for at least 10 hours of professional interactions with others
+  every other day, e.g. negotiations, meetings, &c.
+
+* Awake across "normal" work times in various time zones -- especially Europe,
+  Americas and Asia.
+
+* Time to have an active social life -- with lots of music and dancing.
+
+* Time to cuddle up with a lover -- who probably also leads a busy life -- after
+  sex.
+
+Some of these requirements are probably familiar to those who've read my earlier
+post `on daily routines <on-daily-routines.html>`_. The last point reminds me of
+one of the funniest videos I've seen in recent years:
+
+.. raw:: html
+
+  <div class="center">
+  <object width="425" height="344"><param name="movie"
+  value="http://www.youtube.com/v/WGOohBytKTU&hl=en&fs=1"></param><param
+  name="allowFullScreen" value="true"></param><embed
+  src="http://www.youtube.com/v/WGOohBytKTU&hl=en&fs=1"
+  type="application/x-shockwave-flash" allowfullscreen="true" width="425"
+  height="344"></embed></object>
+  </div>
+
+Taking all of the requirements into account, I eventually ended up with the
+following ruleset. I call this the "Variable Sleep Schedule":
+
+* Three sleep time slots are defined:
+
+  * 2pm - 8pm (slot 1)
+  * 8pm - 2am (slot 2)
+  * 2am - 8am (slot 3)
+
+* Within the period of two days, two of those sleep slots must be filled. No
+  more. No less.
+
+* Under ideal circumstances, sleep will be enjoyed during slot 1.
+
+.. image:: http://release.plexnet.org/gfx/online-irc-hourly-activity.png
+           :alt: Tav's Online Activity 2000-2008
+           :class: float-right
+
+Not only does the above ruleset provide a useful and flexible structure. But as
+can be seen from the diagram representing my online activity hours over the last
+8 years, it isn't *too* far off my existing "natural" pattern.
+
+All times are in UK time -- whether with daylight savings or otherwise. In fact,
+the time slots are specifically for the UK so that the timezone deviations with
+other regions fits in nicely. By sleeping during slot 1, I can be awake for:
+
+* Morning, lunch and late night interactions in the UK and Europe.
+
+* Afternoon and evening interactions in the Americas.
+
+* Morning, afternoon and evening interactions in Asia.
+
+I can take advantage of the time immediately after waking up -- when the brain
+is highly active -- to do some quality productive work. Avoid the hassles of
+rush hour. And have meetings from 6 o'clock in the morning =)
+
+And if for any unavoidable reasons, e.g. important afternoon meetings or social
+engagements, I have to skip sleep on any given day, I can catch up on the sleep
+debt by sleeping for 2 slots the next day.
+
+In short, I am very excited by this sleep schedule! Question is, what will my
+lovers make of this? ;p

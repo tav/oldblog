@@ -1,0 +1,105 @@
+==================
+Evolution of Ideas
+==================
+
+:X-Created: [2008-07-08, 06:23]
+
+.. image:: http://upload.wikimedia.org/wikipedia/commons/9/9c/Darwin_ape.jpg
+           :alt: Caricature of Charles Darwin
+           :class: float-right
+           :width: 200
+           :height: 253
+
+Ideas require the right kind of incubation. They need to be nurtured before
+being taken into the world -- at the right moment in time.
+
+The nurturing and timing of ideas is one aspect which most innovators and
+entrepreneurs seem to miss. And I certainly can't talk about timing -- as the
+`tyranny of timing
+<http://findarticles.com/p/articles/mi_hb1437/is_200201/ai_n5944664>`_ is
+something that I've had to learn the hard way.
+
+But I've been extremely lucky with respect to the nurturing of ideas. For
+reasons still unknown, extra-ordinary individuals seem to be attracted to me.
+And their influences have been pure gold.
+
+This is a reflection of something that I've heard referred to as the "Florence
+Effect". That is, whilst statistically speaking we should have millions of
+Einsteins and Da Vincis walking amongst us, the reason many of them haven't
+tapped into their full potential is due to a lack of a nurturing, vibrant
+community.
+
+In contrast, if you take Florence or Rome during the `High Renaissance
+<http://en.wikipedia.org/wiki/High_Renaissance>`_, you will see that the likes
+of `Leonardo da Vinci <http://en.wikipedia.org/wiki/Leonardo_da_Vinci>`_,
+`Michelangelo <http://en.wikipedia.org/wiki/Michelangelo>`_, `Raphael
+<http://en.wikipedia.org/wiki/Raphael>`_, `Botticelli
+<http://en.wikipedia.org/wiki/Botticelli>`_, `Ghirlandaio
+<http://en.wikipedia.org/wiki/Ghirlandaio>`_ and `Perugino
+<http://en.wikipedia.org/wiki/Perugino>`_ all hung around the same areas.
+
+Not only would they have influenced, inspired and critiqued each other, but many
+of them actively taught some of the others. Their social networks would have
+overlapped considerably enough that ideas would have flowed much faster than at
+other points in history.
+
+The various localities of Florence and Rome -- with their various patrons --
+acted as a positive `echo chamber
+<http://en.wikipedia.org/wiki/Media_echo_chamber>`_ within which ideas and
+inspirations would have flowed and been nurtured. We need such spaces for the
+`cultural creatives <http://www.culturalcreatives.org/>`_ of our times.
+
+For me, the `#esp IRC channel <irc://irc.freenode.net/esp>`_ has been one such
+space. And you can see its influence even in the evolution of just two of the
+ideas:
+
+* Organisational Model & Pecus
+* Gift Economy
+
+For the first employment contract, I wrote (in 1999):
+
+  *The full employees collectively form the “Ecclésia”, and this group owns
+  fifty percent of the Company shares. The Ecclésia elects (by the Australian
+  ballot) on a quarterly basis an executive council of 7 chief officers. This
+  council will decide on company policies on a day-to-day basis, and will put to
+  vote before the Ecclésia – matters of serious import. However, any member of
+  the Ecclésia may voice their opinion on all matters.*
+ 
+  *Company work will take place over the Company Extranet. The Ecclésia will
+  decide on new projects and assign values of their worth, as well as elect the
+  Project Leader. It is then up to the Project Leader, to define the Jobs needed
+  to be done for the success of the Project, and their respective values in plex
+  economic currency units (pecus).*
+
+This later evolved to include trust-based algorithms and certifications -- as
+can be seen from this `chat log about the Espian model
+<http://web.archive.org/web/20020314184348/http://tav.espians.com/espian_model_chat>`_
+in 2001. And on an unrelated front, I was also `rambling on the Espra dev list
+<http://web.archive.org/web/20010414190833/lists.espra.net/pipermail/espra-dev/2001-February/000089.html>`_
+about gift economies -- also in 2001.
+
+But at that time, these were two separate ideas. But gradual conversations with
+others helped identify key problems. And in the iterative refinements I came to
+the intuitive realisation that they were somehow two aspects of the same whole.
+That there was a simplicity beyond the complexity.
+
+And in my attempt to unify the elements -- through hundreds of conversations --
+early last year, I ended up with:
+
+.. raw:: html
+
+  <div class="center">
+    <a href="http://wiki.espians.com/Image:Toman_ecology.png" title="Toman Ecology"><img 
+       src="http://wiki.espians.com/upload/0/0d/Toman_ecology.png"
+       alt="Toman Ecology"
+       width="498px"
+       height="361px" /></a>
+  </div>
+
+But it was only after yet more criticism and dialogue earlier this year that I
+finally ended up with the true essence of the model. What I now call the "Espian
+ecology" -- where the initial Pecus I had touched upon and the gift economy are
+just two parts of one simple structure.
+
+I'll write an article on it later this month. Until then, what has your
+experiences been with regards to the evolution of ideas?

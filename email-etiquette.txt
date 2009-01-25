@@ -1,0 +1,51 @@
+===============
+Email Etiquette
+===============
+
+:X-Created: [2008-07-04, 10:22]
+
+.. image:: http://upload.wikimedia.org/wikipedia/commons/d/db/Mozilla_thunderbird_empty_screenshot.png
+           :alt: Thunderbird mail client
+           :width: 260
+           :height: 200
+           :class: float-right
+
+`Netiquette <http://en.wikipedia.org/wiki/Netiquette>`_ has long been a dying
+trait. At best I hope that people might read something like Seth's `Email
+checklist
+<http://sethgodin.typepad.com/seths_blog/2008/06/email-checklist.html>`_. But I
+have long stopped expecting others to adhere to much sense on this front.
+
+But the "`Don't print this Email
+<http://www.thedailygreen.com/environmental-news/latest/email-print-47112009>`_"
+footer meme just managed to push past the annoyance tipping point for me.
+Especially since it came from someone who I admire as a great systems thinker!
+
+I understand that it is well meant. People would like to show that they care for
+the environment and would like to encourage having less of an impact on the
+world. Laudable intentions.
+
+But having a footer on every email is just plain stupid. Especially the large
+companies who insist on having several paragraphs of text explaining why you
+shouldn't do so and just how super cool and eco-friendly they are. Often these
+footers are larger than the body of the message itself!
+
+So why is this stupid? Because by adding these footers you are causing more harm
+than printing those emails would be causing in the first place! The millions of
+servers handling email sit in data centers consuming serious amounts of energy!
+
+And the additional size of each and every message -- especially as they get
+replied to and included in replies -- adds up to a serious amount of energy
+use! More routers, servers and switches are needed just because people couldn't
+handle a bit of systems thinking.
+
+It's not just for keeping the user interface simple that companies like Google
+spend such effort keeping their `home page to less than 28 words
+<http://googleblog.blogspot.com/2008/07/what-comes-next-in-this-series-13-33-53.html>`_.
+Each extra useless byte directly results in more energy use and a lot more CO2
+in the atmosphere.
+
+So, please for the love of the environment, stop including that footer in your
+emails. The point has already been made. I stopped printing emails in 1999. Just
+have a chat with people who still insist on printing out their emails. And stop
+wasting the most precious asset we all have -- time!

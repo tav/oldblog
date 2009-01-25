@@ -1,0 +1,168 @@
+================
+ESCaped Thoughts
+================
+
+:X-Created: [2008-08-11, 00:01]
+
+*[This is a reposting of a blog post that I had written at the first Espian
+Summer Camp (ESC) in July 2005]*
+
+`Squarepusher <http://www.warprecords.com/artists/index.php?artist=sqp>`_ pulses
+around as this is written. In contrast to the horrendous techno that some
+Germans seem intent on playing, this Brit demonstrates that electronic music can
+have soul.
+
+Is music the soul of life? Or was that the spice of life? Who cares. **Life is
+good**. Too good. One can almost forget the rest of the world here. Enjoy the
+moment. Savour the taste. Wonder about the grasshoppers. What do they make of
+this funny existence we share? A shooting star blazes above. Make a wish.
+
+The inevitable question arises. Why exactly are we here? No-one can give an
+answer. Everyone can give an answer.
+
+“Have a bloody good time!” someone chirps. Yes grasshopper.
+
+Seems we are also here for a **coding sprint**. What’s a coding sprint you ask.
+500m relays with printouts of source code handed between the runners in place of
+batons? No. Well, almost.
+
+A "canonical" definition:
+
+  A "coding sprint" is an event loosely inspired by `Extreme Programming
+  <http://www.extremeprogramming.org/>`_, where a number of developers get
+  together for a few days of intense pair programming on a common project.
+
+  The practise was pioneered by the Zope and Python communities and is now being
+  rapidly adopted by many software development teams — open sourced and closed
+  sourced alike.
+
+Fascinating eh? Well, no. But a good way to code. Load up `emacs
+<http://www.emacswiki.org/cgi-bin/wiki>`_. Hit ``M-x make-frame-on-display``.
+Collaborate. A good way to code. Collaboration. A good way to live.
+
+The world within my mind differs so much from the world outside. Listen to
+"Jeder ist in seiner eigenen Welt". Funny song. Within it lies the key to
+**solving all social problems**.
+
+The continuing attacks in London worry me. Perhaps one should be afraid. But
+fear leads to the Dark Side. Our police murder an innocent man. Yet, they
+`defend their new shoot-to-kill policy
+<http://www.iht.com/articles/2005/07/25/news/brits.php>`_. Just as worrying as
+the attacks themselves.
+
+The extremists are winning. Anti-terror laws are passed. Civil liberties and
+social politeness melt away. Al-Qaeda. Our government seems to have no clue
+about fighting this threat. They react in the traditional way. They mistake a
+decentralised organisation for one with a centralised hierarchy. They react just
+as they are expected to.
+
+One can almost forget the rest of the world here. Almost. Lightning illuminates
+the surrounding landscape. Thunder puts it into perspective. Whisky flows
+through my veins. Mosquito bites all over. Must not scratch.
+
+Where are we? Almost as important as why are we here. We are in `Wokule
+<http://www.wokule.de/>`_. The village of **Biesenthal surrounds us**. S-Bahn
+Bernau (part of Berlin’s public transport network) is less than half an hour
+away.
+
+Grasshopper on laptop screen.
+
+Kpi and Jörg head off to a meeting with Vodafone. Trust maps. Toman. Community
+currencies. People are impressed. Good contacts made.
+
+Time stands still. You wish.
+
+I gasp for air. 20 feet of water below me. The bank too far away. I am drowning.
+Primeval reflexes kick in. I surface. They are **teaching me** to swim. City boy
+adapts to the lake. A descendent of the `water people
+<http://www.bfi.org/EveryThing/everything_i_know4.htm>`_ familiarises himself.
+
+Everyone else in the lake is in the nude. Beautiful girls strip and jump in.
+Conflicting reactions within me. Be a gentleman and avert your eyes. Or enjoy
+nature. Neither win. Like `this writer
+<http://www.nudetravelguide.com/forums/lofiversion/index.php/t1493.html>`_, I am
+left wondering "why we all have such different modesty-maps wired into our
+brains. What makes a Brit inhibited, a Thai modest and a German relaxed?".
+
+Are modesty and politeness merely illusions? Probably so.
+
+Pride swells on learning that `Comic Life <http://plasq.com/comiclife/>`_ had
+won “The Best Product New to Mac OS X” in this year’s Apple Design Awards.
+`Atariboy <http://www.atariboy.com/>`_, the head of the espian graphic design
+squad, is behind it.
+
+The Wokule community do a party @ `Schloss Lanke
+<http://www.schlosslanke.de/>`_. We help out. I wander off into the forest.
+Return to meet some fascinating people. Rico introduces me to the 10 Euro
+intrument — a bastardised version of the `Berimbau
+<http://en.wikipedia.org/wiki/Berimbau>`_. I consider making one. Kpi buys me
+some string. A prelude to making the Jintra.
+
+"Too young!" she exclaims disappointedly. She had guessed 31. I turned out to
+be 23. She was 27. Has happened to me too often. I consider starting to **lie
+about my age**. Perhaps 29. Perhaps 27. What do you think?
+
+Life. A series of addictions.
+
+We look into `setting up <http://weblog.infoworld.com/udell/2005/02/21.html>`_ a
+`screencast <http://en.wikipedia.org/wiki/Screencast>`_ of Kalati. Discover
+`wink <http://www.debugmode.com/wink/>`_. Excellent tool. Innovative.
+Cross-platform. Only lacking in sound integration. Will come soon.
+
+Amazing, the increasing acceleration of meme propagation. Networking effects
+going into overdrive. Take the term "screencast" for example. Coined by `Jon
+Udell <http://weblog.infoworld.com/udell/>`_ less than a year ago, creations
+already number many thousands. Whilst **there will be no Singularity**, it is
+hard to see why not. Faster! Schnell! Vite!
+
+Microsoft puts out the first alpha version of its next generation operation
+system — `Windows Vista <http://www.microsoft.com/windowsvista/default.mspx>`_
+(née Longhorn). Perfect timing. Couldn’t be better for us strategically. Thank
+you Microsoft.
+
+An ex-Microsoft employee comes to visit us. He likes what we are doing. Next
+generation. Trust. Social Networking. Friendster. Affluent contacts. Managing
+contacts. German Senate. `Berlin <http://www.berlin.de/>`_. Google. Vista.
+Double binds. The conversation meanders.
+
+`Zool <http://www.zooleika.org.uk/>`_ tells me about the O’Reilly `Mapping Hacks
+<http://www.mappinghacks.com/>`_ book she has written. Points me to the some of
+the `interesting work <http://map.wirelesslondon.info/docs/>`_ she has been
+doing. I am happy that the espian community attracts the likes of her.
+
+Kpi, Jörg, Ina, Kati, and myself head off to the NOG party. Other side of
+Berlin. Our human-based navigation systems break down. Would be nice to have
+good geo apps. We arrive just past midnight. Join the mass of hundreds. A friend
+is behind the bar. Always good. Hallucinogens. I wish she was here.
+
+Oscillation. Grasshopper whispers.
+
+Kpi leads a visualisation technique. **We build a timeline** across the fields
+of Wokule. High in the hills far away lies "Plexnet 1.0" — only half visible and
+far away.
+
+Elka accidentally unplugs my laptop. Battery-less laptop dies immediately. Takes
+half a day’s work with it. Elka appeases me with sweeties. Mmm, sweeties! Thank
+you.
+
+Kalati sprint to get the plexnet into a deployable state — version 0.0.0.5
+
+Yet another of `evangineer's <http://del.icio.us/evangineer>`_ predictions come
+true as `Django <http://www.djangoproject.com/>`_ is released. Pitching itself
+as "The Web framework for perfectionists with deadlines", this Python-based
+framework follows in the wake of the hype-induced success of the `Ruby on Rails
+<http://www.rubyonrails.com/>`_ web application framework. In its favour are the
+several `well-established <http://www.lawrence.com/>`_ and `high-profile
+<http://www.chicagocrime.org/>`_ deployments. Against it is the lack of a
+`charismatic evangelist <http://www.loudthinking.com/>`_.
+
+The relation between hype and fashion is a funny one. Whilst much of it is
+merely a passing trend, some of it sticks around to be relished by future
+generations. Like good sandwiches. Cucumber and peanut butter sandwich. Very
+tasty. Thanks qopi.
+
+What is old is new again. DHTML is AJAX. Keywords are Tags. Virtual Folders are
+Saved Searches. Portals are Digital Lifestyle Aggregators. Usenet is Darknet.
+Push is RSS.
+
+The dragonflies have grown. Come hither.
