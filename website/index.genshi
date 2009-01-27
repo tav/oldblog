@@ -1,8 +1,7 @@
 <div xmlns:py="http://genshi.edgewall.org/">
 <?python
 
-  STATIC = 'http://release.plexnet.org'
-  STATIC = 'static'
+  STATIC = 'http://tav.github.com/static'
 
   def div(list):
     list_len = len(list)
