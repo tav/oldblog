@@ -1,0 +1,89 @@
+<div xmlns:py="http://genshi.edgewall.org/">
+<?python
+
+  STATIC = 'http://release.plexnet.org'
+  STATIC = 'static'
+
+  def div(list):
+    list_len = len(list)
+    left = int(round(float(list_len)/2))
+    right = list_len - left
+    return list[:left], list[-right:]
+
+  MONTHS = [
+    'Zero Month',
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+    ]
+
+  last_post_name = ['']
+  def set_name(post):
+    last_post_name[0] = post['__name__']
+    return last_post_name[0]
+
+?>
+
+<div class="section-info" id="all-articles"><strong>Feature Articles</strong></div>
+<table width="100%"><tr>
+<td py:for="column_items in div(sorted([item for item in items if item.get('subtitle')], key=lambda x: x['__name__']))" valign="top"><ul>
+  <li py:for="item in column_items">
+    <a href="${item['__name__']}.html">${Markup(item.get('title') or item['__title__'])}</a> <py:if test="not item.get('x-created')"><span class="index-link-info">[DRAFT]</span></py:if>
+	<br />
+	<span class="index-link-info">
+	  <py:if test="item.get('subtitle')">${Markup(item['subtitle'])}</py:if>
+	  <!--
+	  [<a href="${item['__name__']}.html#disqus_thread" rel="disqus:${site_url + '/' + item['__name__']}.html">Add a Comment</a>]
+	  -->
+	</span>
+  </li>
+</ul></td>
+</tr></table>
+<div py:for="post in sorted([item for item in items if item.get('x-created') and not item.get('subtitle')], key=lambda x: x['x-created'], reverse=True)[:40]">
+  <div class="post-title">
+	<div class="post-link"><a href="${set_name(post)}.html">${Markup(post['title'])}</a></div>
+	<div>
+	  <div class="float-right">
+		<a href="${post['__name__']}.html#disqus_thread" rel="disqus:${site_url + '/' + post['__name__']}.html">Comment!</a>
+	  </div>
+	  by <span py:with="author=post.get('__by__', site_author_nick)"><a href="${authors[author][-1]}">${author}</a></span> on <span py:with="created=post['x-created']" class="post-date">${MONTHS[int(created[6:8])]} ${int(created[9:11])}, ${created[1:5]} @ ${created[-6:-1]}</span>
+	</div>
+  </div>
+  <div py:content="Markup(unicode(post['__text__'], 'utf-8'))" class="blog-post" />
+  <div class="post-footer">
+	<!--
+	<a href="${post['__name__']}.html#disqus_thread" rel="disqus:${site_url + '/' + post['__name__']}.html">Comment on this article!</a>
+	-->
+	<br /><br />
+  </div>
+</div>
+<div class="center"><a href="archive.html#article-${last_post_name[0]}">Read Previous Articles</a></div>
+
+<div class="section-info buffer">
+  <table cellspacing="0" cellpadding="0" width="100%">
+	<tr>
+	  <td><strong>${site_author.title()}'s Recent Web Activity</strong></td>
+	  <td class="right">
+		<a href="http://friendfeed.com/${site_author_nick}">Friendfeed Archive</a>
+		<img class="absmiddle" src="${STATIC}/gfx/friendfeed-icon.png" alt="friendfeed" />
+	  </td>
+	</tr>
+  </table>
+</div>
+<script type="text/javascript" src="http://friendfeed.com/embed/widget/${site_author_nick}?v=2&amp;num=10&amp;hide_logo=1&amp;hide_subscribe=1"></script>
+
+<div class="section-info buffer">
+  <table cellspacing="0" cellpadding="0" width="100%">
+	<tr>
+	  <td><strong>Recent Blog Comments</strong></td>
+	  <td class="right">
+		<a href="http://${site_nick}.disqus.com">Disqus Archive</a>
+		<img class="absmiddle" src="${STATIC}/gfx/disqus-icon.png" alt="disqus" />
+	  </td>
+	</tr>
+  </table>
+</div>
+<div id="dsq-recentcomments" class="dsq-widget">
+  <script type="text/javascript" src="http://disqus.com/forums/${site_nick}/recent_comments_widget.js?num_items=20&amp;avatar_size=92"></script>
+</div>
+
+</div>
