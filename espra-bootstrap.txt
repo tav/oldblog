@@ -15,19 +15,7 @@ A Command Line for the Internet
     also incorporates some of the ideas from Espra -- e.g. Trust Maps -- around
     today's technologies.
 
-    This document provides a rough overview of Bootstrap for an initial 6-week
-    development phase. The resulting work will be used to:
-
-    * Enable small-scale (less than 40,000 member) communities
-    * Bring in some short-term revenue as part of consulting work
-    * Facilitate the eventual development of Espra
-
-    Note: Whilst Espra will be fully open source (public domain), Bootstrap will
-    be kept closed source for now. Also, Espra will be decentralised whereas
-    Bootstrap will be generally centralised. Not to mention Espra will be
-    magnitudes more efficient.
-
-    .. http://bootstrap.espra.com
+    This document provides a rough functional overview of Bootstrap.
 
 .. contents::   Table of Contents
                 :depth: 2
@@ -84,8 +72,9 @@ support easily switching between these different accounts -- so as to facilitate
 separate online identities for different types of activities.
 
 A unique id will be generated for each user and a related subdomain
-``<unique-id>.bootstrap`` created for purposes of security. This may later be
-extended to allow users to map their own domains/subdomains onto Bootstrap.
+``<unique-id>.player.espra.com`` created for purposes of security. This may
+later be extended to allow users to map their own domains/subdomains onto
+Bootstrap.
 
 .. Google AuthSub
 .. Facebook API
@@ -170,9 +159,8 @@ use it like a normal desktop media player.
 
 Given that users may want to share files with each other -- a special external
 Bootstrap client will be provided. This will create a pseudo peer-to-peer
-network amongst the various users. This will be developed by combining elements
-of `Bittorrent <http://en.wikipedia.org/wiki/BitTorrent_%28protocol%29>`_ and
-`Tahoe <http://allmydata.org/trac/tahoe>`_.
+network amongst the various users using some of the features from the `Plexnet
+<http://tav.espians.com/plexnet.html>`_.
 
 Support for this client will be auto-detected when users connect to Bootstrap
 and taken advantage of if available. For example, it can be used to cache the
@@ -190,8 +178,8 @@ client. This same functionality will act as the mechanism for users to
 export/backup their personal data from Bootstrap.
 
 If time permits this client may also be developed for Firefox, Nokia S60,
-Android and Blackberry platforms in addition to the default Windows, OS X and
-Linux ones.
+Android, Pre and Blackberry platforms in addition to the default Windows, OS X
+and Linux ones.
 
 ----------
 Trust Maps
@@ -204,9 +192,10 @@ Trust Maps
            :height: 321
 
 Users will be able to add others to their "Trust Map". This is just specifying
-who and in what contexts and level limit. The context is pretty simple and
-should be familiar as "tags" to users of sites like `Delicious
-<http://del.icio.us>`_ and `Flickr <http://www.flickr.com>`_.
+who and in what contexts and level limit -- a bit like following someone on
+Twitter. The context is pretty simple and should be familiar as "tags" to users
+of sites like `Delicious <http://del.icio.us>`_ and `Flickr
+<http://www.flickr.com>`_.
 
 Example contexts might include:
 
@@ -337,17 +326,27 @@ able to specify any one of the supported formats on the opening line, e.g.
 
 The initially supported formats will include:
 
+* css: Cascading Style Sheets
 * genshi: `Genshi <http://genshi.edgewall.org/>`_ Templates
 * html: Raw HTML
 * markdown: `Markdown <http://daringfireball.net/projects/markdown/>`_
-* python: Capability-secured `Python <http://www.python.org>`_ Scripts
+* naaga: Capability-secured Services
 * rst: `Restructured Text <http://docutils.sourceforge.net/docs/user/rst/quickref.html>`_
 * text: Rich Text + HTML subset
 
-In some of the formats, users will be able to support variable substitution
-using the string formatting operator from `PEP 3101
-<http://www.python.org/dev/peps/pep-3101/>`_. This will allow some Items to be
-used as Templates which, as `Wikipedia has proven
+The Naaga format would be in a secure subset of the `Python
+<http://www.python.org>`_ 3.0 Syntax. It will be compiled into Python 2.6 syntax
+for backend services and to Javascript syntax for browser/interface services.
+Besides unifying backend and frontend services to a simple syntax, Naaga's key
+features will be the builtin support for:
+
+* Capability security
+* Functional reactive liveness with automatic dependency chaining
+* Rich builtin namespace
+
+Variable substitution will be supported in some of the formats with banana
+brackets, e.g. ``(|first_name|)``. This will allow Items to be used as Templates
+which, as `Wikipedia has proven
 <http://en.wikipedia.org/wiki/Wikipedia:Template_messages>`_, could be quite
 useful.
 
@@ -356,34 +355,34 @@ syntax will be supported for wiki-style \[[plex links]] which could be used to
 refer to contexts, items and some structured data, e.g. price, geo-location,
 date/time, &c.
 
-These plexlinks will also serve outputs from functional services if the link
-text starts with an exclamation mark, e.g. a currency conversion of 25 pounds
-sterling to dollars could use the ``convert`` service::
-
-  [[!convert 25 GBP to USD]]
-
-The special double exclamation mark ``!!`` will be a shortcut for typing
-``!include`` which includes the Item referred as the first parameter -- a form
-of `transclusion <http://en.wikipedia.org/wiki/Transclusion>`_. Specific
+Curly brackets will be used to include the contents of an Item within another --
+a form of `transclusion <http://en.wikipedia.org/wiki/Transclusion>`_. Specific
 sections of an Item could be referred to if it has named sections, e.g.
 
 ::
 
-  [!!some-item#some-section-name]]
+  {{some-item#some-section-name}}
+
+The same syntax can be used to include outputs from Naaga services, which are
+addressed by a leading .dot, e.g. a currency conversion of 25 pounds sterling to
+dollars could use the ``.convert`` service::
+
+  {{.convert 25 GBP to USD}}
 
 Output could be piped from one service to another in a manner similar to UNIX
 using the universal pipe symbol: ``|``. Service output could also be seen
 directly -- a bit like using IRC bots like `phenny
-<http://inamidst.com/phenny/>`_ -- if users start their Messages with an
-exclamation mark, e.g.
+<http://inamidst.com/phenny/>`_ -- if users start their Messages with a dot
+(call to a backend service) or an exclamation mark (call to a frontend service),
+e.g.
 
 ::
 
-  !convert 25 GBP to USD
+  !pause
 
-Whilst it will not be built on a true `capability-based security system
-<http://en.wikipedia.org/wiki/Capability-based_security>`_, Bootstrap will be
-secured from traditional Web attack vectors:
+Bootstrap will be built on a true `capability-based security system
+<http://en.wikipedia.org/wiki/Capability-based_security>`_ and will be secured
+from traditional Web attack vectors in HTML/CSS/Javascript:
 
 * `XSS <http://en.wikipedia.org/wiki/Cross-site_scripting>`_
 * `CSRF <http://en.wikipedia.org/wiki/CSRF>`_
@@ -392,8 +391,8 @@ secured from traditional Web attack vectors:
 Users will be able to refer to all items published by themselves under the
 special `tilde
 <http://diveintomark.org/archives/2002/10/04/history_of_the_tilde>`_ (``~``)
-namespace. For example, to refer to this item, I would use
-``~/articles/bootstrap.html``.
+namespace. For example, to refer to this item, I could use
+``~/articles/eapra-bootstrap.html``.
 
 Items will be automatically given a unique ID and be accessible under the
 special item namespace, e.g. ``~/item/<unique-id>``. Users will also be able to
@@ -491,6 +490,10 @@ Music:
 * `iLike <http://www.ilike.com>`_
 * `Last.fm <http://last.fm>`_
 
+Open Source Development:
+
+* `GitHub <http://www.github.com>`_
+
 Photos:
 
 * `Facebook Photos <http://www.facebook.com/photos.php>`_
@@ -504,9 +507,7 @@ Publishing:
 
 * `Blogger <http://www.blogger.com>`_
 * `Disqus <http://www.disqus.com>`_
-* `Jaiku <http://www.jaiku.com>`_
 * `Livejournal <http://www.livejournal.com>`_
-* `Pownce <http://www.pownce>`_
 * `Tumblr <http://www.tumblrcom>`_
 * `Twitter <http://www.twitter.com>`_
 * `Wordpress <http://www.wordpress.com>`_
@@ -560,7 +561,8 @@ Functionality
 
 All items -- whether created by a user or from one of the external services --
 could be certified by a user within particular contexts. The default mode of
-certification will be to give a "thumbs up" -- sort of like giving a +1 on Digg.
+certification will be to give a "thumbs up" -- sort of like giving a +1 on Digg
+or re-tweeting on Twitter.
 
 Similarly, users will able to certify other users as one of the following for a
 given context:
@@ -595,10 +597,9 @@ When adding others to a Trust Map, users will be able to specify whether they
 want to auto-accept certifications from them. If so, a user will automatically
 certify in the same way as that person.
 
-This could be combined with the Requirement item to create rather useful
-systems, e.g. `Liquid Democracy-based
-<http://wiki.uniteddiversity.com/liquiddemocracy>`_ decision making for the
-Commons.
+This will be combined with the Requirement item to create rather useful systems,
+e.g. `Liquid Democracy-based <http://wiki.uniteddiversity.com/liquiddemocracy>`_
+decision making for the Commons.
 
 **Direct Communication**
 

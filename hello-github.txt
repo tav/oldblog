@@ -2,7 +2,7 @@
 Hello GitHub!
 =============
 
-:X-Created: [2009-01-29, 00:23]
+:XX-Created: [2009-01-29, 00:23]
 
 I've completed the switch over to the `Git <http://www.git-scm.org>`_ version
 control system. You can follow my activities on:
