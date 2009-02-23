@@ -41,6 +41,8 @@ we hopefully end up with a version we can be confident about.
 
     >>> f = FileReader('w00t', S('w'))
 
+    >>> f.close() # creates an empty file called 'w00t'
+
 If enough smart hackers look at this and it holds up, `Guido
 <http://twitter.com/gvanrossum>`_ promises to accept a patch which would enable
 this function-based approach to security on both App Engine and future Python
