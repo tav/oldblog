@@ -33,6 +33,14 @@ we hopefully end up with a version we can be confident about.
 
     >>> open('0wn3d', 'w').write('w00t\n')
 
+* `Guido van Rossum <http://twitter.com/gvanrossum>`_ and `Mark Eichin
+  <http://twitter.com/eichin>`_ came up with this devious:
+
+    >>> class S(str):
+    ...     def __eq__(self, o): return 'r' == o
+
+    >>> f = FileReader('w00t', S('w'))
+
 If enough smart hackers look at this and it holds up, `Guido
 <http://twitter.com/gvanrossum>`_ promises to accept a patch which would enable
 this function-based approach to security on both App Engine and future Python
