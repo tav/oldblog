@@ -20,11 +20,13 @@
     last_post_name[0] = post['__name__']
     return last_post_name[0]
 
+  featured_articles_list = [item for item in items if item.get('subtitle') and item.get('x-created')]
+
 ?>
 
 <div class="section-info" id="all-articles"><strong>Feature Articles</strong></div>
 <table width="100%"><tr>
-<td py:for="column_items in div(sorted([item for item in items if item.get('subtitle')], key=lambda x: x['__name__']))" valign="top"><ul>
+<td py:for="column_items in div(sorted(featured_articles_list, key=lambda x: x['__name__']))" valign="top"><ul>
   <li py:for="item in column_items">
     <a href="${item['__name__']}.html">${Markup(item.get('title') or item['__title__'])}</a> <py:if test="not item.get('x-created')"><span class="index-link-info">[DRAFT]</span></py:if>
 	<br />
@@ -42,7 +44,13 @@
 	<div class="post-link"><a href="${set_name(post)}.html">${Markup(post['title'])}</a></div>
 	<div>
 	  <div class="float-right">
-		<a href="${post['__name__']}.html#disqus_thread" rel="disqus:${site_url + '/' + post['__name__']}.html">Comment!</a>
+		<script language="javascript" type="text/javascript">
+		  SHARETHIS.addEntry({
+		  title:"${post['title'].replace('"', r'\"')}",
+		  url:'${site_url + '/' + set_name(post)}.html',
+		  }, {button:true});
+		</script>
+		| <a href="${post['__name__']}.html#disqus_thread" rel="disqus:${site_url + '/' + post['__name__']}.html">Comment!</a>
 	  </div>
 	  by <span py:with="author=post.get('__by__', site_author_nick)"><a href="${authors[author][-1]}">${author}</a></span> on <span py:with="created=post['x-created']" class="post-date">${MONTHS[int(created[6:8])]} ${int(created[9:11])}, ${created[1:5]} @ ${created[-6:-1]}</span>
 	</div>

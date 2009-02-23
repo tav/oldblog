@@ -1,0 +1,47 @@
+====================================
+A Challenge To Break Python Security
+====================================
+
+:X-Created: [2009-02-23, 22:12]
+
+The challenge is simple:
+
+* Open a fresh Python interpreter and do:
+
+    >>> from safelite import FileReader
+
+* You can use ``FileReader`` to read files on your filesystem
+
+* Now find a way to *write* to the filesystem from your interpreter
+
+You can find the latest version of safelite.py here:
+
+* http://release.plexnet.org/misc/cappython/safelite.py
+
+I will keep safelite.py updated as new exploits and workarounds are found until
+we hopefully end up with a version we can be confident about.
+
+**Exploits Found & Fixed So Far:**
+
+* `Victor Stinner <http://www.haypocalc.com/wiki/Victor_Stinner>`_ and `Tim
+  Wintle
+  <http://mail.python.org/pipermail/python-list/2009-February/530536.html>`_
+  found the first exploit: 
+
+    >>> reload(__builtins__)
+    <module '__builtin__' (built-in)> 
+
+    >>> open('0wn3d', 'w').write('w00t\n')
+
+If enough smart hackers look at this and it holds up, `Guido
+<http://twitter.com/gvanrossum>`_ promises to accept a patch which would enable
+this function-based approach to security on both App Engine and future Python
+versions.
+
+So, please try the challenge and let me know how you find it in the comments.
+Thanks!
+
+Note: The aim of this isn't to protect Python against crashes/segfaults or
+exhaustion of resources attacks, so those don't count.
+
+Good luck and thanks! =)

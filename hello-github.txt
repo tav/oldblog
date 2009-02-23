@@ -2,11 +2,33 @@
 Hello GitHub!
 =============
 
-:XX-Created: [2009-01-29, 00:23]
+:X-Created: [2009-01-29, 00:23]
 
 I've completed the switch over to the `Git <http://www.git-scm.org>`_ version
 control system. You can follow my activities on:
 
 * http://github.com/tav
 
-And there's even a pointless but colourful homepage using the 
+If you want to ever work on a project of mine, just click the fork button on
+GitHub and start coding -- no need to get permission from me! Just let me know
+if you want to get your changes back into the mainline.
+
+GitHub even lets you edit forks directly from the website without having to
+check out the repository. How cool is that?!
+
+Now, for the Totally Pointless Awards, I created a colourful homepage using the
+really nice GitHub pages mechanism:
+
+* http://tav.github.com
+
+And, finally, I have something of potential use for others using GitHub:
+``gitbot.py`` uses the GitHub API to inform IRC channel(s) of commits to GitHub
+repositories.
+
+I ended up creating my own one because the default GitHub IRC notifier is rather
+noisy and joins/leaves too much. You can find the code for the bot along with a
+sample ``gitbotconfig.py`` file here:
+
+* http://github.com/tav/scripts/tree/master
+
+Enjoy!
