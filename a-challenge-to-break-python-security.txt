@@ -16,10 +16,11 @@ The challenge is simple:
 
 You can find the latest version of safelite.py here:
 
-* http://release.plexnet.org/misc/cappython/safelite.py
+* http://release.plexnet.org/misc/cappython/safelite.py [VERSION 5]
 
 I will keep safelite.py updated as new exploits and workarounds are found until
-we hopefully end up with a version we can be confident about.
+we hopefully end up with a version we can be confident about. [VERSION attribute
+added on Steven D'Aprano's recommendation.]
 
 **Exploits Found & Fixed So Far:**
 
@@ -33,6 +34,8 @@ we hopefully end up with a version we can be confident about.
 
     >>> open('0wn3d', 'w').write('w00t\n')
 
+  [Fixed in v2]
+
 * `Guido van Rossum <http://twitter.com/gvanrossum>`_ and `Mark Eichin
   <http://twitter.com/eichin>`_ came up with this devious:
 
@@ -42,6 +45,38 @@ we hopefully end up with a version we can be confident about.
     >>> f = FileReader('w00t', S('w'))
 
     >>> f.close() # creates an empty file called 'w00t'
+
+  [Fixed in v5]
+
+* clsn took it further and bypassed the fix in v4:
+
+    >>> class S(str):
+    ...     def __eq__(self, o): return 'r' == o
+    ...     def __str__(self): return self
+
+* Mike Rooney started messing with the assumptions of builtins being
+  unaltered:
+
+    >>> __builtins__.str = S
+
+  [Fixed in v5]
+
+* Farshid Lashkari then took it to a whole new elegant level:
+
+    >>> _real_file = None
+
+    >>> def _new_isinstance(obj,types):
+    ...     global _real_file
+    ...     if _real_file is None and obj.__class__.__name__ == 'file':
+    ...         _real_file = obj.__class__
+    ...     return _old_isinstance(obj,types)
+
+    >>> __builtins__.isinstance = _new_isinstance
+    >>> FileReader('nul')
+
+    >>> f = _real_file('foo.txt', 'w')
+
+  [Fixed in v5]
 
 If enough smart hackers look at this and it holds up, `Guido
 <http://twitter.com/gvanrossum>`_ promises to accept a patch which would enable
