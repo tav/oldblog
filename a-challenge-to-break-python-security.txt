@@ -96,8 +96,9 @@ Good luck and thanks! =)
 
   [Fixed in v5]
 
-* `Guido van Rossum <http://python.org/~guido/>`_ noted that the metaclass
-   was accessible:
+* `Guido van Rossum <http://python.org/~guido/>`_ noted that FileReader's
+  `__metaclass__ was accessible
+  <http://mail.python.org/pipermail/python-dev/2009-February/086437.html>`_:
 
     >>> f = FileReader('/etc/passwd')
     >>> kall = f.__class__.__metaclass__.__call__.im_func
@@ -124,4 +125,6 @@ Good luck and thanks! =)
     >>> stuff.tb_frame.f_back.f_locals['open_file']('w00t', 'w').write('yaymore\n')
 
   [Fixed in v6 -- but the principles can still be used. Paul Cannon `explains
-  <http://thepaulprog.blogspot.com/2009/02/safelite-exploit.html>`_.]
+  in depth <http://thepaulprog.blogspot.com/2009/02/safelite-exploit.html>`_.]
+
+Found an exploit yet?? Let me know!
