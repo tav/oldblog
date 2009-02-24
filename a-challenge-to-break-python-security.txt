@@ -68,6 +68,8 @@ Good luck and thanks! =)
     ...     def __eq__(self, o): return 'r' == o
     ...     def __str__(self): return self
 
+  [Fixed in v5]
+
 * `Mike Rooney <http://mrooney.blogspot.com/>`_ started messing with the assumptions of builtins being
   unaltered:
 
