@@ -22,6 +22,20 @@ I will keep safelite.py updated as new exploits and workarounds are found until
 we hopefully end up with a version we can be confident about. [VERSION attribute
 added on Steven D'Aprano's recommendation.]
 
+If enough smart hackers look at this and it holds up, `Guido
+<http://twitter.com/gvanrossum>`_ promises to accept a patch which would enable
+this function-based approach to security on both App Engine and future Python
+versions.
+
+So, please try the challenge and let me know how you find it in the comments.
+Thanks!
+
+Note: The aim of this isn't to protect Python against crashes/segfaults or
+exhaustion of resources attacks, so those don't count.
+
+Good luck and thanks! =)
+
+
 **Exploits Found & Fixed So Far:**
 
 * `Victor Stinner <http://www.haypocalc.com/wiki/Victor_Stinner>`_ and `Tim
@@ -77,16 +91,3 @@ added on Steven D'Aprano's recommendation.]
     >>> f = _real_file('foo.txt', 'w')
 
   [Fixed in v5]
-
-If enough smart hackers look at this and it holds up, `Guido
-<http://twitter.com/gvanrossum>`_ promises to accept a patch which would enable
-this function-based approach to security on both App Engine and future Python
-versions.
-
-So, please try the challenge and let me know how you find it in the comments.
-Thanks!
-
-Note: The aim of this isn't to protect Python against crashes/segfaults or
-exhaustion of resources attacks, so those don't count.
-
-Good luck and thanks! =)
