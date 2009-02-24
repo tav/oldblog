@@ -50,7 +50,7 @@ Good luck and thanks! =)
 
   [Fixed in v2]
 
-* `Guido van Rossum <http://twitter.com/gvanrossum>`_ and `Mark Eichin
+* `Guido van Rossum <http://python.org/~guido/>`_ and `Mark Eichin
   <http://twitter.com/eichin>`_ came up with this devious:
 
     >>> class S(str):
@@ -62,13 +62,13 @@ Good luck and thanks! =)
 
   [Fixed in v5]
 
-* clsn took it further and bypassed the fix in v4:
+* `clsn <http://web.meson.org/>`_ took it further and bypassed the fix in v4:
 
     >>> class S(str):
     ...     def __eq__(self, o): return 'r' == o
     ...     def __str__(self): return self
 
-* Mike Rooney started messing with the assumptions of builtins being
+* `Mike Rooney <http://mrooney.blogspot.com/>`_ started messing with the assumptions of builtins being
   unaltered:
 
     >>> __builtins__.str = S
