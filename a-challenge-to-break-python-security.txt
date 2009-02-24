@@ -16,7 +16,8 @@ The challenge is simple:
 
 You can find the latest version of safelite.py here:
 
-* http://release.plexnet.org/misc/cappython/safelite.py [Current: v7]
+* http://release.plexnet.org/misc/cappython/safelite.py [Current: `v7
+  <http://release.plexnet.org/misc/cappython/safelite_v7.py>`_]
 
 I will keep safelite.py updated as new exploits and workarounds are found until
 we hopefully end up with a version we can be confident about. [VERSION attribute
@@ -169,4 +170,5 @@ Good luck and thanks! =)
 
   [Fixed in v7]
 
-Found an exploit yet?? Let me know!
+Found an exploit yet?? Try `safelite.py
+<http://release.plexnet.org/misc/cappython/safelite.py>`_ and let me know!
