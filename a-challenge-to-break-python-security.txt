@@ -4,6 +4,10 @@ A Challenge To Break Python Security
 
 :X-Created: [2009-02-23, 22:12]
 
+[**Update:** You can find out more in my new article: `Paving the Way to
+Securing the Python Interpreter
+</paving-the-way-to-securing-the-python-interpreter.html>`_]
+
 The challenge is simple:
 
 * Open a fresh Python interpreter and do:
