@@ -1,0 +1,455 @@
+=================================================
+Paving the Way to Securing the Python Interpreter
+=================================================
+
+:X-Created: [2009-02-24, 15:37]
+
+[**Note:** This article isn't about securing the Python interpreter against
+crashes/segfaults or exhaustion of resources attacks. For help with that, take a
+look at the excellent `sandboxing features of PyPy
+<http://codespeak.net/pypy/dist/pypy/doc/sandbox.html>`_. Those of you wanting
+to just know about the practical applications of this, scroll down to the bottom
+of the article =)]
+
+There have been many attempts to secure the Python interpreter so that untrusted
+code can be safely executed alongside trusted code. Working attempts like
+`RestrictedPython <http://pypi.python.org/pypi/RestrictedPython/>`_ and
+`zope.proxy <http://pypi.python.org/pypi/zope.proxy>`_ unfortunately come at a
+high cost in terms of performance.
+
+Old-school Python hackers would probably remember the deprecated ``rexec``
+module which used to be enabled in the standard library. This module, along with
+it's ``Bastion`` sibling, provided a framework for "restricted execution" of
+Python code.
+
+The rexec module encouraged a certain design pattern which depended on class
+attributes being kept "private" from untrusted code. Unfortunately, Python's
+introspection powers are heavily geared against this and there are many many
+dark corners from which one can peer deep into the heart of classes.
+
+So it was no surprise that, soon after the introduction of new-style classes in
+Python, rexec was dumped. And all hopes of securing the Python interpreter in an
+efficient way went the way of `Plan 9
+<http://en.wikipedia.org/wiki/Plan_9_from_Bell_Labs>`_.
+
+Now, those in the security world are probably aware of the `Object Capability
+model <http://en.wikipedia.org/wiki/Object-capability_model>`_ of security as
+pioneered by the likes of the `Actors model
+<http://en.wikipedia.org/wiki/Actor_model>`_ and the `E language
+<http://www.erights.org/>`_. Entire Operating Systems have been implemented free
+of viruses thanks to this model.
+
+For `a long while
+<http://mail.python.org/pipermail/python-dev/2007-June/073724.html>`_ I have
+felt that there exists a major subset of Python that is suited for use through
+the object capability model. After all *capabilities* are just non-forgeable
+references. We already have this in Python.
+
+The next step is to simply ensure that there is no global shared state. And
+whilst a lot of existing code uses global shared state, there is nothing in the
+Python language that imposes this limitation. Thus it should be possible to
+isolate a capability-secure subset of Python and build up from there.
+
+Since I've had this insight, the `Google Caja
+<http://code.google.com/p/google-caja/>`_ project have done the exact same for
+Javascript. They identified a capability-secure subset of Javascript and have
+built up from there...
+
+So how can we Python hackers get beyond shared state? After all, there is no
+"private" in Python. Right?
+
+Well, not quite. We can use closures as an easy way of emulating a private scope
+in Python. After all this is `how it's done in other capability-based languages
+<http://www.erights.org/elib/capability/ode/index.html>`_. This is nothing new.
+`Ka-Ping Yee <http://zesty.ca/>`_ had this `insight on Python-Dev
+<http://mail.python.org/pipermail/python-dev/2003-March/034287.html>`_ years
+ago!
+
+But what about Python's various introspective powers you ask? Unlike the deep
+plumbing of classes, Python's functions are relatively isolated and makes our
+life much easier. This makes sense when you realise that Python classes are
+actually syntactic sugar and sets of protocols on *top* of functions.
+
+But functions aren't opaque beasts by default. There are a number of variables
+which "leak" information. The ones I identified were:
+
+* FunctionType.func_closure/__closure__
+* FunctionType.func_code/__code__
+* FunctionType.func_globals/__globals__
+* GeneratorType.gi_code
+* GeneratorType.gi_frame
+* type.__subclasses__
+
+And thanks to the `Python security challenge using safelite.py
+<http://tav.espians.com/a-challenge-to-break-python-security.html>`_ we've been
+able to identify attributes of FrameType as additional ones, e.g.
+
+* FrameType.f_locals
+
+As you can see this is a pretty small list. (Especial thanks to `Paul Cannon
+<http://thepaulprog.blogspot.com/>`_ for being the first with his `hardcore hack
+<http://thepaulprog.blogspot.com/2009/02/safelite-exploit.html>`_ to show that
+frame objects are accessible.)
+
+Now this list is in no way the definitive final list. The Python challenge is
+still ongoing -- try `safelite.py
+<http://release.plexnet.org/misc/cappython/safelite.py>`_ yourself and see if
+you can find more! But the fact that there have been no new exploits in the last
+24 hours despite over a 1,000 unique downloads of safelite.py in the same time
+gives me *some* confidence that we are getting towards a comprehensive list.
+
+If we can ensure that untrusted code will never be able to access the final list
+of these variables, then we can ensure that "private" data using closures stays
+private. And from that basis, we can start building an object capability
+framework in Python!!
+
+In safelite.py, I use ctypes to completely remove these variables from the
+Python interpreter. This is a neat approach which `Phillip J. Eby
+<http://dirtsimple.org/>`_ `showed me
+<http://mail.python.org/pipermail/python-dev/2007-June/073736.html>`_ and means
+that we can start building an object capability framework in Python *today*!
+
+The flip-side of removing these variables however is that the code which uses
+these variables won't work. Boo! So I made getter functions like
+``sys.get_func_code`` and patched the handful of functions in the standard
+library like ``inspect.getargspec`` to use these instead.
+
+The idea being that trusted code would have a reference to the ``sys`` module
+and be able to use them whilst untrusted code would not. But `Guido van Rossum
+<http://www.python.org/~guido/>`_ -- in the conversation that started `here
+<http://code.google.com/p/googleappengine/issues/detail?id=671>`_ -- convinced
+me that Python already has the support for doing this!
+
+And this is where our old friend rexec deserves some thanking. It turns out that
+rexec is only one half of Python's restricted execution support. The other half
+has been living inside the Python Interpreter for well over a decade. For the
+sake of simplicity let's call this PIRE -- Python Interpreter's Restricted
+Exection.
+
+And since there is seemingly no comprehensive documentation of PIRE, I'll
+provide a summary here.
+
+Whenever you read/write an attribute on one of Python's builtin objects, it will
+raise a ``RuntimeError`` stating that the attributed is restricted if both of
+the following conditions are true:
+
+* The attribute has a ``READ_RESTRICTED`` and/or ``WRITE_RESTRICTED`` flag set.
+* ``PyEval_GetRestricted()`` returns True.
+
+The flags are set when members of an object are defined. For example, in
+``funcobject.c`` we find:
+
+.. syntax:: c
+
+  static PyMemberDef func_memberlist[] = {
+    {"func_closure", T_OBJECT, OFF(func_closure), RESTRICTED|READONLY},
+    {"func_doc", T_OBJECT, OFF(func_doc), WRITE_RESTRICTED},
+    {"__doc__", T_OBJECT, OFF(func_doc), WRITE_RESTRICTED},
+    {"func_globals", T_OBJECT, OFF(func_globals), RESTRICTED|READONLY},
+    {"__module__", T_OBJECT, OFF(func_module), WRITE_RESTRICTED},
+    {NULL}  /* Sentinel */
+  };
+
+where ``RESTRICTED`` is just a shorthand for
+``READ_RESTRICTED|WRITE_RESTRICTED``.
+
+As for ``PyEval_GetRestricted``, a pure Python equivalent would look like:
+
+.. syntax:: python
+
+  import __builtin__
+
+  def PyEval_GetRestricted():
+      """Return if the we are in restricted execution."""
+
+      current_frame = PyEval_GetFrame()
+      if current_frame.__builtins__ != __builtin__:
+          return True
+      else:
+          return False
+
+In other words, it checks to see if the ``__builtins__`` variable in the current
+execution frame is the exact same as the default ``__builtin__`` module [Note
+the difference in spelling of the two variables]. If they differ, restricted
+execution is assumed.
+
+Let's see how this works out in practice:
+
+  >>> import md5, inspect
+
+  >>> def dummy(secret):
+  ...     """A dummy function which creates a closure."""
+  ...
+  ...     def get_secret_hash(hexdigest=True):
+  ...         if hexdigest:
+  ...             return md5.new(secret).hexdigest()
+  ...         return md5.new(secret).digest()
+  ...
+  ...     return get_secret_hash
+
+  >>> get_secret_hash = dummy('My Secret.')
+
+In normal execution, we can access the ``func_closure`` attribute:
+
+  >>> get_secret_hash.func_closure
+  (<cell at 0x23da10: str object at 0x23ef98>,)
+
+And use that to get at the secret:
+
+  >>> get_secret_hash.func_closure[0].cell_contents
+  'My Secret.'
+
+But if we set the ``__builtins__`` variable, restricted execution mode kicks in:
+
+  >>> __builtins__ = {}
+
+  >>> get_secret_hash.func_closure
+  Traceback (most recent call last):
+  ...
+  RuntimeError: restricted attribute
+
+Tada!!
+
+Now the eagle-eyed amongst you would have noticed the import of the ``inspect``
+module above. We will use this to show how trusted code can still access
+restricted attributes whilst within restricted execution. The inspect module has
+a useful ``getargspec`` function which accesses restricted attributes to find a
+function's signature. And, as we can see, it works even in restricted execution
+mode:
+
+  >>> inspect.getargspec(get_secret_hash)
+  (['hexdigest'], None, None, (True,))
+
+Why does this work? Because the scope in which ``getargspec`` was *defined*
+didn't have a custom __builtins__ and this was captured in the
+``getargspec.func_globals``. This is just genius! And it provides us with a
+framework on top of which we can build the object capability secure Python.
+
+All we need to do is add the identified set of leak variables to the existing
+set of restricted attributes. For those who are not familiar with the internals
+of PIRE, I present a summary here of the *current* (in Python's SVN trunk) set
+of restricted attributes.
+
+The bitwise-OR-able flag contants are defined in *structmember.h*:
+
+  +--------------------+----------------------------------------------+
+  | `READ_RESTRICTED`  | Not readable in restricted mode.             |
+  +--------------------+----------------------------------------------+
+  | `WRITE_RESTRICTED` | Not writable in restricted mode.             |
+  +--------------------+----------------------------------------------+
+  | `RESTRICTED`       | Not readable or writable in restricted mode. |
+  +--------------------+----------------------------------------------+
+
+In *classobject.c*, instance method objects:
+
+  +---------------------+------------------+
+  | ``im_class``        | RESTRICTED       |
+  +---------------------+------------------+
+  | ``im_func``         | RESTRICTED       |
+  +---------------------+------------------+
+  | ``__func__``        | RESTRICTED       |
+  +---------------------+------------------+
+  | ``im_self``         | RESTRICTED       |
+  +---------------------+------------------+
+  | ``__self__``        | RESTRICTED       |
+  +---------------------+------------------+
+
+In *classobject.c*, class objects:
+
+  +---------------------+------------------+
+  | ``__dict__``        | RESTRICTED       |
+  +---------------------+------------------+
+  | ``__class__``       | WRITE_RESTRICTED |
+  +---------------------+------------------+
+
+In *classobject.c*, instance objects:
+
+  +---------------------+------------------+
+  | ``__dict__``        | RESTRICTED       |
+  +---------------------+------------------+
+  | ``__class__``       | RESTRICTED       |
+  +---------------------+------------------+
+
+In *cPickle.c*:
+
+  A private copy of the Pickler registry tables is used when
+  PyEval_GetRestricted().
+
+In *fileobject.c*:
+
+  The file() constructor will raise an error when PyEval_GetRestricted().
+
+In *funcobject.c*, function objects:
+
+  +---------------------+------------------+
+  | ``func_closure``    | RESTRICTED       |
+  +---------------------+------------------+
+  | ``__closure__``     | RESTRICTED       |
+  +---------------------+------------------+
+  | ``func_code``       | RESTRICTED       |
+  +---------------------+------------------+
+  | ``__code__``        | RESTRICTED       |
+  +---------------------+------------------+
+  | ``func_defaults``   | RESTRICTED       |
+  +---------------------+------------------+
+  | ``__defaults__``    | RESTRICTED       |
+  +---------------------+------------------+
+  | ``func_dict``       | RESTRICTED       |
+  +---------------------+------------------+
+  | ``__dict__``        | RESTRICTED       |
+  +---------------------+------------------+
+  | ``func_doc``        | WRITE_RESTRICTED |
+  +---------------------+------------------+
+  | ``__doc__``         | WRITE_RESTRICTED |
+  +---------------------+------------------+
+  | ``func_globals``    | RESTRICTED       |
+  +---------------------+------------------+
+  | ``__globals__``     | RESTRICTED       |
+  +---------------------+------------------+
+  | ``func_name``       | WRITE_RESTRICTED |
+  +---------------------+------------------+
+  | ``__name__``        | WRITE_RESTRICTED |
+  +---------------------+------------------+
+  | ``__module__``      | WRITE_RESTRICTED |
+  +---------------------+------------------+
+
+In *marshal.c*:
+
+  Unmarshalling code objects will raise an error when PyEval_GetRestricted().
+
+In *methodobject.c*, bultin functions:
+
+  +---------------------+------------------+
+  | ``__self__``        | RESTRICTED       |
+  +---------------------+------------------+
+  | ``__module__``      | WRITE_RESTRICTED |
+  +---------------------+------------------+
+
+As you can see some of the "leak" attributes that I want to restrict are already
+restricted in Python! All we need to do is add the following changes:
+
+In *codeobject.c*:
+
+  Creating new code objects directly will raise an error when
+  PyEval_GetRestricted().
+
+In *frameobject.c*:
+
+  All attributes of Frame objects are restricted except for ``f_restricted``.
+
+In *genobject.c*:
+
+  +---------------------+------------------+
+  | ``gi_code``         | RESTRICTED       |
+  +---------------------+------------------+
+  | ``gi_frame``        | RESTRICTED       |
+  +---------------------+------------------+
+
+In *typeobject.c*:
+
+  +---------------------+------------------+
+  | ``__subclasses__``  | RESTRICTED       |
+  +---------------------+------------------+
+
+The nice thing about this is that we can then use it in environments like
+`Google App Engine <http://code.google.com/appengine/>`_, where we cannot use
+the ctypes-based approach.
+
+Here's my patch for Python's SVN trunk: `pytrunk.secure.patch
+<http://release.plexnet.org/misc/cappython/pytrunk.secure.patch>`_
+
+You can review the patch for acceptance into Python core here:
+
+* http://codereview.appspot.com/20051/show
+
+With this patch in place (and assuming that there aren't more "leak" attributes
+lying around), we can start building up a true, secure, object-capability
+framework in Python.
+
+We'd need to add things like import mechanisms and start whitelisting builtin
+functions for use. This is a big undertaking and is one that I am committed to
+-- and will appreciate fellow collaborators who want to make this happen. That
+includes you hopefully =)
+
+Now, some of you may be wondering what the fuss is? Why bother creating such an
+object capability framework in Python? For that let me give you a few use cases.
+All on App Engine.
+
+**Custom Templates by Users**
+
+Web applications like Blogger don't allow users to customise their blogs using a
+rich language. Instead they have a proprietary templating system which for the
+most part is just variable substitution.
+
+Imagine instead if you could let your users use a templating language like
+`Genshi <http://genshi.edgewall.org/>`_. Users could have the full expresivity
+of the Python language to generate the output they want.
+
+The problem with letting users do that today is that they would be able to use
+it to get at the rest of your application and start doing evil things to your
+database.
+
+But with an object capability based framework in place, you could give users the
+capability to execute Genshi templates without worrying about them somehow
+getting access to your database.
+
+And the nice thing about App Engine is that they already have something similar
+to PyPy's sandbox running -- so your users won't be able to segfault your
+processes.
+
+**UserScripts: Python Services in Apps**
+
+Web applications like `Twitter <http://www.twitter.com>`_ and `Facebook
+<http://www.facebook.com>`_ provide APIs which let developers write services
+which run on their own servers. Imagine instead a 'Plex' application on App
+Engine which allowed users to create and run arbitrary Python services on their
+data.
+
+Not only would this save resources -- how many copies of Twitter's database are
+there?? -- but it could allow for interesting *and* composable services. Perhaps
+even a `command line for the internet
+<http://tav.espians.com/espra-bootstrap.html>`_?
+
+Services could be provided with a minimal __builtins__ which allowed them to
+access the *current* user's data and not anyone else's.
+
+Here's a minimal example to get you thinking:
+
+.. syntax:: python
+
+  def create_safe_get(user_id, db=db):
+      def _safe_get(key_name):
+          return db.get(user_id + key_name)
+      return _safe_get
+
+  safe_builtins['db_get'] = create_safe_get('tav')
+
+  exec(service, {'__builtins__': safe_builtins})
+
+There are lots and lots of possibilities -- imagine a GreaseMonkey-like system
+but running on the server-side and with Python... the possibilities are only
+limited by our imagination.
+
+But in order for any of this to be possible, the patch has to be accepted first.
+Guido has already promised to accept the patch (for both Core Python and App
+Engine!) if it gets reviewed.
+
+So, if you are a Python-Dev-er, can you please review it:
+
+* http://codereview.appspot.com/20051/show
+
+If not, can you at least let `Python-Dev
+<http://mail.python.org/mailman/listinfo/python-dev>`_ know that you'd like to
+see this patch through? Thanks!
+
+Let me know what you think in the comments below.
+
+-- With love, `@tav <http://twitter.com/tav>`_
+
+.. raw:: html
+
+  <style type="text/css">
+    table.docutils { border-color: #ffffff; }
+    table.docutils tr { border-color: #ffffff; }
+    table.docutils tr td { border-color: #ffffff; }
+  </style>
