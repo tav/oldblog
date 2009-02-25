@@ -16,8 +16,8 @@ The challenge is simple:
 
 You can find the latest version of safelite.py here:
 
-* http://release.plexnet.org/misc/cappython/safelite.py [Current: `v7
-  <http://release.plexnet.org/misc/cappython/safelite_v7.py>`_]
+* http://release.plexnet.org/misc/cappython/safelite.py [Current: `v8
+  <http://release.plexnet.org/misc/cappython/safelite_v8.py>`_]
 
 I will keep safelite.py updated as new exploits and workarounds are found until
 we hopefully end up with a version we can be confident about. [VERSION attribute
@@ -169,6 +169,20 @@ Good luck and thanks! =)
         print dir(sys)
 
   [Fixed in v7]
+
+* Nick Coghlan got evil with context managers:
+
+    >>> class EvilCM(object):
+    ...     def __enter__(self):
+    ...         return self
+    ...     def __exit__(self, exc_type, exc, tb):
+    ...         tb.tb_next.tb_frame.f_locals['open_file']('w00t', 'w').write('yay!\n')
+    ...         return True
+
+    >>> with EvilCM():
+    ...     FileReader(10, 12)
+
+  [Fixed in v8]
 
 Found an exploit yet?? Try `safelite.py
 <http://release.plexnet.org/misc/cappython/safelite.py>`_ and let me know!
