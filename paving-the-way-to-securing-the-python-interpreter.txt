@@ -124,7 +124,7 @@ And this is where our old friend rexec deserves some thanking. It turns out that
 rexec is only one half of Python's restricted execution support. The other half
 has been living inside the Python Interpreter for well over a decade. For the
 sake of simplicity let's call this PIRE -- Python Interpreter's Restricted
-Exection.
+Execution.
 
 And since there is seemingly no comprehensive documentation of PIRE, I'll
 provide a summary here.
