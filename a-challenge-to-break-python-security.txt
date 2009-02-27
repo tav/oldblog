@@ -20,8 +20,8 @@ The challenge is simple:
 
 You can find the latest version of safelite.py here:
 
-* http://release.plexnet.org/misc/cappython/safelite.py [Current: `v8
-  <http://release.plexnet.org/misc/cappython/safelite_v8.py>`_]
+* http://release.plexnet.org/misc/cappython/safelite.py [Current: `v9
+  <http://release.plexnet.org/misc/cappython/safelite_v9.py>`_]
 
 I will keep safelite.py updated as new exploits and workarounds are found until
 we hopefully end up with a version we can be confident about. [VERSION attribute
@@ -187,6 +187,18 @@ Good luck and thanks! =)
     ...     FileReader(10, 12)
 
   [Fixed in v8]
+
+* `Guido van Rossum <http://python.org/~guido/>`_ emailed in with ways to trick
+  trusted code to evaluate unsafe code in its own globals!! [See also his
+  similar hack with eval in the comments below].
+
+    >>> f = FileReader('/etc/passwd')
+    >>> f.__class__.__int__ = input
+
+    >>> f.read(f)
+    (fileobj.__class__('/tmp/w00t', 'w').write('w00t\n'), 0)[1]
+
+  [Fixed in v9]
 
 Found an exploit yet?? Try `safelite.py
 <http://release.plexnet.org/misc/cappython/safelite.py>`_ and let me know!
