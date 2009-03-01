@@ -39,7 +39,7 @@ arrived at:
 .. raw:: html
 
   <div class="center">
-    <img src="http://release.plexnet.org/gfx/tav.profile.jpg"
+    <img src="http://release.plexnet.org/gfx/tav.blog/tav.profile.jpg"
          alt="Tav Espian" width="200px" height="300px" />
   </div>
 

@@ -4,7 +4,7 @@ Bootstrap Draft Specification
 
 :X-Created: [2008-07-03, 08:48]
 
-.. image:: http://release.plexnet.org/gfx/bootstrap.png
+.. image:: http://release.plexnet.org/gfx/tav.blog/bootstrap.png
            :alt: Espra Bootstrap Logo
            :class: float-right
            :width: 300

@@ -4,9 +4,13 @@ First Impressions of Dhaka
 
 :X-Created: [2008-07-13, 22:31]
 
-.. image:: http://farm4.static.flickr.com/3242/2681510424_95cb680e00.jpg?v=0
-           :alt: Dhaka in the Rain
-           :class: float-right
+.. raw:: html
+
+  <div class="float-right">
+  <a href="http://www.flickr.com/photos/olasofia/2687512211/in/set-72157606270139832/"
+  title="Dhaka in the Rain"><img src="http://farm4.static.flickr.com/3169/2687512211_d87c54d5e9.jpg?v=0" alt="Dhaka in the Rain" /></a><br />
+  <div class="image-caption">by <a href="http://www.flickr.com/photos/olasofia/2687512211/in/set-72157606270139832/">olasofia</a></div>
+  </div>
 
 `Dhaka <http://en.wikipedia.org/wiki/Dhaka>`_ has a distinctive aroma. I had
 expected it to smell like Mumbai or perhaps even Chennai. But it seems that

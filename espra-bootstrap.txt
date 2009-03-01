@@ -25,7 +25,7 @@ A Command Line for the Internet
 Getting Started
 ---------------
 
-.. image:: http://release.plexnet.org/gfx/username-password.png
+.. image:: http://release.plexnet.org/gfx/tav.blog/username-password.png
            :class: float-right
            :alt: Password frustration comic
 
@@ -185,7 +185,7 @@ and Linux ones.
 Trust Maps
 ----------
 
-.. image:: http://release.plexnet.org/gfx/trust-maps-mary.png
+.. image:: http://release.plexnet.org/gfx/tav.blog/trust-maps-mary.png
            :alt: Trust Maps -- Trusting Mary in the context of Cars
            :class: float-right
            :width: 352

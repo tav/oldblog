@@ -2,3 +2,4 @@
 *.rss
 .DS_Store
 .latest
+.articlestore
