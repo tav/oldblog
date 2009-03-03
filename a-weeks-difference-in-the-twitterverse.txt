@@ -4,8 +4,8 @@ A Week's Difference in the Twitterverse
 
 :X-Created: [2009-02-26, 04:11]
 
-It's funny how much a difference a week can sometimes make. It seems especially
-so in the Twitterverse. Case in point, my relationship with Twitter Inc.
+It's funny how much of a difference a week can sometimes make. Especially in the
+Twitterverse. Case in point, my relationship with Twitter Inc.
 
 .. image:: http://release.plexnet.org/gfx/tav.blog/alex-payne-praise-on-twitter.png
            :class: float-right
