@@ -1,0 +1,74 @@
+===============================================
+Oneline: Constructive Conversations on Twitter
+===============================================
+
+:X-Created: [2009-03-03, 11:12]
+
+`David Pinto <http://twitter.com/happyseaurchin>`_ had this wonderful insight
+that the quality of conversations could go up dramatically if each participant
+was limited to saying just one sentence at a time.
+
+.. raw:: html
+
+  <div class="float-right">
+  <a href="http://flickr.com/photos/moriza/2565606353/"><img
+  src="http://farm4.static.flickr.com/3137/2565606353_d2c7001e2c.jpg"
+  alt="Friendlies in conversation" /></a><br />
+  <div class="image-caption">
+    by <a href="http://flickr.com/photos/moriza/2565606353/">moriza</a>
+  </div>
+  </div>
+
+We practised this in face-to-face conversations and found it to be a great
+success!
+
+Paradoxically, limiting the "bandwidth" led to richer conversations. It
+encouraged everyone to `truly listen <#oneline-listening>`_ to each other and kept issues on topic.
+
+And, most importantly, it put everyone involved on an equal footing -- allowing
+focus to be placed upon the content instead of whoever can dominate the room.
+
+The application of this approach is extremely broad. From resolving personal
+conflicts to working out the kinks in a new idea. Try the oneline approach on
+Twitter and let me know how it works out for you.
+
+**Oneline Rules:**
+
+1. Only 2 people to a oneline dialogue.
+
+2. You must @reply to keep the conversation going.
+
+3. All tweets must end with ``#oneline``.
+
+4. No more than one tweet at a time by each party.
+
+5. It's over if neither party continues within 24 hours.
+
+.. raw:: html
+
+  <div id="oneline-ring"></div>
+
+**Recent Onelines:**
+
+.. raw:: html
+
+  <div id="oneline"></div>
+  <script type="text/javascript" src="http://tav.github.com/static/js/tweetfight.js"></script>
+  <script type="text/javascript">
+    tweetfight_setup('oneline', "OneLine");
+  </script>
+  <style type="text/css">
+    .tweetfight-time { font-size: 0.9em; color: #888; }
+    tr.tweetfight-item td { border-top: 1px dashed #888; padding: 5px; }
+  </style>
+
+**Krishnamurthy on Listening:**
+
+.. raw:: html
+
+  <div class="center" id="oneline-listening">
+  <object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/JKvz3BdB2EE&hl=en&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/JKvz3BdB2EE&hl=en&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
+  </div>
+
+[Also see the more agressive `TweetFight </tweetfight.html>`_ variant if you are
+in the mood for a fight rather than a pleasant conversation.]

@@ -1,0 +1,67 @@
+============================
+TweetFight -- Fight Club 2.0
+============================
+
+:X-Created: [2009-03-02, 02:09]
+
+.. raw:: html
+
+  <div class="float-right">
+  <a href="http://flickr.com/photos/polinasergeeva/3052374910/"><img
+  src="http://farm4.static.flickr.com/3188/3052374910_5cb9f1e734_m.jpg"
+  alt="Fight Club Bloodstained Hands" /></a><br />
+  <div class="image-caption">
+    by <a href="http://flickr.com/photos/polinasergeeva/3052374910/">Polina Sergeeva</a>
+  </div>
+  </div>
+
+**TweetFight Rules:**
+
+1. Only 2 people to a tweetfight.
+
+2. You must @reply your opponent to keep the fight going.
+
+3. All tweets relating to a fight must end with ``#tweetfight``.
+
+4. No more than one tweet at a time by each party.
+
+5. Fights are over if neither party continues within 12 hours.
+
+6. Last person tweeting wins.
+
+Fights can be civil, intellectual or even `foul
+<http://valleywag.gawker.com/5152016/canuck-rag-regrets-tech-reporters-twitter-tirade>`_.
+It's your choice.
+
+.. raw:: html
+
+  <div id="tweetfight-ring"></div>
+
+**Recent TweetFights:**
+
+.. raw:: html
+
+  <div id="tweetfight"></div>
+  <script type="text/javascript" src="http://tav.github.com/static/js/tweetfight.js"></script>
+  <script type="text/javascript">
+    tweetfight_setup('tweetfight', "TweetFight", 12);
+  </script>
+  <style type="text/css">
+    .tweetfight-time { font-size: 0.9em; color: #888; }
+    tr.tweetfight-item td { border-top: 1px dashed #888; padding: 5px; }
+  </style>
+
+**Credits:**
+
+* `@evangineer <http://twitter.com/evangineer>`_ -- Idea of a Twitter "Celebrity
+  Death Match".
+
+* `@happyseaurchin <http:/twitter.com/happyseaurchin>`_ -- Idea of "one sentence
+  at a time" to facilitate rich conversations.
+
+* `@olasofia <http://twitter.com/olasofia>`_ -- The Fight Club metaphor.
+
+* `@tav <http://twitter.com/tav>`_ -- Design and implementation.
+
+[Also see the more constructive `OneLine <oneline.html>`_ variant if you are in
+the mood for a conversation rather than a fight.]

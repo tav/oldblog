@@ -6,8 +6,28 @@ About Tav
 
 :Abstract:
 
-    This is a pseudo auto-biography of Tav written in a simple question and
-    answer style. Enjoy!
+    Tav is an Entrepreneur, Lover, Social Artist, Coder, Writer, Symbiotic
+	Engineer, Musician, World Changer and Espian. This is a pseudo
+	auto-biography of Tav written in a simple question and answer style. Enjoy!
+
+.. raw:: html
+
+  Follow Tav:
+
+	<a href="http://twitter.com/tav"><img
+	src="http://tav.github.com/static/gfx/twitter-icon.png" alt="Twitter" class="absmiddle" /></a> <a
+	href="mailto:tav@espians.com"><img
+	src="http://tav.github.com/static/gfx/gmail-icon.png" alt="GMail" class="absmiddle" /></a> <a
+	href="http://flickr.com/photos/asktav"><img
+	src="http://tav.github.com/static/gfx/flickr-icon.gif" alt="Flickr" class="absmiddle" /></a> <a
+	href="http://vimeo.com/asktav"><img
+	src="http://tav.github.com/static/gfx/vimeo-icon.gif" alt="Vimeo" class="absmiddle" /></a> <a
+	href="http://friendfeed.com/tav"><img
+	src="http://tav.github.com/static/gfx/friendfeed-icon.png" alt="FriendFeed" class="absmiddle" /></a> <a
+	href="http://github.com/tav"><img
+	src="http://tav.github.com/static/gfx/github-icon.png" alt="GitHub" class="absmiddle" /></a> <a
+	href="http://www.facebook.com/people/Tav-Espian/593997068"><img
+	src="http://tav.github.com/static/gfx/facebook-icon.gif" alt="Facebook" class="absmiddle" /></a>
 
 .. contents::   Table of Contents
                 :depth: 2
@@ -399,7 +419,7 @@ in all, it had been a lovely afternoon walk with friends. Except for the
 shouting of "No War" constantly, it demonstrated how lovely London would be if
 it was pedestrianised.
 
-.. image:: ../static/gfx/henry-21st-birthday.jpg
+.. image:: http://release.plexnet.org/gfx/tav.blog/henry-21st-birthday.jpg
            :class: float-right
            :width: 302
            :height: 204
@@ -832,7 +852,7 @@ It took place sometime during the summer of 2004.
 What inspires you?
 ==================
 
-.. image:: ../static/gfx/saritah.jpg
+.. image:: http://release.plexnet.org/gfx/tav.blog/saritah.jpg
            :width: 352
            :height: 259
            :align: center
