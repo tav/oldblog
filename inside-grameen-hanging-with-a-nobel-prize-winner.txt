@@ -32,20 +32,19 @@ For those of you who don't know about Grameen, it is most famous for the
 `Grameen Bank <http://en.wikipedia.org/wiki/Grameen_Bank>`_ which pioneered the
 whole `Microfinance <http://en.wikipedia.org/wiki/Microfinance>`_ revolution.
 
-Not only would we hang out with the Nobel Peace Prize-winning `Muhammad Yunus
-<http://en.wikipedia.org/wiki/Muhammad_Yunus>`_ -- but we'd get to spend time
-with the other leaders of Grameen!
+.. Not only would we hang out with  -- but we'd get to spend time with the other leaders of Grameen!
+.. Now the others -- Chris Macrae, Sofia Bustamante, Mark Chaplin and Mostofa
+.. Zaman -- had spent time with Dr. Yunus before in New York City, London and elsewhere.
 
-Now the others -- Chris Macrae, Sofia Bustamante, Mark Chaplin and Mostofa Zaman
--- had spent time with Dr. Yunus before in New York City, London and elsewhere.
-I'd only had the chance to briefly meet him at a lunch in the `RAC
-<http://en.wikipedia.org/wiki/Royal_Automobile_Club>`_ whilst he was over to
-promote his book `Creating a World Without Poverty: Social Business and the
-Future of Capitalism
-<http://www.amazon.com/Creating-World-Without-Poverty-Capitalism/dp/1586484931>`_.
+I'd had a chance to briefly meet its founder, the Nobel Peace Prize-winning
+`Muhammad Yunus <http://en.wikipedia.org/wiki/Muhammad_Yunus>`_, at a lunch in
+the RAC. He had been over to promote `his book
+<http://www.amazon.com/Creating-World-Without-Poverty-Capitalism/dp/1586484931>`_
+and we didn't really get much of a chance to engage.
 
-The book resonated with some of my own thinking and I was keen to find out to
-what Dr. Yunus and his compatriots really thought.
+The book -- subtitled "Future of Capitalism" -- resonated with some of my own
+thinking and I was keen to find out to what Dr. Yunus and his compatriots really
+thought.
 
 The fact that Grameen Bank managed to become a profitable *multi-billion* dollar
 bank by giving small unsecured loans to those in extreme poverty is proof enough
