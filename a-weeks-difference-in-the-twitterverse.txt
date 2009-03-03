@@ -1,0 +1,55 @@
+=======================================
+A Week's Difference in the Twitterverse
+=======================================
+
+:X-Created: [2009-02-26, 04:11]
+
+It's funny how much a difference a week can sometimes make. It seems especially
+so in the Twitterverse. Case in point, my relationship with Twitter Inc.
+
+.. image:: http://release.plexnet.org/gfx/tav.blog/alex-payne-praise-on-twitter.png
+           :class: float-right
+
+A few weeks ago I had registered several Twitter accounts for use in an upcoming
+Twitter application -- Tweet20. I'd registered accounts like: `@tweetyes
+<http://twitter.com/tweetyes>`_, `@tweetno <http://twitter.com/tweetno>`_,
+`@tweetoffer <http://twitter.com/tweetoffer>`_, `@tweetwant
+<http://twitter.com/tweetwant>`_ and `@tweetlocation
+<http://twitter.com/tweetlocation>`_.
+
+But it turns out that if you register too many accounts concurrently, the
+Twitter spam controls are triggered. So a little while after the accounts got
+registered, I found to my surprise that most of them had been suspended!!
+
+Slightly surprised at why non-spam accounts would get suspended -- most of those
+accounts hadn't even been used and were too recent to count as name-squatting!
+-- I got in touch with the Twitter folk and made my case.
+
+But on the first go, my appeal got rejected and the issue was closed. After
+being pissed off momentarily, I told myself off for depending on other people's
+platforms and got in touch with the Twitter support staff who had closed the
+issue.
+
+`Del Harvey (@delbius) <http://twitter.com/delbius>`_ turned out to be quite
+pleasant to engage and after a little while, my accounts were re-enabled. Woo!!
+
+In the meantime, I had been helping out `Ryan Williams (@ryanwi)
+<http://twitter.com/ryanwi>`_ on the Twitter-Dev list with getting Twitter OAuth
+working on App Engine. I put this out as open source for others to use --
+`tweetapp <http://github.com/tav/tweetapp>`_ -- and promptly forgot about it.
+
+But, much to my pleasant surprise, not only did it get picked up by a Google App
+Engine Product Manager, `Mike Repass (@mdrcode) <http://twitter.com/mdrcode>`_,
+but `Alex Payne (@al3x) <http://twitter.com/al3x>`_, the Twitter API lead made
+the statement you see in the above image -- which I discovered whilst reading
+the `GitHub blog <http://github.com/blog/355-twitter-apps-on-app-engine>`_!
+
+And thus in the course of a week I had gone from being treated as a spammer by
+Twitter Inc. to being appreciated by one of its leading members. Down and up we
+go!
+
+Lesson to take away from this? Just keep on providing demonstrable value and you
+will be rewarded positively.
+
+Have you had similar turnarounds with other organisations? Or perhaps even with
+Twitter Inc. too? Let me know in the comments!
