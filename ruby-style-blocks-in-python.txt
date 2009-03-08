@@ -1,0 +1,190 @@
+===========================
+Ruby-style Blocks in Python
+===========================
+
+:XX-Created: [2009-03-07, 08:10]
+
+Blocks are supposedly the `most liked feature in Ruby
+<http://unlimitednovelty.com/2009/03/what-do-rubyists-like-about-ruby.html>`_.
+This proposal would enable a similar feature in Python:
+
+  .. syntax:: python
+
+    with webapp.runner do (config):
+        config.time_zone = 'UTC'
+        config.log_level = 'debug'
+
+Compare that to the Ruby equivalent:
+
+  .. syntax:: ruby
+
+    Rails::Initializer.run do |config|
+        config.time_zone = 'UTC'
+        config.log_level = :debug
+    end
+
+Unless I am missing something fundamental, adding a ``do`` statement seems to
+lend itself to doing blocks in a Pythonic way.
+
+For those of you that don't know Ruby, `blocks
+<http://www.artima.com/intv/closures.html>`_ are simply syntactic sugar for
+defining anonymous functions/closures.
+
+This is already possible in Python using the rather complicated-looking
+``lambda`` keyword:
+
+  .. syntax:: python
+
+    employees.select(lambda e: e.salary > developer.salary)
+
+In contrast, Ruby provides the really sexy:
+
+  .. syntax:: ruby
+
+    employees.select {|e| e.salary > developer.salary}
+
+Where ``lambda`` limits Python developers to just expressions, Ruby allows for
+full multi-line blocks:
+
+  .. syntax:: ruby
+
+    employees.select do |emp|
+        if emp.salary > developer.salary
+            fireEmployee(emp)
+        else:
+            extendContract(emp)
+        end
+    end
+
+This is also possible in Python but at the needless cost of naming and defining
+a function first:
+
+  .. syntax:: python
+
+    def throwaway_function(emp):
+        if emp.salary > developer.salary:
+            return fireEmployee(emp)
+        else:
+            return extendContract(emp)
+
+    employees.select(throwaway_function)
+
+This is where my proposed ``do`` statement comes in, it would simplify the above
+to:
+
+  .. syntax:: python
+
+    with employees.select do (emp):
+        if emp.salary > developer.salary:
+            return fireEmployee(emp)
+        else:
+            return extendContract(emp)
+
+Which is hopefully simple and Pythonic enough to everyone's tastes to make this
+a reality for Python 2.7 and 3.1.
+
+To facilitate this the grammar would need to be extended to something like::
+
+  with_stmt ::= 
+    "with" expression (["as" target] | ["do" [parameter_list]]) ":" suite
+
+And when the do keyword is encountered, functionality should be delegated to a
+``__do__`` function in the same way that the ``import`` keyword delegates to
+``__import__``.
+
+The delegation should map the following syntax::
+
+  with EXPR do PARAM_LIST:
+      BLOCK_CODE
+
+into the function call::
+
+  __do__(expr, callback, globals, locals)
+
+Where ``callback`` is a function named '<callback>' compiled with PARAM_LIST as
+its parameter_list and BLOCK_CODE as the function body. Like with import,
+``globals()`` and ``locals()`` should be from the scope of the do statement.
+
+As a starting point for discussion, I would like to propose the following as the
+default __do__ function:
+
+  .. syntax:: python
+
+    def __do__(expr, callback, globals, locals):
+        retval = None
+        while 1:
+            try:
+                args = expr.send(retval)
+                if not isinstance(args, tuple):
+                    args = (args,)
+                retval = callback(*args)
+            except StopIteration:
+                break
+
+
+This works thanks to Python's support of coroutines through generators `[PEP
+342] <http://www.python.org/dev/peps/pep-0342/>`_ and would cover the common
+case of a generator instance being passed in as the EXPR.
+
+And it just so happens to mirror the semantics of Ruby blocks quite beautifully:
+
+  >>> def generator():
+  ...     yield
+  ...     yield
+
+  >>> with generator() do:
+  ...     print "hello world"
+  hello world
+  hello world
+
+The only aspect missing is Ruby's ``block_given?`` but that could easily be
+supported by alternative __do__ implementations if the need arises.
+
+I expect the dominant usage of blocks to be for the creation of DSLs. This has
+almost become an art form in the Ruby world -- with everything from Rake tasks
+to Rails configuration being done through `mini-DSLs built using blocks
+<http://www.daniel-azuma.com/blog/view/z3bqa0t01uugg1/implementing_dsl_blocks>`_.
+
+It would be interesting to see what the Python world comes up with. The ability
+to custom define __do__ would allow Python hackers to do some really cool shit
+with blocks that Ruby hackers can't do for the moment.
+
+And I can imagine a lot of existing frameworks like `Twisted
+<http://twistedmatrix.com/>`_, `Trellis
+<http://peak.telecommunity.com/DevCenter/Trellis>`_, `Eventlet
+<http://wiki.secondlife.com/wiki/Eventlet>`_ and `Django
+<http://www.djangoproject.com/>`_ becoming even more simplified and powerful
+thanks to blocks.
+
+What do you think?
+
+**Idealist Addendum:**
+
+  Whilst I believe the above should suit Guido's taste, I am not so sure of the
+  following. But in an ideal world, he would give it his blessing, so here goes
+  =)
+
+  Ideally the do statement would map the following syntax::
+
+    with EXPR1 do EXPR2:
+        BLOCK_CODE
+
+  into the function call::
+
+    __do__(expr1, expr2, block_code, indent_level, globals, locals)
+
+  This would give the __do__ function even more flexibility at very little cost.
+  By default, EXPR2 would be treated as PARAM_LIST and together with BLOCK_CODE
+  it would be compiled into the callback function described above.
+
+  But more enterprising __do__ functions could do interesting things like
+  rewriting the AST of the BLOCK_CODE. Given that this is already done by many
+  many Python libraries, it's not much of a stretch of the imagination. The
+  benefit? Super nice Pythonic DSLs!
+
+Anyways, that's enough ranting for one morning. What do you think? Let me know
+in the comments or on the `Python-Dev
+<http://mail.python.org/mailman/listinfo/python-dev>`_ mailing list.
+
+-- Thanks, `@tav <http://twitter.com/tav>`_
+
