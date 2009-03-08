@@ -2,7 +2,7 @@
 Ruby-style Blocks in Python
 ===========================
 
-:XX-Created: [2009-03-07, 08:10]
+:X-Created: [2009-03-07, 08:10]
 
 Blocks are supposedly the `most liked feature in Ruby
 <http://unlimitednovelty.com/2009/03/what-do-rubyists-like-about-ruby.html>`_.

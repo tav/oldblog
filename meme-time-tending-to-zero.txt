@@ -1,0 +1,42 @@
+=========================
+Meme Time Tending to Zero
+=========================
+
+:X-Created: [2009-03-05, 06:56]
+
+It's no secret that Meme Time -- the average time taken for a `meme
+<http://en.wikipedia.org/wiki/Meme>`_ to spread far and wide -- has been getting
+shorter. Scarily so. It took Christianity over a 1,000 years to achieve what
+Facebook has done in less than 4 years.
+
+This thought-provoking video is worth watching:
+
+.. raw:: html
+
+  <div class="center">
+  <object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/jpEnFwiqdx8&hl=en&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/jpEnFwiqdx8&hl=en&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
+  </div>
+
+It reinforces the words of `Mamading Ceesay <http://twitter.com/evangineer>`_:
+"The whole world is going to be experiencing environmentally-induced `ADHD
+<http://en.wikipedia.org/wiki/Attention-deficit_hyperactivity_disorder>`_ pretty
+soon".
+
+Which leads me to worry about the social implications of this increasing pace.
+Being able to overcome information overload and limiting your attention to what
+really matters to you is going to be absolutely vital in the future.
+
+But if we are going to prepare for that, we also need to know the rate of the
+current flow. How long does it take for a meme to become a part of daily life
+for a population of 10 million people? How long does it take for a meme to be
+known by 100 million people?
+
+By knowing these and other related data points to "Meme Time", we would be
+better placed to adapt. Maybe we are heading towards `The Singularity
+<http://en.wikipedia.org/wiki/Technological_singularity>`_ after all?
+
+Would it be possible to start gathering enough statistics to get a relatively
+accurate picture? How could we do this so that it brings the greatest benefits
+to everyone? How would we handle the privacy issues?
+
+As usual, let me know your thoughts in the comments. Thanks!

@@ -1,0 +1,76 @@
+=====================
+Becoming a Film Maker
+=====================
+
+:X-Created: [2009-03-06, 05:38]
+
+I've decided to ease into film making by becoming a video blogger. By the time I
+am proficient enough with video editing, the stage should be set for `ractives
+<http://en.wikipedia.org/wiki/The_Diamond_Age>`_ ;p
+
+.. raw:: html
+
+  <div class="float-right">
+  <object width="480" height="295"><param name="movie" value="http://www.youtube.com/v/cO9JqzWyRbs&hl=en&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/cO9JqzWyRbs&hl=en&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="295"></embed></object>
+  </div>
+
+So I need your help. Because I know fuck all about filming or editing.
+
+Despite creating the likes of `green.tv
+<http://www.green.tv>`_ and setting up an entire company to provide online video
+services, my knowledge of film making is close to non-existent.
+
+If you want to know about scalable online distribution or digital video
+encoding, then I can give you expert advice. But film making? Not a clue.
+
+The closest I've ever gotten to actual editing was as part of the Video
+Production Society at `Dulwich College <http://www.dulwich.org.uk>`_. Back then
+it was mostly analog and Adobe Premiere 1.0 just gave me lots of headaches.
+
+So as I get back into it over 15 years later, my setup is:
+
+* Core 2 Duo 2.4Ghz Macbook w/ 4GB of RAM
+* External 1TB Networked Hard Drive
+* iLife '08, iWork '09
+* Final Cut Express, Logic Express
+
+Is this good enough? I didn't go for the Pro versions given the price and
+decided to ease myself in with the Express versions. Would iMovie have been
+enough?
+
+What are tutorials, podcasts and websites I should check out to get started very
+quickly?
+
+As for the video capturing process, should I shell out on an actual camera or is
+something like `the Flip <http://www.theflip.com/>`_ good enough to get started
+with?
+
+.. raw:: html
+
+  <div class="float-left">
+  <a href="http://blog.vincentlaforet.com/2008/11/26/7-days-7-shoots-eos-5d-mkii/"><img
+  src="http://release.plexnet.org/gfx/tav.blog/photo-vincent-laforet-5d-sample.jpg"
+  alt="Sweet Shot" /></a><br />
+  <div>by <a
+  href="http://blog.vincentlaforet.com/2008/11/26/7-days-7-shoots-eos-5d-mkii/">Vincent
+  Laforet</a></div>
+  </div>
+
+I've been drooling over the `Canon 5D Mark II
+<http://gizmodo.com/tag/canon-5d-mark-ii/>`_. It produces the stunning visuals
+you see in this article!!
+
+I don't of course expect to produce anything quite so spectacular yet. But if
+one day I could afford to buy it, would it be any better than a Flip in the
+hands of a newbie like myself?
+
+And, finally, instead of hosting the videos myself, it seems that it's better to
+put them up on sites with active communities.
+
+I've `signed up to Vimeo <http://www.vimeo.com/asktav>`_ for this as they seem
+to have really vibrant and artistic community. Is this a good choice?
+
+Have any of you been video blogging or film making? What have your experiences
+been? Am I approaching all this completely wrong?
+
+Please let me know any thoughts you may have in the comments. Thanks!
