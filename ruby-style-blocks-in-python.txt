@@ -55,7 +55,7 @@ full multi-line blocks:
     employees.select do |emp|
         if emp.salary > developer.salary
             fireEmployee(emp)
-        else:
+        else
             extendContract(emp)
         end
     end
