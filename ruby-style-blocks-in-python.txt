@@ -4,13 +4,17 @@ Ruby-style Blocks in Python
 
 :X-Created: [2009-03-07, 08:10]
 
+[**Update:** I've updated the proposal to use the ``using`` keyword instead of
+overloading the existing semantics of the ``with`` keyword -- thanks Guido and
+Todd Lucas!]
+
 Blocks are supposedly the `most liked feature in Ruby
 <http://unlimitednovelty.com/2009/03/what-do-rubyists-like-about-ruby.html>`_.
 This proposal would enable a similar feature in Python:
 
   .. syntax:: python
 
-    with webapp.runner do (config):
+    using webapp.runner do (config):
         config.time_zone = 'UTC'
         config.log_level = 'debug'
 
@@ -74,7 +78,7 @@ to:
 
   .. syntax:: python
 
-    with employees.select do (emp):
+    using employees.select do (emp):
         if emp.salary > developer.salary:
             return fireEmployee(emp)
         else:
@@ -85,8 +89,8 @@ a reality for Python 2.7 and 3.1.
 
 To facilitate this the grammar would need to be extended to something like::
 
-  with_stmt ::= 
-    "with" expression (["as" target] | ["do" [parameter_list]]) ":" suite
+  using_stmt ::= 
+    "using" expression "do" [parameter_list] ":" suite
 
 And when the do keyword is encountered, functionality should be delegated to a
 ``__do__`` function in the same way that the ``import`` keyword delegates to
@@ -94,7 +98,7 @@ And when the do keyword is encountered, functionality should be delegated to a
 
 The delegation should map the following syntax::
 
-  with EXPR do PARAM_LIST:
+  using EXPR do PARAM_LIST:
       BLOCK_CODE
 
 into the function call::
@@ -121,7 +125,6 @@ default __do__ function:
             except StopIteration:
                 break
 
-
 This works thanks to Python's support of coroutines through generators `[PEP
 342] <http://www.python.org/dev/peps/pep-0342/>`_ and would cover the common
 case of a generator instance being passed in as the EXPR.
@@ -132,7 +135,7 @@ And it just so happens to mirror the semantics of Ruby blocks quite beautifully:
   ...     yield
   ...     yield
 
-  >>> with generator() do:
+  >>> using generator() do:
   ...     print "hello world"
   hello world
   hello world
@@ -166,7 +169,7 @@ What do you think?
 
   Ideally the do statement would map the following syntax::
 
-    with EXPR1 do EXPR2:
+    using EXPR1 do EXPR2:
         BLOCK_CODE
 
   into the function call::
