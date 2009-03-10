@@ -41,7 +41,7 @@ doing the following -- a port of the sample in Mark S. Miller's
             def sprout():
                 return Purse('from %s:' % purse_name, 0)
 
-           def getDecr():
+            def getDecr():
                 return sealer.seal(decr)
 
             def deposit(amount, src):
