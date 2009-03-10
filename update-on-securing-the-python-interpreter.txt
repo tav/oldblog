@@ -46,7 +46,7 @@ doing the following -- a port of the sample in Mark S. Miller's
 
             def deposit(amount, src):
                 unsealer.unseal(src.getDecr())(amount)
-                balance += amount
+                this.balance += amount
 
             return Namespace()
 
