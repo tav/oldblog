@@ -4,13 +4,13 @@ Update on Securing the Python Interpreter
 
 :X-Created: [2009-03-09, 21:42]
 
-Guido van Rossum (the creator of Python) posted a `blog article
+Guido van Rossum posted a `blog article
 <http://neopythonic.blogspot.com/2009/03/capabilities-for-python.html>`_ on
 Capabilities for Python. As I'd instigated this whole thread, I figure I should
 give everyone an update... (along with a quick summary of the story so far).
 
-The aim is to enable real object-capability based programming in Python. Python
-already supports doing the following -- a port of the sample in Mark S. Miller's
+The aim has been to enable object-capability in Python. Python already supports
+doing the following -- a port of the sample in Mark S. Miller's
 `Capability-based Financial Instruments
 <http://www.erights.org/elib/capability/ode/index.html>`_:
 
@@ -52,7 +52,7 @@ already supports doing the following -- a port of the sample in Mark S. Miller's
 
         return Namespace()
 
-The two utility functions are there to simply make life easier for developers:
+Two utility functions are used to make life easier for developers:
 
 * ``Namespace`` returns an object which behaves similarly to "standard"
   class-based objects.
@@ -60,10 +60,10 @@ The two utility functions are there to simply make life easier for developers:
 * ``Attr`` provides a utility object to get beyond scope limitations pre-Python
   3.0
 
-Using this functional approach, we started our journey towards object capability
-in Python =)
+Using this functional approach, we can start our journey towards object
+capability in Python =)
 
-We needed to ensure that a user can't get hold of the global state somehow.
+First, we need to ensure that a user can't get hold of the global state somehow.
 Whilst a lot of existing Python libraries use global state, there is nothing in
 the core language itself that requires this to be the case.
 
@@ -163,7 +163,6 @@ object capability principles over HTTP in a manner similar to the `Web Calculus
 <http://www.waterken.com/dev/Web/>`_.
 
 And with that, this update has come to a close. Do get in touch if any of this
-interests you and you'd like to perhaps work together!
+interests you and you'd like to work together!
 
-And, as always, let me know your whatever thoughts you might have in the
-comments below. Thanks!
+And, as always, let me know your thoughts in the comments below. Thanks!
