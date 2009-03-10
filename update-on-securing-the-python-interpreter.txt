@@ -1,0 +1,169 @@
+=========================================
+Update on Securing the Python Interpreter
+=========================================
+
+:X-Created: [2009-03-09, 21:42]
+
+Guido van Rossum (the creator of Python) posted a `blog article
+<http://neopythonic.blogspot.com/2009/03/capabilities-for-python.html>`_ on
+Capabilities for Python. As I'd instigated this whole thread, I figure I should
+give everyone an update... (along with a quick summary of the story so far).
+
+The aim is to enable real object-capability based programming in Python. Python
+already supports doing the following -- a port of the sample in Mark S. Miller's
+`Capability-based Financial Instruments
+<http://www.erights.org/elib/capability/ode/index.html>`_:
+
+  .. syntax:: python
+
+    def Mint(name):
+
+        sealer, unsealer = makeBrandPair(name)
+
+        def __str__():
+            return "%s's mint" % name
+
+        def Purse(purse_name, balance):
+
+            this = Attr(balance=balance)
+
+            def decr(amount):
+                if (this.balance - amount) < 0:
+                    raise ValueError("Can't decrement balance below 0.")
+                this.balance -= amount
+
+            def __str__():
+                return "%s has %i %s bucks" % (purse_name, this.balance, name)
+
+            def getBalance():
+                return this.balance
+
+            def sprout():
+                return Purse('from %s:' % purse_name, 0)
+
+           def getDecr():
+                return sealer.seal(decr)
+
+            def deposit(amount, src):
+                unsealer.unseal(src.getDecr())(amount)
+                balance += amount
+
+            return Namespace()
+
+        return Namespace()
+
+The two utility functions are there to simply make life easier for developers:
+
+* ``Namespace`` returns an object which behaves similarly to "standard"
+  class-based objects.
+
+* ``Attr`` provides a utility object to get beyond scope limitations pre-Python
+  3.0
+
+Using this functional approach, we started our journey towards object capability
+in Python =)
+
+We needed to ensure that a user can't get hold of the global state somehow.
+Whilst a lot of existing Python libraries use global state, there is nothing in
+the core language itself that requires this to be the case.
+
+So we needed to identify the attributes of built-in types which "leak" global
+state, e.g.
+
+* FunctionType.func_globals
+* FrameType.f_locals
+
+I issued a `security challenge <a-challenge-to-break-python-security.html>`_
+which helped identify a number of these and am following it up by doing a manual
+audit of the CPython implementation to further verify the "final" list of leak
+attributes.
+
+[If anyone wants to help, please get in touch -- tav@espians.com]
+
+Assuming we do identify the full list -- there are only *so many* builtin types
+and attributes in Python after all! -- we can start with a clean slate and do
+object-capability in Python. I explain in detail in my earlier blog article on
+`Securing the Python Interpreter
+<paving-the-way-to-securing-the-python-interpreter.html>`_.
+
+The short of it is that this can be enabled *today* in about 100 odd lines of
+code by removing the "leak" variables using Python's ``ctypes`` module -- see
+`safelite.py <http://release.plexnet.org/misc/cappython/safelite.py>`_ for a
+simple implementation. And for contexts like App Engine, where ctypes isn't
+accessible, I provided a `small patch
+<http://release.plexnet.org/misc/cappython/pytrunk.secure.patch>`_ for the
+interpreter itself.
+
+The next problem is in making as much of the existing standard library
+accessible. As Guido rightly points out in his blog article, most people aren't
+going to use a capability-secure subset of Python if it doesn't offer any
+value!!
+
+And given that no-one is going to volunteer to rewrite the entire standard
+library, I figured we could take a short cut by using minimal wrappers \*wink*.
+
+This would be great, but there's been one last (identified) hurdle: some of
+Python's builtins automatically call certain class-based protocols, e.g.
+__int__, __iter__, etc. for type coercion, iteration, etc.
+
+And to make matters worse certain builtins like ``input`` evaluate in the
+calling scope! But we can bypass this -- unless someone tells me otherwise -- by
+putting a type guard in front of our functions. I've written a ``guard``
+decorator in the latest safelite.py to make this easier -- let me know if it
+works for you.
+
+We are using a functional approach anyhow, so the class-based protocols are
+meaningless. Thus no real functionality should be lost. It'd just make wrapping
+the existing standard library much much easier.
+
+And with that, the stage is hopefully set to herald a new future. Here is the
+implementation of a file reader which wraps Python's builtin ``open``:
+
+  .. syntax:: python
+
+    @guard(filename=str, mode=str, buffering=int)
+    def FileReader(filename, mode='r', buffering=0):
+        """A secure file reader."""
+
+        if mode not in ['r', 'rb', 'rU']:
+            raise ValueError("Only read modes are allowed.")
+
+        fileobj = open_file(filename, mode, buffering)
+
+        def __repr__():
+            return '<FileReader: %r>' % filename
+
+        def close():
+            fileobj.close()
+
+        @guard(bufsize=int)
+        def read(bufsize=-1):
+            return fileobj.read(bufsize)
+
+        @guard(size=int)
+        def readlines(size=-1):
+            return fileobj.readlines(size)
+
+        @guard(offset=int, whence=int)
+        def seek(offset, whence=0):
+            fileobj.seek(offset, whence)
+
+        return Namespace()
+
+Code which has a reference to ``FileReader`` would be able to read files but --
+assuming we've identified all the leak attributes -- never be able to get a
+reference to the "real" ``file_open`` which FileReader uses internally.
+
+Code can pass on references to ``read()`` to other code without exposing a
+reference to ``seek()``, etc.
+
+The final key bit missing is a secure import. For this, I've been working on
+something called ``pimp`` which will allow for remote loading of code using
+object capability principles over HTTP in a manner similar to the `Web Calculus
+<http://www.waterken.com/dev/Web/>`_.
+
+And with that, this update has come to a close. Do get in touch if any of this
+interests you and you'd like to perhaps work together!
+
+And, as always, let me know your whatever thoughts you might have in the
+comments below. Thanks!
