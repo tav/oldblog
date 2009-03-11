@@ -20,7 +20,7 @@ The challenge is simple:
 
 You can find the latest version of safelite.py here:
 
-* http://release.plexnet.org/misc/cappython/safelite.py [Current: `v10
+* http://release.plexnet.org/misc/cappython/safelite.py [Current: `v11
   <http://release.plexnet.org/misc/cappython/safelite.py>`_]
 
 I will keep safelite.py updated as new exploits and workarounds are found until

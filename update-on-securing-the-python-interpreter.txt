@@ -4,6 +4,10 @@ Update on Securing the Python Interpreter
 
 :X-Created: [2009-03-09, 21:42]
 
+[**Update:** The ``Namespace`` utility function has been made explicit-only with
+feedback from `Mark Seaborn <http://lackingrhoticity.blogspot.com/>`_. Thanks
+Mark!]
+
 Guido van Rossum posted a `blog article
 <http://neopythonic.blogspot.com/2009/03/capabilities-for-python.html>`_ on
 Capabilities for Python. As I'd instigated this whole thread, I figure I should
@@ -48,9 +52,9 @@ doing the following -- a port of the sample in Mark S. Miller's
                 unsealer.unseal(src.getDecr())(amount)
                 this.balance += amount
 
-            return Namespace()
+            return Namespace(decr, __str__, getBalance, sprout, getDecr, deposit)
 
-        return Namespace()
+        return Namespace(__str__, Purse)
 
 Two utility functions are used to make life easier for developers:
 
@@ -148,7 +152,7 @@ implementation of a file reader which wraps Python's builtin ``open``:
         def seek(offset, whence=0):
             fileobj.seek(offset, whence)
 
-        return Namespace()
+        return Namespace(__repr__, close, read, readlines, seek)
 
 Code which has a reference to ``FileReader`` would be able to read files but --
 assuming we've identified all the leak attributes -- never be able to get a
