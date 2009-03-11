@@ -1,0 +1,89 @@
+=======================================
+Say No to Google's Intrusion of Privacy
+=======================================
+
+:X-Created: [2009-03-11, 21:55]
+
+.. raw:: html
+
+  <div class="float-right">
+    <img
+    src="http://brucewagner.files.wordpress.com/2008/02/boycott_google_logo.jpg"
+    alt ="Boycott Google" /><br />
+    <div class="image-caption">by <a href="http://brucewagner.wordpress.com">Bruce
+    Wagner</a></div>
+  </div>
+
+*[Blog, Twitter #googlestrike and Facebook this as much as you can -- Thanks!]*
+
+**This is a call to boycott Google AdSense until they change their new
+monitoring policy to be opt-in.**
+
+Earlier today, Google announced that they will be `monitoring everybody's online
+activity <http://news.bbc.co.uk/1/hi/technology/7937201.stm>`_. This is clearly
+a violation of their "Do No Evil" policy.
+
+In their quest to serve more targeted ads, Google will now start tracking the
+sites that we all visit. They can do this because a lot of sites use Google
+`AdSense <http://en.wikipedia.org/wiki/AdSense>`_.
+
+And every time we visit these sites running AdSense, Google will know exactly
+where we've been. This is an extreme breach of privacy! We must act now or risk
+handing over our privacy permanently.
+
+So this is a call to all network admins -- in homes, offices, university
+campuses, ISPs and anywhere else -- to please update your `hosts file
+<http://en.wikipedia.org/wiki/Hosts_file>`_ with::
+
+  127.0.0.1   pagead2.googlesyndication.com
+  127.0.0.1   googlesyndication.com
+
+If you are not an admin, then get in touch with whoever runs your local
+home/office/ISP/university networks and get them to make the change.
+
+By doing this, you will disable Google's tracking as well as take away their
+revenue -- an online equivalent of boycotting. If it is not made clear that our
+privacy is important, the rest of the industry will simply follow Google's lead
+even further.
+
+So when should we stop boycotting Google AdSense? When they make it **opt-in**
+instead of the current opt-out they provide on their `ad preferences
+<http://www.google.com/ads/preferences/>`_ page.
+
+.. class:: sidebox
+
+  It's like having an invisible spy camera following you around
+
+The problem with opt-out is that most users simply don't understand the
+technical details. As Tim Berners-Lee points out it's like having an `invisible
+spy camera
+<http://www.telegraph.co.uk/scienceandtechnology/technology/technologynews/4974695/Online-privacy-demanded-by-web-founders.html>`_
+following you around.
+
+Most people simply don't even know that it's there! And worse, with Google's
+current implementation, you have to opt-out from every browser and machine you
+ever use!! This is outrageous!
+
+If Google would make this opt-in on the other hand, I will happily let them know
+what my interests are so that they can serve me more relevant ads. There is
+value in `behavioural targetting
+<http://en.wikipedia.org/wiki/Behavioral_targeting>`_ and Google can derive the
+same value without having to intrude on our privacy.
+
+But letting Google know my interests is one thing and letting them know every
+website that I ever visit is a different matter altogether. For that, if some
+users want to help Google, then fine, let them do so and let them opt-in.
+
+Countries like France are already planning to take away net neutrality -- with
+their upcoming `anti-P2P law
+<http://arstechnica.com/tech-policy/news/2009/03/french-anti-p2p-law-toughest-in-the-world.ars>`_,
+illegal filesharers will be denied internet access for up to a year and open
+Wi-Fi hotspots will only be allowed to give access to whitelisted sites.
+
+With unhealthy legislation/censorship like this being forced upon the world, we
+really don't need Google adding to our pains and taking away what little privacy
+we have left.
+
+Please comment, blog, twitter `#googlestrike
+<http://search.twitter.com/search?q=%23googlestrike>`_ and facebook this as much
+as you can -- Thanks!
