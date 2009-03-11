@@ -52,7 +52,9 @@ doing the following -- a port of the sample in Mark S. Miller's
                 unsealer.unseal(src.getDecr())(amount)
                 this.balance += amount
 
-            return Namespace(decr, __str__, getBalance, sprout, getDecr, deposit)
+            return Namespace(
+                decr, __str__, getBalance, sprout, getDecr, deposit
+                )
 
         return Namespace(__str__, Purse)
 
