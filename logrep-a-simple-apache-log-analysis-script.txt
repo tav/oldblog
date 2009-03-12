@@ -2,4 +2,83 @@
 Logrep: A Simple Apache Log Analysis Script
 ===========================================
 
-:XX-Created: [2009-03-08, 07:14]
+:X-Created: [2009-03-08, 07:14]
+
+Besides good content and interaction, knowing your audience is key to any
+successful form of communication.
+
+.. image:: http://farm4.static.flickr.com/3627/3348887337_ec21d8cf89.jpg
+           :class: float-right
+
+Now if you run a blog there are lots of services to help you analyse your
+traffic. Personally, I find `Google Analytics
+<http://www.google.com/analytics/>`_ to be pretty good. But there's a slight
+problem. It's not real-time.
+
+Even if you use `this
+<http://www.thetechfaq.com/2008/03/12/real-time-stats-with-google-analytics/>`_
+"trick", you are still lagged by a few hours. I am happy to wait for the
+detailed analysis that Analytics gives me, but I want some basic info in
+real-time.
+
+Seeing as I'm running the blog on my own server, it's just a question of parsing
+the Apache access logs. But despite my efforts, I couldn't find a really simple
+parser for these logs.
+
+All I care about is:
+
+* What are people currently looking at?
+* Who and how many people are visiting?
+* Where are they coming from? Who is referring to me?
+
+Failing to find a simple script, I initially just ran commands like::
+
+  grep "^tav" access.2009-03-10* | awk '{print $12}' | sort | uniq
+
+But this got slightly annoying after a while, so I wrote a simple script. I
+wrote this just for myself, but if anyone is interested, here it is: `logrep.py
+<http://release.plexnet.org/misc/logrep/logrep.py>`_
+
+Running::
+
+  ./logrep.py access.2009-03-* -what -total
+
+outputs <number-of-total-requests> <number-of-requests-from-unique-ips>
+<url-requested>::
+
+  1009    668     /a-challenge-to-break-python-security.html
+  6298    1023    /feed.rss
+  10595   8912    /ruby-style-blocks-in-python.html
+
+There's a similar::
+
+  ./logrep.py access.2009-03-* -where -total -prune
+
+where ``-prune`` combines together urls with different ``?query-strings``::
+
+  1014    972     http://news.ycombinator.com/
+  2966    2904    http://www.reddit.com/
+
+And::
+
+  ./logrep.py access.2009-03-* -who -total
+
+which outputs the obvious total number of visitors, e.g.::
+
+  18314
+
+You can pass in some additional filters:
+
+* ``--vhost tav.espians.com`` will filter on just requests to that vhost.
+
+* ``-all`` will include statistic for requests which weren't served
+  successfully, e.g. 404s, 301s, etc.
+
+* ``--ignore /favicon.ico,/robots.txt`` will filter out requests to the given
+  list of URLs.
+
+Again, I wrote this just for myself. But like with all my work, I'm placing it
+in the public domain if anyone else fancies using it: `logrep.py
+<http://release.plexnet.org/misc/logrep/logrep.py>`_
+
+Enjoy!
