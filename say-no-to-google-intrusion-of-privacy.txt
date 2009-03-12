@@ -21,7 +21,7 @@ monitoring policy to be opt-in.**
 
 Earlier today, Google announced that they will be `monitoring everybody's online
 activity <http://news.bbc.co.uk/1/hi/technology/7937201.stm>`_. This is clearly
-a violation of their "Do No Evil" policy.
+a violation of their "Don't Be Evil" policy.
 
 In their quest to serve more targeted ads, Google will now start tracking the
 sites that we all visit. They can do this because a lot of sites use Google
@@ -83,6 +83,9 @@ Wi-Fi hotspots will only be allowed to give access to whitelisted sites.
 With unhealthy legislation/censorship like this being forced upon the world, we
 really don't need Google adding to our pains and taking away what little privacy
 we have left.
+
+I'll update this blog article if/when Google do reverse their policy to opt-in.
+Keep it bookmarked so that you can stop the boycott =)
 
 Please comment, blog, twitter `#googlestrike
 <http://search.twitter.com/search?q=%23googlestrike>`_ and facebook this as much
