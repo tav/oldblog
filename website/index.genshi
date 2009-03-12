@@ -39,7 +39,7 @@
   </li>
 </ul></td>
 </tr></table>
-<div py:for="post in sorted([item for item in items if item.get('x-created') and not item.get('subtitle')], key=lambda x: x['x-created'], reverse=True)[:40]">
+<div py:for="post in sorted([item for item in items if item.get('x-created') and not item.get('subtitle')], key=lambda x: x['x-created'], reverse=True)[:60]">
   <div class="post-title">
 	<div class="post-link"><a href="${set_name(post)}.html">${Markup(post['title'])}</a></div>
 	<div>
