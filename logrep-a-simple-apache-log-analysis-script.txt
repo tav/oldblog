@@ -63,7 +63,7 @@ And::
 
   ./logrep.py access.2009-03-* -who -total
 
-which outputs the obvious total number of visitors, e.g.::
+which outputs the obvious total number of visitors (unique ip addresses), e.g.::
 
   18314
 
