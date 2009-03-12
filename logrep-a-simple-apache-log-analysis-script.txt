@@ -33,7 +33,7 @@ All I care about is:
 
 Failing to find a simple script, I initially just ran commands like::
 
-  grep "^tav" access.2009-03-10* | awk '{print $12}' | sort | uniq
+  grep "^tav" access.2009-03-* | awk '{print $12}' | sort | uniq
 
 But this got slightly annoying after a while, so I wrote a simple script. I
 wrote this just for myself, but if anyone is interested, here it is: `logrep.py
