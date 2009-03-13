@@ -32,8 +32,8 @@ where we've been. This is an extreme breach of privacy! We must act now or risk
 handing over our privacy permanently.
 
 So this is a call to all network admins -- in homes, offices, university
-campuses, ISPs and anywhere else -- to please update your `hosts file
-<http://en.wikipedia.org/wiki/Hosts_file>`_ with::
+campuses, ISPs and anywhere else -- to please add the following 2 lines to your
+`hosts file <http://en.wikipedia.org/wiki/Hosts_file>`_::
 
   127.0.0.1   pagead2.googlesyndication.com
   127.0.0.1   googlesyndication.com

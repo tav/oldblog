@@ -187,7 +187,7 @@
 	  </div>
 	  <div py:content="Markup(content)"></div>
 	</div>
-	<br />
+	<br /><hr class="clear" />
 	<div class="section-info" id="comments-section"><strong>Article Comments</strong></div>
     <div id="disqus-comments-section">
 	<script type="text/javascript">
