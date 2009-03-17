@@ -6,6 +6,7 @@ A Command Line for the Internet
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 :X-Created: [2008-07-03, 10:30]
+:X-Type:    Feature
 
 :Abstract:
 

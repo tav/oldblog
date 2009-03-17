@@ -3,12 +3,6 @@
 
   STATIC = 'http://tav.github.com/static'
 
-  def div(list):
-    list_len = len(list)
-    left = int(round(float(list_len)/2))
-    right = list_len - left
-    return list[:left], list[-right:]
-
   MONTHS = [
     'Zero Month',
     'January', 'February', 'March', 'April', 'May', 'June',
@@ -20,26 +14,19 @@
     last_post_name[0] = post['__name__']
     return last_post_name[0]
 
-  featured_articles_list = [item for item in items if item.get('subtitle') and item.get('x-created')]
-
 ?>
 
-<div class="section-info" id="all-articles"><strong>Feature Articles</strong></div>
-<table width="100%"><tr>
-<td py:for="column_items in div(sorted(featured_articles_list, key=lambda x: x['__name__']))" valign="top"><ul>
-  <li py:for="item in column_items">
-    <a href="${item['__name__']}.html">${Markup(item.get('title') or item['__title__'])}</a> <py:if test="not item.get('x-created')"><span class="index-link-info">[DRAFT]</span></py:if>
-	<br />
-	<span class="index-link-info">
-	  <py:if test="item.get('subtitle')">${Markup(item['subtitle'])}</py:if>
-	  <!--
-	  [<a href="${item['__name__']}.html#disqus_thread" rel="disqus:${site_url + '/' + item['__name__']}.html">Add a Comment</a>]
-	  -->
-	</span>
+<span style="font-size: 1.4em;">Thanks for checking out my Asktav<em>!</em>
+blog. Some feature articles:</span>
+
+<ul>
+  <li>
+    <a href="espra-bootstrap.html">Espra Bootstrap</a>
+	<br /><span class="index-link-info">A Command Line for the Internet</span>
   </li>
-</ul></td>
-</tr></table>
-<div py:for="post in sorted([item for item in items if item.get('x-created') and not item.get('subtitle')], key=lambda x: x['x-created'], reverse=True)[:60]">
+</ul>
+
+<div py:for="post in sorted([item for item in items if item.get('x-created') and item.get('x-type', 'blog') == 'blog'], key=lambda x: x['x-created'], reverse=True)[:60]">
   <div class="post-title">
 	<div class="post-link"><a href="${set_name(post)}.html">${Markup(post['title'])}</a></div>
 	<div>
@@ -49,17 +36,13 @@
 		  title:"${post['title'].replace('"', r'\"')}",
 		  url:'${site_url + '/' + set_name(post)}.html',
 		  }, {button:true});
-		</script>
-		| <a href="${post['__name__']}.html#disqus_thread" rel="disqus:${site_url + '/' + post['__name__']}.html">Comment!</a>
+		</script>| <a href="${post['__name__']}.html#disqus_thread" rel="disqus:${site_url + '/' + post['__name__']}.html">Comment!</a>
 	  </div>
 	  by <span py:with="author=post.get('__by__', site_author_nick)"><a href="${authors[author][-1]}">${author}</a></span> on <span py:with="created=post['x-created']" class="post-date">${MONTHS[int(created[6:8])]} ${int(created[9:11])}, ${created[1:5]} @ ${created[-6:-1]}</span>
 	</div>
   </div>
   <div py:content="Markup(unicode(post['__text__'], 'utf-8'))" class="blog-post" />
   <div class="post-footer">
-	<!--
-	<a href="${post['__name__']}.html#disqus_thread" rel="disqus:${site_url + '/' + post['__name__']}.html">Comment on this article!</a>
-	-->
 	<br /><br />
   </div>
 </div>
