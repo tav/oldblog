@@ -16,6 +16,11 @@
 
 ?>
 
+<style type="text/css">
+  .more { display: none; }
+  .more-link { display: block; }
+</style>
+
 <div id="site-welcome">Thanks for coming to Asktav<em>!</em> Articles
 you might like:</div>
 
