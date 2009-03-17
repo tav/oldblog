@@ -2,17 +2,20 @@
 About Tav
 =========
 
-:X-Summary: A Brief History of Tav
+A Brief History of Tav
+~~~~~~~~~~~~~~~~~~~~~~
+
+:X-Type: Feature
+:X-Created: [2009-03-17, 04:03]
 
 :Abstract:
 
     Tav is an Entrepreneur, Lover, Social Artist, Coder, Writer, Symbiotic
-	Engineer, Musician, World Changer and Espian. This is a pseudo
-	auto-biography of Tav written in a simple question and answer style. Enjoy!
+	Engineer, Musician, World Changer and Espian.
 
-.. raw:: html
+    This is a draft, pseudo auto-biography written in a simple Q&A style. Enjoy!
 
-  Follow Tav:
+.. |follow-tav| raw:: html
 
 	<a href="http://twitter.com/tav"><img
 	src="http://tav.github.com/static/gfx/twitter-icon.png" alt="Twitter" class="absmiddle" /></a> <a
@@ -33,6 +36,8 @@ About Tav
                 :depth: 2
                 :backlinks: none
 
+
+|follow-tav|
 
 Are you happy to answer personal questions?
 ===========================================

@@ -16,8 +16,8 @@
 
 ?>
 
-<span style="font-size: 1.4em;">Thanks for checking out my Asktav<em>!</em>
-blog. Some feature articles:</span>
+<div id="site-welcome">Thanks for checking out Asktav<em>!</em> Some articles
+you might like:</div>
 
 <ul>
   <li>

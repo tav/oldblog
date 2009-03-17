@@ -88,45 +88,6 @@
 
 <div id="main">
 
-<style type="text/css">
-
-h1 {
-  font-weight: normal;
-  font-size: 1.6em;
-  color: #0099cd;
-}
-
-#site-header {
-  border-bottom: 1px dashed #444;
-}
-
-#site-logo {
-  float: left;
-  margin-right: 0.5em;
-}
-
-#site-info {
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-  text-align: right;
-}
-
-.article-title {
-  margin-top: 0.3em;
-  margin-bottom: 2.5em;
-  padding-bottom: 0.3em;
-  padding-top: 0.7em;
-  line-height: 2.3em;
-}
-.article-info {
-  font-size: 1em;
-}
-.additional-content-info {
-  float: right;
-}
-
-</style>
-
   <div id="site-header">
 	<div id="site-info">
 		<a href="index.html" title="Asktav: A Blog by Tav"><img
