@@ -63,9 +63,9 @@
 
   <!-- stylesheets -->
   <link rel="stylesheet" type="text/css" media="screen" title="default"
-		href="${STATIC}/css/screen.css" />
+		href="${STATIC}/css/screen.css?v=2" />
   <link rel="stylesheet" type="text/css" media="screen" title="default"
-		href="${STATIC}/css/${site_nick}.css" />
+		href="${STATIC}/css/${site_nick}.css?v=2" />
 
   <style type="text/css" media="print">
     /* @import url("${STATIC}/css/print.css"); */
