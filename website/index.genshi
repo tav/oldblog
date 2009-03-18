@@ -43,10 +43,11 @@ you might like:</div>
 		  }, {button:true});
 		</script>| <a href="${post['__name__']}.html#disqus_thread" rel="disqus:${site_url + '/' + post['__name__']}.html">Comment!</a>
 	  </div>
-	  by <span py:with="author=post.get('__by__', site_author_nick)"><a href="${authors[author][-1]}">${author}</a></span> on <span py:with="created=post['x-created']" class="post-date">${MONTHS[int(created[6:8])]} ${int(created[9:11])}, ${created[1:5]} @ ${created[-6:-1]}</span>
+	  &#187; by <span py:with="author=post.get('__by__', site_author_nick)"><a href="${authors[author][-1]}">${author}</a></span> on <span py:with="created=post['x-created']" class="post-date">${MONTHS[int(created[6:8])]} ${int(created[9:11])}, ${created[1:5]} @ ${created[-6:-1]}</span> <a href="http://creativecommons.org/licenses/publicdomain/"><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Cc-pd.svg/64px-Cc-pd.svg.png" width="20px" height="20px" alt="Public Domain" class="absmiddle" /></a>
 	</div>
   </div>
-  <div py:content="Markup(unicode(post['__text__'], 'utf-8'))" class="blog-post" />
+  <div py:content="post.get('__lead__') and Markup(unicode(post['__lead__'], 'utf-8')) or Markup(unicode(post['__text__'], 'utf-8'))" class="blog-post" />
+  <div py:if="post.get('__lead__')"><a href="${set_name(post)}.html">Read more…</a></div>
   <div class="post-footer">
 	<br /><br />
   </div>

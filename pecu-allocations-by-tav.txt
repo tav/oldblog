@@ -1,0 +1,525 @@
+=======================
+Pecu Allocations by Tav
+=======================
+
+:X-Created: [2009-03-15, 10:14]
+
+.. image:: http://tav.github.com/static/gfx/aaken.png
+           :class: float-right
+
+Hundreds of people have -- knowingly or not -- had a *direct* impact on my
+work/vision. Their belief, inspiration, energy, encouragement, suggestions,
+criticisms, support (both emotional and financial), tasty treats and hard work
+has been phenomenal!
+
+I'd like to reward them with some life-time ¤ pecu allocations.
+
+Since I'm not making any pecu payouts at the moment, they're not worth much yet
+-- but I hope one day that those who've helped me will feel the gratitude =)
+
+See below for the full list of pecu allocations.
+
+.. more
+
+The following individuals have put in a lot to make my vision a reality and I'd
+like to reward them with **¤200,000** each:
+
+.. class:: double-column
+
+* Alex Tomkins
+* Brian Deegan
+* Chris Macrae
+* Cris Pearson
+* Daniel Biddle
+* Danny Bruder
+* David Pinto
+* Inderpaul Johar
+* James Arthur
+* Jeffry Archambeault
+* John McCane-Whitney
+* Liliana Avrushin
+* Luke Graybill
+* Mamading Ceesay
+* Martyn Hurt
+* Matthieu Rey-Grange
+* Mathew Ryden
+* Nadine Gahr
+* Nathan Staab
+* Narmatha Murugananda
+* Navaratnam Para
+* Nicholas Midgley
+* Øyvind Selbek
+* Sofia Bustamante
+* Sean B. Palmer
+* Stefan Plantikow
+* Tim Jenks
+* Tiziano Cirillo
+* Tom Salfield
+* Yan Minagawa
+
+The following beautiful creatures have helped at various critical junctures or
+laid key foundations. For this they get **¤20,000** each:
+
+.. class:: double-column
+
+* Aaron Swartz
+* Adam Langley
+* Ade Thomas
+* Adnan Hadzi
+* Alex Greiner
+* Alex Pappajohn
+* Allen Short
+* Andreas Dietrich
+* Andrew Kenneth Milton
+* Anne Biggs
+* Anne Helene Wirstad
+* Anette Hvolbæk
+* Bryce Wilcox-O'Hearn
+* Charles Goodier
+* Chris Wood
+* Claire Colvin
+* David Bovill
+* Derek Richards
+* Eric Hopper
+* Eric Wahlforss
+* Erik Möller
+* Erol Ziya
+* Ephraim Spiro
+* Fenton Whelan
+* Fergus Doyle
+* Gary Alexander
+* Gloria Charles
+* Guido van Rossum
+* Guilhem Buzenet
+* Itamar Shtull-Trauring
+* Jacob Everist
+* Jill Lundquist
+* Jim Carrico
+* Jo Walsh
+* Joe Short
+* Joerg Baach
+* John Hurliman
+* Josef Davies-Coates
+* Henri Cattan
+* Henry Hicks
+* Ka Ho Chan
+* Karin Kylander
+* Karina Arthur
+* Katie Miller
+* Kisiyane Roberts
+* Laura Tov
+* Lesley Williams
+* Lucie Rey-Grange
+* Mark Poole
+* Maria Glauser
+* Maria X
+* Matthew Sellwood
+* Matthew Skinner
+* Mayra Graybill
+* Mia Bittar
+* Mohan Selladurai
+* Neythal (Sri Lanka)
+* Nolan Darilek
+* Olga Zueva
+* Paul Böhm
+* Phillip J. Eby
+* Pierre-Antoine Tetard
+* Ricky Cousins
+* Saritah
+* Saul Albert
+* Shalabh Chaturvedi
+* Simeon Scott
+* Simon Michael
+* Simon Fox
+* Simon Reynolds
+* Stephan Karpischek
+* Steve Alexander
+* Suhanya Babu
+* Tavin Cole
+* Thamilarasi Siva
+* Tim Berners-Lee
+* Tom Owen-Smith
+* Vanda Petanjek
+* Xiao Xuan Guo
+
+These lovely supporters get **¤2,000** each:
+
+.. class:: double-column
+
+* Adam Burns
+* Adam Karpierz (Poland)
+* Adam Perfect
+* Adam Wern
+* Adir Tov
+* Agathe Pouget-Abadie
+* Al Tepper
+* Alan Wagenberg
+* Alex Bustamante
+* Alexander Wait (USA)
+* Alice Fung
+* Ana Sandra Ruiz Entrecanales
+* Andreas Kotes
+* Andreas Schwarz
+* Andrius Kulikauskas
+* Andy Dawkins
+* Andy McKay
+* Andrew M. Kuchling
+* Andrew McCormick
+* Angela Beesley
+* Anna Gordon-Walker
+* Anna Rothkopf
+* Annalisa Fagan
+* Anne Doyle
+* Anselm Hook
+* Ante Pavlov
+* Arani Siva
+* Ashley Siple
+* Auro Tom Foxtrot
+* Azra Gül
+* Beatrice Wessolowski
+* Ben Pirt
+* Ben Swartz
+* Benjamin Geer
+* Benny "Curus" Amorsen
+* Bernard Lietaer
+* Blake Ludwig
+* Boian Rodriguez Nikiforov
+* Bram Cohen
+* Brandon Wiley
+* Bree Morrison
+* Brenton Bills
+* Brian Coughlan
+* Briony "Misadventure" (UK)
+* Callum Beith
+* Candie Duncan
+* Carl Ballard Swanson
+* Chai Mason
+* Chris Cook
+* Chris Davis
+* Chris Heaton
+* Chris McDonough
+* Chris Withers
+* Christoffer Hvolbaek
+* Christopher Satterthwaite
+* Christopher Schmidt
+* Clara Maguire
+* Cory Doctorow
+* Craig Hubley
+* Cyndi Rhoades
+* Damiano Vukotić
+* Dan Brickley
+* Daniel Harris
+* Daniel Magnoff
+* Dante-Gabryell Monson
+* David Bausola
+* David Cozens
+* David Goodger
+* David Mertz
+* David Midgley
+* David Mills
+* David Saxby
+* Darren Platt
+* Debra Bourne (UK)
+* Dharushana Muthulingam
+* Dermot ? (UK)
+* Dimitrius Savvaidis
+* Dominik Webb
+* Donatella Bernstein
+* Dymitri Kleine
+* Earle Martin
+* Edward Saperia
+* Eléonore De Prunelé
+* Elisabet Sahtouris
+* Elkin Gordon Atwell
+* Elmar Geese
+* Emma Wigley
+* Emmanuel Baidoo
+* Erik Stewart
+* Fabian Kyrielis
+* Farhan Rehman
+* Femi Longe
+* Felicity Wood
+* Felix Iskwei
+* Florence David
+* Francesca Cerletti (UK)
+* Francesca Romana Giordano
+* Gabe Wachob
+* Gabrielle Hamm
+* Gareth Strangemore-Jones
+* Gary Poster
+* Gaurav Pophaly
+* Gavin Starks
+* Gemma Youlia Dillon
+* Geoff Jones
+* Geoffry Arias
+* George Nicholaides
+* Giles Mason
+* Glyph Lefkowitz
+* Gordon Mohr
+* Grant Stapleton
+* Greg Timms
+* Gregor J. Rothfuss
+* Guy Kawasaki
+* Hannah Harris
+* Harriet Harris
+* Heather Wilkinson
+* Helen Aldritch
+* Henry Bowen
+* Holly Lloyd
+* Holly Porter
+* Howard Rheingold
+* Ian Clarke
+* Ian Hogarth
+* Ida Norheim-Hagtun
+* Igor Tojcic
+* Ilze Black
+* Inge Rochette
+* James Binns
+* James Cox (UK)
+* James Howison (Australia)
+* James Hurrell
+* James McKay (Switzerland)
+* James Stevens
+* James Sutherland
+* James Wallace
+* Jan-Klaas Kollhof
+* Jane Moyses
+* Javier Candeira
+* Jeannie Cool
+* Jeremie Miller
+* Jessica Bridges-Palmer
+* Jim Ley
+* Jimmy Wales
+* Joanna O'Donnell
+* Joe Geldart (UK)
+* Joey DeVilla
+* John Bywater
+* John Cassidy
+* John Lea
+* John "Sayke" ?
+* Joi Ito
+* Jon Bootland
+* Jonathan Robinson
+* Joni Davis ?
+* Jose Esquer
+* Joseph O'Kelly (UK)
+* Joy Green
+* Juan Pablo Rico
+* Jubin Zawar
+* Judith Martin
+* Julia Forster
+* Jurgen Braam
+* Justin O’Shaughnessy (UK)
+* Ka-Ping Yee
+* Kapil Thangavelu
+* Karen Hessels
+* Katerina ?
+* Katja Strøm Cappelen
+* Kath Short
+* Katie Keegan
+* Katie Prescott
+* Katy Marks
+* Kelly Teamey
+* Ken Manheimer
+* Kevin Hemenway
+* Kevin Marks
+* Kiran Jonnalagadda
+* Kiyoto Kanda
+* Lanchanie Dias Gunawardena
+* Laura Scheffler
+* Lauri Love
+* Leon Rocha
+* Lena Nalbach
+* Leslie Vuchot
+* Lewis Hart
+* Libby Miller
+* Lion Kimbro
+* Lisa Colaco
+* Lord Kimo
+* Lottie Child
+* Lucas Gonzalez
+* Luke Francl
+* Luke Kenneth Casson Leighton
+* Luke Nicholson
+* Lynton Currill Kim-Wai Pepper
+* Magnolia Slimm
+* Manuel Sauer
+* Maor Bar-Ziv
+* Marco Herry
+* Mark Brown
+* Mark Chaplin
+* Mark Hodge
+* Mark S. Miller
+* Markus Quarta
+* Marguerite Smith
+* Marshall Burns
+* Martin Peck
+* Mary Fee
+* Matt Cooperrider
+* Matthew Devney
+* Mattis Manzel
+* Mayra Vivo Torres
+* Meghan Benton
+* Meera Shah
+* Menka Parekh
+* Michael Linton
+* Michael Sparks
+* Michel Bauwens
+* Mike Linksvayer
+* Mikey Weinkove
+* Mitchell Jacobs
+* Molly Webb
+* Moraan Gilad
+* Mostofa Zaman
+* Navindu Katugampola
+* Nathalie Follen
+* Nick Hart-Williams
+* Nick Ierodiaconou
+* Nick Szabo
+* Nicolas David
+* Niels Boeing (Germany)
+* Nishant Shah
+* Noa Harvey
+* Oliver Morrison
+* Oliver Sylvester-Bradley
+* Pamela McLean
+* Paola Desiderio
+* Paolo "xerox" Martini (UK)
+* Pascale Scheurer
+* Patrick Andrews
+* Patrick Yiu
+* Paul Everitt
+* Paul Harrison
+* Paul Mutton (UK)
+* Paul Pesach
+* Paul Robinett
+* Peri Urban
+* Pete Brownwell
+* Petit-Pigeard Clotilde
+* Phil G
+* Phil Harris
+* Piccia Neri
+* Pietro Speroni di Fenizio
+* \R. David Murray
+* Rama Gheerawo
+* Raph Levien
+* Rasmacone Boothe
+* Rasmus Tenbergen
+* Rastko ?
+* Ray Murray
+* Raymond Hettinger
+* Rayhan Omar
+* Rebecca Harding
+* Reem Martin
+* Riccarda Zezza
+* Rob Lord
+* Robert De Souza
+* Robert Kaye
+* Robert Knowles
+* Robin Upton
+* Rodney Shakespeare
+* Rohit Khare
+* Roman Nosov
+* Ricardo Niederberger Cabral
+* Richard Ford
+* Richard Nelson
+* Richard "coldfyre" Nicholas (USA)
+* Roger Dingledine
+* Romek Szczesniak
+* Ross Evans (UK)
+* Rufus Pollock
+* Salim Fadhley (UK)
+* Salim Virani
+* Sam Brown
+* Sam Geall
+* Sam Joseph
+* Sara Kiran
+* Selas Mene
+* Seger Céline
+* Servane Mouazan
+* Shahid Choudhry
+* Shane Hughes
+* Simon Bartlet
+* Simon Persoff
+* Simon Rawles
+* Sonia Ali
+* Sophie ? (Austria)
+* Sophie Le Barbier
+* Stan Rey-Grange
+* Stefan Baker
+* Steffi Dayalan
+* Stella Boeva
+* Stephen Wilmot
+* Steve Jenson
+* Steve Peake
+* Steven Starr
+* Su Nandy
+* Suw Charman
+* Sunir Shah
+* Sym Von LynX
+* Tamsin Lejeune
+* Tanis Taylor
+* Tansy E Huws
+* Tess Ashwin
+* Tim Wacker (USA)
+* Tom D. Harry (UK)
+* Tom Heiser
+* Tom Longson
+* Tom Williams
+* Tommy Hutchinson
+* Toni Prug
+* Toni Sola
+* Tony Cook
+* Tyler Eaves
+* Ushani Suresh
+* Veeral ?
+* William Wardlaw-Rogers
+* Wayne Siron
+* Wes Felter
+* Wybo Wiersma
+* Zoe Young
+
+And, finally, whilst I'm not currently making any pecu allocations to them, I
+feel deeply indebted to these visionaries, musicians, coders and writers:
+
+.. class:: double-column
+
+* \A. R. Rahman
+* Alan Kay
+* Asian Dub Foundation
+* Au Revoir Simone
+* Bruce Sterling
+* Buckminster Fuller (passed away)
+* Daft Punk
+* David Lynch
+* Douglas Engelbart
+* Fernando Perez
+* India Arie
+* Jeff Buckley (passed away)
+* Kim Stanley Robinson
+* Lawrence Lessig
+* M.I.A.
+* Mahatma Gandhi (passed away)
+* Manu Chao
+* Marc Stiegler
+* Mark Pilgrim
+* Marlena Shaw
+* Massive Attack
+* Michael Franti
+* Muhammad Yunus
+* Neal Stephenson
+* Nouvelle Vague
+* P.M.
+* Paul Graham
+* Peter Norvig
+* Portishead
+* Ray Charles (passed away)
+* Ray Ozzie
+* Richard P. Gabriel
+* Tanya Stephens
+* Ted Nelson
+* Tim Peters
+* Vannevar Bush (passed away)
+* Vint Cerf
+
+Thank you all!
