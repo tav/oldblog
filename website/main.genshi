@@ -84,6 +84,7 @@
     GOOGLE_ANALYTICS_CODE = "${site_analytics_code}";
     DISQUS_FORUM = '${site_nick}';
     PAGE_URI = '${page_url}'
+    facebookXdReceiverPath = 'http://tav.espians.com/external/xd_receiver.html';
   </script>
   <script type="text/javascript" src="${STATIC}/js/init.js" />
   <script type="text/javascript" src="http://w.sharethis.com/button/sharethis.js#tabs=web%2Cpost%2Cemail&amp;charset=utf-8&amp;style=rotate&amp;publisher=65b4c59a-e069-4896-84b4-7d8d7dce2b77&amp;headerbg=%230099cd&amp;linkfg=%230099cd"></script>
