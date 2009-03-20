@@ -1,0 +1,21 @@
+var index_json_data = %s;
+
+(function(data) {
+
+  var prev = null;
+  var next = null;
+  var current;
+  var num_articles = data.length;
+  for (var i=0; i < num_articles; i++) {
+	current = data[i];
+	if (current[0] == ARTICLE_NAME) {
+	  if (i != num_articles - 1)
+		next = data[i+1];
+	  break;
+	}
+    prev = current;
+  }
+  var nav = $('#article-nav');
+  $('<table width="100%%"><tr><td width="50%%" valign="top">&laquo; <a href="'+prev[0]+'.html">'+prev[1]+'</a></td><td width="50%%" valign="top" style="text-align: right;"><a href="'+next[0]+'.html">'+next[1]+'</a> &raquo;</td></tr></table>').appendTo(nav);
+
+}(index_json_data));

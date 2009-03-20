@@ -4,6 +4,8 @@
       xmlns:py="http://genshi.edgewall.org/">
 <?python
 
+  from time import time
+
   STATIC = 'http://tav.github.com/static'
 
   info = defined('info') and info or {}
@@ -153,6 +155,13 @@
   </div>
 
   <div py:if="defined('content')">
+
+	<div id="article-nav">
+      <script type="text/javascript">
+        ARTICLE_NAME = '${info['__name__']}';
+      </script>
+      <script type="text/javascript" src="index.js?${int(time())}" />
+	</div>
     <div class="article-title">
       <div class="post-link"><a href="${info['__name__']}.html">${Markup(page_title)}</a></div>
 	  <div class="additional-content-info">
