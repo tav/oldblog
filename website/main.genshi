@@ -160,7 +160,7 @@
       <script type="text/javascript">
         ARTICLE_NAME = '${info['__name__']}';
       </script>
-      <script type="text/javascript" src="index.js?${int(time()/3)}" />
+      <script type="text/javascript" src="index.js?${int(time()/4)}" />
 	</div>
     <div class="article-title">
       <div class="post-link"><a href="${info['__name__']}.html">${Markup(page_title)}</a></div>
