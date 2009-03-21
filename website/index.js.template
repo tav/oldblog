@@ -15,6 +15,6 @@
     prev = current;
   }
 
-  $('<table width="100%%"><tr><td width="50%%" valign="top">&laquo; <a href="'+prev[0]+'.html?prev=1">'+prev[1]+'</a></td><td width="50%%" valign="top" style="text-align: right;"><a href="'+next[0]+'.html?next=1">'+next[1]+'</a> &raquo;</td></tr></table>').appendTo('#article-nav');
+  $('<table width="100%%"><tr><td width="50%%" valign="top">&laquo; <a href="'+prev[0]+'.html?prev=1">'+prev[1]+'</a></td><td width="50%%" valign="top" style="text-align: right;"><a href="'+next[0]+'.html?next=1">'+next[1]+'</a> &raquo;</td></tr></table>').appendTo('.article-nav');
 
 }(%s));

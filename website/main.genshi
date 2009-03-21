@@ -156,11 +156,7 @@
 
   <div py:if="defined('content')">
 
-	<div id="article-nav">
-      <script type="text/javascript">
-        ARTICLE_NAME = '${info['__name__']}';
-      </script>
-      <script type="text/javascript" src="index.js?${int(time()/4)}" />
+	<div class="article-nav">
 	</div>
     <div class="article-title">
       <div class="post-link"><a href="${info['__name__']}.html">${Markup(page_title)}</a></div>
@@ -186,12 +182,15 @@
 	  This is an early draft. Many sections are incomplete. A lot more is being written.
     </div>
 	<div id="content">
-	  <div py:if="info['__type__'] == 'py' and info.get('title')">
-		<h1>${info['title']}</h1>
-	  </div>
 	  <div py:content="Markup(content)"></div>
 	</div>
 	<br /><hr class="clear" />
+	<div class="article-nav" style="margin-bottom: 1.5em;">
+      <script type="text/javascript">
+        ARTICLE_NAME = '${info['__name__']}';
+      </script>
+      <script type="text/javascript" src="index.js?${int(time()/4)}" />
+	</div>
     <div id="disqus-comments-section">
 	<script type="text/javascript">
       disqus_url = "${page_url}";
