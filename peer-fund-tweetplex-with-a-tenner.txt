@@ -1,0 +1,228 @@
+=============================================
+Peer Fund TweetPlex With £10 and Get A Share!
+=============================================
+
+:XX-Created: [2009-03-24, 06:28]
+
+£10 from you will help fund my next project, `TweetPlex
+<peer-fund-tweetplex-with-a-tenner#what-is-tweetplex>`_ -- a web-based Twitter
+client to save people time and help them be more productive.
+
+£10 will also get you one of 1,000 "shares" -- so feel free to be generous and
+take several :)
+
+.. raw:: html
+
+  <style type="text/css">
+    label { font-weight: bold; }
+    .tweetplex-fund-form { margin-left: 5em; }
+  </style>
+  <form action="" class="tweetplex-fund-form"><table>
+  <tr><td align="right">
+    <label for="tweetplex-fund-email">Your Email</label>
+  </td><td align="right">&nbsp;</td><td>
+    <input type="text" name="donoremail" id="tweetplex-fund-email" />
+  </td><td rowspan="4" valign="top">
+  </td></tr><tr><td align="right" style="white-space: no-wrap;">
+    <label for="tweetplex-fund-twitter">Twitter Username</label>
+  </td><td align="right">&nbsp;@</td><td>
+    <input type="text" name="donortwitter" id="tweetplex-fund-twitter" />
+  </td></tr><tr><td align="right">
+    <label for="tweetplex-fund-amount">Amount</label>
+  </td><td align="right">&nbsp;£</td><td>
+    <input type="text" name="amount" id="tweetplex-fund-amount" value="10"
+    size="6" />
+  </td></tr>
+  <tr><td colspan="2">&nbsp;</td><td style="padding-top: 8px"><img
+    src="https://www.paypal.com/en_GB/i/btn/btn_donate_SM.gif" /></td></tr>
+  </table></form>
+
+So far £410 has been raised with the top givers being:
+
+* `David Pinto <http://twitter.com/happyseaurchin>`_ (£400), `Sofia Bustamante
+  <http://twitter.com/olasofia>`_ (£10)
+
+.. more
+
+.. raw:: html
+
+  <div id="what-is-tweetplex"></div>
+
+**Why TweetPlex?**
+
+`Twitter <http://twitter.com>`_ is a great service, but once you start following
+more than a hundred people, it becomes time-consuming to keep on top of the
+information overload.
+
+I believe that a lot of innovation is possible on the client-side to help people
+be more productive and get a lot more value from using Twitter.
+
+.. raw:: html
+
+  <div class="float-right">
+    <img src="http://release.plexnet.org/gfx/tav.blog/tweetplex.png"
+         width="232px" height="78px" />
+  </div>
+
+**Why Will TweetPlex Be Great?**
+
+* Shareable Trust Maps for filtering your Twitter stream.
+* Pecus -- a form of reputation currency.
+* Web-based. Use it anywhere -- Home, Work, iPhone.
+* Ease of managing friends/followers.
+* Integration with LinkedIn, Skype, FriendFeed, GitHub, Seesmic and Facebook.
+* Real-time statistics.
+* Collaborative features like: want, offer, campaign.
+* Twitter/Facebook events integrated with Google Calendar.
+* Location-aware so you can know what's happening near you.
+* Live updates -- no more refreshing.
+* Language detection and auto-translate feature.
+* Integrated media player for YouTubes and MP3s.
+* Use multiple Twitter/Laconica accounts at the same time.
+* Easily extendable and customisable.
+
+All this in a simple interface!
+
+**How Does TweetPlex Help Overcome Information Overload?**
+
+With `Trust Maps <espra-bootstrap.html#trust-maps>`_. This is just an easy way
+to group people you are following into different contexts -- optionally filtered
+by hashtags like #tech, #music, #food, etc. You will also be able to make Trust
+Maps public so that everyone can benefit.
+
+The different contexts would be displayed in columns -- similar to the excellent
+`TweetDeck <http://www.tweetdeck.com/beta/>`_ app -- but unlike TweetDeck, you
+will be able to use TweetPlex anywhere with a decent web browser. Home. Office.
+iPhone. There'd be no need to go through the
+install-configure-upgrade-on-every-machine-you-use bollocks.
+
+**How Will You Make Money?**
+
+By charging for it. I know. It's insane -- charging for a product on the
+internet? ;p
+
+Seriously, I believe TweetPlex will save many users enough time that a cost like
+£29.99/year should be more than reasonable. I also have plans for a sustainable
+free "lite" version that doesn't involve banner/Google ads. But one step at a
+time.
+
+**What's The Thank You Box?**
+
+I believe that gratitude should be visible. So there'll be a small box on the
+TweetPlex interface which will say "Made possible thanks to:" followed by a link
+to a giver's profile page and Twitter bio.
+
+The number of times any individual giver is promoted through the Thank You box
+will be proportional to the number of shares they have -- with a maximum of
+10,000 page views per share. That is, someone who has got 100 shares will be
+promoted in the Thank You box for a maximum of 1 million page views on
+TweetPlex.
+
+**What More Will I Get?**
+
+Besides your share(s) in the company, I'll be keeping you informed on progress
+and creating many opportunities for you to get directly involved.
+
+This is just the beginning of a story...
+
+With the first working release of TweetPlex out of the way, we'll go on to
+tackle big questions like:
+
+* How can we all do what we love *and* live comfortably?
+* How can we efficiently organise people, ideas and resources?
+* How can we be united in our diversity so that culture can truly flourish?
+
+You'll have front row seats and will hopefully get actively involved in the
+creation of things like:
+
+* Web 4.0 -- a Web 4 the people, by the people
+* The establishment of a reputation-based economy
+
+**What Will Set TweetPlex Apart?**
+
+The attention to the finer details. Most Twitter clients seem to add features
+and icons without much regard to the user experience. In contrast, the mantra
+with TweetPlex will be "simplicity beyond complexity".
+
+As a simple example, when you post a message using most Twitter clients, they
+will hang if Twitter's servers are down. In contrast, TweetPlex will save your
+messages in the "cloud" and automatically post them when Twitter's servers come
+back up.
+
+**Will TweetPlex Be Open Source?**
+
+The reason I'm creating TweetPlex is to make money to fund the development of
+the `Plexnet <http://github.com/tav/plexnet>`_ [`draft spec
+<http://tav.espians.com/plexnet.html>`_] -- a crazily ambitious set of Open Web
+extensions that could turn the Web into a truly decentralised operating system.
+
+*The following paragraph is slightly technical, so skip to the next one if you prefer...*
+
+TweetPlex itself won't be open source but it'll be compatible with the open
+source Laconica framework and during the course of developing TweetPlex, I'll be
+extensively adding to my `Tweetapp <http://github.com/tav/tweetapp>`_ framework
+for App Engine.
+
+**Is £10 All It Takes to Have a Share?**
+
+.. http://www.ageofstupid.net/money
+
+Yes, £10 will get you a share and help make TweetPlex happen.
+
+The 1,000 shares constitute 10% of a new company that I will be setting up later
+today. That is, 100 shares (£1000) gets you 1% of the new company.
+
+**What Will The Money Be Spent On?**
+
+It'll go towards paying the basic living costs of myself and the handful of
+collaborators who will be working with me on TweetPlex.
+
+**How Long Will It Take?**
+
+TweetPlex will be ready for use within 3 months of this fundraiser being
+completed.
+
+**Who Are You?**
+
+My name is Tav. I am a 27 year old from London. Just read the `frontpage of my
+blog <index.html>`_ or the `about tav <about-tav.html>`_ article to get a feel
+for who I am.
+
+**Will This Count As A Birthday Present?**
+
+Yes, for those of you too lazy to get me a present last week, this will be good
+enough ;p
+
+.. raw:: html
+
+  <style type="text/css">
+    label { font-weight: bold; }
+    .tweetplex-fund-form { margin-left: 5em; }
+  </style>
+  <form action="" class="tweetplex-fund-form"><table>
+  <tr><td align="right">
+    <label for="tweetplex-fund-email">Your Email</label>
+  </td><td align="right">&nbsp;</td><td>
+    <input type="text" name="donoremail" id="tweetplex-fund-email" />
+  </td><td rowspan="4" valign="top">
+  </td></tr><tr><td align="right" style="white-space: no-wrap;">
+    <label for="tweetplex-fund-twitter">Twitter Username</label>
+  </td><td align="right">&nbsp;@</td><td>
+    <input type="text" name="donortwitter" id="tweetplex-fund-twitter" />
+  </td></tr><tr><td align="right">
+    <label for="tweetplex-fund-amount">Amount</label>
+  </td><td align="right">&nbsp;£</td><td>
+    <input type="text" name="amount" id="tweetplex-fund-amount" value="10"
+    size="6" />
+  </td></tr>
+  <tr><td colspan="2">&nbsp;</td><td style="padding-top: 8px"><img
+    src="https://www.paypal.com/en_GB/i/btn/btn_donate_SM.gif" /></td></tr>
+  </table></form>
+
+Thank you for reading this far and thank you to everyone who gives.
+
+.. And if you've given, please look out for an email from me -- tav@espians.com -- I'll
+   need your name and address for registering the shareholding.
+   And, oh, `follow me `_ on Twitter ;p
+
+-- Cheers, `@tav <http://twitter.com/tav>`_
