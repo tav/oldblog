@@ -22,6 +22,8 @@ module which used to be enabled in the standard library. This module, along with
 it's ``Bastion`` sibling, provided a framework for "restricted execution" of
 Python code.
 
+.. more
+
 The rexec module encouraged a certain design pattern which depended on class
 attributes being kept "private" from untrusted code. Unfortunately, Python's
 introspection powers are heavily geared against this and there are many many

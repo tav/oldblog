@@ -30,6 +30,8 @@ Compare that to the Ruby equivalent:
 Unless I am missing something fundamental, adding a ``do`` statement seems to
 lend itself to doing blocks in a Pythonic way.
 
+.. more
+
 For those of you that don't know Ruby, `blocks
 <http://www.artima.com/intv/closures.html>`_ are simply syntactic sugar for
 defining anonymous functions/closures.

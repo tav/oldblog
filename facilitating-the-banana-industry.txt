@@ -27,6 +27,8 @@ a new body that was representative of all in the industry.
 
 And all this in 3 days.
 
+.. more
+
 So we shipped over a whole bunch of `stationery <http://www.ryman.co.uk/>`_ to
 Amsterdam and got there in time to check out the venue before heading to dinner
 with all the other participants.

@@ -21,6 +21,8 @@ But it turns out that if you register too many accounts concurrently, the
 Twitter spam controls are triggered. So a little while after the accounts got
 registered, I found to my surprise that most of them had been suspended!!
 
+.. more
+
 Slightly surprised at why non-spam accounts would get suspended -- most of those
 accounts hadn't even been used and were too recent to count as name-squatting!
 -- I got in touch with the Twitter folk and made my case.

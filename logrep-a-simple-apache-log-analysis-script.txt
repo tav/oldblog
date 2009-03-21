@@ -25,6 +25,8 @@ Seeing as I'm running the blog on my own server, it's just a question of parsing
 the Apache access logs. But despite my efforts, I couldn't find a really simple
 parser for these logs.
 
+.. more
+
 All I care about is:
 
 * What are people currently looking at?

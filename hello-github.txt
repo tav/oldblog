@@ -16,6 +16,8 @@ if you want to get your changes back into the mainline.
 GitHub even lets you edit forks directly from the website without having to
 check out the repository. How cool is that?!
 
+.. more
+
 Now, for the Totally Pointless Awards, I created a colourful homepage using the
 really nice GitHub pages mechanism:
 

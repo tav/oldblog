@@ -29,6 +29,8 @@ Einsteins and Da Vincis walking amongst us, the reason many of them haven't
 tapped into their full potential is due to a lack of a nurturing, vibrant
 community.
 
+.. more
+
 In contrast, if you take Florence or Rome during the `High Renaissance
 <http://en.wikipedia.org/wiki/High_Renaissance>`_, you will see that the likes
 of `Leonardo da Vinci <http://en.wikipedia.org/wiki/Leonardo_da_Vinci>`_,

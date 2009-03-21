@@ -23,6 +23,8 @@ services, my knowledge of film making is close to non-existent.
 If you want to know about scalable online distribution or digital video
 encoding, then I can give you expert advice. But film making? Not a clue.
 
+.. more
+
 The closest I've ever gotten to actual editing was as part of the Video
 Production Society at `Dulwich College <http://www.dulwich.org.uk>`_. Back then
 it was mostly analog and Adobe Premiere 1.0 just gave me lots of headaches.

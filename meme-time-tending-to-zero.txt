@@ -17,6 +17,8 @@ This thought-provoking video is worth watching:
   <object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/jpEnFwiqdx8&hl=en&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/jpEnFwiqdx8&hl=en&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
   </div>
 
+.. more
+
 It reinforces the words of `Mamading Ceesay <http://twitter.com/evangineer>`_:
 "The whole world is going to be experiencing environmentally-induced `ADHD
 <http://en.wikipedia.org/wiki/Attention-deficit_hyperactivity_disorder>`_ pretty

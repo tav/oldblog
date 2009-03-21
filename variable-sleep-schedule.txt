@@ -32,6 +32,8 @@ of us have rather fixed preconceptions about. We all need it. It plays a vital
 role in our well being. It plays a large part in defining our lifestyles. Yet,
 despite enjoyable dreams, it takes up so much of our short lives.
 
+.. more
+
 Now I've experimented with lots of different sleeping patterns. Everything from
 intense sleep deprivation to the `Uberman sleep
 schedule <http://www.kuro5hin.org/story/2002/4/15/103358/720>`_. But I have yet

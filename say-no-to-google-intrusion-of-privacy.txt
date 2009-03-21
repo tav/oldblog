@@ -31,6 +31,8 @@ And every time we visit these sites running AdSense, Google will know exactly
 where we've been. This is an extreme breach of privacy! We must act now or risk
 handing over our privacy permanently.
 
+.. more
+
 So this is a call to all network admins -- in homes, offices, university
 campuses, ISPs and anywhere else -- to please add the following 2 lines to your
 `hosts file <http://en.wikipedia.org/wiki/Hosts_file>`_::

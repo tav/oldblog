@@ -51,6 +51,8 @@ It's your choice.
     tr.tweetfight-item td { border-top: 1px dashed #888; padding: 5px; }
   </style>
 
+.. more
+
 **Credits:**
 
 * `@evangineer <http://twitter.com/evangineer>`_ -- Idea of a Twitter "Celebrity

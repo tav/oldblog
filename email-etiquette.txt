@@ -30,6 +30,8 @@ companies who insist on having several paragraphs of text explaining why you
 shouldn't do so and just how super cool and eco-friendly they are. Often these
 footers are larger than the body of the message itself!
 
+.. more
+
 So why is this stupid? Because by adding these footers you are causing more harm
 than printing those emails would be causing in the first place! The millions of
 servers handling email sit in data centers consuming serious amounts of energy!

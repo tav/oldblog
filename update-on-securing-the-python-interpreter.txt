@@ -18,6 +18,8 @@ doing the following -- a port of the sample in Mark S. Miller's
 `Capability-based Financial Instruments
 <http://www.erights.org/elib/capability/ode/index.html>`_:
 
+.. more
+
   .. syntax:: python
 
     def Mint(name):

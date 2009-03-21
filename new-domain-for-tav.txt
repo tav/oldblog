@@ -4,6 +4,9 @@ New Domain for Tav
 
 :X-Created: [2008-11-04, 03:01]
 
+[**Update:** I reverted to tav.espians.com as the main domain -- asktav.com
+redirects here so you can use it as a shorter url to type...]
+
 My apologies to all those who have been following this blog through the RSS
 feed. As some of you have noticed, the feed has been behaving rather erratically
 recently.
@@ -11,6 +14,8 @@ recently.
 This is because I have been migrating everything from pleinair.googlecode.com to
 the new asktav.com domain. This is now the permanent home for my blog and will
 remain so until the Plexnet eventually replaces the current domain name system.
+
+.. more
 
 The feed should be working properly again and is still at the same place as it
 always was -- http://feeds.feedburner.com/asktav. I don't plan to move domains

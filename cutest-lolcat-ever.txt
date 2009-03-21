@@ -10,6 +10,8 @@ imagery sometimes. I was introducing my girlfriend to `icanhascheezburger.com
 <http://icanhascheezburger.com/>`_ yesterday and we came across this -- possibly
 the cutest LOLcat ever:
 
+.. more
+
 .. raw:: html
 
   <div class="center">

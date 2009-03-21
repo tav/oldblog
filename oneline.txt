@@ -32,6 +32,8 @@ The application of this approach is extremely broad. From resolving personal
 conflicts to working out the kinks in a new idea. Try the oneline approach on
 Twitter and let me know how it works out for you.
 
+.. more
+
 **Oneline Rules:**
 
 1. Only 2 people to a oneline dialogue.

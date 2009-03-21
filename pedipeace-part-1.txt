@@ -22,6 +22,8 @@ Pedipeace (Part 1)
  | however, unfortunately for us, their value has been diminished over the
  | years. the hippies did too good a job. values and beliefs and actions so
  | adapted by mainstream culture, that they have no effect.
+
+.. more
  | 
  | so let's not merely walk from A to B. let's not block traffic and
  | achieve nothing besides annoying people and getting yourself nicked.
