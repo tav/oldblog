@@ -44,21 +44,8 @@ For the programmers there's even a `JSON-based API
 author, e.g. http://quotessence.agoraworx.com/api/perlis and even specify an
 optional ``callback`` parameter for JSON-P usage.
 
-For example, the following:
-
- .. syntax:: javascript
-
-  $.getJSON(
-      "http://quotessence.agoraworx.com/api/mamading?callback=?",
-      function (data) {
-          $('#epigraph-content').text(data.quote);
-          $('<a />').attr(
-            'href', 'http://quotessence.agoraworx.com/' + data.deck
-          ).text(data.author).appendTo('#epigraph-attribution');
-      }
-  );
-
-gets you a random quote from the eminently quotable Mamading:
+For example, to get the following random quote from the eminently quotable
+Mamading:
 
 .. raw:: html
 
@@ -89,7 +76,21 @@ gets you a random quote from the eminently quotable Mamading:
     <div id="epigraph-attribution">&mdash; </div>
   </div>
 
-All in all this is a great start. And I'd be even more excited if Quotessence
+Just do:
+
+ .. syntax:: javascript
+
+  $.getJSON(
+      "http://quotessence.agoraworx.com/api/mamading?callback=?",
+      function (data) {
+          $('#epigraph-content').text(data.quote);
+          $('<a />').attr(
+            'href', 'http://quotessence.agoraworx.com/' + data.deck
+          ).text(data.author).appendTo('#epigraph-attribution');
+      }
+  );
+
+All in all this is a great start! And I'd be even more excited if Quotessence
 would allow for quotes on Twitter to be captured easily -- sort of like a
 `bash.org <http://www.bash.org>`_ for Twitter...
 
