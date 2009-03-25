@@ -169,7 +169,7 @@
 		  </script>| <a href="#disqus_thread" rel="disqus:${page_url}">Add a Comment</a>
 	  </div>
 	  <div class="article-info">
-		&#187; by <a href="http://tav.espians.com">tav</a><span py:if="info.get('x-created')"> on <span py:with="created=info['x-created']" class="post-date">${MONTHS[int(created[6:8])]} ${int(created[9:11])}, ${created[1:5]} <a href="http://github.com/tav/blog/commits/master/${info['__name__']}.txt"></a>@ ${created[-6:-1]}</span></span> <a href="http://creativecommons.org/licenses/publicdomain/"><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Cc-pd.svg/64px-Cc-pd.svg.png" width="20px" height="20px" alt="Public Domain" class="absmiddle" /></a>
+		&#187; by <a href="http://tav.espians.com">tav</a><span py:if="info.get('x-created')"> on <span py:with="created=info['x-created']" class="post-date">${MONTHS[int(created[6:8])]} ${int(created[9:11])}, ${created[1:5]} @ <a href="http://github.com/tav/blog/commits/master/${info['__name__']}.txt">${created[-6:-1]}</a></span></span> <a href="http://creativecommons.org/licenses/publicdomain/"><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Cc-pd.svg/64px-Cc-pd.svg.png" width="20px" height="20px" alt="Public Domain" class="absmiddle" /></a>
 		<!--
 		last updated
 		<span py:with="created=info['__updated__']">
