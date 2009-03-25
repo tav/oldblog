@@ -37,8 +37,6 @@ A Brief History of Tav
                 :backlinks: none
 
 
-|follow-tav|
-
 Are you happy to answer personal questions?
 ===========================================
 

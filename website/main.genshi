@@ -136,18 +136,25 @@
 		value="&amp;langpair=en|zh-CN" id="openzh-CN">中文 (简体)</option><option
 		value="&amp;langpair=en|zh-TW" id="openzh-TW">中文 (繁體)</option>
 		</select></form><a href="index.html" class="menu-item"
-		 title="${site_title}">Home</a><a href="archive.html"
-		class="menu-item">Archives</a><span class="menu-item-left"><img alt=""
-		class="absmiddle"
-		src="http://www.feedburner.com/fb/images/pub/feed-icon16x16.png"
-		onclick="window.location='http://feeds2.feedburner.com/${site_nick}'"
-		/></span><a class="menu-item-padding"
+		title="${site_title}">Home</a><a href="archive.html" class="menu-item"
+		title="Site Index">Archives</a><a class="menu-item-left"
+		title="Follow @tav" href="http://twitter.com/tav">Follow</a><a
+		href="http://twitter.com/tav" title="Follow @tav"><img
+		src="${STATIC}/gfx/twitter-icon.png" alt="Follow @tav on Twitter"
+		class="absmiddle" /></a>&nbsp;&nbsp;<a
 		href="http://feeds2.feedburner.com/${site_nick}" rel="alternate"
-		title="Subscribe to my feed" type="application/rss+xml">Subscribe</a><a
-		href="http://twitter.com/tav>" class="menu-item-left"><img
-		src="${STATIC}/gfx/twitter-icon.png" alt="Twitter" class="absmiddle"
-		/></a><a class="menu-item-padding"
-		href="http://twitter.com/tav">Follow @tav</a><a class="menu-item-final"
+		type="application/rss+xml" title="Subscribe to the RSS Feed"><img
+		alt="RSS Feed" class="absmiddle"
+		src="http://www.feedburner.com/fb/images/pub/feed-icon16x16.png"
+		/></a>&nbsp;&nbsp;<a href="http://friendfeed.com/tav"
+		title="Follow tav on FriendFeed"><img src="${STATIC}/gfx/friendfeed-icon.png"
+		alt="FriendFeed" class="absmiddle" /></a>&nbsp;&nbsp;<a
+		href="http://github.com/tav" title="Follow tav on GitHub"><img
+		src="${STATIC}/gfx/github-icon.png" alt="GitHub" class="absmiddle"
+		/></a>&nbsp;&nbsp;<a
+		href="http://www.facebook.com/people/Tav-Espian/593997068"
+		title="Follow Tav on Facebook"><img src="${STATIC}/gfx/facebook-icon.gif"
+		alt="Facebook" class="absmiddle" /></a>&nbsp;<a class="menu-item-final"
 		href="about-${site_author.lower()}.html">About
 		${site_author.title()}</a>
 		<hr class="clear" />
