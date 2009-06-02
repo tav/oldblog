@@ -18,8 +18,6 @@ It's Going To Be Awesome!
 
     3. Plexverse -- Better Living through a Plex Apps enabled Social Movement.
 
-    A pseudo-prototype called TweetPlex will also be created during the first month.
-
     Feel free to join in and enjoy the ride!
 
 .. |2nd| raw:: html
@@ -73,20 +71,14 @@ Operational Overview
 
 The core development will last for a period of 10 months:
 
-.. image:: http://cloud.github.com/downloads/tav/plexnet/gfx.iteration-x.schedule.png
+.. image:: http://cloud.github.com/downloads/tav/plexnet/gfx.iteration-x.schedule-2.png
            :class: float-right
            :width: 750
            :height: 434
 
-As can be seen there will be 2 parallel lines of development starting at the
-same time:
-
-* TweetPlex
-* Plexnet [Alpha -> Beta -> Final]
-
-Whilst the Plexnet will be the true realisation of the vision, TweetPlex will be
-a pseudo-prototype implemented on top of `Google App Engine
-<http://code.google.com/appengine/>`_ and will perform the dual roles of:
+An agile and iterative approach will be taken with regards the development.
+Boostrap -- the codename for the set of Plexverse apps running on the first
+usable version of the Plexnet -- will perform the dual roles of:
 
 * Demonstrating the ideas (especially Trust Maps, Pecus and Dolumns)
 
@@ -95,8 +87,7 @@ a pseudo-prototype implemented on top of `Google App Engine
 It will leverage the excellent work already done by `James Arthur
 <http://www.thruflo.com>`_ on `Plexnet Trustmap <http://trustmap.plexnet.org/>`_
 and tie it together with an implementation of an extended version of the
-`Bootstrap specification <http://tav.espians.com/espra-bootstrap.html>`_
-(without the user services part).
+`Bootstrap specification <http://tav.espians.com/espra-bootstrap.html>`_.
 
 .. raw:: html
 
@@ -105,20 +96,12 @@ and tie it together with an implementation of an extended version of the
       src="http://cloud.github.com/downloads/tav/plexnet/gfx.tweetplex.screen.png" />
   </div>
 
-TweetPlex will be start out as closed source and will be developed at:
-
-* https://github.com/tav/tweetplex/
-
-In contrast, the Plexnet will start out as open source (public domain) and will
-be developed at:
+The Plexnet, being open source (public domain), will be developed at:
 
 * http://github.com/tav/plexnet/
 
-During the first month, the Plexnet development will be focused on writing up
-clear specifications/tests and writing stub code for a base layout. The
-following months will then be about making it actually work =)
-
-Development will be co-ordinated over to TweetPlex as soon as it's ready, but to
+Accounts on GitHub will be needed for all collaborators contributing code.
+Development will be co-ordinated over Bootstrap as soon as it's ready, but to
 start with it will be done over IRC:
 
 * irc://irc.freenode.net/esp
@@ -128,9 +111,10 @@ start with it will be done over IRC:
 * `Web-based login to IRC
   <http://widget.mibbit.com/?settings=a9ce64f72c4eca104beb464a3b939953&server=irc.freenode.net&channel=%23esp>`_
 
-The launch of `Plexnet.org <http://www.plexnet.org>`_ with finalised specs and
-`TweetPlex <http://www.tweetplex.com>`_ -- sometime during the course of July --
-will be accompanied by a Fundraiser which will follow two complementary paths:
+The launch of `Plexnet.org <http://www.plexnet.org>`_ with reasonable
+specs/tests and `Bootstrap <http://www.plexverse.com>`_ -- sometime during the
+course of July -- will be accompanied by a Fundraiser which will follow two
+complementary paths:
 
 * Peer Funding
 * VC Funding
@@ -146,7 +130,8 @@ who, in exchange for paying £10/month for 10 months, will get:
 .. image:: http://cloud.github.com/downloads/tav/plexnet/gfx.plexnet.radical.png
            :class: float-right
 
-* Access to TweetPlex with a reasonably sized quota.
+* Access to a hosted Plexnet Node running the Bootstrap apps with a reasonably
+  sized quota.
 
 * Front-row seats to capitalise on the opportunities that will be provided by
   the Plex.
@@ -212,7 +197,7 @@ Those considered "Core" by James will be rewarded post-fundraiser with:
 * Bonuses paid out roughly every 2 months according to Pecu allocations by Tav.
 
 The initial set of `Pecu allocations by Tav <pecu-allocations-by-tav.html>`_
-will be updated with a version on TweetPlex once it's ready.
+will be updated with a version on Bootstrap once it's ready.
 
 The whole process will be co-ordinated by Metanational Commons Ltd. -- a private
 limited company incorporated in Engalnd & Wales -- Company No. 6834341 with Tav
