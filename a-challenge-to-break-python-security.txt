@@ -20,8 +20,8 @@ The challenge is simple:
 
 You can find the latest version of safelite.py here:
 
-* http://release.plexnet.org/misc/cappython/safelite.py [Current: `v11
-  <http://release.plexnet.org/misc/cappython/safelite.py>`_]
+* http://cloud.github.com/downloads/tav/plexnet/safelite.py [Current: `v11
+  <http://cloud.github.com/downloads/tav/plexnet/safelite.py>`_]
 
 .. more
 
@@ -203,4 +203,4 @@ Good luck and thanks! =)
   [Fixed in v9]
 
 Found an exploit yet?? Try `safelite.py
-<http://release.plexnet.org/misc/cappython/safelite.py>`_ and let me know!
+<http://cloud.github.com/downloads/tav/plexnet/safelite.py>`_ and let me know!

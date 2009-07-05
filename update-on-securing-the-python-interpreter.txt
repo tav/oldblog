@@ -96,7 +96,7 @@ object-capability in Python. I explain in detail in my earlier blog article on
 
 The short of it is that this can be enabled *today* in about 100 odd lines of
 code by removing the "leak" variables using Python's ``ctypes`` module -- see
-`safelite.py <http://release.plexnet.org/misc/cappython/safelite.py>`_ for a
+`safelite.py <http://cloud.github.com/downloads/tav/plexnet/safelite.py>`_ for a
 simple implementation. And for contexts like App Engine, where ctypes isn't
 accessible, I provided a `small patch
 <http://release.plexnet.org/misc/cappython/pytrunk.secure.patch>`_ for the
