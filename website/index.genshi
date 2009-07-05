@@ -43,7 +43,7 @@ you might like:</div>
 		  }, {button:true});
 		</script>| <a href="${post['__name__']}.html#disqus_thread" rel="disqus:${site_url + '/' + post['__name__']}.html">Comment!</a>
 	  </div>
-	  &#187; by <span py:with="author=post.get('__by__', site_author_nick)"><a href="${authors[author][-1]}">${author}</a></span> on <span py:with="created=post['x-created']" class="post-date">${MONTHS[int(created[6:8])]} ${int(created[9:11])}, ${created[1:5]} @ <a href="http://github.com/tav/blog/commits/master/${post['__name__']}.txt">${created[-6:-1]}</a></span> <a href="http://creativecommons.org/licenses/publicdomain/"><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Cc-pd.svg/64px-Cc-pd.svg.png" width="20px" height="20px" alt="Public Domain" class="absmiddle" /></a>
+	  &#187; by <span><a href="http://tav.espians.com">tav</a></span> on <span py:with="created=post['x-created']" class="post-date">${MONTHS[int(created[6:8])]} ${int(created[9:11])}, ${created[1:5]} @ <a href="http://github.com/tav/blog/commits/master/${post['__name__']}.txt">${created[-6:-1]}</a></span> <a href="http://creativecommons.org/licenses/publicdomain/"><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Cc-pd.svg/64px-Cc-pd.svg.png" width="20px" height="20px" alt="Public Domain" class="absmiddle" /></a>
 	</div>
   </div>
   <div py:content="post.get('__lead__') and Markup(unicode(post['__lead__'], 'utf-8')) or Markup(unicode(post['__text__'], 'utf-8'))" class="blog-post" />
