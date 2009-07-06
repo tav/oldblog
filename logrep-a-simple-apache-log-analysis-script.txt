@@ -39,7 +39,7 @@ Failing to find a simple script, I initially just ran commands like::
 
 But this got slightly annoying after a while, so I wrote a simple script. I
 wrote this just for myself, but if anyone is interested, here it is: `logrep.py
-<http://release.plexnet.org/misc/logrep/logrep.py>`_
+<http://github.com/tav/scripts/raw/master/logrep.py>`_
 
 Running::
 
@@ -81,6 +81,6 @@ You can pass in some additional filters:
 
 Again, I wrote this just for myself. But like with all my work, I'm placing it
 in the public domain if anyone else fancies using it: `logrep.py
-<http://release.plexnet.org/misc/logrep/logrep.py>`_
+<http://github.com/tav/scripts/raw/master/logrep.py>`_
 
 Enjoy!
