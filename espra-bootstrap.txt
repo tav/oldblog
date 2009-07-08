@@ -10,11 +10,9 @@ A Command Line for the Internet
 
 :Abstract:
 
-    Bootstrap is a meta `mashup
+    Espra Bootstrap is a meta `mashup
     <http://en.wikipedia.org/wiki/Mashup_(web_application_hybrid)>`_ which glues
-    together existing web applications to enable effective collaboration. It
-    also incorporates some of the ideas from Espra -- e.g. Trust Maps -- around
-    today's technologies.
+    together existing web applications to enable effective collaboration.
 
     This document provides a rough functional overview of Bootstrap.
 

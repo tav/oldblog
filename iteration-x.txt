@@ -10,13 +10,16 @@ It's Going To Be Awesome!
 :Abstract:
 
     This document provides a brief overview of Iteration X. Starting on June
-    |2nd| 2009, this Iteration will focus on the creation of:
+    |2nd| 2009, this Iteration will focus on the creation of Espra which will be
+    built upon the foundations of the:
 
     1. Plexnet -- A Set of Open Web Standards for a Decentralised App Platform.
 
     2. Plex Economy -- Capitalism 4.0 built around Common Economic Protocols.
 
-    3. Plexverse -- Better Living through a Plex Apps enabled Social Movement.
+    The first deliverable will be the `Bootstrap version of Espra
+    <http://tav.espians.com/espra-bootstrap.html>`_ during the Northern
+    Autumn 2009.
 
     Feel free to join in and enjoy the ride!
 
@@ -65,29 +68,58 @@ In short, creating weapons of mass construction.
 The tagline for the Iteration captures the intent well -- Web 4.0. A Web 4 the
 people by the people.
 
+More specifically, Espra will solve the following very real pain points in the
+current market:
+
+* Information overload and the time cost of managing one's online activities.
+
+* Lack of being able to make a living contributing on the internet without
+  having to resort to advertising, e.g. bloggers, open source coders, musicians,
+  &c.
+
+* Lack of trusted and verifiable sources on the internet, e.g. who should one
+  trust on Twitter w.r.t the Iranian electoral proceedings?
+
+* Dramatically increasing levels of complexity and costs of developing scalable
+  applications in today's world, e.g. YouTube having to take on the cost of
+  exponentially increasing video content.
+
+* The lack of composability of applications due to architectural issues, e.g.
+  want to make a mash-up between a Maps app and a Banking app -- current
+  architectures don't provide a secure base of service composability!
+
+It will do this by leveraging:
+
+* The various open source components that have been independently developed over
+  the last decades.
+
+* The huge amount of data that people have already put into various services,
+  e.g. Facebook, YouTube, Flickr, &c.
+
+* The fact that a little "glue" applied in the right way -- and in a
+  decentralised way -- will enable a lot of gain for relatively little effort.
+
 
 Operational Overview
 ====================
 
 The core development will last for a period of 10 months:
 
-.. image:: http://cloud.github.com/downloads/tav/plexnet/gfx.iteration-x.schedule-2.png
-           :class: float-right
-           :width: 750
-           :height: 434
+.. raw:: html
+
+  <div class="center">
+    <img
+      src="http://cloud.github.com/downloads/tav/plexnet/gfx.iteration-x.schedule-3.png"
+      width="750px" height="434px" />
+  </div>
 
 An agile and iterative approach will be taken with regards the development.
-Boostrap -- the codename for the set of Plexverse apps running on the first
-usable version of the Plexnet -- will perform the dual roles of:
+Boostrap -- the codename for the set of Espra apps running on the first usable
+version of the Plexnet -- will perform the dual roles of:
 
-* Demonstrating the ideas (especially Trust Maps, Pecus and Dolumns)
+* Demonstrating the ideas (especially Trust Maps, Pecus and Dolumns).
 
-* Facilitating the project co-ordination and development
-
-It will leverage the excellent work already done by `James Arthur
-<http://www.thruflo.com>`_ on `Plexnet Trustmap <http://trustmap.plexnet.org/>`_
-and tie it together with an implementation of an extended version of the
-`Bootstrap specification <http://tav.espians.com/espra-bootstrap.html>`_.
+* Facilitating the further co-ordination and development of the Project.
 
 .. raw:: html
 
@@ -95,6 +127,11 @@ and tie it together with an implementation of an extended version of the
     <img
       src="http://cloud.github.com/downloads/tav/plexnet/gfx.tweetplex.screen.png" />
   </div>
+
+Espra will leverage the excellent work already done by `James Arthur
+<http://www.thruflo.com>`_ on `Plexnet Trustmap <http://trustmap.plexnet.org/>`_
+and tie it together with an implementation of an extended version of the `Espra
+Bootstrap specification <http://tav.espians.com/espra-bootstrap.html>`_.
 
 The Plexnet, being open source (public domain), will be developed at:
 
@@ -111,10 +148,9 @@ start with it will be done over IRC:
 * `Web-based login to IRC
   <http://widget.mibbit.com/?settings=a9ce64f72c4eca104beb464a3b939953&server=irc.freenode.net&channel=%23esp>`_
 
-The launch of `Plexnet.org <http://www.plexnet.org>`_ with reasonable
-specs/tests and `Bootstrap <http://www.plexverse.com>`_ -- sometime during the
-course of July -- will be accompanied by a Fundraiser which will follow two
-complementary paths:
+The launch of Espra -- along with `Plexnet.org <http://www.plexnet.org>`_ with
+reasonable specs/tests -- sometime during the course of the Northern Autumn --
+will be accompanied by a Fundraiser which will follow two complementary paths:
 
 * Peer Funding
 * VC Funding
@@ -122,19 +158,19 @@ complementary paths:
 The Peer Funding will be kicked off by a video that will act as a call to arms
 for `cultural creatives <http://en.wikipedia.org/wiki/Cultural_Creatives>`_
 (developers, writers, musicians, designers, film-makers, architects, lawyers,
-etc.) and invite them to join in a 10-month journey.
+&c.) and invite them to join in a 6-month journey.
 
 The invitation will be limited to 60,000 people (30,000 men and 30,000 women)
-who, in exchange for paying £10/month for 10 months, will get:
+who, in exchange for paying £10/month for 6 months, will get:
 
 .. image:: http://cloud.github.com/downloads/tav/plexnet/gfx.plexnet.radical.png
            :class: float-right
 
-* Access to a hosted Plexnet Node running the Bootstrap apps with a reasonably
-  sized quota.
+* Access to a hosted Plexnet Node running the Espra Bootstrap apps with a
+  reasonably sized quota.
 
 * Front-row seats to capitalise on the opportunities that will be provided by
-  the Plex.
+  the Plex Economy.
 
 * A chance to be one of the 6,000 members of the Ecclesia (half of whom will be
   chosen by lottery and the other half by election).
@@ -166,6 +202,17 @@ Which will allow us to have an ideal team of the following size and form:
       width="503px" height="366px" />
   </div>
 
+New members to the team will join the following initial dev team who will either
+be self-funded or part-funded by any money that Tav brings in through
+income/debt:
+
+.. raw:: html
+
+  <div class="center">
+    <img
+      src="http://cloud.github.com/downloads/tav/plexnet/gfx.iteration-x.devteam-1.png"
+      />
+  </div>
 
 
 Rules of Engagement
@@ -225,9 +272,9 @@ In fact, not only is the intent of this whole venture to be very profitable, but
 it is intended as a way to take the entire Global Economy beyond the crunch.
 
 With the Plexnet removing technological complexities and inefficiencies, the
-Plex Economy bringing together gift/eco/reputation economies, and the Plexverse
-enabling decentralised collaboration on a level never before possible in the
-history of humanity, we shall all be able to `Run, Dance and Frolic
+Plex Economy bringing together gift/eco/reputation economies, and Espra enabling
+decentralised collaboration on a level never before possible in the history of
+humanity, we shall all be able to `Run, Dance and Frolic
 <http://inamidst.com/stuff/esp/lexicon#r>`_!
 
 There will be several opportunities to capitalise on the Plex, but we will be
