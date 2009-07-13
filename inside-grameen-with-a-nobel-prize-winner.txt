@@ -1,12 +1,14 @@
-=================================================
-Inside Grameen: Hanging with A Nobel Prize Winner
-=================================================
+========================================
+Inside Grameen with a Nobel Prize Winner
+========================================
 
-:XX-Created: [2009-02-27, 19:57]
+:XX-Created: [2009-07-21, 16:57]
 
-Last July, `Chris Macrae <http://macrae.tv/>`_ invited me to join him and a few
-others to spend some time at Grameen HQ in `Dhaka
-<http://en.wikipedia.org/wiki/Dhaka>`_.
+Last July I was invited to spend some time at Grameen HQ in `Dhaka
+<http://en.wikipedia.org/wiki/Dhaka>`_. Famous for pioneering the `Microfinance
+<http://en.wikipedia.org/wiki/Microfinance>`_ revolution with `Grameen Bank
+<http://en.wikipedia.org/wiki/Grameen_Bank>`_, the rumours were that big things
+were afoot in Bangladesh.
 
 .. raw:: html
 
@@ -28,19 +30,17 @@ others to spend some time at Grameen HQ in `Dhaka
   </div>
   </div>
 
-For those of you who don't know about Grameen, it is most famous for the
-`Grameen Bank <http://en.wikipedia.org/wiki/Grameen_Bank>`_ which pioneered the
-whole `Microfinance <http://en.wikipedia.org/wiki/Microfinance>`_ revolution.
-
 .. Not only would we hang out with  -- but we'd get to spend time with the other leaders of Grameen!
 .. Now the others -- Chris Macrae, Sofia Bustamante, Mark Chaplin and Mostofa
 .. Zaman -- had spent time with Dr. Yunus before in New York City, London and elsewhere.
 
 I'd had a chance to briefly meet its founder, the Nobel Peace Prize-winning
 `Muhammad Yunus <http://en.wikipedia.org/wiki/Muhammad_Yunus>`_, at a lunch in
-the RAC. He had been over to promote `his book
+the RAC. But sadly we didn't really to engage in depth.
+
+He had been over to promote `his book
 <http://www.amazon.com/Creating-World-Without-Poverty-Capitalism/dp/1586484931>`_
-and we didn't really get much of a chance to engage.
+and the time demands on a Nobel laureate are seemingly insane.
 
 The book -- subtitled "Future of Capitalism" -- resonated with some of my own
 thinking and I was keen to find out what Dr. Yunus and his compatriots really
