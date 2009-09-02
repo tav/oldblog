@@ -5,6 +5,8 @@
 <?python
 
   from time import time
+  from operator import lt
+  from urllib import urlencode
 
   STATIC = 'http://tav.github.com/static'
 
@@ -18,7 +20,10 @@
   subtitle = info.get('subtitle')
 
   page_title = info.get('title') or info.get('__title__') or site_description
-  page_url = site_url + '/' + info.get('__name__', 'index') + '.html'
+  page_url = disqus_url = 'http://tav.espians.com' + '/' + info.get('__name__', 'index') + '.html'
+
+  if info.get('x-created') and lt(info['x-created'][1:8], "2009-09"):
+    disqus_url = 'http://www.asktav.com' + '/' + info.get('__name__', 'index') + '.html'
 
   if info.get('__type__') == 'py':
     description = info.get('title')
@@ -74,6 +79,11 @@
     #ignore-this { display: none; }
   </style>
 
+  <style type="text/css" media="screen">
+    .retweetbutton { vertical-align: middle; display: inline; }
+    .retweetbutton iframe { vertical-align: middle; padding-bottom: 5px; }
+  </style>
+
   <!--[if lte IE 8]>
     <style type="text/css">
       ol { list-style-type: disc; }
@@ -101,19 +111,28 @@
 		<a href="/" title="Asktav: A Blog by Tav"><img
 		  id="site-logo" src="${STATIC}/gfx/asktav.png" alt="Aaken Logo" width="64px" height="64px" /></a><form id="translation_form" class="menu-item-padding"><select id="lang_select" onchange="dotranslate(this);">
 		<option value="" id="select_language">Select Language</option>
-		<option value="&amp;langpair=en|ar" id="openar">العربية</option><option
+		<option value="&amp;langpair=en|af" id="openaf">Afrikaans</option><option
+		value="&amp;langpair=en|ar" id="openar">العربية</option><option
+		value="&amp;langpair=en|be" id="openbe">Belarussian</option><option
 		value="&amp;langpair=en|bg" id="openbg">български</option><option
 		value="&amp;langpair=en|ca" id="openca">català</option><option
 		value="&amp;langpair=en|cs" id="opencs">česky</option><option
+		value="&amp;langpair=en|cy" id="opency">Welsh</option><option
 		value="&amp;langpair=en|da" id="openda">Dansk</option><option
 		value="&amp;langpair=en|de" id="opende">Deutsch</option><option
 		value="&amp;langpair=en|el" id="openel">Ελληνικά</option><option
 		value="&amp;langpair=en|es" id="openes">Español</option><option
+		value="&amp;langpair=en|et" id="openet">Estonian</option><option
+		value="&amp;langpair=en|fa" id="openfa">Persian</option><option
 		value="&amp;langpair=en|fi" id="openfi">suomi</option><option
 		value="&amp;langpair=en|fr" id="openfr">Français</option><option
+		value="&amp;langpair=en|ga" id="openga">Irish</option><option
+		value="&amp;langpair=en|gl" id="opengl">Galician</option><option
 		value="&amp;langpair=en|hi" id="openhi">हिन्दी</option><option
 		value="&amp;langpair=en|hr" id="openhr">hrvatski</option><option
-		value="&amp;langpair=en|id" id="openid">Indonesia</option><option
+		value="&amp;langpair=en|hu" id="openhu">Hungarian</option><option
+		value="&amp;langpair=en|id" id="openid">Indonesian</option><option
+		value="&amp;langpair=en|is" id="openis">Icelandic</option><option
 		value="&amp;langpair=en|it" id="openit">Italiano</option><option
 		value="&amp;langpair=en|iw" id="openiw">עברית</option><option
 		value="&amp;langpair=en|ja" id="openja">日本語</option><option
@@ -121,6 +140,9 @@
 		value="&amp;langpair=en|lt" id="openlt">Lietuvių</option><option
 		value="&amp;langpair=en|lv" id="openlv">latviešu</option><option
 		value="&amp;langpair=en|nl" id="opennl">Nederlands</option><option
+		value="&amp;langpair=en|mk" id="openmk">Macedonian</option><option
+		value="&amp;langpair=en|ms" id="openms">Malay</option><option
+		value="&amp;langpair=en|mt" id="openmt">Maltese</option><option
 		value="&amp;langpair=en|no" id="openno">norsk</option><option
 		value="&amp;langpair=en|pl" id="openpl">Polski</option><option
 		value="&amp;langpair=en|pt" id="openpt">Português</option><option
@@ -128,11 +150,16 @@
 		value="&amp;langpair=en|ru" id="openru">Русский</option><option
 		value="&amp;langpair=en|sk" id="opensk">slovenčina</option><option
 		value="&amp;langpair=en|sl" id="opensl">slovenščina</option><option
+		value="&amp;langpair=en|sq" id="opensq">Albanian</option><option
 		value="&amp;langpair=en|sr" id="opensr">српски</option><option
 		value="&amp;langpair=en|sv" id="opensv">Svenska</option><option
+		value="&amp;langpair=en|sw" id="opensw">Swahili</option><option
+		value="&amp;langpair=en|th" id="openth">Thai</option><option
 		value="&amp;langpair=en|tl" id="opentl">Filipino</option><option
+		value="&amp;langpair=en|tr" id="opentr">Turkish</option><option
 		value="&amp;langpair=en|uk" id="openuk">українська</option><option
 		value="&amp;langpair=en|vi" id="openvi">Tiếng Việt</option><option
+		value="&amp;langpair=en|yi" id="openyi">Yiddish</option><option
 		value="&amp;langpair=en|zh-CN" id="openzh-CN">中文 (简体)</option><option
 		value="&amp;langpair=en|zh-TW" id="openzh-TW">中文 (繁體)</option>
 		</select></form><a href="/" class="menu-item"
@@ -150,7 +177,7 @@
 		href="http://github.com/tav" title="Follow tav on GitHub"><img
 		src="${STATIC}/gfx/github-icon.png" alt="GitHub" class="absmiddle"
 		/></a><a style="margin-right: 5px;"
-		href="http://www.facebook.com/people/Tav-Espian/593997068"
+		href="http://www.facebook.com/pages/Tav/59166451237"
 		title="Follow Tav on Facebook"><img src="${STATIC}/gfx/facebook-icon.gif"
 		alt="Facebook" class="absmiddle" /></a><a
 		href="http://feeds2.feedburner.com/${site_nick}" rel="alternate"
@@ -175,10 +202,19 @@
 		  title:"${page_title.replace('"', r'\"')}",
 		  url:'${page_url}',
 		  }, {button:true});
-		  </script>| <a href="#disqus_thread" rel="disqus:${page_url}">Add a Comment</a>
+		  </script>| <a href="#disqus_thread" rel="disqus:${disqus_url}">Add a Comment</a>
+          <script type="text/javascript">
+		    tweetmeme_url = '${page_url}';
+		    tweetmeme_source = 'tav';
+		    tweetmeme_service = 'bit.ly';
+		    tweetmeme_style = 'compact';
+		</script>
+		| <div class="retweetbutton">
+		<script type="text/javascript" src="http://tweetmeme.com/i/scripts/button.js"></script>
+	    </div>
 	  </div>
 	  <div class="article-info">
-		&#187; by <a href="http://tav.espians.com">tav</a><span py:if="info.get('x-created')"> on <span py:with="created=info['x-created']" class="post-date">${MONTHS[int(created[6:8])]} ${int(created[9:11])}, ${created[1:5]} @ <a href="http://github.com/tav/blog/commits/master/${info['__name__']}.txt">${created[-6:-1]}</a></span></span> <a href="http://creativecommons.org/licenses/publicdomain/"><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Cc-pd.svg/64px-Cc-pd.svg.png" width="20px" height="20px" alt="Public Domain" class="absmiddle" /></a>
+		&#187; by <a href="http://tav.espians.com">tav</a><span py:if="info.get('x-created')"> on <span py:with="created=info['x-created']" class="post-date">${MONTHS[int(created[6:8])]} ${int(created[9:11])}, ${created[1:5]} @ <a href="http://github.com/tav/blog/commits/master/${info['__name__']}.txt">${created[-6:-1]}</a></span></span> <a href="http://creativecommons.org/publicdomain/zero/1.0/"><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Cc-pd.svg/64px-Cc-pd.svg.png" width="20px" height="20px" alt="Public Domain" class="absmiddle" /></a>
 		<!--
 		last updated
 		<span py:with="created=info['__updated__']">
@@ -202,10 +238,13 @@
 	</div>
     <div id="disqus-comments-section">
 	<script type="text/javascript">
-      disqus_url = "${page_url}";
+      disqus_url = "${disqus_url}";
 	  disqus_title = "${Markup(page_title)}";
     </script>
-	<div id="disqus_thread"></div><script type="text/javascript" src="http://disqus.com/forums/${site_nick}/embed.js"></script><noscript><a href="http://${site_nick}.disqus.com/?url=ref">View the forum thread.</a></noscript><a href="http://disqus.com" class="dsq-brlink">Comments powered by <span class="logo-disqus">Disqus</span></a>
+	<div id="disqus_thread"></div><script type="text/javascript"
+	src="http://disqus.com/forums/${site_nick}/embed.js"></script><noscript><a
+	href="http://${site_nick}.disqus.com/?${urlencode({'url': disqus_url})}">View the forum
+	thread.</a></noscript> <a href="http://disqus.com" class="dsq-brlink">Comments powered by <span class="logo-disqus">Disqus</span></a>
     </div>
   </div>
   <div py:if="defined('alternative_content')">

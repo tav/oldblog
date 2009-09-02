@@ -1,0 +1,39 @@
+====================
+London Creative Labs
+====================
+
+:X-Created: [2009-09-01, 14:04]
+
+I am pleased to announce the launch of `London Creative Labs
+<http://londoncreativelabs.com/>`_! Check out the short video below on its first
+program, which ties together systemic change along with a sort of `Y Combinator
+<http://ycombinator.com/>`_ for `Social Business
+<http://en.wikipedia.org/wiki/Social_business>`_ Startups.
+
+.. raw:: html
+
+  <div class="center">
+  <object width="425" height="344"><param name="movie"
+  value="http://www.youtube.com/v/weSM2-1IpqQ&hl=en&fs=1&"></param><param
+  name="allowFullScreen" value="true"></param><param name="allowscriptaccess"
+  value="always"></param><embed
+  src="http://www.youtube.com/v/weSM2-1IpqQ&hl=en&fs=1&"
+  type="application/x-shockwave-flash" allowscriptaccess="always"
+  allowfullscreen="true" width="425" height="344"></embed></object>
+  </div>
+
+It's also one of those moments when you are super super proud of your
+girlfriend! `Sofia <http://sofiabustamante.com/>`_, the founder of London
+Creative Labs, is an amazing systems thinker with a deep focus on "soft"
+technologies.
+
+However, until now, she has rarely shared her vision in a way that's accessible
+for most people. But with London Creative Labs, not only has she setup a very
+cool project, but the communications about it are brilliant!
+
+I'm very proud of my sexy girl.
+
+* Check out `London Creative Labs <http://londoncreativelabs.com/>`_
+
+* Join the `Facebook Page
+  <http://www.facebook.com/pages/London-Creative-Labs/123318388217>`_!
