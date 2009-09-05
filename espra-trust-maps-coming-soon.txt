@@ -1,0 +1,47 @@
+==============================
+Espra Trust Maps: Coming Soon!
+==============================
+
+:X-Created: [2009-08-30, 07:21]
+
+My apologies to the thousand-odd readers of this blog for not writing recently.
+I've been busy working with a great group of individuals on `Iteration X
+<http://www.espians.com/iteration-x.html>`_.
+
+There's not much public yet, but I am very happy to let you know that the first
+part of it, `Espra Trust Maps <http://www.trustmap.org>`_, will be landing in
+the next few weeks -- I hope you'll like it!
+
+.. raw:: html
+
+  <div class="center">
+  <a href="http://www.trustmap.org"><img src="http://cloud.github.com/downloads/tav/plexnet/gfx.trustmap-sneak-peek.png"
+       width="566px"
+       height="478px" /></a>
+  </div>
+
+If you'd like to know about all the other cool developments that have been
+happening, see the Iteration X `Progress Summary
+<http://www.espians.com/iteration-x-progress-summary.html>`_ article. Some
+highlights include:
+
+* An initial implementation of the `Plexnet data
+  <http://inamidst.com/stuff/esp/plexdata>`_ model. [`code
+  <http://github.com/tav/plexnet/blob/master/source/plexnet/core/data.py>`__]
+
+* A webkit bridge that binds together our PyPy interpreter with WebKit! Python
+  in your web browser babeh! [`code
+  <http://github.com/tav/plexnet/tree/master/source/client/webkit_bridge>`__]
+
+I've also been writing some articles on the new `Espians
+<http://www.espians.com>`_ website. Some of you might find the following
+interesting:
+
+* `Getting started with Git
+  <http://www.espians.com/getting-started-with-git.html>`_
+
+* `Why App Engine is not appropriate for Bootstrap
+  <http://www.espians.com/why-app-engine-is-not-appropriate-for-bootstrap.html>`_
+
+And, oh, the amazing `Howard Rheingold <http://www.rheingold.com/>`_ joined our
+`Board of Mentors <http://www.espians.com/board-of-mentors.html>`_!

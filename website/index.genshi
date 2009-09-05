@@ -38,7 +38,7 @@ you might like:</div>
 <div py:for="post in sorted([item for item in items if item.get('x-created') and item.get('x-type', 'blog') == 'blog'], key=lambda x: x['x-created'], reverse=True)[:60]">
   <?python
     post_url = disqus_url = 'http://tav.espians.com' + '/' + set_name(post) + '.html'
-    if lt(post['x-created'][1:8], "2009-09"):
+    if lt(post['x-created'][1:8], "2009-07"):
       disqus_url = 'http://www.asktav.com' + '/' + post['__name__'] + '.html'
   ?>
   <div class="post-title">

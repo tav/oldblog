@@ -72,5 +72,5 @@ Twitter and let me know how it works out for you.
   <object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/JKvz3BdB2EE&hl=en&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/JKvz3BdB2EE&hl=en&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
   </div>
 
-[Also see the more agressive `TweetFight </tweetfight.html>`_ variant if you are
+[Also see the more agressive `TweetFight <tweetfight.html>`_ variant if you are
 in the mood for a fight rather than a pleasant conversation.]

@@ -22,7 +22,7 @@
   page_title = info.get('title') or info.get('__title__') or site_description
   page_url = disqus_url = 'http://tav.espians.com' + '/' + info.get('__name__', 'index') + '.html'
 
-  if info.get('x-created') and lt(info['x-created'][1:8], "2009-09"):
+  if info.get('x-created') and lt(info['x-created'][1:8], "2009-07"):
     disqus_url = 'http://www.asktav.com' + '/' + info.get('__name__', 'index') + '.html'
 
   if info.get('__type__') == 'py':
