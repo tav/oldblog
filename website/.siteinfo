@@ -1,5 +1,5 @@
 INFO = {
-  'site_url': 'http://www.asktav.com',
+  'site_url': 'http://tav.espians.com',
   'site_title': "Asktav",
   'site_nick': 'asktav',
   'site_description': "A Blog by Tav",
