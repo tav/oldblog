@@ -2,13 +2,13 @@
 Inside Grameen with a Nobel Prize Winner
 ========================================
 
-:XX-Created: [2009-07-21, 16:57]
+:X-Created: [2009-09-06, 08:57]
 
-Last July I was invited to spend some time at Grameen HQ in `Dhaka
-<http://en.wikipedia.org/wiki/Dhaka>`_. Famous for pioneering the `Microfinance
-<http://en.wikipedia.org/wiki/Microfinance>`_ revolution with `Grameen Bank
-<http://en.wikipedia.org/wiki/Grameen_Bank>`_, the rumours were that big things
-were afoot in Bangladesh.
+Last year I was invited by the visionary Chris Macrae to spend some time at
+Grameen HQ in `Dhaka <http://en.wikipedia.org/wiki/Dhaka>`_. Famous for
+pioneering the `Microfinance <http://en.wikipedia.org/wiki/Microfinance>`_
+revolution with `Grameen Bank <http://en.wikipedia.org/wiki/Grameen_Bank>`_, the
+rumours were that big things were afoot in Bangladesh.
 
 .. raw:: html
 
@@ -30,48 +30,22 @@ were afoot in Bangladesh.
   </div>
   </div>
 
-.. Not only would we hang out with  -- but we'd get to spend time with the other leaders of Grameen!
-.. Now the others -- Chris Macrae, Sofia Bustamante, Mark Chaplin and Mostofa
-.. Zaman -- had spent time with Dr. Yunus before in New York City, London and elsewhere.
+Grameen's Nobel Prize-winning founder, `Muhammad Yunus
+<http://en.wikipedia.org/wiki/Muhammad_Yunus>`_, had recently published his
+latest book and I wondered what he and his compatriots really thought about `The
+Future of Capitalism
+<http://www.amazon.com/Creating-World-Without-Poverty-Capitalism/dp/1586484931>`_.
 
-I'd had a chance to briefly meet its founder, the Nobel Peace Prize-winning
-`Muhammad Yunus <http://en.wikipedia.org/wiki/Muhammad_Yunus>`_, at a lunch in
-the RAC. But sadly we didn't really to engage in depth.
+And, boy, was I unprepared!
 
-He had been over to promote `his book
-<http://www.amazon.com/Creating-World-Without-Poverty-Capitalism/dp/1586484931>`_
-and the time demands on a Nobel laureate are seemingly insane.
+The first thing that strikes you is just how pervasive Grameen really is in
+Bangladesh.
 
-The book -- subtitled "Future of Capitalism" -- resonated with some of my own
-thinking and I was keen to find out what Dr. Yunus and his compatriots really
-thought.
+Over in the West, we're only familiar with Grameen Bank -- the multi-billion
+dollar bank that micro-finances the poor. But that's just *one* of over 20
+Grameen companies -- which cover everything from energy to textiles.
 
-The fact that Grameen Bank managed to become a profitable *multi-billion* dollar
-bank by giving small unsecured loans to those in extreme poverty is proof enough
-of their capacity to create opportunities. But, from afar, I wondered about
-their ability to think in networked/ecological terms.
-
-So with 2 days to go before the time in Dhaka was meant to begin, I joined the
-rest of Chris' team. I dubbed them "The Dhaka 5". Flights were booked and visas
-sorted in a hurry.
-
-But my main frustration came out of my inability to find any decent books or
-podcasts on learning `Bengali (Bangla)
-<http://en.wikipedia.org/wiki/Bengali_language>`_. I generally like to pick up
-some basics on native languages as opportunities arise -- but most bookshops
-seemed to have non-existant sections dedicated to the 5th most spoken language
-in the world!!
-
-I eventually managed to find a "Teach Yourself" guide and listened to YouTube
-renditions of `Amar Shonar Bangla
-<http://en.wikipedia.org/wiki/Amar_Shonar_Bangla>`_ and `Bengali film music on
-Raaga.com <http://www.raaga.com/channels/bengali/movies.asp>`_ for 30-odd hours
-to familiarise myself with the pronounciation. And after speed reading through
-the Teach Yourself guides on the plane, we finally arrived in Dhaka.
-
-Some of you may have already read my `first impressions of Dhaka article
-<first-impressions-of-dhaka.html>`_, so I'll skip ahead to our first engagement
-with Grameen HQ: experiencing the "showcase" Grameen Village.
+.. more
 
 .. raw:: html
 
@@ -84,66 +58,66 @@ with Grameen HQ: experiencing the "showcase" Grameen Village.
   </div>
   </div>
 
-The village was everything you'd expect from a showcase piece. The success
-stories. The communal feel. The friendly faces. Mark got his camera out and was
-filming as I interviewed the village circle. It started with the things we
-already knew -- mostly women borrowers, high rates of loan repayments, etc. --
-and gradually moved into new territory.
+Step into the arrivals lounge at the airport in Dhaka and you are greeted by
+giant billboards advertising `Grameen Phone
+<http://en.wikipedia.org/wiki/Grameenphone>`_. Go to buy a drink and you notice
+`Grameen Danone <http://en.wikipedia.org/wiki/Grameen_Danone>`_. It seems that
+Grameen have successfully parlayed their way into becoming an impressive
+conglomerate.
 
-It became apparent that Grameen is a traditional `command and control
-<http://en.wikipedia.org/wiki/Command_and_control_(military)>`_ structured
-organisation. The circle leader reports to the ... leader who reports to the
-regional leader who reports to the ... leader who ... and so on.
+But what's more impressive is the way that they've managed to do this. Sure
+enough, they run things in legacy command-and-control structures, but they've
+also managed to instill several systemic principles into each of their ventures
+along the way.
 
-I wasn't too impressed by that, but to make up for it Grameen seemed to enforce
-certain positive values. For example, if Grameen Bank gives you a loan, then you
-*must* have your kids in school. And you *must* save a certain amount regularly.
+For example, whilst Grameen Bank would give an unsecured loan, it places certain
+constraints on the borrower -- e.g. one can only borrow if their kids are in
+school and agree to save a certain amount regularly.
 
-The beauty of this is that this is a voluntary system. There is nothing forcing
-anyone to get a loan from Grameen. And by designing in systemic benefits,
-Grameen encourage social benefits without needing regulation or approval from
-the government in any way!
-
+Using free market principles, Grameen have managed to come up with win-win
+structures that serve both themselves as an enterprise as well as the
+communities around them. This sort of `permacultural
+<http://en.wikipedia.org/wiki/Permaculture>`_ thinking is so rare in this world
+and is what makes Grameen so impressive.
 
 .. raw:: html
 
-  <div class="float-left">
-  <a href="http://flickr.com/photos/olasofia/2688321690/in/set-72157606270139832/"><img
-  src="http://farm4.static.flickr.com/3246/2688321690_b65b1713af_m.jpg"
-  alt="Grameen Shakti Entrance" /></a><br />
+  <div class="float-right">
+  <a href="http://www.flickr.com/photos/asktav/2681539094/" title="The Dhaka 5
+  With Yunus @ Grameen HQ"><img
+  src="http://farm4.static.flickr.com/3103/2681539094_7f705237e7.jpg"
+  width="500" height="433" alt="The Dhaka 5 With Yunus @ Grameen HQ" /></a>
+  <br />
   <div class="image-caption">
-    by <a href="http://flickr.com/photos/olasofia/2688321690/in/set-72157606270139832/">olasofia</a>
+  Mark, Chris, Yunus, Mostofa, Sofia & Tav
   </div>
   </div>
 
-Future Capitalism
+Discovering Grameen Shakti -- their solar/biogas-based energy company -- was the
+highlight of the trip for me. It is the best example of a `Social Business
+<http://en.wikipedia.org/wiki/Social_business>`_ that I've ever seen and `this
+video <http://vimeo.com/1386496>`_ on it is well worth watching.
 
-Social Businesses
+Grameen are masters at creating win-win structures. And they have a broad
+leadership of about a dozen odd individuals -- all friends from `university days
+<http://en.wikipedia.org/wiki/Chittagong_University>`_ -- who are driven by a
+common vision and set of ethics.
 
-.. raw:: html
+It wasn't clear if the emerging next generation of the leadership shared this
+holistic approach of their elders, but that's something that only time can tell.
+And the same goes for the various multinational Social Business partnerships
+they've been setting up, e.g. `Grameen Intel
+<http://blogs.intel.com/csr/2008/05/intel_and_grameen_joint_ventur.php>`_.
 
-  <div class="float-right">
-  <a href="http://www.flickr.com/photos/asktav/2681539094/" title="Dhaka 5 With Yunus @ Grameen HQ by asktav, on Flickr"><img src="http://farm4.static.flickr.com/3103/2681539094_7f705237e7.jpg" width="500" height="433" alt="Dhaka 5 With Yunus @ Grameen HQ" /></a>
-  </div>
+In the meantime, I'd strongly encourage everyone to spend a few days over at
+Grameen HQ in Dhaka. Hidden beneath the seemingly dull office spaces, there are
+a lot of valuable lessons to learn there.
 
-.. raw:: html
+And, finally, as for the man himself, I am still in awe of just how genuinely
+humble `Yunus <http://en.wikipedia.org/wiki/Muhammad_Yunus>`_ is. Despite the
+non-stop demands on his time, he persists in making life better for others --
+without letting facts like being a Nobel laureate and running a multi-billion
+dollar conglomerate go to his head.
 
-  <div class="float-right">
-  <a href="http://www.flickr.com/photos/asktav/2681606134/" title="Hotel Lobby -- Mark &amp; Tav by asktav, on Flickr"><img src="http://farm4.static.flickr.com/3064/2681606134_882f6e0824.jpg" width="350" height="262" alt="Hotel Lobby -- Mark &amp; Tav" /></a>
-  </div>
-
-Interns.
-
-Mostofa.
-
-CEO of Grameen Solutions.
-
-Grameen Trust.
-
-.. raw:: html
-
-  <hr class="clear" />
-
-http://www.copperwiki.org/index.php/Grameen_Bank
-
-http://flickr.com/photos/olasofia/sets/72157606270139832/
+I strongly encourage you to visit Dhaka -- and if not, at least read `the book
+<http://www.amazon.com/Creating-World-Without-Poverty-Capitalism/dp/1586484931>`_.
