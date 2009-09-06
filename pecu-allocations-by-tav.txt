@@ -34,23 +34,23 @@ like to reward them with **¤200,000** each:
 * Danny Bruder
 * David Pinto
 * Inderpaul Johar
-* James Arthur
+* James Arthur (+200,000)
 * Jeffry Archambeault
 * John McCane-Whitney
 * Liliana Avrushin
 * Luke Graybill
-* Mamading Ceesay
+* Mamading Ceesay (+100,000)
 * Martyn Hurt
 * Matthieu Rey-Grange
-* Mathew Ryden
+* Mathew Ryden (+100,000)
 * Nadine Gahr
 * Nathan Staab
 * Narmatha Murugananda
 * Navaratnam Para
 * Nicholas Midgley
-* Øyvind Selbek
+* Øyvind Selbek (+200,000)
 * Sofia Bustamante
-* Sean B. Palmer
+* Sean B. Palmer (+100,000)
 * Stefan Plantikow
 * Tim Jenks
 * Tiziano Cirillo
@@ -77,7 +77,7 @@ laid key foundations. For this they get **¤20,000** each:
 * Bryce Wilcox-O'Hearn
 * Charles Goodier
 * Chris Wood
-* Claire Colvin
+* Claire Assis
 * David Bovill
 * Derek Richards
 * Eric Hopper
@@ -91,8 +91,10 @@ laid key foundations. For this they get **¤20,000** each:
 * Gloria Charles
 * Guido van Rossum
 * Guilhem Buzenet
+* Howard Rheingold
 * Itamar Shtull-Trauring
 * Jacob Everist
+* Jan "silenius"
 * Jill Lundquist
 * Jim Carrico
 * Jo Walsh
@@ -108,11 +110,12 @@ laid key foundations. For this they get **¤20,000** each:
 * Katie Miller
 * Kisiyane Roberts
 * Laura Tov
-* Lesley Williams
+* Lesley Donna Williams
 * Lucie Rey-Grange
+* Maciej Fijalkowski
 * Mark Poole
 * Maria Glauser
-* Maria X
+* Maria Chatzichristodoulou
 * Matthew Sellwood
 * Matthew Skinner
 * Mayra Graybill
@@ -125,7 +128,8 @@ laid key foundations. For this they get **¤20,000** each:
 * Phillip J. Eby
 * Pierre-Antoine Tetard
 * Ricky Cousins
-* Saritah
+* Salim Virani
+* Saritah (Sarah Louise Newman ?)
 * Saul Albert
 * Shalabh Chaturvedi
 * Simeon Scott
@@ -165,7 +169,7 @@ These lovely supporters get **¤2,000** each:
 * Andy McKay
 * Andrew M. Kuchling
 * Andrew McCormick
-* Angela Beesley
+* Angela Beesley Starling
 * Anna Gordon-Walker
 * Anna Rothkopf
 * Annalisa Fagan
@@ -173,6 +177,7 @@ These lovely supporters get **¤2,000** each:
 * Anselm Hook
 * Ante Pavlov
 * Arani Siva
+* Ash Gerrish
 * Ashley Siple
 * Auro Tom Foxtrot
 * Azra Gül
@@ -193,7 +198,10 @@ These lovely supporters get **¤2,000** each:
 * Callum Beith
 * Candie Duncan
 * Carl Ballard Swanson
+* Carl Friedrich Bolz
+* Céline Seger
 * Chai Mason
+* Charley Quinton
 * Chris Cook
 * Chris Davis
 * Chris Heaton
@@ -218,14 +226,16 @@ These lovely supporters get **¤2,000** each:
 * David Midgley
 * David Mills
 * David Saxby
+* Darran Edmundson
 * Darren Platt
 * Debra Bourne (UK)
 * Dharushana Muthulingam
 * Dermot ? (UK)
-* Dimitrius Savvaidis
+* Dimitris Savvaidis
 * Dominik Webb
 * Donatella Bernstein
-* Dymitri Kleine
+* Dorothee Olivereau
+* Dmytri Kleiner
 * Earle Martin
 * Edward Saperia
 * Eléonore De Prunelé
@@ -253,6 +263,7 @@ These lovely supporters get **¤2,000** each:
 * Geoff Jones
 * Geoffry Arias
 * George Nicholaides
+* Gerry Gleason
 * Giles Mason
 * Glyph Lefkowitz
 * Gordon Mohr
@@ -267,7 +278,6 @@ These lovely supporters get **¤2,000** each:
 * Henry Bowen
 * Holly Lloyd
 * Holly Porter
-* Howard Rheingold
 * Ian Clarke
 * Ian Hogarth
 * Ida Norheim-Hagtun
@@ -313,7 +323,7 @@ These lovely supporters get **¤2,000** each:
 * Ka-Ping Yee
 * Kapil Thangavelu
 * Karen Hessels
-* Katerina ?
+* Katerina Tselou
 * Katja Strøm Cappelen
 * Kath Short
 * Katie Keegan
@@ -341,6 +351,7 @@ These lovely supporters get **¤2,000** each:
 * Luke Francl
 * Luke Kenneth Casson Leighton
 * Luke Nicholson
+* Luke Robinson
 * Lynton Currill Kim-Wai Pepper
 * Magnolia Slimm
 * Manuel Sauer
@@ -363,6 +374,7 @@ These lovely supporters get **¤2,000** each:
 * Meera Shah
 * Menka Parekh
 * Michael Linton
+* Michael Maranda
 * Michael Sparks
 * Michel Bauwens
 * Mike Linksvayer
@@ -378,10 +390,14 @@ These lovely supporters get **¤2,000** each:
 * Nick Szabo
 * Nicolas David
 * Niels Boeing (Germany)
+* Nils Toedtmann
+* Nisha Patel
 * Nishant Shah
 * Noa Harvey
+* Noah Slater
 * Oliver Morrison
 * Oliver Sylvester-Bradley
+* Oz Mose
 * Pamela McLean
 * Paola Desiderio
 * Paolo "xerox" Martini (UK)
@@ -420,6 +436,7 @@ These lovely supporters get **¤2,000** each:
 * Rodney Shakespeare
 * Rohit Khare
 * Roman Nosov
+* Ron Briefel
 * Ricardo Niederberger Cabral
 * Richard Ford
 * Richard Nelson
@@ -429,13 +446,11 @@ These lovely supporters get **¤2,000** each:
 * Ross Evans (UK)
 * Rufus Pollock
 * Salim Fadhley (UK)
-* Salim Virani
 * Sam Brown
 * Sam Geall
 * Sam Joseph
 * Sara Kiran
 * Selas Mene
-* Seger Céline
 * Servane Mouazan
 * Shahid Choudhry
 * Shane Hughes
@@ -446,14 +461,17 @@ These lovely supporters get **¤2,000** each:
 * Sophie ? (Austria)
 * Sophie Le Barbier
 * Stan Rey-Grange
+* Stayce Kavanaugh
 * Stefan Baker
 * Steffi Dayalan
 * Stella Boeva
+* Stephan Dohrn
 * Stephen Wilmot
 * Steve Jenson
 * Steve Peake
 * Steven Starr
 * Su Nandy
+* Suresh Fernando
 * Suw Charman
 * Sunir Shah
 * Sym Von LynX
@@ -467,6 +485,7 @@ These lovely supporters get **¤2,000** each:
 * Tom Longson
 * Tom Williams
 * Tommy Hutchinson
+* Tommy Teillaud
 * Toni Prug
 * Toni Sola
 * Tony Cook
