@@ -177,7 +177,7 @@
 		href="http://github.com/tav" title="Follow tav on GitHub"><img
 		src="${STATIC}/gfx/github-icon.png" alt="GitHub" class="absmiddle"
 		/></a><a style="margin-right: 5px;"
-		href="http://www.facebook.com/pages/Tav/59166451237"
+		href="http://www.facebook.com/asktav"
 		title="Follow Tav on Facebook"><img src="${STATIC}/gfx/facebook-icon.gif"
 		alt="Facebook" class="absmiddle" /></a><a
 		href="http://feeds2.feedburner.com/${site_nick}" rel="alternate"

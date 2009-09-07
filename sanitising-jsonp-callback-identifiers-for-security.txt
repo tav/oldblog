@@ -36,9 +36,24 @@ allowing attackers to inject malicious Javascript, e.g.
 
 * http://friendfeed.com/api/feed/public?callback=alert%28document.cookie%29%3Bfoo
 
-By itself this might not seem like much of a feat but, combined with other
-vulnerabilities, the seemingly innocuous callback value can have devastating
-effects!
+This would allow for arbitrary Javascript to be executed in the context of the
+*caller site*. So, what's the big deal you ask? Surely you only make JSONP calls
+to sites that you trust?
+
+Well, imagine a client-side web application which allows arbitrary data sources
+to be added. It's not too implausible a future where instead of adding RSS feeds
+to an RSS Reader, one adds JSON feeds to such an application...
+
+In this context, if the user is tricked into adding a maliciously crafted URL,
+then everything from their identity to their data is accessible -- not to
+mention being able to abuse the account to spread a worm even!
+
+I believe the possibilities of using JSONP haven't been explored much yet, and
+for it to go further in the context of interesting mashups/applications, it's
+important that it not be a security hole.
+
+And, combined with other vulnerabilities, the seemingly innocuous callback value
+could have devastating effects!
 
 My apologies for picking on FriendFeed -- it could've just as well have been a
 thousand other services. As for the few sites that do restrict the callback
