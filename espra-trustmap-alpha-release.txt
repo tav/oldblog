@@ -64,12 +64,16 @@ It currently supports:
    query the trust data -- allowing developers to create their own
    trustmap-based apps.
 
-This is just the beginning -- an alpha release. It's part of a much bigger
-vision of an open source, peer-to-peer web platform and reputation economy. You
-can `help out by supporting Espra
+5. A demo application -- `tweets.trustmap.org <http://tweets.trustmap.org>`_ --
+   which allows you to do Twitter searches across individual Trustmaps.
+
+This is just the beginning -- an alpha release on top of `App Engine
+<http://code.google.com/appengine/>`_. It's part of a much bigger vision of an
+open source, peer-to-peer web platform and reputation economy. You can `help out
+by supporting Espra
 <http://tav.espians.com/create-weapons-of-mass-construction.html>`_!
 
-To keep posted on developments:
+To keep posted:
 
   .. raw:: html
 
@@ -163,4 +167,7 @@ And if you want to get involved in any way you can:
 * Clone the `plexnet repository <http://github.com/tav/plexnet>`_ on GitHub.
 
 Apologies in advance for all the bugs -- it's an alpha release after all. I hope
-you like it and look forward to finding out what you think of it. Thanks!
+you like it and look forward to finding out what you think.
+
+I'd also appreciate it if you would help out by `supporting Espra
+<http://tav.espians.com/create-weapons-of-mass-construction.html>`_ -- Thanks!
