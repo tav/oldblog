@@ -116,12 +116,14 @@ is also a letter of the Hebrew alphabet. It supposedly stands for truth
 just means a box. Anyone know?
 
 
-Who is Tav Ino?
-===============
+Who is Tav Ino/Espian?
+======================
 
 Saritah, an old housemate of mine, used to call me "Tavino". So when sign-up
 forms insist on a surname, I give them "Ino". It's not a part of my name. Just
 there to sate the surname requirements of silly websites.
+
+Likewise with "Tav Espian".
 
 
 Do you suffer from schizophrenia?
@@ -422,7 +424,7 @@ in all, it had been a lovely afternoon walk with friends. Except for the
 shouting of "No War" constantly, it demonstrated how lovely London would be if
 it was pedestrianised.
 
-.. image:: http://release.plexnet.org/gfx/tav.blog/henry-21st-birthday.jpg
+.. image:: http://cloud.github.com/downloads/tav/plexnet/gfx.henry-21st-birthday.jpg
            :class: float-right
            :width: 302
            :height: 204
@@ -855,7 +857,7 @@ It took place sometime during the summer of 2004.
 What inspires you?
 ==================
 
-.. image:: http://release.plexnet.org/gfx/tav.blog/saritah.jpg
+.. image:: http://cloud.github.com/downloads/tav/plexnet/gfx.saritah.jpg
            :width: 352
            :height: 259
            :align: center
@@ -1231,7 +1233,8 @@ convey-and-notify approach [Celik-2007]_ and drop me a link on:
 * phone/sms: +44 (0) 7809 569 369
 * email/jabber: tav@espians.com
 * irc: `#esp on irc.freenode.net <irc://irc.freenode.net/esp>`_
-* facebook: `Tav Ino <http://www.facebook.com/p/Tav_Ino/593997068>`_
+* twitter: `@tav <http://twitter.com/tav>`_
+* facebook: `Tav <http://www.facebook.com/asktav>`_
 * skype: |skypestatus| `tavespian <skype:addname?name=tavespian>`_
 
 .. |skypestatuss| replace:: Status

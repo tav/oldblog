@@ -21,7 +21,7 @@ overload.
   <object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/weSM2-1IpqQ&hl=en&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/weSM2-1IpqQ&hl=en&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
   </td>
   <td style="padding-left: 2em; vertical-align: top;">
-  <a href="http://www.trustmap.org" class="button"><span>Check out Espra
+  <a href="http://www.trustmap.org" class="button" target="_blank"><span>Check out Espra
   Trustmap!</span></a>
   <hr class="clear" /><br />
   <a href="http://tav.espians.com/create-weapons-of-mass-construction"
@@ -40,7 +40,7 @@ It currently supports:
 
    .. raw:: html
 
-    <a href="http://www.trustmap.org" title="Espra Trustmap"><img
+    <a href="http://www.trustmap.org" title="Espra Trustmap" target="_blank"><img
               src="http://cloud.github.com/downloads/tav/plexnet/gfx.trustmap.tav.python.browser.png"
               width="615px"
               height="330px" alt="Espra Trustmap" /></a>
@@ -125,17 +125,18 @@ To keep posted:
     <tr align="center">
 
     <td>
-    <a href="http://twitter.com/tav" title="Follow @tav on Twitter"><img
+    <a href="http://twitter.com/tav" title="Follow @tav on Twitter" target="_blank"><img
     src="http://a1.twimg.com/profile_images/70939006/aaken_bigger.png"
     height="73px" width="73px" alt="@tav" /></a>
     </td>
     <td>
-    <a href="http://twitter.com/thruflo" title="Follow @thruflo on Twitter"><img
+    <a href="http://twitter.com/thruflo" title="Follow @thruflo on Twitter" target="_blank"><img
     src="http://a1.twimg.com/profile_images/308415848/ape_bigger.jpg"
     height="73px" width="73px" alt="@tav" /></a>
     </td>
     <td>
-    <a href="http://www.facebook.com/Espians" title="Follow Espians on Facebook"><img
+    <a href="http://www.facebook.com/Espians" title="Follow Espians on Facebook"
+    target="_blank"><img
     src="http://cloud.github.com/downloads/tav/plexnet/gfx.espian-flag-embossed.png"
     height="73px" width="73px" alt="@tav" /></a>
     </td>
@@ -144,16 +145,17 @@ To keep posted:
     <tr>
 
     <td>
-    <a href="http://twitter.com/tav" title="Follow @tav on Twitter" class="button"><span>Follow @tav
+    <a href="http://twitter.com/tav" title="Follow @tav on Twitter"
+    class="button" target="_blank"><span>Follow @tav
     on Twitter</span></a>
     </td>
     <td>
     <a href="http://twitter.com/thruflo" title="Follow @thruflo on
-    Twitter" class="button"><span>Follow @thruflo on Twitter</span></a>
+    Twitter" class="button" target="_blank"><span>Follow @thruflo on Twitter</span></a>
     </td>
     <td>
     <a href="http://www.facebook.com/Espians" title="Follow Espians on Facebook"
-    class="button"><span>Follow Espians on Facebook</span></a>
+    class="button" target="_blank"><span>Follow Espians on Facebook</span></a>
     </td>
 
     </tr>
@@ -166,8 +168,10 @@ And if you want to get involved in any way you can:
 
 * Clone the `plexnet repository <http://github.com/tav/plexnet>`_ on GitHub.
 
-Apologies in advance for all the bugs -- it's an alpha release after all. I hope
-you like it and look forward to finding out what you think.
+Apologies in advance for all the bugs -- it's an alpha release after all and is
+mainly intended as a working proof of concept. I hope you like the direction it
+is heading in and look forward to finding out what you think.
 
 I'd also appreciate it if you would help out by `supporting Espra
-<http://tav.espians.com/create-weapons-of-mass-construction.html>`_ -- Thanks!
+<http://tav.espians.com/create-weapons-of-mass-construction.html>`_ --
+Thanks!

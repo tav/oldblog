@@ -88,7 +88,7 @@ following ruleset. I call this the "Variable Sleep Schedule":
 
 * Under ideal circumstances, sleep will be enjoyed during slot 1.
 
-.. image:: http://release.plexnet.org/gfx/tav.blog/online-irc-hourly-activity.png
+.. image:: http://cloud.github.com/downloads/tav/plexnet/gfx.online-irc-hourly-activity.png
            :alt: Tav's Online Activity 2000-2008
            :class: float-right
 

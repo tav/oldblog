@@ -42,7 +42,7 @@ It's your choice.
 .. raw:: html
 
   <div id="tweetfight"></div>
-  <script type="text/javascript" src="http://tav.github.com/static/js/tweetfight.js"></script>
+  <script type="text/javascript" src="http://cloud.github.com/downloads/tav/plexnet/js.tweetfight.js"></script>
   <script type="text/javascript">
     tweetfight_setup('tweetfight', "TweetFight", 12);
   </script>

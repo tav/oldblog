@@ -7,7 +7,7 @@ A Week's Difference in the Twitterverse
 It's funny how much of a difference a week can sometimes make. Especially in the
 Twitterverse. Case in point, my relationship with Twitter Inc.
 
-.. image:: http://release.plexnet.org/gfx/tav.blog/alex-payne-praise-on-twitter.png
+.. image:: http://cloud.github.com/downloads/tav/plexnet/gfx.alex-payne-praise-on-twitter.png
            :class: float-right
 
 A few weeks ago I had registered several Twitter accounts for use in an upcoming

@@ -51,7 +51,7 @@ with?
 
   <div class="float-left">
   <a href="http://blog.vincentlaforet.com/2008/11/26/7-days-7-shoots-eos-5d-mkii/"><img
-  src="http://release.plexnet.org/gfx/tav.blog/photo-vincent-laforet-5d-sample.jpg"
+  src="http://cloud.github.com/downloads/tav/plexnet/gfx.photo-vincent-laforet-5d-sample.jpg"
   alt="Sweet Shot" /></a><br />
   <div>by <a
   href="http://blog.vincentlaforet.com/2008/11/26/7-days-7-shoots-eos-5d-mkii/">Vincent

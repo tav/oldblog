@@ -55,7 +55,7 @@ Twitter and let me know how it works out for you.
 .. raw:: html
 
   <div id="oneline"></div>
-  <script type="text/javascript" src="http://tav.github.com/static/js/tweetfight.js"></script>
+  <script type="text/javascript" src="http://cloud.github.com/downloads/tav/plexnet/js.tweetfight.js"></script>
   <script type="text/javascript">
     tweetfight_setup('oneline', "OneLine");
   </script>

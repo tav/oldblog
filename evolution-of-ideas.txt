@@ -91,8 +91,8 @@ early last year, I ended up with:
 .. raw:: html
 
   <div class="center">
-    <a href="http://wiki.espians.com/Image:Toman_ecology.png" title="Toman Ecology"><img 
-       src="http://wiki.espians.com/upload/0/0d/Toman_ecology.png"
+    <a href="http://cloud.github.com/downloads/tav/plexnet/gfx.toman-ecology.png" title="Toman Ecology"><img 
+       src="http://cloud.github.com/downloads/tav/plexnet/gfx.toman-ecology.png"
        alt="Toman Ecology"
        width="498px"
        height="361px" /></a>

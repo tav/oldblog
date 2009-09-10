@@ -15,5 +15,5 @@ the cutest LOLcat ever:
 .. raw:: html
 
   <div class="center">
-    <a href="http://icanhascheezburger.com/2008/11/25/funny-pictures-of-buddy-system-alwaiz-hold-hands/"><img src="http://release.plexnet.org/gfx/tav.blog/cutest-lolcat-ever.jpg" alt="1st rule of buddy system -- alwaiz hold hands" /></a>
+    <a href="http://icanhascheezburger.com/2008/11/25/funny-pictures-of-buddy-system-alwaiz-hold-hands/"><img src="http://cloud.github.com/downloads/tav/plexnet/gfx.cutest-lolcat-ever.jpg" alt="1st rule of buddy system -- alwaiz hold hands" /></a>
   </div>

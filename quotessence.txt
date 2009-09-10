@@ -54,7 +54,7 @@ Mamading:
       margin: 22px 40px;
       color:#575757;
       padding: 0 50px;
-      background: transparent url("http://tav.github.com/static/gfx/blockquote.gif") no-repeat 0 0;
+      background: transparent url("http://cloud.github.com/downloads/tav/plexnet/gfx.blockquote.gif") no-repeat 0 0;
     }
     #epigraph-attribution {
       text-align: right;

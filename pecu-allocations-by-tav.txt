@@ -4,7 +4,7 @@ Pecu Allocations by Tav
 
 :X-Created: [2009-03-15, 10:14]
 
-.. image:: http://tav.github.com/static/gfx/aaken.png
+.. image:: http://cloud.github.com/downloads/tav/plexnet/gfx.aaken.png
            :class: float-right
 
 Hundreds of people have -- knowingly or not -- had a *direct* impact on my
@@ -12,17 +12,19 @@ work/vision. Their belief, inspiration, energy, encouragement, suggestions,
 criticisms, support (both emotional and financial), tasty treats and hard work
 has been phenomenal!
 
-I'd like to reward them with some life-time ¤ pecu allocations.
+I'd like to reward them with some life-time tav-branded `pecu allocations
+<http://www.thruflo.com/2009/06/09/tav-describes-pecus.html>`_.
 
 Since I'm not making any pecu payouts at the moment, they're not worth much yet
 -- but I hope one day that those who've helped me will feel the gratitude =)
 
-See below for the full list of pecu allocations.
+See below for the full list of `pecu
+<http://www.thruflo.com/2009/06/09/tav-describes-pecus.html>`_ allocations.
 
 .. more
 
 The following individuals have put in a lot to make my vision a reality and I'd
-like to reward them with **¤200,000** each:
+like to reward them with **200,000** pecus each:
 
 .. class:: double-column
 
@@ -39,7 +41,7 @@ like to reward them with **¤200,000** each:
 * John McCane-Whitney
 * Liliana Avrushin
 * Luke Graybill
-* Mamading Ceesay (+100,000)
+* Mamading Ceesay (+50,000)
 * Martyn Hurt
 * Matthieu Rey-Grange
 * Mathew Ryden (+100,000)
@@ -58,7 +60,7 @@ like to reward them with **¤200,000** each:
 * Yan Minagawa
 
 The following beautiful creatures have helped at various critical junctures or
-laid key foundations. For this they get **¤20,000** each:
+laid key foundations. For this they get **20,000** pecus each:
 
 .. class:: double-column
 
@@ -146,7 +148,7 @@ laid key foundations. For this they get **¤20,000** each:
 * Vanda Petanjek
 * Xiao Xuan Guo
 
-These lovely supporters get **¤2,000** each:
+These lovely supporters get **2,000** pecus each:
 
 .. class:: double-column
 

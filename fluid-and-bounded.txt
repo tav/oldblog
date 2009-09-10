@@ -4,7 +4,7 @@ Fluid & Bounded
 
 :X-Created: [2008-07-01, 15:38]
 
-.. image:: http://release.plexnet.org/gfx/tav.blog/maya.jpg
+.. image:: http://cloud.github.com/downloads/tav/plexnet/gfx.maya.jpg
            :alt: Boris Vallejo
            :width: 300
            :height: 450
