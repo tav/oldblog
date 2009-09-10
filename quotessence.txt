@@ -49,17 +49,6 @@ Mamading:
 
 .. raw:: html
 
-  <style type="text/css">
-    #epigraph {
-      margin: 22px 40px;
-      color:#575757;
-      padding: 0 50px;
-      background: transparent url("http://cloud.github.com/downloads/tav/plexnet/gfx.blockquote.gif") no-repeat 0 0;
-    }
-    #epigraph-attribution {
-      text-align: right;
-    }
-  </style>
   <script type="text/javascript">
   $.getJSON(
       "http://quotessence.agoraworx.com/api/mamading?callback=?",

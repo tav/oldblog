@@ -99,7 +99,7 @@ code by removing the "leak" variables using Python's ``ctypes`` module -- see
 `safelite.py <http://cloud.github.com/downloads/tav/plexnet/safelite.py>`_ for a
 simple implementation. And for contexts like App Engine, where ctypes isn't
 accessible, I provided a `small patch
-<http://release.plexnet.org/misc/cappython/pytrunk.secure.patch>`_ for the
+<http://cloud.github.com/downloads/tav/plexnet/pytrunk.secure.patch>`_ for the
 interpreter itself.
 
 The next problem is in making as much of the existing standard library

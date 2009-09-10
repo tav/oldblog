@@ -8,7 +8,7 @@
   from operator import lt
   from urllib import urlencode
 
-  STATIC = 'http://tav.github.com/static'
+  STATIC = 'http://cloud.github.com/downloads/tav/plexnet'
 
   info = defined('info') and info or {}
 
@@ -62,7 +62,7 @@
   <meta http-equiv="content-language" content="en" />
   <meta name="verify-v1" content="aLcMPDDmDYvgufTDcJiiCOgPt/FOooMmGHiPj64BMbU=" />
 
-  <link rel="icon" type="image/png" href="http://tav.github.com/static/gfx/aaken.png" />
+  <link rel="icon" type="image/png" href="${STATIC}/gfx.aaken.png" />
 
   <link rel="alternate" type="application/rss+xml" 
 		title="RSS Feed for ${site_title}"
@@ -70,18 +70,13 @@
 
   <!-- stylesheets -->
   <link rel="stylesheet" type="text/css" media="screen" title="default"
-		href="${STATIC}/css/screen.css?v=2" />
+		href="${STATIC}/css.screen.css?v=2" />
   <link rel="stylesheet" type="text/css" media="screen" title="default"
-		href="${STATIC}/css/${site_nick}.css?v=2" />
+		href="${STATIC}/css.${site_nick}.css?v=2" />
 
   <style type="text/css" media="print">
-    /* @import url("${STATIC}/css/print.css"); */
+    /* @import url("${STATIC}/css.print.css"); */
     #ignore-this { display: none; }
-  </style>
-
-  <style type="text/css" media="screen">
-    .retweetbutton { vertical-align: middle; display: inline; }
-    .retweetbutton iframe { vertical-align: middle; padding-bottom: 5px; }
   </style>
 
   <!--[if lte IE 8]>
@@ -98,7 +93,7 @@
     PAGE_URI = '${page_url}'
     facebookXdReceiverPath = 'http://tav.espians.com/external/xd_receiver.html';
   </script>
-  <script type="text/javascript" src="${STATIC}/js/init.js" />
+  <script type="text/javascript" src="${STATIC}/js.init.js" />
   <script type="text/javascript" src="http://w.sharethis.com/button/sharethis.js#tabs=web%2Cpost%2Cemail&amp;charset=utf-8&amp;style=rotate&amp;publisher=65b4c59a-e069-4896-84b4-7d8d7dce2b77&amp;headerbg=%230099cd&amp;linkfg=%230099cd"></script>
 
 </head>
@@ -109,7 +104,7 @@
   <div id="site-header">
 	<div id="site-info">
 		<a href="/" title="Asktav: A Blog by Tav"><img
-		  id="site-logo" src="${STATIC}/gfx/asktav.png" alt="Aaken Logo" width="64px" height="64px" /></a><form id="translation_form" class="menu-item-padding"><select id="lang_select" onchange="dotranslate(this);">
+		  id="site-logo" src="${STATIC}/gfx.logo.asktav.png" alt="Aaken Logo" width="64px" height="64px" /></a><form id="translation_form" class="menu-item-padding"><select id="lang_select" onchange="dotranslate(this);">
 		<option value="" id="select_language">Select Language</option>
 		<option value="&amp;langpair=en|af" id="openaf">Afrikaans</option><option
 		value="&amp;langpair=en|sq" id="opensq">Albanian</option><option
@@ -169,16 +164,16 @@
 		href="about-${site_author.lower()}.html">About
 		${site_author.title()}</a><a class="menu-item-final"
 		href="http://twitter.com/tav" title="Follow @tav" style="margin-right: 5px;"><img
-		src="${STATIC}/gfx/twitter-icon.png" alt="Follow @tav on Twitter"
+		src="${STATIC}/gfx.icon.twitter.png" alt="Follow @tav on Twitter"
 		class="absmiddle" /></a><a href="http://friendfeed.com/tav" style="margin-right: 5px;"
-		title="Follow tav on FriendFeed"><img src="${STATIC}/gfx/friendfeed-icon.png"
+		title="Follow tav on FriendFeed"><img src="${STATIC}/gfx.icon.friendfeed.png"
 		alt="FriendFeed" class="absmiddle" /></a><a
 		style="margin-right: 5px;"
 		href="http://github.com/tav" title="Follow tav on GitHub"><img
-		src="${STATIC}/gfx/github-icon.png" alt="GitHub" class="absmiddle"
+		src="${STATIC}/gfx.icon.github.png" alt="GitHub" class="absmiddle"
 		/></a><a style="margin-right: 5px;"
 		href="http://www.facebook.com/asktav"
-		title="Follow Tav on Facebook"><img src="${STATIC}/gfx/facebook-icon.gif"
+		title="Follow Tav on Facebook"><img src="${STATIC}/gfx.icon.facebook.gif"
 		alt="Facebook" class="absmiddle" /></a><a
 		href="http://feeds2.feedburner.com/${site_nick}" rel="alternate"
 		type="application/rss+xml" title="Subscribe to the RSS Feed"><img

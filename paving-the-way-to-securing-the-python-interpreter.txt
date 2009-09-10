@@ -358,7 +358,7 @@ The nice thing about this is that we can then use it in environments like
 the ctypes-based approach.
 
 Here's my patch for Python's SVN trunk: `pytrunk.secure.patch
-<http://release.plexnet.org/misc/cappython/pytrunk.secure.patch>`_
+<http://cloud.github.com/downloads/tav/plexnet/pytrunk.secure.patch>`_
 
 You can review the patch for acceptance into Python core here:
 

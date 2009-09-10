@@ -3,7 +3,7 @@
 
   from operator import lt
 
-  STATIC = 'http://tav.github.com/static'
+  STATIC = 'http://cloud.github.com/downloads/tav/plexnet'
 
   MONTHS = [
     'Zero Month',
@@ -78,7 +78,7 @@ you might like:</div>
 	  <td><strong>${site_author.title()}'s Recent Web Activity</strong></td>
 	  <td class="right">
 		<a href="http://friendfeed.com/${site_author_nick}">Friendfeed Archive</a>
-		<img class="absmiddle" src="${STATIC}/gfx/friendfeed-icon.png" alt="friendfeed" />
+		<img class="absmiddle" src="${STATIC}/gfx.icon.friendfeed.png" alt="friendfeed" />
 	  </td>
 	</tr>
   </table>
@@ -91,7 +91,7 @@ you might like:</div>
 	  <td><strong>Recent Blog Comments</strong></td>
 	  <td class="right">
 		<a href="http://${site_nick}.disqus.com">Disqus Archive</a>
-		<img class="absmiddle" src="${STATIC}/gfx/disqus-icon.png" alt="disqus" />
+		<img class="absmiddle" src="${STATIC}/gfx.icon.disqus.png" alt="disqus" />
 	  </td>
 	</tr>
   </table>

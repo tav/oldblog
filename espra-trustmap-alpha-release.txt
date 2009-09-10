@@ -77,50 +77,6 @@ To keep posted:
 
   .. raw:: html
 
-    <style type="text/css">
-
-    a.button {
-      background: transparent url('http://tav.github.com/static/gfx/bg_button_a.gif') no-repeat scroll top right;
-      color: #444;
-      display: block;
-      float: left;
-      font: normal 12px arial, sans-serif;
-      height: 24px;
-      margin-right: 6px;
-      padding-right: 18px; /* sliding doors padding */
-      text-decoration: none;
-      overflow: hidden;
-    }
-
-    a.button span {
-      background: transparent url('http://tav.github.com/static/gfx/bg_button_span.gif') no-repeat;
-      display: block;
-      line-height: 14px;
-      padding: 5px 0 5px 18px;
-    }
-
-    a.button:active {
-      background-position: bottom right;
-      color: #000;
-      outline: none; /* hide dotted outline in Firefox */
-    }
-
-    a.button:active span {
-      background-position: bottom left;
-      padding: 6px 0 4px 18px; /* push text down 1px */
-    }
-
-    .actionitem {
-      padding: 0.5em;
-      border: 1px solid #a21017;
-      background-color: #a21017;
-      color: #fff;
-      font-size: 2em;
-      line-height: 1.6em;
-      font-family: Georgia;
-    }
-    
-    </style>
     <table cellspacing="0" cellpadding="5px" id="followtable">
     <tr align="center">
 
