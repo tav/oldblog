@@ -1,0 +1,166 @@
+============================
+Espra Trustmap Alpha Release
+============================
+
+:XX-Created: [2009-09-16, 10:20]
+
+I am extremely pleased to announce the alpha release of `Espra Trustmap
+<http://www.trustmap.org>`_. Trustmaps fulfill a real need on the web of knowing
+who to trust and for what. It allows for the creation of many useful things,
+including a `PageRank for People
+<http://threeminds.organic.com/2009/06/docs_are_old-school_we_need_pa.html>`_
+and provides the infrastructure needed to overcome problems like information
+overload.
+
+.. raw:: html
+
+  <div class="center">
+  <table cellspacing="0" cellpadding="0" align="center">
+  <tr>
+  <td>
+  <object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/weSM2-1IpqQ&hl=en&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/weSM2-1IpqQ&hl=en&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
+  </td>
+  <td style="padding-left: 2em; vertical-align: top;">
+  <a href="http://www.trustmap.org" class="button"><span>Check out Espra
+  Trustmap!</span></a>
+  <hr class="clear" /><br />
+  <a href="http://tav.espians.com/create-weapons-of-mass-construction"
+  class="button"><span>Support Espra</span></a>
+  </td>
+  </tr>
+  </table>
+  </div>
+
+The super cool Trustmap development was done by `James Arthur
+<http://www.thruflo.com>`_ (`@thruflo <http://twitter.com/thruflo>`_) as part of
+the `Espra Iteration X <http://www.espians.com/iteration-x.html>`_ development.
+It currently supports:
+
+1. Browsing Trustmaps through a `Graphical Navigator <http://www.trustmap.org>`_.
+
+   .. raw:: html
+
+    <a href="http://www.trustmap.org" title="Espra Trustmap"><img
+              src="http://cloud.github.com/downloads/tav/plexnet/gfx.trustmap.tav.python.browser.png"
+              width="615px"
+              height="330px" alt="Espra Trustmap" /></a>
+
+2. Adding users from Twitter, Facebook, Delicious, Flickr or YouTube to your
+   Trustmap using `Contextual Identifiers
+   <http://www.trustmap.org/docs/identifiers/>`_, e.g.
+
+   ::
+
+    ~twitter:timoreilly or @timoreilly
+    ~facebook:thruflo
+    ~delicious:qopi
+    ~flickr:olasofia
+    ~youtube:happyseaurchin
+
+3. A `Command-line Syntax <http://www.trustmap.org/docs/syntax/>`_ which you can
+   even use through Twitter!
+
+4. An `Open API <http://www.trustmap.org/api/docs/>`_ to manage trustmaps and
+   query the trust data -- allowing developers to create their own
+   trustmap-based apps.
+
+This is just the beginning -- an alpha release. It's part of a much bigger
+vision of an open source, peer-to-peer web platform and reputation economy. You
+can `help out by supporting Espra
+<http://tav.espians.com/create-weapons-of-mass-construction.html>`_!
+
+To keep posted on developments:
+
+  .. raw:: html
+
+    <style type="text/css">
+
+    a.button {
+      background: transparent url('http://tav.github.com/static/gfx/bg_button_a.gif') no-repeat scroll top right;
+      color: #444;
+      display: block;
+      float: left;
+      font: normal 12px arial, sans-serif;
+      height: 24px;
+      margin-right: 6px;
+      padding-right: 18px; /* sliding doors padding */
+      text-decoration: none;
+      overflow: hidden;
+    }
+
+    a.button span {
+      background: transparent url('http://tav.github.com/static/gfx/bg_button_span.gif') no-repeat;
+      display: block;
+      line-height: 14px;
+      padding: 5px 0 5px 18px;
+    }
+
+    a.button:active {
+      background-position: bottom right;
+      color: #000;
+      outline: none; /* hide dotted outline in Firefox */
+    }
+
+    a.button:active span {
+      background-position: bottom left;
+      padding: 6px 0 4px 18px; /* push text down 1px */
+    }
+
+    .actionitem {
+      padding: 0.5em;
+      border: 1px solid #a21017;
+      background-color: #a21017;
+      color: #fff;
+      font-size: 2em;
+      line-height: 1.6em;
+      font-family: Georgia;
+    }
+    
+    </style>
+    <table cellspacing="0" cellpadding="5px" id="followtable">
+    <tr align="center">
+
+    <td>
+    <a href="http://twitter.com/tav" title="Follow @tav on Twitter"><img
+    src="http://a1.twimg.com/profile_images/70939006/aaken_bigger.png"
+    height="73px" width="73px" alt="@tav" /></a>
+    </td>
+    <td>
+    <a href="http://twitter.com/thruflo" title="Follow @thruflo on Twitter"><img
+    src="http://a1.twimg.com/profile_images/308415848/ape_bigger.jpg"
+    height="73px" width="73px" alt="@tav" /></a>
+    </td>
+    <td>
+    <a href="http://www.facebook.com/Espians" title="Follow Espians on Facebook"><img
+    src="http://cloud.github.com/downloads/tav/plexnet/gfx.espian-flag-embossed.png"
+    height="73px" width="73px" alt="@tav" /></a>
+    </td>
+
+    </tr>
+    <tr>
+
+    <td>
+    <a href="http://twitter.com/tav" title="Follow @tav on Twitter" class="button"><span>Follow @tav
+    on Twitter</span></a>
+    </td>
+    <td>
+    <a href="http://twitter.com/thruflo" title="Follow @thruflo on
+    Twitter" class="button"><span>Follow @thruflo on Twitter</span></a>
+    </td>
+    <td>
+    <a href="http://www.facebook.com/Espians" title="Follow Espians on Facebook"
+    class="button"><span>Follow Espians on Facebook</span></a>
+    </td>
+
+    </tr>
+    </table>
+
+And if you want to get involved in any way you can:
+
+* Use this `webchat client <http://webchat.freenode.net/?channels=esp>`_ to join
+  the live chat on irc://irc.freenode.net/esp.
+
+* Clone the `plexnet repository <http://github.com/tav/plexnet>`_ on GitHub.
+
+Apologies in advance for all the bugs -- it's an alpha release after all. I hope
+you like it and look forward to finding out what you think of it. Thanks!
