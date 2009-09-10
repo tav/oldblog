@@ -25,13 +25,13 @@
   .more-link { display: block; }
 </style>
 
-<div id="site-welcome">Thanks for coming to Asktav<em>!</em> Articles
+<div id="site-welcome">Thanks for coming to Asktav<em>!</em> Other articles
 you might like:</div>
 
 <ul>
   <li>
-    <a href="espra-bootstrap.html">Espra Bootstrap</a>
-	<br /><span class="index-link-info">A Command Line for the Internet</span>
+    <a href="http://www.espians.com/plexnet.html">Plexnet</a>
+	<br /><span class="index-link-info">A Set of Open Web Standards</span>
   </li>
 </ul>
 
