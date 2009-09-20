@@ -1,0 +1,33 @@
+=============================================
+Media Ecologies And Postindustrial Production
+=============================================
+
+:X-Created: [2009-09-20, 20:17]
+
+.. raw:: html
+
+  <div class="float-right" style="margin-bottom: 20px;">
+    <a href="http://www.espach.salford.ac.uk/sssi/p2p/"><img width="340px" height="512px"
+    src="http://cloud.github.com/downloads/tav/plexnet/gfx.poster.media-ecologies.jpg"
+    /></a>
+  </div>
+
+Myself and other crazy visionaries will be speaking in Manchester on the 3rd of
+November for the `Media Ecologies Workshop
+<http://www.espach.salford.ac.uk/sssi/p2p/>`_.
+
+Put together by `Phoebe Moore
+<http://www.espach.salford.ac.uk/page/Phoebe_Moore>`_, it promises to be a rare
+gathering of various pioneering efforts -- from those working on collaborative
+platforms to `distributed manufacturing
+<http://www.espach.salford.ac.uk/sssi/p2p/programme.html>`_ efforts.
+
+Sadly it's only a one day event -- so if anyone wants to organise a follow-up
+event for the next day, it'd certainly be very welcome!
+
+Some of the speakers like the illustrious `Michel Bauwens
+<http://www.google.com/search?q=michel+bauwens>`_ of the `P2P Foundation
+<http://blog.p2pfoundation.net/>`_ will be coming over from distant lands and
+it'd be a shame to only get a day of their time.
+
+In any case, I hope that you can come to Manchester for the event -- it's free!

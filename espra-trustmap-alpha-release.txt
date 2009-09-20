@@ -102,16 +102,21 @@ To keep posted:
 
     <td>
     <a href="http://twitter.com/tav" title="Follow @tav on Twitter"
-    class="button" target="_blank"><span>Follow @tav
-    on Twitter</span></a>
+    class="button" target="_blank"><span><img height="14px" width="14px"
+    src="http://cloud.github.com/downloads/tav/plexnet/gfx.icon.twitter.alt.png"
+    alt="Twitter" /> Follow @tav</span></a>
     </td>
     <td>
-    <a href="http://twitter.com/thruflo" title="Follow @thruflo on
-    Twitter" class="button" target="_blank"><span>Follow @thruflo on Twitter</span></a>
+    <a href="http://twitter.com/thruflo" title="Follow @thruflo on Twitter"
+    class="button" target="_blank"><span><img height="14px" width="14px"
+    src="http://cloud.github.com/downloads/tav/plexnet/gfx.icon.twitter.alt.png"
+    alt="Twitter" /> Follow @thruflo</span></a>
     </td>
     <td>
-    <a href="http://www.facebook.com/Espians" title="Follow Espians on Facebook"
-    class="button" target="_blank"><span>Follow Espians on Facebook</span></a>
+    <a href="http://www.facebook.com/Espians" title="Join Espians on Facebook"
+    class="button" target="_blank"><span><img height="14px" width="14px"
+    src="http://cloud.github.com/downloads/tav/plexnet/gfx.icon.facebook.gif"
+    alt="Facebook" /> &nbsp;Join Espians</span></a>
     </td>
 
     </tr>
