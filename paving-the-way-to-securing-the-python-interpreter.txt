@@ -95,7 +95,7 @@ frame objects are accessible.)
 
 Now this list is in no way the definitive final list. The Python challenge is
 still ongoing -- try `safelite.py
-<http://cloud.github.com/downloads/tav/plexnet/safelite.py>`_ yourself and see if
+<http://github.com/tav/scripts/blob/master/safelite.py>`_ yourself and see if
 you can find more! But the fact that there have been no new exploits in the last
 24 hours despite over a 1,000 unique downloads of safelite.py in the same time
 gives me *some* confidence that we are getting towards a comprehensive list.
