@@ -42,7 +42,7 @@
 ?>
 <head>
 
-  <title>${Markup(site_title)} &#187; ${Markup(page_title)}</title>
+  <title><py:if test="not info.get('title')">${Markup(site_title)} &#187; </py:if>${Markup(page_title)}</title>
   <meta content="text/html; charset=utf-8" http-equiv="content-type" />
   <meta name="tweetmeme-title" content="${page_title}" />
 
@@ -95,7 +95,8 @@
     facebookXdReceiverPath = 'http://tav.espians.com/external/xd_receiver.html';
   </script>
   <script type="text/javascript" src="${STATIC}/js.init.js" />
-  <script type="text/javascript" src="http://w.sharethis.com/button/sharethis.js#tabs=web%2Cpost%2Cemail&amp;charset=utf-8&amp;style=rotate&amp;publisher=65b4c59a-e069-4896-84b4-7d8d7dce2b77&amp;headerbg=%230099cd&amp;linkfg=%230099cd"></script>
+  <!-- <script type="text/javascript"
+  src="http://w.sharethis.com/button/sharethis.js#tabs=web%2Cpost%2Cemail&amp;charset=utf-8&amp;style=rotate&amp;publisher=65b4c59a-e069-4896-84b4-7d8d7dce2b77&amp;headerbg=%230099cd&amp;linkfg=%230099cd"></script> -->
 
 </head>
 <body>
@@ -193,12 +194,12 @@
     <div class="article-title">
       <div class="post-link"><a href="${info['__name__']}.html">${Markup(page_title)}</a></div>
 	  <div class="additional-content-info">
-		<script language="javascript" type="text/javascript">
+		<!-- <script language="javascript" type="text/javascript">
 		  SHARETHIS.addEntry({
 		  title:"${page_title.replace('"', r'\"')}",
 		  url:'${page_url}',
 		  }, {button:true});
-		  </script>| <a href="#disqus_thread" rel="disqus:${disqus_url}">Add a Comment</a>
+		  </script>| --><a href="#disqus_thread" rel="disqus:${disqus_url}">Add a Comment</a>
           <script type="text/javascript">
 		    tweetmeme_url = '${page_url}';
 		    tweetmeme_source = 'tav';

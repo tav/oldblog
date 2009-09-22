@@ -45,12 +45,12 @@ you might like:</div>
 	<div class="post-link"><a href="${set_name(post)}.html">${Markup(post['title'])}</a></div>
 	<div>
 	  <div class="float-right">
-		<script language="javascript" type="text/javascript">
+		<!--<script language="javascript" type="text/javascript">
 		  SHARETHIS.addEntry({
 		  title:"${post['title'].replace('"', r'\"')}",
 		  url:'${post_url}',
 		  }, {button:true});
-		</script>| <a href="${post['__name__']}.html#disqus_thread" rel="disqus:${disqus_url}">Comment!</a>
+		</script>| --><a href="${post['__name__']}.html#disqus_thread" rel="disqus:${disqus_url}">Comment!</a>
           <script type="text/javascript">
 		    tweetmeme_url = '${post_url}';
 		    tweetmeme_source = 'tav';
