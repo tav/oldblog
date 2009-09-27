@@ -8,7 +8,7 @@ Media Ecologies And Postindustrial Production
 
   <div class="float-right" style="margin-bottom: 20px;">
     <a href="http://www.espach.salford.ac.uk/sssi/p2p/"><img width="340px" height="512px"
-    src="http://cloud.github.com/downloads/tav/plexnet/gfx.poster.media-ecologies.jpg"
+    src="http://cloud.github.com/downloads/tav/plexnet/gfx.poster.media-ecologies.small.png"
     /></a>
   </div>
 
