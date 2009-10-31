@@ -150,6 +150,8 @@ laid key foundations. For this they get **20,000** pecus each:
 
 These lovely supporters get **2,000** pecus each:
 
+.. Ana Sandra Ruiz Entrecanales
+
 .. class:: double-column
 
 * Adam Burns
@@ -163,7 +165,6 @@ These lovely supporters get **2,000** pecus each:
 * Alex Bustamante
 * Alexander Wait (USA)
 * Alice Fung
-* Ana Sandra Ruiz Entrecanales
 * Andreas Kotes
 * Andreas Schwarz
 * Andrius Kulikauskas
