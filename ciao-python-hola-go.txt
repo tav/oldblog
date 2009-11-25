@@ -1,0 +1,225 @@
+=====================
+Ciao Python, Hola Go!
+=====================
+
+:X-Created: [2009-11-25, 15:27]
+
+.. raw:: html
+
+  <div class="float-right">
+  <a href="http://golang.org" title="Go Programming Language"><img
+     src="http://cloud.github.com/downloads/tav/plexnet/gfx.logo.go.black.png"
+     alt="Go" /></a>
+  </div>
+
+This is the first in a series of articles in which I'll document my move away
+from Python and the adventures encountered in using `Go <http://golang.org>`_ to
+build the `Plexnet <http://www.espians.com/plexnet.html>`_, an "internet
+operating system".
+
+My love affair with Python began in early 2000 when I `discovered Zwiki
+<http://zwiki.org/Tav>`_. And despite brief flings with other languages --
+Alice, E, Erlang, Lisp, Lua, Objective-C, OCaml, Oz, PowerShell, Ruby, Scheme,
+Smalltalk -- I've always returned to the sexiness of Python and the ubiquity of
+Javascript.
+
+However, in recent times, I've found Python sadly lacking on a number of fronts,
+e.g.
+
+.. more
+
+1. **Abysmal multi-core support.**
+
+   The `multiprocessing <http://docs.python.org/library/multiprocessing.html>`_
+   module is a joke and if it were not for the `ugly Prolog-inspired syntax
+   <http://damienkatz.net/2008/03/what_sucks_abou.html>`_, I'd have switched to
+   Erlang long ago.
+
+2. **Fragmented networking support.**
+
+   `Twisted <http://twistedmatrix.com/>`_ is great, but forces you into callback
+   hell. `Eventlet <http://eventlet.net/>`_ and friends make good use of
+   `greenlets <http://codespeak.net/py/0.9.2/greenlet.html>`_ but still can't
+   make use of those spare cores on my servers -- `Spawning
+   <http://pypi.python.org/pypi/Spawning>`_ helps though. The kqueue/epoll
+   support in the standard library were, until relatively recently, `broken
+   <http://bugs.python.org/issue5910>`_ or non-existent. At least `pyev
+   <http://code.google.com/p/pyev/>`_ is cool, but there aren't any decent
+   frameworks built on it!
+
+3. **Difficult to secure.**
+
+   Want to build your own App Engine like service? Good luck securing Python!
+   It's possible, but we, the open source community, have yet to deliver. Mark
+   Seaborn has done some great work getting `Python onto Native Client
+   <http://lackingrhoticity.blogspot.com/2009/06/python-standard-library-in-native.html>`_
+   but you'd still need to port all your C Extensions over. PyPy has a great
+   `sandbox <http://codespeak.net/pypy/dist/pypy/doc/sandbox.html>`_, but you
+   can't use newer Python features nor those C Extensions and, to boot, the
+   networking support sucks.
+
+4. **Painful to optimise.**
+
+   Until `PyPy's JIT
+   <http://codespeak.net/pypy/trunk/pypy/doc/jit/overview.html>`_ or `Unladen
+   Swallow <http://code.google.com/p/unladen-swallow/>`_ lands, the main way to
+   optimise that slow running Python function is to write C extensions. This is
+   a pain filled process. `Cython <http://www.cython.org/>`_ definitely makes it
+   easier, but you then have to deal with figuring out the limitations of
+   Cython's syntax!
+
+Now, until last week, I'd just put up with all the problems and waited for `PyPy
+<http://codespeak.net/pypy/dist/pypy/doc/>`_ to mature. And when `Go
+<http://golang.org/>`__ -- the shiny, new programming language from Google --
+came along, I took a brief look and then dismissed it forthwith.
+
+Sure, it looked like a nice programming language. And, sure, the guys behind it
+had made some of the biggest contributions to computer science to date,
+including: UNIX, regular expressions, Plan 9 and even UTF-8! But I still didn't
+see the point in switching to Go as my primary language.
+
+But then, a few days ago, whilst reading this `wonderful rant
+<http://www.xent.com/pipermail/fork/Week-of-Mon-20091109/054578.html>`_ by Jeff
+Bone on the poor state of today's programming languages, `@evangineer
+<http://twitter.com/evangineer>`_ pointed out that Go had rudimentary support
+for `Native Client <http://code.google.com/p/nativeclient/>`_!
+
+And within 24 hours, I was a Go convert. Now don't get me wrong, Python and I
+will always be good friends, but there's just no competing with Go. Why?
+
+1. **Native Client (NaCl) support.**
+
+   `NaCl <http://code.google.com/p/nativeclient/>`_, like its distant cousin
+   `Vx32 <http://pdos.csail.mit.edu/~baford/vm/>`_, allows one to safely execute
+   untrusted "native code", e.g. C code. It's one of the coolest open source
+   projects to come out of Google!
+
+   The most interesting application of such technology is of course as a way to
+   allow for dynamic loading of browser extensions, e.g. `Native Client in
+   Google Chrome
+   <http://code.google.com/p/nativeclient/wiki/NativeClientInGoogleChrome>`_.
+   This is useful 'cos, despite the crazy speeds of `V8
+   <http://code.google.com/p/v8/>`_, you really don't want to be writing the
+   `metaverse <http://en.wikipedia.org/wiki/Metaverse>`_ in Javascript!
+
+   Now, for those of you who might think that this is a return to to the world
+   of crap that was ActiveX and Java applets, I'll explain later how NaCl can be
+   very much in the spirit of the Open Web. However, first let me explain why we
+   shouldn't necessarily be too enamoured with Javascript:
+
+   * **Javascript has no security model.** If you were to do a client-side
+     mashup between say your banking application and a photo application, there
+     is nothing stopping the photo app from having fun with your financial data.
+
+     `Caja <http://code.google.com/p/google-caja/>`_ is definitely amazing work
+     in this regard, but requires apps to run within containers which most
+     aren't geared to do -- not to mention the performance hit. `ES5
+     <http://www.ecma-international.org/publications/files/drafts/tc39-2009-050.pdf>`_
+     will make life a little better in this regard, but that's still a while off...
+
+   * **Javascript has no decent concurrency model.** Single-threaded execution
+     was fine when all we were doing were image replacements on mouseover, but
+     today's web apps could really do with some form of concurrency model.
+
+     The best we could seemingly come up with is the piece of crap that are `Web
+     Workers <http://dev.w3.org/html5/workers/>`_ in HTML5. And `Flapjax
+     <http://www.flapjax-lang.org/>`_, while it manages to bring functional
+     reactivity to the browser, sadly ignores the whole issue of security.
+
+   So it was in this context that we (Espians) worked on things like the
+   `webkit_bridge
+   <http://github.com/tav/plexnet/tree/master/source/client/webkit_bridge/>`_ --
+   to act as an interface between the browser's DOM and a PyPy-based interpreter
+   providing a safe, concurrent, `object-capability
+   <http://en.wikipedia.org/wiki/Object-capability_model>`_ based language
+   called λscript.
+
+   But, as my friend Ade would say, Go + NaCl offers a more attractive path of
+   least resistance! Google are already putting resources behind Chrome, Go and
+   NaCl -- there's no real reason (technical or otherwise) to duplicate the
+   work! All we need to do is focus on implementing λscript using Go!
+
+   And since people could create apps and services using Go itself, λscript can
+   be a very minimal layer between the various NaCl processes -- even less work!
+   Now as to how this could be done in the spirit of the Open Web, consider
+   this:
+
+   * NaCl binaries are bloated beasts. It makes sense instead to come up with a
+     source based packaging structure similar to ebuilds/setuptools/&c. for apps
+     and services -- these can then be compiled by the client thanks to the
+     super-fast compilation feature of Go! So we can have "view source" *and*
+     secure apps!
+
+   Now, we are still a while away from the any of this happening and the NaCl
+   support within Go `is
+   <http://github.com/tav/go/tree/master/src/pkg/exp/nacl/>`_ `very
+   <http://github.com/tav/go/blob/master/src/pkg/syscall/asm_nacl_386.s>`_
+   `experimental <http://github.com/tav/go/blob/master/src/all-nacl.bash>`_, but
+   I'm sure it'll improve in time -- especially given the following point.
+
+2. **Google backing.**
+
+   Corporate sponsorship tend to make projects worse off -- but with the various
+   Chrome, NaCl and Go projects, Google have really put together great teams and
+   resourced them well. And there are lots of Google fanboys who will happily
+   contribute their time to such projects too -- making them even better!
+
+3. **Go is a decent language.**
+
+   Despite seemingly having ignored most of the advances in computer science in
+   the last 20 years, Go is surprisingly a fun language to code in. The standard
+   library packages are an impressive start. And you can definitely feel the
+   influence of Python.
+
+   However, runtime performance is an issue for the moment -- there are enough
+   micro-benchmarks showing Python to be more performant in certain contexts.
+   This will change though, as:
+
+   a) The packages in the standard library are worked on. There are a lot of low
+      hanging optimisations to make here. A `recent commit
+      <http://github.com/tav/go/commit/5e0e8e35d5df2533fc7beff9feecbe56333c164e>`_
+      improved the regexp package by a factor of 3-20x!
+
+   b) The compilers are worked on. Right now, ``gccgo`` is more performant at
+      runtime but lacks various features, whilst the ``6g`` series has more
+      features and compiles faster. At some point, the various compilers will
+      meet in some form, yielding more performant code all round.
+
+   c) The new garbage collector is worked on. The current one is rather naive
+      but as I understand it, they already have a much more performant one in
+      the works.
+
+   The syntax makes a pleasant compromise between C and Python. The
+   documentation system is excellent -- and the testing framework shows promise.
+   The only thing I miss in this regard is having some equivalent to `doctest
+   <http://docs.python.org/library/doctest.html>`_ -- this should be possible
+   once ``pkg/exp/eval`` for the Go interpreter matures though.
+
+   Of course, goroutines rock! Who can say no to a typed-variant of the
+   `π-calculus <http://en.wikipedia.org/wiki/Pi_calculus>`_? Not to mention
+   being able to write code like ``go fuck_yourself()`` ;p
+
+   But the real fun is with the interfaces -- Python's `duck-typing
+   <http://en.wikipedia.org/wiki/Duck_typing>`_ brought to a statically typed
+   language! Who'd have thought? It really is quite brilliant -- at least it
+   will be once a few decent patterns emerge and are adopted. Until then I
+   expect people to do all kinds of crazy things with them.
+
+   The only thing I (and seemingly a lot of others) really miss is having first
+   class containers which can handle generic data types like with Python's
+   ``list``, ``dict``, &c. This is possible in Go right now, but you have to
+   unbox them everytime which I'd rather not be doing...
+
+   I've also seen a lot of people complain about the lack of exception handling
+   in Go. I'm not sure what those people are talking about. Go has excellent
+   exception handling. The "comma, ok" pattern is elegant enough and the
+   ``defer`` statement provides a very good equivalent to the usual
+   ``try/finally`` and some of the ``with`` patterns in Python.
+
+In any case, I hope I make a reasonable case for why moving to Go might be
+worthwhile. Over the coming weeks, I'll continue this by documenting my
+adventures in the land of Go.
+
+If you'd like to follow along, `keep posted by following me
+<http://twitter.com/tav>`_ on Twitter and let me know what you think in the
+comments below. Thanks!
