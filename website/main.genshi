@@ -79,6 +79,21 @@
     /* @import url("${STATIC}/css.print.css"); */
     #ignore-this { display: none; }
   </style>
+  <style type="text/css">
+    .ascii-art .literal-block {
+      line-height: 1em !important;
+    }
+    .cmd-line {
+      background-color: #000;
+      color: #fff;
+      padding: 5px;
+      margin-left: 2em;
+      margin-right: 2em;
+    }
+    .cmd-ps1 {
+      color: #999;
+    }
+  </style>
 
   <!--[if lte IE 8]>
     <style type="text/css">

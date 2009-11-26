@@ -1,0 +1,66 @@
+=========================================
+Twitter #golang List, Go Mirror on GitHub
+=========================================
+
+:X-Created: [2009-11-26, 17:24]
+
+.. raw:: html
+
+  <div class="float-right">
+    <a href="http://github.com/tav/go" title="Go Mirror on GitHub"><img 
+       src="http://img.skitch.com/20091126-feabbk2hfpdyqgcmg1jhiqsd4h.png"
+       alt="Go Mirror on GitHub" width="275px" height="348px" /></a>
+  </div>
+
+I've started a Twitter List of those in the community working on the Go
+language, libraries, apps or articles:
+
+* http://twitter.com/tav/golang
+
+You should `follow it <http://twitter.com/tav/golang>`_ to keep track of the
+fast-moving developments and let me know -- either in the comments or via `@tav
+<http://twitter.com/tav>`_ -- if I should add you to the list.
+
+And, oh, could we all please normalise on using the ``#golang`` hashtag please?
+The ``#go`` hashtag is used for too many other things -- including `that game
+<http://en.wikipedia.org/wiki/Go_(game)>`_ that some of us love.
+
+I've also started to maintain a `Git mirror of the Go repository
+<http://github.com/tav/go>`_ on GitHub. You should `watch it
+<http://github.com/tav/go>`_ to stay informed of changes to the Go language.
+
+Now, as I explain in the `getting started with git
+<http://www.espians.com/getting-started-with-git.html>`_ article, I consider Git
+and Mercurial to be pretty equivalent. The only reason I prefer Git is due to
+the wonderful service that is `GitHub <http://github.com>`_.
+
+Not only does it offer a far better social experience, but it's interface is
+much better than what Google Code or `bitbucket <http://bitbucket.org/>`_
+currently offer. Now, to get started with using the Git mirror, just do:
+
+.. raw:: html
+
+  <pre class="cmd-line">
+  <span class="cmd-ps1">$</span> git clone git://github.com/tav/go.git
+  </pre>
+
+You can then follow the normal `installation instructions
+<http://golang.org/doc/install.html>`_ to set the environment variables and then
+run ``./all.bash`` inside ``$GOROOT/src``.
+
+Note that by default, the master branch will be checked out -- if you'd rather
+not be on the cutting edge, then check out the ``release`` tag using:
+
+.. raw:: html
+
+  <pre class="cmd-line">
+  <span class="cmd-ps1">$</span> git checkout release
+  </pre>
+
+Besides being able to track the language developments using GitHub, the main
+advantage of the Git mirror is that you can now use it as a ``git submodule``
+within your own repositories!
+
+This is the main reason I setup the mirror -- using the wonderful `hg-git plugin
+<http://hg-git.github.com/>`_ by Scott -- but I hope it proves useful to some of
+you too. Let me know if it does!
