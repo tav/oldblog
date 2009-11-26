@@ -34,6 +34,8 @@ Now, as I explain in the `getting started with git
 and Mercurial to be pretty equivalent. The only reason I prefer Git is due to
 the wonderful service that is `GitHub <http://github.com>`_.
 
+.. more
+
 Not only does it offer a far better social experience, but it's interface is
 much better than what Google Code or `bitbucket <http://bitbucket.org/>`_
 currently offer. Now, to get started with using the Git mirror, just do:
