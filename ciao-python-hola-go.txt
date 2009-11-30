@@ -74,9 +74,9 @@ Now, until last week, I'd just put up with all the problems and waited for `PyPy
 came along, I took a brief look and then dismissed it forthwith.
 
 Sure, it looked like a nice programming language. And, sure, the guys behind it
-had made some of the biggest contributions to computer science to date,
-including: UNIX, regular expressions, Plan 9 and even UTF-8! But I still didn't
-see the point in switching to Go as my primary language.
+had made some of the biggest contributions to computing to date, including:
+UNIX, regular expressions, Plan 9 and even UTF-8! But I still didn't see the
+point in switching to Go as my primary language.
 
 But then, a few days ago, whilst reading this `wonderful rant
 <http://www.xent.com/pipermail/fork/Week-of-Mon-20091109/054578.html>`_ by Jeff
