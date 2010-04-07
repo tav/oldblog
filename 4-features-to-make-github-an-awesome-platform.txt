@@ -199,6 +199,9 @@ hackers, they need to be convinced that it'd be worthwhile adding these
 features.
 
 Perhaps you could ask them for these features? Perhaps you could leave a comment
-with what kind of awesome apps you would create with these features in place?
+with what kind of awesome apps you would create with these features in place? Or
+just follow me on GitHub:
+
+* http://github.com/tav
 
 In any case, let me know what you think. Thanks!
