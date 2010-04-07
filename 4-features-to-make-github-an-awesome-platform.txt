@@ -1,0 +1,204 @@
+---
+created: 2010-04-07, 07:27
+layout: post
+license: Public Domain
+---
+
+=============================================
+4 Features To Make GitHub An Awesome Platform
+=============================================
+
+.. raw:: html
+
+  <div class="float-right">
+    <a href="http://github.com"><img
+       src="http://logicalawesome.com/logical_awesome.jpg"
+       width="375px" height="300px" /></a>
+  </div>
+
+I love `GitHub <http://github.com>`_. They make it fun and easy to get involved
+with open source projects!
+
+By recognising `coding as a social endeavour
+<http://www.espians.com/getting-started-with-git.html>`_, they've possibly even
+changed the very nature of open source development.
+
+But as great as they are, there's not much of a "GitHub ecosystem". In
+comparison to say Twitter apps, the number of GitHub apps are few and far
+between.
+
+Wouldn't it be great if we could build our own apps like wikis on top of GitHub
+repositories?
+
+Perhaps someone would create a peer-to-peer publishing platform or perhaps a web
+app which stores plain text data in public repos instead of in opaque databases?
+
+I believe GitHub has the potential to become a truly awesome platform. They
+already have a `decent API <http://develop.github.com/>`_ -- imagine what would
+be possible if it supported the following features:
+
+.. more
+
+.. raw:: html
+
+  <hr class="clear" />
+
+* **API to Update The Repository via HTTP**
+
+  Back in 2008, I managed to get my girlfriend to use GitHub. The poor girl
+  heroically struggled through with Git on the command line before eventually
+  giving up after a few months.
+
+  The fact is, most people are more comfortable using web apps than with command
+  line tools. It'd be awesome to let them benefit from Git without having to
+  expose them to the command line.
+
+  It'd also be nice for developers if GitHub exposed functionality to modify
+  files in a repository over HTTP instead of having to resort to libraries like
+  `grit <http://grit.rubyforge.org/>`_ and `dulwich
+  <http://github.com/jelmer/dulwich>`_. This would make it much easier to
+  develop web apps leveraging Git.
+
+  GitHub already has support for editing files from the web browser by POST-ing
+  to ``/:user/:repo/tree-save/:branch/:path`` -- it'd be cool if they could
+  just expose this via an API:
+
+    .. syntax:: text
+
+      /tree/save/:user/:repo/:branch/:path
+
+  This should take 6 parameters and return the new commit ID:
+
+    .. syntax:: text
+
+      parents    =>   The IDs of the parent commits [optional]
+      data       =>   The updated content for the specified path
+      mode       =>   The new mode for the blob [defaults to 100644]
+      message    =>   The commit message
+      committer  =>   The committer [defaults to the authenticated user]
+      author     =>   The commit author [defaults to the committer]
+
+  There should be a complementary API for deleting files:
+
+    .. syntax:: text
+
+      /tree/remove/:user/:repo/:branch/:path
+
+  And, most importantly, an API for creating new files with the same parameters
+  as ``/tree/save``:
+
+    .. syntax:: text
+
+      /tree/add/:user/:repo/:branch/:path
+
+  It would be nice to have a utility API call for renaming files too:
+
+    .. syntax:: text
+
+      /tree/rename/:user/:repo/:branch/:path
+
+  Which would only have to specify 5 parameters:
+
+    .. syntax:: text
+
+      parent     =>   The ID of the parent commit [optional]
+      new_path   =>   The new path for the blob at :path
+      message    =>   The commit message
+      committer  =>   The committer [defaults to the authenticated user]
+      author     =>   The commit author [defaults to the committer]
+
+  All the above API calls should result in the ``:branch`` ref being updated to
+  point to the new commit ID and create a new ref where the branch didn't
+  previously exist.
+
+* **API to Access Compare Views**
+
+  GitHub has wicked support for doing code reviews via what they call `compare
+  views <http://github.com/blog/612-introducing-github-compare-view>`_. This
+  feature allows one to see the commits, diffs and comments between any 2 refs.
+  You have to see it in action to realise how awesome this is:
+
+    http://github.com/jquery/jquery/compare/omgrequire
+
+  Unfortunately, this feature is not exposed via the API in any way. It would be
+  very cool to be able to access it:
+
+    .. syntax:: text
+
+      /compare/:user/:repo/[:startRef...]:endRef
+
+  That should return the commits, diffs and comments for the commit range. That
+  is, everything necessary to recreate the GitHub compare view.
+
+* **API to Manage Service Hooks**
+
+  GitHub already supports extension via `post-receive hooks
+  <http://help.github.com/post-receive-hooks/>`_. This allows you to register
+  URLs as `web hooks <http://webhooks.pbworks.com/>`_ for any repository. GitHub
+  will POST to these URLs with JSON data whenever someone does a ``git push`` to
+  the repository.
+
+  It makes it very easy to do things in response to changes to your
+  repositories. I've already found it very useful for everything from triggering
+  build slaves to notifying IRC channels via `gitbot.py
+  <http://github.com/tav/scripts/blob/master/gitbot.py>`_ -- which in turn even
+  triggers regeneration of this blog!
+
+  Unfortunately it's a real pain to get users to edit their service hooks. It'd
+  be great if applications could do this on a user's behalf. The API could be
+  extended to list all service hooks:
+
+    .. syntax:: text
+
+      /repos/hooks/:user/:repo
+
+  It should be very easy to add and remove hooks:
+
+    .. syntax:: text
+
+      /repos/hooks/:user/:repo/add
+      /repos/hooks/:user/:repo/remove
+
+  Which would take a single POST-ed parameter:
+
+    .. syntax:: text
+
+      url   =>   The post-receive URL
+
+  This tiny feature would make it a lot more attractive for application
+  developers as it would make building apps integrated with GitHub very easy!!
+
+* **A Way to Pay for API Use**
+
+  GitHub currently specifies `API limits
+  <http://develop.github.com/p/general.html#limitations>`_ of 60 requests per
+  minute. This works out as a generous 86,400 requests/day per user. But as an
+  application developer I'd rather not be limited. In fact, seeing as GitHub
+  already has my billing details, I'd be quite happy to pay something like $20
+  per million requests -- which should more than cover the bandwidth costs.
+
+  I'm quite confident that interesting applications could be built using the API
+  which would lead to productivity increases which would more than make up for
+  the cost. To facilitate this, billing would need to be enabled and the
+  `authentication <http://develop.github.com/p/general.html>`_ extended with:
+
+    .. syntax:: text
+
+      api_key     =>   The API key for the developer
+      signature   =>   The signature for the API request
+
+  The ``signature`` would be derived by HMAC-ing the request parameters with a
+  shared ``api_secret_key`` corresponding to the ``api_key``. This would be used
+  to bypass limits and bill for the API requests whereas the existing ``login``
+  and ``token`` parameters would be used for the authentication.
+
+Given GitHub's `impressive infrastructure
+<http://github.com/blog/530-how-we-made-github-fast>`_ and talent, it should be
+relatively easy for them to add these 4 small features. But like any group of
+hackers, they need to be convinced that it'd be worthwhile adding these
+features.
+
+Perhaps you could ask them for these features? Perhaps you could leave a comment
+with what kind of awesome apps you would create with these features in place?
+
+In any case, let me know what you think. Thanks!
