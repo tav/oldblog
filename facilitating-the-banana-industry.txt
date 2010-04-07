@@ -1,8 +1,12 @@
+---
+created: 2009-03-01, 19:58
+layout: post
+license: Public Domain
+---
+
 ================================
 Facilitating The Banana Industry
 ================================
-
-:X-Created: [2009-03-01, 19:58]
 
 Last year, `Sofia <http://blog.turnupthecourage.com>`_ and I got invited to
 facilitate and help set up a Multi-Stakeholder Forum for the Banana industry.

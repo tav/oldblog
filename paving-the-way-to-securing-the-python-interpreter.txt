@@ -1,8 +1,12 @@
+---
+created: 2009-02-24, 15:37
+layout: post
+license: Public Domain
+---
+
 =================================================
 Paving the Way to Securing the Python Interpreter
 =================================================
-
-:X-Created: [2009-02-24, 15:37]
 
 [**Note:** This article isn't about securing the Python interpreter against
 crashes/segfaults or exhaustion of resources attacks. For help with that, take a

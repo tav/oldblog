@@ -1,8 +1,12 @@
+---
+created: 2009-09-01, 14:04
+layout: post
+license: Public Domain
+---
+
 ====================
 London Creative Labs
 ====================
-
-:X-Created: [2009-09-01, 14:04]
 
 I am pleased to announce the launch of `London Creative Labs
 <http://londoncreativelabs.com/>`_! Check out the short video below on its first

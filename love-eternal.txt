@@ -1,8 +1,12 @@
+---
+created: 2008-07-07, 09:51
+layout: post
+license: Public Domain
+---
+
 ============
 Love Eternal
 ============
-
-:X-Created: [2008-07-07, 09:51]
 
 .. raw:: html
 

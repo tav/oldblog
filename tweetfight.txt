@@ -1,8 +1,12 @@
+---
+created: 2009-03-02, 02:09
+layout: post
+license: Public Domain
+---
+
 ============================
 TweetFight -- Fight Club 2.0
 ============================
-
-:X-Created: [2009-03-02, 02:09]
 
 .. raw:: html
 

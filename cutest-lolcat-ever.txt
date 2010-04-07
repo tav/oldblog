@@ -1,8 +1,12 @@
+---
+created: 2009-02-25, 17:45
+layout: post
+license: Public Domain
+---
+
 ==================
 Cutest LOLCat Ever
 ==================
-
-:X-Created: [2009-02-25, 17:45]
 
 I'm not a big fan of the whole `lolcat meme
 <http://en.wikipedia.org/wiki/Lolcat>`_, but it does produce some fantastic

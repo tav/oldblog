@@ -1,8 +1,12 @@
+---
+created: 2009-03-12, 20:36
+layout: post
+license: Public Domain
+---
+
 ========================
 Happy Birthday Matthieu!
 ========================
-
-:X-Created: [2009-03-12, 20:36]
 
 Tomorrow, it's the birthday of the Rey-Grange twins: `Matthieu
 <http://mattrg.free.fr/>`_ and Stan. I'd like to wish them a brilliant day and a

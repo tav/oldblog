@@ -1,8 +1,12 @@
+---
+created: 2008-08-12, 00:01
+layout: post
+license: Public Domain
+---
+
 =========
 Hub Flows
 =========
-
-:X-Created: [2008-08-12, 00:01]
 
 *[This is a reposting of an email that I had sent to the Hub London list on
 February 29th of this year.]*

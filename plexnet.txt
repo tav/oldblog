@@ -1,12 +1,16 @@
+---
+created: 2008-07-03, 10:31
+layout: post
+license: Public Domain
+type: page
+---
+
 =======
 Plexnet
 =======
 
 A Set of Open Web Standards
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-:X-Created: [2008-07-03, 10:31]
-:X-Type:    Page
 
 This article has moved to the `Plexnet <http://www.espians.com/plexnet.html>`_
 page on the new `Espian Website <http://www.espians.com>`_:

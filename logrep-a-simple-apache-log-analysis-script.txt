@@ -1,8 +1,12 @@
+---
+created: 2009-03-08, 07:14
+layout: post
+license: Public Domain
+---
+
 ===========================================
 Logrep: A Simple Apache Log Analysis Script
 ===========================================
-
-:X-Created: [2009-03-08, 07:14]
 
 Besides good content and interaction, knowing your audience is key to any
 successful form of communication.

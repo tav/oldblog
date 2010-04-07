@@ -1,8 +1,12 @@
+---
+created: 2008-06-30, 07:14
+layout: post
+license: Public Domain
+---
+
 ================
 Shorter Blog URL
 ================
-
-:X-Created: [2008-06-30, 07:14]
 
 Some people have complained that it is impossible to remember the URL for this
 blog. Unfortunately Google Code don't allow for redirecting domains to it.

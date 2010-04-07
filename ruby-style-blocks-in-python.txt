@@ -1,8 +1,12 @@
+---
+created: 2009-03-07, 08:10
+layout: post
+license: Public Domain
+---
+
 ===========================
 Ruby-style Blocks in Python
 ===========================
-
-:X-Created: [2009-03-07, 08:10]
 
 [**Update:** I've updated the proposal to use the ``using`` keyword instead of
 overloading the existing semantics of the ``with`` keyword -- thanks Guido and

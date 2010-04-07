@@ -1,8 +1,12 @@
+---
+created: 2009-09-20, 20:17
+layout: post
+license: Public Domain
+---
+
 =============================================
 Media Ecologies And Postindustrial Production
 =============================================
-
-:X-Created: [2009-09-20, 20:17]
 
 .. raw:: html
 

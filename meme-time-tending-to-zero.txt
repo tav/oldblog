@@ -1,8 +1,12 @@
+---
+created: 2009-03-05, 06:56
+layout: post
+license: Public Domain
+---
+
 =========================
 Meme Time Tending to Zero
 =========================
-
-:X-Created: [2009-03-05, 06:56]
 
 It's no secret that Meme Time -- the average time taken for a `meme
 <http://en.wikipedia.org/wiki/Meme>`_ to spread far and wide -- has been getting

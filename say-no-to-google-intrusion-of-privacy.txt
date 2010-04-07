@@ -1,8 +1,12 @@
+---
+created: 2009-03-11, 21:55
+layout: post
+license: Public Domain
+---
+
 =======================================
 Say No to Google's Intrusion of Privacy
 =======================================
-
-:X-Created: [2009-03-11, 21:55]
 
 .. raw:: html
 

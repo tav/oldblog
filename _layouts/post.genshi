@@ -1,0 +1,79 @@
+---
+layout: site
+license: Public Domain
+---
+
+<div xmlns:py="http://genshi.edgewall.org/">
+<?python
+
+  from time import time
+  from operator import lt
+  from posixpath import splitext
+  from urllib import urlencode
+
+  STATIC = 'http://cloud.github.com/downloads/tav/plexnet'
+
+  page_url = disqus_url = 'http://tav.espians.com/' + __name__
+  if defined('created') and lt(created[:7], "2009-07"):
+    disqus_url = 'http://www.asktav.com/' + __name__
+
+  MONTHS = [
+    'Zero Month',
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+    ]
+
+?>
+
+<div class="article-nav">
+</div>
+<div class="article-title">
+  <div class="post-link"><a href="${__name__}">${Markup(title)}</a></div>
+  <div class="additional-content-info">
+	<!-- <script language="javascript" type="text/javascript">
+		 SHARETHIS.addEntry({
+		 title:"${page_title.replace('"', r'\"')}",
+		 url:'${page_url}',
+		 }, {button:true});
+		 </script>| --><a href="#disqus_thread" rel="disqus:${disqus_url}">Add a Comment</a>
+	<script type="text/javascript">
+	  tweetmeme_url = '${page_url}';
+	  tweetmeme_source = 'tav';
+	  tweetmeme_service = 'bit.ly';
+	  tweetmeme_style = 'compact';
+	</script>
+	| <div class="retweetbutton">
+	<script type="text/javascript" src="http://tweetmeme.com/i/scripts/button.js"></script>
+  </div>
+  </div>
+  <div class="article-info">
+	&#187; by <a href="http://tav.espians.com">tav</a><span py:if="defined('created')"> on <span class="post-date">${MONTHS[int(created[5:7])]} ${int(created[8:10])}, ${created[:4]} @ <a href="http://github.com/tav/blog/commits/master/${splitext(__name__)[0]}.txt">${created[-5:]}</a></span></span> <a href="http://creativecommons.org/publicdomain/zero/1.0/"><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Cc-pd.svg/64px-Cc-pd.svg.png" width="20px" height="20px" alt="Public Domain" class="absmiddle" /></a>
+  </div>
+</div>
+<div py:if="not defined('created')" class="attention">
+  This is an early draft. Many sections are incomplete. A lot more is being written.
+</div>
+<div id="content">
+  <div py:content="Markup(content)"></div>
+</div>
+<br /><hr class="clear" />
+<div class="article-nav" style="margin-bottom: 1.5em;">
+  <script type="text/javascript">
+	ARTICLE_NAME = '${__name__}';
+  </script>
+  <script type="text/javascript" src="index.js?${int(time()/4)}" />
+</div>
+<div id="disqus-comments-section">
+  <script type="text/javascript">
+	disqus_url = "${disqus_url}";
+	disqus_title = "${Markup(title)}";
+  </script>
+  <div id="disqus_thread"></div><script type="text/javascript"
+  src="http://disqus.com/forums/${site_nick}/embed.js"></script><noscript><a
+  href="http://${site_nick}.disqus.com/?${urlencode({'url': disqus_url})}">View the forum
+  thread.</a></noscript> <a href="http://disqus.com" class="dsq-brlink">Comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<div><br /><br /></div>
+  
+</div>

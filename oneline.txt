@@ -1,8 +1,12 @@
+---
+created: 2009-03-03, 11:12
+layout: post
+license: Public Domain
+---
+
 ===============================================
 Oneline: Constructive Conversations on Twitter
 ===============================================
-
-:X-Created: [2009-03-03, 11:12]
 
 `David Pinto <http://twitter.com/happyseaurchin>`_ had this wonderful insight
 that the quality of conversations could go up dramatically if each participant

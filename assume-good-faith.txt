@@ -1,8 +1,12 @@
+---
+created: 2008-07-09, 18:20
+layout: post
+license: Public Domain
+---
+
 =================
 Assume Good Faith
 =================
-
-:X-Created: [2008-07-09, 18:20]
 
 .. image:: http://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Assume_good_faith_lolcat.jpg/500px-Assume_good_faith_lolcat.jpg
            :width: 250

@@ -1,8 +1,12 @@
+---
+created: 2008-07-08, 06:23
+layout: post
+license: Public Domain
+---
+
 ==================
 Evolution of Ideas
 ==================
-
-:X-Created: [2008-07-08, 06:23]
 
 .. image:: http://upload.wikimedia.org/wikipedia/commons/9/9c/Darwin_ape.jpg
            :alt: Caricature of Charles Darwin

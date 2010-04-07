@@ -1,8 +1,12 @@
+---
+created: 2009-08-31, 20:03
+layout: post
+license: Public Domain
+---
+
 ==================================================
 Sanitising JSONP Callback Identifiers For Security
 ==================================================
-
-:X-Created: [2009-08-31, 20:03]
 
 .. raw:: html
 

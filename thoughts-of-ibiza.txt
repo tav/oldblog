@@ -1,8 +1,12 @@
+---
+created: 2009-03-10, 17:17
+layout: post
+license: Public Domain
+---
+
 =================
 Thoughts of Ibiza
 =================
-
-:X-Created: [2009-03-10, 17:17]
 
 It was Athini's birthday last week, and my thoughts drifted to the time we all
 spent together in `Ibiza <http://en.wikipedia.org/wiki/Ibiza>`_ last year.

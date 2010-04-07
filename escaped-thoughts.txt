@@ -1,8 +1,12 @@
+---
+created: 2008-08-11, 00:01
+layout: post
+license: Public Domain
+---
+
 ================
 ESCaped Thoughts
 ================
-
-:X-Created: [2008-08-11, 00:01]
 
 *[This is a reposting of a blog post that I had written at the first Espian
 Summer Camp (ESC) in July 2005]*

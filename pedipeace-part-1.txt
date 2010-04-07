@@ -1,8 +1,12 @@
+---
+created: 2008-08-14, 00:01
+layout: post
+license: Public Domain
+---
+
 ==================
 Pedipeace (Part 1)
 ==================
-
-:X-Created: [2008-08-14, 00:01]
 
 *[This is a reposting of an email that I had sent to some close friends on March
 24th 2003 @ 23:56.]*

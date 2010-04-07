@@ -1,8 +1,13 @@
+---
+created: 2009-09-16, 10:20
+layout: post
+license: Public Domain
+type: unpublished
+---
+
 ==========================================
 Using Trustmaps To Filter The Realtime Web
 ==========================================
-
-:XX-Created: [2009-09-16, 10:20]
 
 I am extremely pleased to announce the alpha release of `Espra Trustmap
 <http://www.trustmap.org>`_. Trustmaps fulfill a real need on the web of knowing

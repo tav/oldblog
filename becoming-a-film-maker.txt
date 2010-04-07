@@ -1,8 +1,12 @@
+---
+created: 2009-03-06, 05:38
+layout: post
+license: Public Domain
+---
+
 =====================
 Becoming a Film Maker
 =====================
-
-:X-Created: [2009-03-06, 05:38]
 
 I've decided to ease into film making by becoming a video blogger. By the time I
 am proficient enough with video editing, the stage should be set for `ractives

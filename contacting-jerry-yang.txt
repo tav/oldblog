@@ -1,8 +1,12 @@
+---
+created: 2008-07-05, 14:12
+layout: post
+license: Public Domain
+---
+
 =====================
 Contacting Jerry Yang
 =====================
-
-:X-Created: [2008-07-05, 14:12]
 
 .. image:: http://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Jerry_Yang.jpg/225px-Jerry_Yang.jpg
            :alt: Jerry Yang

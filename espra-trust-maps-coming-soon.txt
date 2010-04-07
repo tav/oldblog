@@ -1,8 +1,12 @@
+---
+created: 2009-08-30, 07:21
+layout: post
+license: Public Domain
+---
+
 ==============================
 Espra Trust Maps: Coming Soon!
 ==============================
-
-:X-Created: [2009-08-30, 07:21]
 
 My apologies to the thousand-odd readers of this blog for not writing recently.
 I've been busy working with a great group of individuals on `Iteration X

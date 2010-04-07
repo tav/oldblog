@@ -1,8 +1,12 @@
+---
+created: 2008-07-06, 20:52
+layout: post
+license: Public Domain
+---
+
 =======================
 Variable Sleep Schedule
 =======================
-
-:X-Created: [2008-07-06, 20:52]
 
 .. raw:: html
 

@@ -1,8 +1,12 @@
+---
+created: 2009-03-09, 21:42
+layout: post
+license: Public Domain
+---
+
 =========================================
 Update on Securing the Python Interpreter
 =========================================
-
-:X-Created: [2009-03-09, 21:42]
 
 [**Update:** The ``Namespace`` utility function has been made explicit-only with
 feedback from `Mark Seaborn <http://lackingrhoticity.blogspot.com/>`_. Thanks

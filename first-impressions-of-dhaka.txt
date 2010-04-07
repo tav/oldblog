@@ -1,8 +1,12 @@
+---
+created: 2008-07-13, 22:31
+layout: post
+license: Public Domain
+---
+
 ==========================
 First Impressions of Dhaka
 ==========================
-
-:X-Created: [2008-07-13, 22:31]
 
 .. raw:: html
 

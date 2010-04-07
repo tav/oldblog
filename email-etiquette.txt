@@ -1,8 +1,12 @@
+---
+created: 2008-07-04, 10:22
+layout: post
+license: Public Domain
+---
+
 ===============
 Email Etiquette
 ===============
-
-:X-Created: [2008-07-04, 10:22]
 
 .. image:: http://upload.wikimedia.org/wikipedia/commons/d/db/Mozilla_thunderbird_empty_screenshot.png
            :alt: Thunderbird mail client

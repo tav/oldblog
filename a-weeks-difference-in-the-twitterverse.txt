@@ -1,8 +1,12 @@
+---
+created: 2009-02-26, 04:11
+layout: post
+license: Public Domain
+---
+
 =======================================
 A Week's Difference in the Twitterverse
 =======================================
-
-:X-Created: [2009-02-26, 04:11]
 
 It's funny how much of a difference a week can sometimes make. Especially in the
 Twitterverse. Case in point, my relationship with Twitter Inc.

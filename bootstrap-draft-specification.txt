@@ -1,8 +1,12 @@
+---
+created: 2008-07-03, 08:48
+layout: post
+license: Public Domain
+---
+
 =============================
 Bootstrap Draft Specification
 =============================
-
-:X-Created: [2008-07-03, 08:48]
 
 .. image:: http://cloud.github.com/downloads/tav/plexnet/gfx.bootstrap.png
            :alt: Espra Bootstrap Logo

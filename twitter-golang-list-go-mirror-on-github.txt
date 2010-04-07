@@ -1,8 +1,13 @@
+---
+created: 2009-11-26, 17:24
+layout: post
+license: Public Domain
+type: unpublished
+---
+
 =========================================
 Twitter #golang List, Go Mirror on GitHub
 =========================================
-
-:X-Created: [2009-11-26, 17:24]
 
 .. raw:: html
 

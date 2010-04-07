@@ -1,8 +1,12 @@
+---
+created: 2009-03-15, 10:14
+layout: post
+license: Public Domain
+---
+
 =======================
 Pecu Allocations by Tav
 =======================
-
-:X-Created: [2009-03-15, 10:14]
 
 .. image:: http://cloud.github.com/downloads/tav/plexnet/gfx.aaken.png
            :class: float-right

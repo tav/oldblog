@@ -2,13 +2,18 @@
 <rss version="2.0" xmlns:py="http://genshi.edgewall.org/"
 	 xmlns:atom="http://www.w3.org/2005/Atom">
 <?python
+
   from datetime import datetime
   from urllib import quote
+
   def convert(date):
-    date = date[1:-1].split(', ')
+    date = date.split(', ')
     year, month, day = date[0].split('-')
     hour, minute = date[1].split(':')
     return datetime(int(year), int(month), int(day), int(hour), int(minute))
+
+  items = [item for item in yatidb.values() if (item.get('type', None) == 'post') and (item.get('created', None))]
+
 ?>
 <channel>
 
@@ -19,13 +24,13 @@
   <lastBuildDate>${datetime.utcnow().strftime("%a, %d %b %Y %H:%M:%S GMT")}</lastBuildDate>
   <generator>Tav RSS Generator</generator>
 
-  <item py:for="item in sorted([i for i in items if ((i['__type__'] == 'txt') and i.get('x-created') and (i.get('x-type', 'blog') == 'blog'))], key=lambda x: x['x-created'], reverse=True)[:40]">
-    <title>${Markup(item.get('title') or item.get('__title__'))}</title>
-    <guid>${site_url}/${item['__name__']}.html</guid>
-    <link>${site_url}/${item['__name__']}.html</link>
-    <pubDate>${convert(item['x-created']).strftime("%a, %d %b %Y %H:%M:%S GMT")}</pubDate>
+  <item py:for="item in sorted(items, key=lambda x: x['created'], reverse=True)[:40]">
+    <title>${Markup(item['title'])}</title>
+    <guid>${site_url}/${item['__name__']}</guid>
+    <link>${site_url}/${item['__name__']}</link>
+    <pubDate>${convert(item['created']).strftime("%a, %d %b %Y %H:%M:%S GMT")}</pubDate>
     <description>${Markup(item.get('subtitle', ''))}</description>
-	<content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/"><![CDATA[${unicode(item['__text__'], 'utf-8')}]]></content:encoded>
+	<content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/"><![CDATA[${Markup(item['__output__'])}]]></content:encoded>
   </item>
   
   <atom:link href="${site_url}/feed.rss" rel="self" type="application/rss+xml" />

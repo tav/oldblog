@@ -1,50 +1,20 @@
-<?xml version='1.0' encoding='utf-8'?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:py="http://genshi.edgewall.org/">
+---
+license: Public Domain
+---
+
+<!DOCTYPE html>
+<html xmlns:py="http://genshi.edgewall.org/">
 <?python
 
-  from time import time
-  from operator import lt
-  from urllib import urlencode
-
   STATIC = 'http://cloud.github.com/downloads/tav/plexnet'
-
-  info = defined('info') and info or {}
-
-  author_info = authors.get(site_author_nick)
-  author = author_info[1]
-  version = info.get('x-version', '')
-  copyright = info.get('copyright', 'This work has been placed into the public domain')
-  description = info.get('subtitle', site_description)
-  subtitle = info.get('subtitle')
-
-  page_title = info.get('title') or info.get('__title__') or site_description
-  page_url = disqus_url = 'http://tav.espians.com' + '/' + info.get('__name__', 'index') + '.html'
-
-  if info.get('x-created') and lt(info['x-created'][1:8], "2009-07"):
-    disqus_url = 'http://www.asktav.com' + '/' + info.get('__name__', 'index') + '.html'
-
-  if info.get('__type__') == 'py':
-    description = info.get('title')
-    #if description:
-    #  page_title = "%s (%s)" % (description, info.get('__title__'))
-    #else:
-    #  page_title = "Source Package: %s" % info.get('__title__')
-    page_title = "Source Package: %s" % info.get('__title__')
-
-  MONTHS = [
-    'Zero Month',
-    'January', 'February', 'March', 'April', 'May', 'June',
-    'July', 'August', 'September', 'October', 'November', 'December'
-    ]
+  page_url = 'http://tav.espians.com/' + __name__
 
 ?>
 <head>
 
-  <title><py:if test="not info.get('title')">${Markup(site_title)} &#187; </py:if>${Markup(page_title)}</title>
+  <title>${Markup(site_title)}<py:if test="defined('title')"> &#187; ${Markup(title)}</py:if></title>
   <meta content="text/html; charset=utf-8" http-equiv="content-type" />
-  <meta name="tweetmeme-title" content="${page_title}" />
+  <meta name="tweetmeme-title" content="${Markup(title)}" />
 
   <!-- disable some internet explorer features -->
   <meta http-equiv="imagetoolbar" content="no" />
@@ -55,13 +25,11 @@
   <meta name="revisit-after" content="1 day" />
 
   <!-- meta elements (page data) -->
-  <meta name="author" content="${author}" />
-  <meta name="description" content="${description}" />
-  <meta name="version" content="${version}" />
-  <meta name="copyright" content="${copyright}" />
+  <meta name="author" content="${site_author}" />
+  <meta name="description" content="${site_description}" />
+  <meta name="copyright" content="This work has been placed into the Public Domain." />
   <meta name="document-rating" content="general" />
   <meta http-equiv="content-language" content="en" />
-  <meta name="verify-v1" content="aLcMPDDmDYvgufTDcJiiCOgPt/FOooMmGHiPj64BMbU=" />
 
   <link rel="icon" type="image/png" href="${STATIC}/gfx.aaken.png" />
 
@@ -202,75 +170,9 @@
 	</div>
   </div>
 
-  <div py:if="defined('content')">
-
-	<div class="article-nav">
-	</div>
-    <div class="article-title">
-      <div class="post-link"><a href="${info['__name__']}.html">${Markup(page_title)}</a></div>
-	  <div class="additional-content-info">
-		<!-- <script language="javascript" type="text/javascript">
-		  SHARETHIS.addEntry({
-		  title:"${page_title.replace('"', r'\"')}",
-		  url:'${page_url}',
-		  }, {button:true});
-		  </script>| --><a href="#disqus_thread" rel="disqus:${disqus_url}">Add a Comment</a>
-          <script type="text/javascript">
-		    tweetmeme_url = '${page_url}';
-		    tweetmeme_source = 'tav';
-		    tweetmeme_service = 'bit.ly';
-		    tweetmeme_style = 'compact';
-		</script>
-		| <div class="retweetbutton">
-		<script type="text/javascript" src="http://tweetmeme.com/i/scripts/button.js"></script>
-	    </div>
-	  </div>
-	  <div class="article-info">
-		&#187; by <a href="http://tav.espians.com">tav</a><span py:if="info.get('x-created')"> on <span py:with="created=info['x-created']" class="post-date">${MONTHS[int(created[6:8])]} ${int(created[9:11])}, ${created[1:5]} @ <a href="http://github.com/tav/blog/commits/master/${info['__name__']}.txt">${created[-6:-1]}</a></span></span> <a href="http://creativecommons.org/publicdomain/zero/1.0/"><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Cc-pd.svg/64px-Cc-pd.svg.png" width="20px" height="20px" alt="Public Domain" class="absmiddle" /></a>
-		<!--
-		last updated
-		<span py:with="created=info['__updated__']">
-		  ${created.strftime('%H:%M')}, ${created.strftime('%d %B %Y').lower()}
-		</span>
-		-->
-	  </div>
-	</div>
-    <div py:if="not info.get('x-created') and not info.get('__type__') == 'py'" class="attention">
-	  This is an early draft. Many sections are incomplete. A lot more is being written.
-    </div>
-	<div id="content">
-	  <div py:content="Markup(content)"></div>
-	</div>
-	<br /><hr class="clear" />
-	<div class="article-nav" style="margin-bottom: 1.5em;">
-      <script type="text/javascript">
-        ARTICLE_NAME = '${info['__name__']}';
-      </script>
-      <script type="text/javascript" src="index.js?${int(time()/4)}" />
-	</div>
-    <div id="disqus-comments-section">
-	<script type="text/javascript">
-      disqus_url = "${disqus_url}";
-	  disqus_title = "${Markup(page_title)}";
-    </script>
-	<div id="disqus_thread"></div><script type="text/javascript"
-	src="http://disqus.com/forums/${site_nick}/embed.js"></script><noscript><a
-	href="http://${site_nick}.disqus.com/?${urlencode({'url': disqus_url})}">View the forum
-	thread.</a></noscript> <a href="http://disqus.com" class="dsq-brlink">Comments powered by <span class="logo-disqus">Disqus</span></a>
-    </div>
-  </div>
-  <div py:if="defined('alternative_content')">
-	${Markup(alternative_content)}
-  </div>
-  <div><br /><br /></div>
+  <div>${Markup(content)}</div>
 
 </div>
-
-<script type="text/javascript">
-lloogg_clientid = "1910200a6155a16";
-</script>
-<script type="text/javascript" src="http://lloogg.com/l.js?c=1910200a6155a16">
-</script>
 
 </body>
 </html>

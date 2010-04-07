@@ -1,7 +1,14 @@
+---
+layout: site
+license: Public Domain
+title: A Blog by Tav
+---
+
 <div xmlns:py="http://genshi.edgewall.org/">
 <?python
 
   from operator import lt
+  from posixpath import splitext
 
   STATIC = 'http://cloud.github.com/downloads/tav/plexnet'
 
@@ -17,6 +24,8 @@
     return last_post_name[0]
 
   site_url = 'http://tav.espians.com'
+
+  items = [item for item in yatidb.values() if (item.get('type', None) == 'post') and (item.get('created', None))]
 
 ?>
 
@@ -35,14 +44,14 @@ you might like:</div>
   </li>
 </ul>
 
-<div py:for="post in sorted([item for item in items if item.get('x-created') and item.get('x-type', 'blog') == 'blog'], key=lambda x: x['x-created'], reverse=True)[:60]">
+<div py:for="post in sorted(items, key=lambda x: x['created'], reverse=True)[:60]">
   <?python
-    post_url = disqus_url = 'http://tav.espians.com' + '/' + set_name(post) + '.html'
-    if lt(post['x-created'][1:8], "2009-07"):
-      disqus_url = 'http://www.asktav.com' + '/' + post['__name__'] + '.html'
+    post_url = disqus_url = 'http://tav.espians.com/' + set_name(post)
+    if lt(post['created'][:7], "2009-07"):
+      disqus_url = 'http://www.asktav.com' + '/' + post['__name__']
   ?>
   <div class="post-title">
-	<div class="post-link"><a href="${set_name(post)}.html">${Markup(post['title'])}</a></div>
+	<div class="post-link"><a href="${set_name(post)}">${Markup(post['title'])}</a></div>
 	<div>
 	  <div class="float-right">
 		<!--<script language="javascript" type="text/javascript">
@@ -50,7 +59,7 @@ you might like:</div>
 		  title:"${post['title'].replace('"', r'\"')}",
 		  url:'${post_url}',
 		  }, {button:true});
-		</script>| --><a href="${post['__name__']}.html#disqus_thread" rel="disqus:${disqus_url}">Comment!</a>
+		</script>| --><a href="${post['__name__']}#disqus_thread" rel="disqus:${disqus_url}">Comment!</a>
           <script type="text/javascript">
 		    tweetmeme_url = '${post_url}';
 		    tweetmeme_source = 'tav';
@@ -61,11 +70,11 @@ you might like:</div>
 		<script type="text/javascript" src="http://tweetmeme.com/i/scripts/button.js"></script>
 	    </div>
 	  </div>
-	  &#187; by <span><a href="http://tav.espians.com">tav</a></span> on <span py:with="created=post['x-created']" class="post-date">${MONTHS[int(created[6:8])]} ${int(created[9:11])}, ${created[1:5]} @ <a href="http://github.com/tav/blog/commits/master/${post['__name__']}.txt">${created[-6:-1]}</a></span> <a href="http://creativecommons.org/publicdomain/zero/1.0/"><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Cc-pd.svg/64px-Cc-pd.svg.png" width="20px" height="20px" alt="Public Domain" class="absmiddle" /></a>
+	  &#187; by <span><a href="http://tav.espians.com">tav</a></span> on <span py:with="created=post['created']" class="post-date">${MONTHS[int(created[5:7])]} ${int(created[8:10])}, ${created[:4]} @ <a href="http://github.com/tav/blog/commits/master/${splitext(post['__name__'])[0]}.txt">${created[-5:]}</a></span> <a href="http://creativecommons.org/publicdomain/zero/1.0/"><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Cc-pd.svg/64px-Cc-pd.svg.png" width="20px" height="20px" alt="Public Domain" class="absmiddle" /></a>
 	</div>
   </div>
-  <div py:content="post.get('__lead__') and Markup(unicode(post['__lead__'], 'utf-8')) or Markup(unicode(post['__text__'], 'utf-8'))" class="blog-post" />
-  <div py:if="post.get('__lead__')"><a href="${set_name(post)}.html">Read more…</a></div>
+  <div py:content="Markup(post['__lead_output__'])" class="blog-post" />
+  <div py:if="post['__lead__'] != post['__content__']"><a href="${set_name(post)}">Read more…</a></div>
   <div class="post-footer">
 	<br /><br />
   </div>

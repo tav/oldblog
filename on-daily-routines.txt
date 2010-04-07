@@ -1,8 +1,12 @@
+---
+created: 2008-06-27, 13:00
+layout: post
+license: Public Domain
+---
+
 =================
 On Daily Routines
 =================
-
-:X-Created: [2008-06-27, 13:00]
 
 .. image:: http://upload.wikimedia.org/wikipedia/en/0/0f/2000AD168.jpg
            :class: float-right

@@ -1,8 +1,12 @@
+---
+created: 2009-09-06, 08:57
+layout: post
+license: Public Domain
+---
+
 ========================================
 Inside Grameen with a Nobel Prize Winner
 ========================================
-
-:X-Created: [2009-09-06, 08:57]
 
 Last year I was invited by the visionary Chris Macrae to spend some time at
 Grameen HQ in `Dhaka <http://en.wikipedia.org/wiki/Dhaka>`_. Famous for

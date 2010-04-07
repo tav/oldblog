@@ -1,8 +1,12 @@
+---
+created: 2008-07-02, 17:02
+layout: post
+license: Public Domain
+---
+
 ========================
 Coincidences Don't Exist
 ========================
-
-:X-Created: [2008-07-02, 17:02]
 
 .. image:: http://upload.wikimedia.org/wikipedia/commons/1/1b/Deux_furies.png
            :alt: Two Furies from an ancient vase

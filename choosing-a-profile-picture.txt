@@ -1,8 +1,12 @@
+---
+created: 2008-06-29, 08:20
+layout: post
+license: Public Domain
+---
+
 ==========================
 Choosing A Profile Picture
 ==========================
-
-:X-Created: [2008-06-29, 08:20]
 
 Some people are `photogenic <http://en.wikipedia.org/wiki/Photogenic>`_. Some
 are not. Some people love seeing pictures of themselves. Some people don't. I

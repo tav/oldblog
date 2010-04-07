@@ -1,8 +1,12 @@
+---
+created: 2009-03-16, 06:40
+layout: post
+license: Public Domain
+---
+
 ===========
 Quotessence
 ===========
-
-:X-Created: [2009-03-16, 06:40]
 
 I'm pleased to announce the initial launch of Mamading Ceesay's `Quotessence
 <http://quotessence.agoraworx.com>`_. Check it out!

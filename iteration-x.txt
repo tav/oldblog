@@ -1,12 +1,16 @@
+---
+created: 2009-06-02, 19:00
+layout: post
+license: Public Domain
+type: page
+---
+
 ===========
 Iteration X
 ===========
 
 It's Going To Be Awesome!
 ~~~~~~~~~~~~~~~~~~~~~~~~~
-
-:X-Created: [2009-06-02, 19:00]
-:X-Type:    Page
 
 This article has moved to the `Iteration X
 <http://www.espians.com/iteration-x.html>`_ page on the new `Espian Website

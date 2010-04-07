@@ -1,8 +1,12 @@
+---
+created: 2008-06-28, 09:21
+layout: post
+license: Public Domain
+---
+
 =========================
 A Minimal Blogging Engine
 =========================
-
-:X-Created: [2008-06-28, 09:21]
 
 [**Update:** I've since improved the blogging engine -- see the `New Domain for
 Tav <new-domain-for-tav.html>`_ article.]

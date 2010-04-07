@@ -1,8 +1,12 @@
+---
+created: 2009-03-04, 00:06
+layout: post
+license: Public Domain
+---
+
 ================
 Daft Punk Alive?
 ================
-
-:X-Created: [2009-03-04, 00:06]
 
 .. raw:: html
 

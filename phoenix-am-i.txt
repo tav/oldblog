@@ -1,8 +1,12 @@
+---
+created: 2008-08-10, 00:01
+layout: post
+license: Public Domain
+---
+
 ============
 Phoenix Am I
 ============
-
-:X-Created: [2008-08-10, 00:01]
 
 *[This is a reposting of an email that I had sent to various close friends in
 mid-2003.]*

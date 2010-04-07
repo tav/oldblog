@@ -1,12 +1,16 @@
+---
+created: 2009-03-17, 04:03
+layout: post
+license: Public Domain
+type: Feature
+---
+
 =========
 About Tav
 =========
 
 A Brief History of Tav
 ~~~~~~~~~~~~~~~~~~~~~~
-
-:X-Type: Feature
-:X-Created: [2009-03-17, 04:03]
 
 :Abstract:
 

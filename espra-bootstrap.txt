@@ -1,12 +1,16 @@
+---
+created: 2008-07-03, 10:30
+layout: post
+license: Public Domain
+type: page
+---
+
 ===============
 Espra Bootstrap
 ===============
 
 A Command Line for the Internet
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-:X-Created: [2008-07-03, 10:30]
-:X-Type:    Page
 
 This article has moved to the `Espra Bootstrap
 <http://www.espians.com/espra-bootstrap.html>`_ page on the new `Espian Website

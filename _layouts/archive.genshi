@@ -1,0 +1,37 @@
+---
+layout: site
+license: Public Domain
+title: A Blog by Tav
+---
+
+<div xmlns:py="http://genshi.edgewall.org/">
+<?python
+
+  MONTHS = [
+    'Zero Month',
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+    ]
+
+  items = [item for item in yatidb.values() if (item.get('type', None) == 'post') and (item.get('created', None))]
+  other = [item for item in yatidb.values() if not (item.get('type', None) == 'post') and (item.get('created', None))]
+
+?>
+<div class="section-info" id="all-articles"><strong>Blog Posts Archive</strong></div>
+<ul>
+  <li py:for="item in sorted(items, key=lambda x: x['created'], reverse=True)">
+    <a id="article-${item['__name__']}" href="${item['__name__']}">${Markup(item['title'])}</a>
+	&mdash;
+	<span py:with="created=item['created']">${created[8:10]} ${MONTHS[int(created[5:7])]} ${created[:4]}</span>
+  </li>
+</ul>
+
+<br />
+
+<div class="section-info" id="all-articles"><strong>Other Articles</strong></div>
+<ul>
+  <li py:for="item in sorted(other, key=lambda x: x['__name__'])">
+    <a id="article-${item['__name__']}" href="${item['__name__']}">${Markup(item['title'])}</a>
+  </li>
+</ul>
+</div>

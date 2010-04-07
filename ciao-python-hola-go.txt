@@ -1,8 +1,12 @@
+---
+created: 2009-11-25, 15:27
+layout: post
+license: Public Domain
+---
+
 =====================
 Ciao Python, Hola Go!
 =====================
-
-:X-Created: [2009-11-25, 15:27]
 
 .. raw:: html
 

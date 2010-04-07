@@ -1,8 +1,12 @@
+---
+created: 2009-02-23, 22:12
+layout: post
+license: Public Domain
+---
+
 ====================================
 A Challenge To Break Python Security
 ====================================
-
-:X-Created: [2009-02-23, 22:12]
 
 [**Update:** You can find out more in my new article: `Paving the Way to
 Securing the Python Interpreter

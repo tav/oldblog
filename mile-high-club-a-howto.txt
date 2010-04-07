@@ -1,8 +1,12 @@
+---
+created: 2008-07-17, 20:15
+layout: post
+license: Public Domain
+---
+
 =======================
 Mile High Club: A HowTo
 =======================
-
-:X-Created: [2008-07-17, 20:15]
 
 .. raw:: html
 
