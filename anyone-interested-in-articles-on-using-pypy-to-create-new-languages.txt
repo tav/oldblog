@@ -1,0 +1,94 @@
+---
+created: 2010-06-02, 10:05
+layout: post
+license: Public Domain
+---
+
+====================================================================
+Anyone Interested in Articles on Using PyPy to Create New Languages?
+====================================================================
+
+.. raw:: html
+
+  <div class="float-right">
+    <a href="http://pypy.org"><img
+      src="http://pypy.org/image/pypy-logo.png" /></a>
+  </div>
+
+`PyPy <http://pypy.org>`_ is famous as an alternative Python implementation. But
+it is also an impressive toolchain for creating your own programming languages
+-- you get features like garbage collection, JIT and even `WebKit integration
+<http://github.com/tav/ampify/tree/master/src/webkit_bridge/>`_ for free.
+
+Unfortunately, despite the toolchain being the bulk of the `PyPy code
+<http://github.com/tav/pypy>`_, it's not given much love. So, in an effort to
+convince fellow hackers to use PyPy, I'll be giving `a talk
+<http://www.oscon.com/oscon2010/public/schedule/detail/15487>`_ at the `Emerging
+Languages Camp <http://emerginglangs.com/>`_ at `OSCON
+<http://www.oscon.com/oscon2010/public/schedule/detail/15487>`_ (see below for
+the abstract).
+
+I'd also like to help bring more understanding of the toolchain to the wider
+hacker world and so am considering writing a series of tutorials on this blog.
+Unfortunately, I'm also a lazy bastard and don't want to waste time if no-one is
+interested ;p
+
+So this is your chance -- let me know in either the comments below or on `HN
+<http://news.ycombinator.com>`_/`Reddit
+<http://www.reddit.com/r/programming/>`_, if you'd be interested in such blog
+posts. Thanks!
+
+.. more
+
+.. raw:: html
+
+  <br />
+
+--------------------------------------------------------------------------------
+
+    **Create Your Own Programming Language in 20 Minutes using PyPy**
+
+    Creating your own dynamic language can be a messy, painful affair. Instead
+    of focusing on the features that make your language unique, you have to
+    waste a lot of time dealing with secondary issues like cross-platform
+    support, garbage collection and just-in-time compilation.
+
+    The `PyPy Translation Toolchain
+    <http://codespeak.net/pypy/dist/pypy/doc/translation.html>`_ — which has
+    already been successfully used to build alternative Python and Scheme
+    interpreters — can save you from all of this hassle. This talk will show how
+    easy it can be to create your own language by taking advantage of the
+    benefits that PyPy offers:
+
+    * `JIT <http://codespeak.net/pypy/dist/pypy/doc/jit/overview.html>`_ —
+      thanks to the state-of-the-art just-in-time compilation, your language
+      could be dynamic and still be competitive with lower-level languages in
+      terms of speed.
+
+    * `Garbage collection
+      <http://codespeak.net/pypy/dist/pypy/doc/garbage_collection.html>`_ —
+      select from the half dozen already implemented and tested strategies for
+      use by your language.
+
+    * `Sandboxing capability
+      <http://codespeak.net/pypy/dist/pypy/doc/sandbox.html>`_ — secure your
+      interpreter so that untrusted code can be safely run on all platforms,
+      whether it be a browser or an App Engine like service.
+
+    * `Unicode <http://www.unicode.org/standard/standard.html>`_ — your language
+      can be fully unicode-aware and you don't even have to know how case
+      folding works in different locales.
+
+    * `Stackless transformation
+      <http://codespeak.net/pypy/dist/pypy/doc/translation.html#the-stackless-transform>`_
+      — easily add support for your language to be massively concurrent.
+
+    * `Cross-platform
+      <http://codespeak.net/pypy/dist/pypy/doc/translation.html#the-c-back-end>`_
+      — have your interpreter run on a number of different backends, whether it
+      be native or on top of the CLI (.NET/Mono) or the JVM (Java).
+
+    * `WebKit bridge
+      <http://github.com/tav/ampify/tree/master/src/webkit_bridge/>`_ — create
+      browsers which can natively load scripts in your language via script tags
+      and even access the DOM, just like JavaScript!
