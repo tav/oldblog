@@ -22,21 +22,20 @@ it is also an impressive toolchain for creating your own programming languages
 
 Unfortunately, despite the toolchain being the bulk of the `PyPy code
 <http://github.com/tav/pypy>`_, it's not given much love. So, in an effort to
-convince fellow hackers to use PyPy, I'll be giving `a talk
-<http://www.oscon.com/oscon2010/public/schedule/detail/15487>`_ at the `Emerging
+convince fellow hackers to use PyPy, I'll be giving a talk at the `Emerging
 Languages Camp <http://emerginglangs.com/>`_ at `OSCON
-<http://www.oscon.com/oscon2010/public/schedule/detail/15487>`_ (see below for
-the abstract).
+<http://www.oscon.com/oscon2010/public/schedule/detail/15487>`_ -- see below for
+the abstract.
 
 I'd also like to help bring more understanding of the toolchain to the wider
-hacker world and so am considering writing a series of tutorials on this blog.
+hacker world and am considering writing a series of tutorials on this blog.
 Unfortunately, I'm also a lazy bastard and don't want to waste time if no-one is
 interested ;p
 
 So this is your chance -- let me know in either the comments below or on `HN
-<http://news.ycombinator.com>`_/`Reddit
-<http://www.reddit.com/r/programming/>`_, if you'd be interested in such blog
-posts. Thanks!
+<http://news.ycombinator.com/item?id=1398052>`_/`Reddit
+<http://www.reddit.com/r/programming/comments/can1y/anyone_interested_in_articles_on_using_pypy_to/>`_,
+if you'd be interested in such blog posts. Thanks!
 
 .. more
 
