@@ -35,7 +35,7 @@ license: Public Domain
 
   <link rel="alternate" type="application/rss+xml" 
 		title="RSS Feed for ${site_title}"
-		href="http://feeds2.feedburner.com/${site_nick}" />
+		href="http://feeds.feedburner.com/${site_nick}" />
 
   <!-- stylesheets -->
   <link rel="stylesheet" type="text/css" media="screen" title="default"
@@ -160,7 +160,7 @@ license: Public Domain
 		href="http://www.facebook.com/asktav"
 		title="Follow Tav on Facebook"><img src="${STATIC}/gfx.icon.facebook.gif"
 		alt="Facebook" class="absmiddle" /></a><a
-		href="http://feeds2.feedburner.com/${site_nick}" rel="alternate"
+		href="http://feeds.feedburner.com/${site_nick}" rel="alternate"
 		type="application/rss+xml" title="Subscribe to the RSS Feed"><img
 		alt="RSS Feed" class="absmiddle"
 		src="http://www.feedburner.com/fb/images/pub/feed-icon16x16.png"

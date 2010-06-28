@@ -57,6 +57,21 @@ license: Public Domain
   <div py:content="Markup(content)"></div>
 </div>
 <br /><hr class="clear" />
+<div class="footer-info">
+	<a class="float-right" href="http://twitter.com/tav"><img
+	src="http://a3.twimg.com/profile_images/463199849/gfx.espra.profile.tav_bigger.jpg"
+	/></a>
+	If you found this article interesting, then do:
+	<div class="footer-info-block">
+		<a href="http://feeds.feedburner.com/asktav" rel="alternate"
+		type="application/rss+xml" title="Subscribe to the Asktav Blog"><img
+		src="http://www.feedburner.com/fb/images/pub/feed-icon16x16.png" /></a>&nbsp;<a
+		href="http://feeds.feedburner.com/asktav" rel="alternate"
+		type="application/rss+xml" title="Subscribe to the Asktav Blog">Subscribe to this Blog</a>&nbsp;<a href="http://twitter.com/tav" title="Follow @tav on Twitter"><img src="http://cloud.github.com/downloads/tav/plexnet/gfx.icon.twitter.png" /></a>&nbsp;<a href="http://twitter.com/tav" title="Follow @tav on Twitter">Follow me on Twitter</a> &nbsp;<a href="http://github.com/tav" title="Follow @tav on GitHub"><img src="http://cloud.github.com/downloads/tav/plexnet/gfx.icon.github.png" /></a>&nbsp;<a href="http://github.com/tav" title="Follow @tav on GitHub">Follow me on GitHub</a>
+	</div>
+	<div style="text-align: right;">&mdash; Cheers, tav.</div>
+	<hr class="clear" />
+</div>
 <div class="article-nav" style="margin-bottom: 1.5em;">
   <script type="text/javascript">
 	ARTICLE_NAME = '${__name__}';
