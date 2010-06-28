@@ -39,9 +39,7 @@ license: Public Domain
 
   <!-- stylesheets -->
   <link rel="stylesheet" type="text/css" media="screen" title="default"
-		href="${STATIC}/css.screen.css?v=2" />
-  <link rel="stylesheet" type="text/css" media="screen" title="default"
-		href="${STATIC}/css.${site_nick}.css?v=2" />
+		href="css/site.css" />
 
   <style type="text/css" media="print">
     /* @import url("${STATIC}/css.print.css"); */
@@ -77,6 +75,8 @@ license: Public Domain
     PAGE_URI = '${page_url}'
     facebookXdReceiverPath = 'http://tav.espians.com/external/xd_receiver.html';
   </script>
+  <script type="text/javascript" src="http://use.typekit.com/hdt8sni.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
   <script type="text/javascript" src="${STATIC}/js.init.js" />
   <!-- <script type="text/javascript"
   src="http://w.sharethis.com/button/sharethis.js#tabs=web%2Cpost%2Cemail&amp;charset=utf-8&amp;style=rotate&amp;publisher=65b4c59a-e069-4896-84b4-7d8d7dce2b77&amp;headerbg=%230099cd&amp;linkfg=%230099cd"></script> -->

