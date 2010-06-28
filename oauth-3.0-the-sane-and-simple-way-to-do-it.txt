@@ -1,0 +1,148 @@
+---
+layout: post
+license: Public Domain
+---
+
+===========================================
+OAuth 3.0: The Sane and Simple Way To Do It
+===========================================
+
+.. raw:: html
+
+  <div class="float-right">
+    <a href="http://pypy.org"><img
+      src="http://pypy.org/image/pypy-logo.png" /></a>
+  </div>
+
+I'm a big fan of `OAuth <http://oauth.net/>`_ and I've done my fair share of
+promoting it -- from writing various open source client libraries to
+implementing services using it. However, the `OAuth 2.0 spec
+<http://tools.ietf.org/html/draft-ietf-oauth-v2-08>`_ just takes the piss.
+
+It's overly prescriptive, inconsistent and poorly written -- the worst that one
+could hope for from an emerging standard. And it sucks so much that I've yet to
+find a single conformant implementation by a major service provider.
+
+Take Facebook. They boldly claim `OAuth 2.0 support
+<http://developers.facebook.com/docs/authentication/>`_ and yet ignore most of
+it:
+
+* The spec states that the ``oauth_token`` parameter be used when accessing a
+  protected resource. Facebook use the ``access_token`` parameter name instead.
+
+* The spec states that certain requests MUST include the client ``type`` and
+  ``grant_type`` parameters. Facebook enforces no such requirement.
+
+* The spec states that clients MUST be able to authenticate themselves using
+  both HTTP basic auth and URI query parameters. Facebook only support the
+  latter.
+
+I could go on, but I'm sure you get the picture. The irony here is that Facebook
+is actually one of the co-authors of the spec. And before anyone starts bashing
+Facebook for ignoring standards, please read `the latest draft of the spec
+<http://tools.ietf.org/html/draft-ietf-oauth-v2-08>`_ -- it should be a lot
+simpler.
+
+As it is, what we're seeing is the emergence of incompatible and incomplete
+implementations by service providers. And when even the whiz kids at GitHub have
+`issues implementing OAuth 2.0
+<http://support.github.com/discussions/api/28-oauth2-busy-developers-guide>`_,
+it's time to re-evaluate the specification.
+
+So, in the interest of simplifying life for developers everywhere, I hereby
+present OAuth 3.0 -- an alternative to the latest OAuth 2.0 draft. It is so
+simple that even an idiot like me could do a complete implementation in about
+100 lines of Python code:
+
+* http://ampify.it/tentapp.html#oauth
+
+Anyways, let me know what you think. Especially if it can be made even simpler.
+Thanks!
+
+.. class:: block-section
+
+**OAuth 3.0**
+
+OAuth is a simple way for Client Applications to perform authorised actions on
+behalf of a User on remote Service Providers.
+
+.. syntax:: coffeescript
+
+  current_version: 3.0.0
+
+**Service Discovery**
+
+Service Providers announce their support for OAuth by publishing a
+``/.well-known/oauth.json`` file on their website. This file lives inside the
+container directory introduced by `[RFC 5796]
+<http://tools.ietf.org/html/rfc5785>`_ and is encoded in the JSON format `[RFC
+4627] <http://tools.ietf.org/html/rfc4627>`_. So for a Service Provider
+supporting OAuth 3.0:
+
+.. syntax:: bash
+
+  $ curl https://www.serviceprovider.com/.well-known/oauth.json
+
+We'd find something like:
+
+.. syntax:: javascript
+
+  {
+    "auth_endpoint": "https://www.serviceprovider.com/oauth/authorize",
+    "management_endpoint": "https://www.serviceprovider.com/oauth/manage",
+    "registration_endpoint": "https://www.serviceprovider.com/oauth/register",
+    "token_endpoint": "https://www.serviceprovider.com/oauth/token",
+    "version": "3.0.0"
+  }
+
+The JSON object could include other properties, but the following 5 string
+properties MUST be present:
+
+* The ``auth_endpoint`` defines the URI which Client Apps will direct a User to
+  -- in order for them to authorize access.
+
+* The ``management_endpoint`` defines the URI to manage authorized Client Apps.
+
+* The ``registration_endpoint`` defines the URI to register Client Apps with the
+  Service Provider.
+
+* The ``token_endpoint`` defines the Token Endpoint URI which a Client App will
+  communicate with -- in order to get or refresh an authorized access token.
+  This MUST be a secure channel, e.g. an HTTPS URL.
+
+* The ``version`` defines the `Semantic Version <http://semver.org/>`_ of the
+  OAuth Protocol that the Service Provider is currently supporting.
+
+**Client Registration**
+
+Of the format ``<hash-algorithm>:<hashcash-bits>:<token>``, e.g.
+
+.. syntax:: javascript
+
+  {
+    "challenge": "sha-1:20:473dfb39-198e-4082-bac1-c00cb868e3c4"
+  }
+
+The following:
+
+.. syntax:: python
+
+  def generate_hashcash(token, bits=20, hash=sha1):
+      n = 0
+      return hashcash
+
+A timing-independent string comparison mechanism should be used so as to avoid
+`timing attacks
+<http://rdist.root.org/2009/05/28/timing-attack-in-google-keyczar-library/>`_:
+
+.. syntax:: python
+
+    def constant_time_string_compare(s1, s2, ord=ord):
+        """Return whether two strings are equal -- without being a timing oracle."""
+
+        if len(s1) != len(s2):
+            return False
+        total = 0
+        for x, y in zip(s1, s2):
+            total |= ord(x) ^ ord(y)
+        return total == 0
