@@ -12,7 +12,7 @@ license: Public Domain
 
   <div class="float-right">
     <a href="http://github.com"><img
-       src="http://logicalawesome.com/logical_awesome.jpg"
+       src="http://img.skitch.com/20100628-t3uk9g8baf27y6rjpgigkk88bj.jpg"
        width="375px" height="300px" /></a>
   </div>
 
