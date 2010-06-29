@@ -17,7 +17,7 @@ OAuth 3.0: The Sane and Simple Way To Do It
 I'm a big fan of `OAuth <http://oauth.net/>`_ and I've done my fair share of
 promoting it -- from writing various open source client libraries to
 implementing services using it. However, the `OAuth 2.0 spec
-<http://tools.ietf.org/html/draft-ietf-oauth-v2-08>`_ just takes the piss.
+<http://tools.ietf.org/html/draft-ietf-oauth-v2-08>`_ needs a lot of work.
 
 It's overly prescriptive, inconsistent and poorly written -- the worst that one
 could hope for from an emerging standard. And it sucks so much that I've yet to
@@ -54,9 +54,9 @@ it's time to re-evaluate the specification.
 
 Furthermore, while the spec goes on about rarely used `SAML assertions
 <http://en.wikipedia.org/wiki/Security_Assertion_Markup_Language#SAML_Assertions>`_,
-it fails to standardise for service discovery, client registration and
-management. Sites like Disqus and Ning make good use of Facebook's `Create
-Application API
+it fails to standardise `service discovery <http://oauth.net/discovery/1.0/>`_,
+client registration, management, etc. Sites like Disqus and Ning make good use
+of Facebook's `Create Application API
 <http://wiki.developers.facebook.com/index.php/Create_Application_API>`_ -- it'd
 be nice if this was standardised!
 
@@ -70,9 +70,7 @@ be nice if this was standardised!
 So, in the interest of simplifying life for developers everywhere, I hereby
 present OAuth 3.0 -- a more comprehensive alternative to the latest OAuth 2.0
 draft. It is so simple that even an idiot like me could do a complete
-implementation in about 200 lines of Python code:
-
-* http://ampify.it/tentapp.html#oauth
+client/server implementation in about 300 lines of Python code.
 
 Anyways, let me know what you think -- especially if you've already experienced
 the pain of implementing OAuth. Thanks!
@@ -81,8 +79,17 @@ the pain of implementing OAuth. Thanks!
 
 **OAuth 3.0**
 
-OAuth is a simple way for Client Applications to perform authorised actions on
-behalf of a User on remote Service Providers.
+OAuth allows Applications to perform authorised actions on behalf of a User on
+remote Service Providers. The core process is quite straightforward:
+
+1. Applications register with the Service Provider and are issued with a
+   ``client_id`` and ``client_secret``.
+
+2. Applications use one of three different mechanisms to get hold of an
+   authorized ``access_token`` for a User.
+
+3. Applications use the ``access_token`` to perform actions on behalf of the
+   User.
 
 **Service Discovery**
 
@@ -104,10 +111,10 @@ We'd find something like:
   {
     "auth_endpoint": "http://www.serviceprovider.com/oauth/authorize",
     "auth_management_endpoint": "https://www.serviceprovider.com/oauth/manage",
-    "client_terms": "http://www.serviceprovider.com/terms",
     "client_management_endpoint": "https://www.serviceprovider.com/oauth/clients",
-    "reg_challenge": "sha-1:20:473dfb39-198e-4082-bac1-c00cb868e3c4",
-    "reg_endpoint": "https://www.serviceprovider.com/oauth/register",
+    "client_registration_challenge": "sha-1:20:serviceprovider.com",
+    "client_registration_endpoint": "https://www.serviceprovider.com/oauth/register",
+    "terms_of_use": "http://www.serviceprovider.com/terms",
     "token_endpoint": "https://www.serviceprovider.com/oauth/token",
     "version": "3.0.0"
   }
@@ -115,27 +122,30 @@ We'd find something like:
 The JSON object could include other properties, but the following string
 properties MUST be present:
 
-* The ``auth_endpoint`` defines the URL which Client Apps will direct a User to
-  -- in order for the User to authorize access.
+* The ``auth_endpoint`` defines the HTTP or HTTPS URI `[RFC 3986]
+  <http://tools.ietf.org/html/rfc3986>`_ which Apps will direct a User to -- in
+  order for the User to authorize access.
 
-* The ``auth_management_endpoint`` defines the HTTPS URL where Users will be
-  able to manage the various applications that they have authorized.
+* The ``auth_management_endpoint`` defines the HTTPS URI where Users will be
+  able to manage the various Apps that they have authorized.
 
-* The ``client_terms`` defines the URL for the Service Provider's terms of use
-  and policies for Client Apps.
+* The ``client_management_endpoint`` defines the HTTPS URI where Users will be
+  able to manage the various App Clients that they have registered.
 
-* The ``client_management_endpoint`` defines the HTTPS URL where Users will be
-  able to manage the various Client Apps that they have registered.
+* The ``client_registration_challenge`` defines a hashcash challenge spec for
+  Apps to use when registering. This MUST be of the format
+  ``<hash-algorithm>:<hashcash-bits>:<provider-id>`` where the ``provider-id``
+  is some form of unique identifier for the Service Provider -- like its domain
+  name.
 
-* The ``reg_challenge`` defines a hashcash challenge spec for apps to use when
-  registering clients programmatically. This MUST be of the format
-  ``<hash-algorithm>:<hashcash-bits>:<uuid>``.
+* The ``client_registration_endpoint`` defines the HTTPS URI where Apps will be
+  able to register and be issued with ``client_id`` and ``client_secret`` codes.
 
-* The ``reg_endpoint`` defines the HTTPS URL where Client Apps will be able to
-  register with the Service Provider.
+* The ``terms_of_use`` defines the HTTP URI for the Service Provider's terms of
+  use and policies for Apps.
 
-* The ``token_endpoint`` defines the HTTPS URL that Client Apps will communicate
-  with -- in order to get or refresh an authorized access token.
+* The ``token_endpoint`` defines the HTTPS URI that Apps will communicate with
+  -- in order to get or refresh an authorized ``access_token``.
 
 * The ``version`` defines the `Semantic Version <http://semver.org/>`_ of the
   OAuth Protocol that the Service Provider is currently supporting.
@@ -153,10 +163,10 @@ endpoints:
 
 * ``auth_management_endpoint``
 * ``client_management_endpoint``
-* ``reg_endpoint``
+* ``client_registration_endpoint``
 * ``token_endpoint``
 
-They accept URL-encoded parameters via HTTP GET or POST with the
+They accept URI-encoded parameters via HTTP GET or POST with the
 ``application/x-www-form-urlencoded`` content type and all successful calls
 return a JSON encoded response with a ``200 OK`` HTTP status code and
 ``application/json`` content type.
@@ -165,7 +175,7 @@ Unsuccessful calls will have either ``4xx`` or ``5xx`` HTTP status codes and
 these may or may not have JSON-encoded error responses -- this can be determined
 by looking for ``application/json`` in the ``content-type`` response header.
 
-The structure of the JSON-encoded error responses is not standardised beyond the
+The structure of JSON-encoded error responses are not standardised beyond the
 required presence of an ``error`` property. This property can be of arbitrary
 type and can be accompanied by other properties, e.g.
 
@@ -192,33 +202,45 @@ desire to be with their error responses.
 
 **Client Registration**
 
-Client Apps register with the Service Provider via the ``reg_endpoint``. This
-could be done either manually or programmatically. Manual registration involves
-the app developer authenticating with the Service Provider and then visiting the
-``reg_endpoint`` using their browser.
+Apps register with the Service Provider via the ``client_registration_endpoint``
+in order to be issued with ``client_id`` and ``client_secret`` codes. This could
+be done either manually or programmatically. Manual registration involves the
+app developer authenticating with the Service Provider and then visiting the
+endpoint using their browser.
 
 Alternatively, it could be done programmatically by POSTing to the
-``reg_endpoint`` which accepts the following parameters:
+``client_registration_endpoint`` which accepts the following parameters:
 
-* ``name`` -- the name of the Application being registered. [required]
+* ``name`` -- the name of the Application encoded as a UTF-8 string `[RFC 3629]
+  <http://tools.ietf.org/html/rfc3629>`_ with a maximum length of 100 bytes.
+  REQUIRED.
 
-* ``website_url`` -- the website for the Application. [required]
+* ``website`` -- the website URI for the Application with a maximum length of
+  200 bytes. OPTIONAL.
 
-* ``description`` -- a brief description of the Application. [optional]
+* ``description`` -- a brief description of the Application encoded as a UTF-8
+  string with a maximum length of 500 bytes. OPTIONAL.
+
+* ``accept_terms`` -- this MUST be set to ``yes`` and indicates acceptance of
+  the Service Provider's ``terms_of_use``. REQUIRED.
 
 * ``hashcash`` -- a valid hashcash payment for registering with the Service
-  Provider. [required]
+  Provider with a maximum length of 100 bytes. See below for more info.
+  REQUIRED.
 
-* ``redirect_url`` -- where to redirect requests.
+* ``redirect_base_uri`` -- the expected prefix of the "callback" URI to redirect
+  to after a User has authorized an OAuth request. Maximum length of 200 bytes.
 
-  * If the Client App will never be making OAuth requests of the ``user_agent``
-    type, then this parameter is optional.
+  * If the App will only use the Standard Flow OAuth Request, then it is
+    OPTIONAL and will only be checked if set and can be either an HTTP or HTTPS
+    URI.
 
-  * Otherwise, it is required and should be HTTPS.a
+  * Otherwise, this parameter is REQUIRED and MUST be an HTTPS URI.
 
-And responds with a JSON object with the following string properties:
+A successful registration will result in a JSON response with the following
+string properties:
 
-*  ``client_id`` -- 
+* ``client_id``
 
 * ``client_secret``
 
@@ -226,9 +248,8 @@ So, for example, if one did:
 
 .. syntax:: bash
 
-  $ curl -d 'name=Awesome%20App' -d 'url=http%3A//www.awesomeapp.com' \
-    -d 'description=This%20lets%20you%20do%20awesome%20things' \
-    -d 'hashcash=' \
+  $ curl -d 'name=Awesome%20App' -d 'accept_terms=yes' \
+    -d 'hashcash=1:20:100629:serviceprovider.com::e302ac179846:18b51f' \
     https://www.serviceprovider.com/oauth/register
 
 Then a successful response would look something like:
@@ -240,22 +261,149 @@ Then a successful response would look something like:
     "client_secret": "4d1e7bd053385838838d5c2dea60b531a2c7"
   }
 
-The ``:client_registration`` scope.
-A data structure like the following is recommended:
+In order to be used as "primary keys" by Applications, the returned
+``client_id`` and ``client_secret`` values MUST be less than 100 bytes long and
+be composed of characters in the range
+``abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-0123456789``.
+
+If a random number generator is used to generate the values, bear in mind that
+18 random bytes (which is 36 bytes long in hex-encoding) should be more than
+enough -- and 36 random bytes gives you more permutations than current
+estimations of the number of atoms in the universe.
+
+The ``hashcash`` payment value is used to mitigate against any resource
+exhaustion attacks against Service Providers -- who have to provide long-term
+storage of the registered values. The use of `hashcash <http://hashcash.org/>`_
+forces an Application to use up some CPU cycles as a proof of work.
+
+The hashcash is generated according to the Service Provider's
+``client_registration_challenge`` property which is of the format:
+
+* ``<hash-algorithm>:<hashcash-bits>:<provider-id>``
+
+Where ``hash-algorithm`` defines the algorithm to be used (normally SHA-1 `[RFC
+3174] <http://tools.ietf.org/html/rfc3174>`_), the ``provider-id`` defines a
+unique identifier for the Service Provider (normally its domain name) and the
+``hashcash-bits`` specifies the number of leading bits of the ``hashcash``
+digest which must be zero for it to be valid.
+
+Applications generate ``hashcash`` in a manner similar to:
 
 .. syntax:: python
 
+  algorithm, bits, provider_id = challenge.split(':')
+  if algorithm == 'sha-1':
+      hash = sha1
+  elif algorithm == 'sha-256':
+      hash = sha256
+  else:
+      raise ValueError("Unknown hash algorithm: %s" % algorithm)
+  bits = int(bits)
+  hashcash = generate_hashcash(provider_id, bits, hash)
+
+Where ``generate_hashcash()`` creates an appropriate `version 1 format hashcash
+stamp <http://www.hashcash.org/docs/hashcash.html#stamp_format__version_1_>`_:
+
+.. syntax:: python
+
+  from binascii import hexlify
+  from datetime import datetime
+  from hashlib import sha1
+  from math import ceil
+  from os import urandom
+  from time import time
+
+  def generate_hashcash(resource, bits=20, hash=sha1):
+      date = datetime.utcnow().strftime("%y%m%d")
+      rand = hexlify(urandom(6)) # a 48-bit random string
+      prefix = "1:%s:%s:%s::%s:" % (bits, date, resource, rand)
+      counter = 0
+      n = int(ceil(bits/4.)) # rounds up to the closest 4-bits
+      lead_zeros = '0' * n
+      while 1:
+          digest = hash("%s%x" % (prefix, counter)).hexdigest()
+          if digest[:n] == lead_zeros:
+              return "%s%x" % (prefix, counter)
+          counter += 1
+
+Service Providers verify that the ``hashcash`` is valid and hasn't been used
+before with something like:
+
+.. syntax:: python
+
+  def valid_hashcash(hashcash, resource, bits=20, hash=sha1):
+      n = int(ceil(bits/4.))
+      digest = hash(hashcash).hexdigest()
+      if digest[:n] != ('0' * n):
+          return False
+      _, _bits, date, _resource, _, _, _ = hashcash.split(':')
+      if resource != _resource:
+          return False
+      timestamp = int(datetime(
+          int(date[:2]) + 2000, # map a 2-digit YY into a YYYY
+          int(date[2:4]),
+          int(date[4:6])
+          ).strftime('%s'))
+      now = time()
+      time_difference = now - timestamp
+      # allow for clock skew of up to 3 days
+      if not (-259200 <= time_difference <= 259200):
+          return False
+      # check if the hashcash has been used before
+      stored_hashcash = HashCash.get_by_key_name(hashcash)
+      if stored_hashcash:
+          raise ValueError("The given hashcash has already been used.")
+      db.put(HashCash(key_name=hashcash, created=timestamp))
+      return True
+
+So, from the previous example:
+
+.. syntax:: pycon
+
+  >>> valid_hashcash(
+  ...     '1:20:100629:serviceprovider.com::e302ac179846:18b51f',
+  ...     'serviceprovider.com'
+  ... )
+  True
+
+The recommended data structure for storing hashcash for checking against double
+spending is something like:
+
+.. syntax:: python
+
+  # primary key: hashcash
+  class HashCash(db.Model):
+      created = db.IntegerProperty() # UNIX timestamp
+
+Service Providers can reclaim used space by removing all entries older than 3
+days. And, similarly, the recommended data structure for storing registered
+clients is something like:
+
+.. syntax:: python
+
+  # primary key: client_id
   class OAuthClient(db.Model):
-      created = db.DateTimeProperty()
+      created = db.IntegerProperty()
       name = db.StringProperty()
       description = db.TextProperty()
-      website = db.StringProperty()
-      redirect = db.StringProperty()
-      owner = db.StringProperty(default='@anonymous')
-      secret = db.StringProperty()
+      website = db.ByteStringProperty()
+      redirect = db.ByteStringProperty()
+      owner = db.StringProperty(default='')
+      secret = db.ByteStringProperty()
+      last_used = db.IntegerProperty()
 
-And, for the love of the Gods of SGML, please escape the angle brackets and
-related characters when displaying client-provided data to end users, e.g.
+The ``owner`` field is used to represent the User who authorized the
+registration. This should be set to a null value for "anonymous registrations"
+or to some representation of the User if there was a valid ``access_token`` for
+the ``:client_registration`` scope accompanying the registration call.
+
+Anonymous registrations are expected to be short-lived and Service Providers may
+remove them after a minimum of 30 days of inactivity. The presence of the
+``last_used`` field is intended to be used to help with such clean up.
+
+And for the love of the Gods of SGML, Service Providers, please escape angle
+brackets and related characters when displaying the submitted data to end users,
+e.g.
 
 .. syntax:: python
 
@@ -264,47 +412,3 @@ related characters when displaying client-provided data to end users, e.g.
           ">", "&gt;").replace('"', "&quot;")
 
 
-**App Request**
-
-.. syntax:: python
-
-  def authorize(
-    client_id, redirect_uri, scope, state=None, request_type='application'
-    ) -> HTTPRedirect
-
-
-
-Scopes beginning with ``:`` are for use by the OAuth-protocol related API calls.
-Two have already been defined:
-
-* ``:auth_management```
-* ``:client_management```
-* ``:client_registration``
-
-Service Providers MUST not define such colon-prefixed scopes for their own use
-as they're reserved for future versions of the OAuth protocol.
-
-**User Agent**
-
-And:
-
-.. syntax:: javascript
-
-  var randomString = (Math.random() * 0x100000000).toString(16);
-  document.cookie = 'expectedState=' + randomString;
-
-A timing-independent string comparison mechanism should be used so as to avoid
-`timing attacks
-<http://rdist.root.org/2009/05/28/timing-attack-in-google-keyczar-library/>`_:
-
-.. syntax:: python
-
-    def constant_time_string_compare(s1, s2, ord=ord):
-        """Return whether two strings are equal."""
-
-        if len(s1) != len(s2):
-            return False
-        total = 0
-        for x, y in zip(s1, s2):
-            total |= ord(x) ^ ord(y)
-        return total == 0
