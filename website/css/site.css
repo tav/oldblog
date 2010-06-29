@@ -90,6 +90,10 @@ sup {
   display: none;
 }
 
+li ul {
+	margin-top: 10px;
+}
+
 /* sections */
 
 #content {
