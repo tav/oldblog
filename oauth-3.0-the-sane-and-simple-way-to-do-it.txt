@@ -17,7 +17,7 @@ OAuth 3.0: The Sane and Simple Way To Do It
 I'm a big fan of `OAuth <http://oauth.net/>`_ and I've done my fair share of
 promoting it -- from writing various open source client libraries to
 implementing services using it. However, the `OAuth 2.0 spec
-<http://tools.ietf.org/html/draft-ietf-oauth-v2-08>`_ needs a lot of work.
+<http://tools.ietf.org/html/draft-ietf-oauth-v2-08>`_ is a bit of a mess.
 
 It's overly prescriptive, inconsistent and poorly written -- the worst that one
 could hope for from an emerging standard. And it sucks so much that I've yet to
@@ -56,7 +56,7 @@ Furthermore, while the spec goes on about rarely used `SAML assertions
 <http://en.wikipedia.org/wiki/Security_Assertion_Markup_Language#SAML_Assertions>`_,
 it fails to standardise `service discovery <http://oauth.net/discovery/1.0/>`_,
 client registration, management, etc. Sites like Disqus and Ning make good use
-of Facebook's `Create Application API
+of APIs like Facebook's `Create Application API
 <http://wiki.developers.facebook.com/index.php/Create_Application_API>`_ -- it'd
 be nice if this was standardised!
 
@@ -79,7 +79,7 @@ the pain of implementing OAuth. Thanks!
 
 **OAuth 3.0**
 
-OAuth allows Applications to perform authorised actions on behalf of a User on
+OAuth allows Applications to perform authorized actions on behalf of a User on
 remote Service Providers. The core process is quite straightforward:
 
 1. Applications register with the Service Provider and are issued with a
@@ -110,7 +110,7 @@ We'd find something like:
 
   {
     "auth_endpoint": "http://www.serviceprovider.com/oauth/authorize",
-    "auth_management_endpoint": "https://www.serviceprovider.com/oauth/manage",
+    "auth_management_endpoint": "https://www.serviceprovider.com/oauth/apps",
     "client_management_endpoint": "https://www.serviceprovider.com/oauth/clients",
     "client_registration_challenge": "sha-1:20:serviceprovider.com",
     "client_registration_endpoint": "https://www.serviceprovider.com/oauth/register",
@@ -141,8 +141,8 @@ properties MUST be present:
 * The ``client_registration_endpoint`` defines the HTTPS URI where Apps will be
   able to register and be issued with ``client_id`` and ``client_secret`` codes.
 
-* The ``terms_of_use`` defines the HTTP URI for the Service Provider's terms of
-  use and policies for Apps.
+* The ``terms_of_use`` defines the HTTP or HTTPS URI for the Service Provider's
+  terms of use and policies for Apps.
 
 * The ``token_endpoint`` defines the HTTPS URI that Apps will communicate with
   -- in order to get or refresh an authorized ``access_token``.
@@ -175,9 +175,9 @@ Unsuccessful calls will have either ``4xx`` or ``5xx`` HTTP status codes and
 these may or may not have JSON-encoded error responses -- this can be determined
 by looking for ``application/json`` in the ``content-type`` response header.
 
-The structure of JSON-encoded error responses are not standardised beyond the
-required presence of an ``error`` property. This property can be of arbitrary
-type and can be accompanied by other properties, e.g.
+The structure of these JSON-encoded error responses are not standardized beyond
+the required presence of an ``error`` property. This property can be of
+arbitrary type and can be accompanied by other properties, e.g.
 
 .. syntax:: javascript
 
@@ -186,7 +186,7 @@ type and can be accompanied by other properties, e.g.
     "error_type": "ValueError"
   }
 
-Or perhaps something like:
+Or even something like:
 
 .. syntax:: javascript
 
@@ -220,6 +220,9 @@ Alternatively, it could be done programmatically by POSTing to the
 
 * ``description`` -- a brief description of the Application encoded as a UTF-8
   string with a maximum length of 500 bytes. OPTIONAL.
+
+* ``organization`` -- the name of the Organization behind the Application
+  encoded as a UTF-8 string with a maximum length of 100 bytes. OPTIONAL.
 
 * ``accept_terms`` -- this MUST be set to ``yes`` and indicates acceptance of
   the Service Provider's ``terms_of_use``. REQUIRED.
@@ -281,7 +284,7 @@ The hashcash is generated according to the Service Provider's
 
 * ``<hash-algorithm>:<hashcash-bits>:<provider-id>``
 
-Where ``hash-algorithm`` defines the algorithm to be used (normally SHA-1 `[RFC
+The ``hash-algorithm`` defines the algorithm to be used (normally SHA-1 `[RFC
 3174] <http://tools.ietf.org/html/rfc3174>`_), the ``provider-id`` defines a
 unique identifier for the Service Provider (normally its domain name) and the
 ``hashcash-bits`` specifies the number of leading bits of the ``hashcash``
@@ -356,7 +359,7 @@ before with something like:
       db.put(HashCash(key_name=hashcash, created=timestamp))
       return True
 
-So, from the previous example:
+So, from the previous example, we'd get:
 
 .. syntax:: pycon
 
@@ -386,6 +389,7 @@ clients is something like:
       created = db.IntegerProperty()
       name = db.StringProperty()
       description = db.TextProperty()
+      organization = db.TextProperty()
       website = db.ByteStringProperty()
       redirect = db.ByteStringProperty()
       owner = db.StringProperty(default='')
@@ -412,3 +416,141 @@ e.g.
           ">", "&gt;").replace('"', "&quot;")
 
 
+Don't be `like
+<http://www.davidnaylor.co.uk/massive-twitter-cross-site-scripting-vulnerability.html>`_
+`Twitter
+<http://praetorianprefect.com/archives/2010/06/persistent-xss-on-twitter-com/>`_.
+
+**Authorization Request**
+
+.. syntax:: python
+
+  def authorize(
+    client_id, redirect_uri, scope, state=None, request_type='application'
+    ) -> HTTPRedirect
+
+
+
+Scopes beginning with ``:`` are for use by the OAuth-protocol related API calls.
+Two have already been defined:
+
+* ``:auth_management```
+* ``:client_management```
+* ``:client_registration``
+
+Service Providers MUST not define such colon-prefixed scopes for their own use
+as they're reserved for future versions of the OAuth protocol.
+
+**User Agent**
+
+And:
+
+* ``display`` -- either ``default`` or ``compact``
+
+.. syntax:: javascript
+
+  var randomString = (Math.random() * 0x100000000).toString(16);
+  document.cookie = 'expectedState=' + randomString;
+
+A timing-independent string comparison mechanism should be used so as to avoid
+`timing attacks
+<http://rdist.root.org/2009/05/28/timing-attack-in-google-keyczar-library/>`_:
+
+.. syntax:: python
+
+    def constant_time_string_compare(s1, s2, ord=ord):
+        """Return whether two strings are equal."""
+
+        if len(s1) != len(s2):
+            return False
+        total = 0
+        for x, y in zip(s1, s2):
+            total |= ord(x) ^ ord(y)
+        return total == 0
+
+**Using Access Tokens**
+
+Once an ``access_token`` has been obtained, the Application should store it
+securely and use it to perform actions on a User's behalf. It is intended to be
+compatible with whatever APIs the Service Provider offers and MUST only be sent
+to HTTPS URIs.
+
+The last point is worth re-iterating -- the ``access_token`` MUST only be sent
+across HTTPS channels. Service Provides MUST NOT process access tokens sent in
+the clear. Processing power is now cheap enough to warrant such a requirement in
+the interest of security.
+
+For requests supporting OAuth, Service Providers MUST accept:
+
+* a URI-encoded ``access_token`` parameter as part of either the request URI or
+  as part of the request body for POST requests. If both are present, then the
+  value sent in the request URI should be discarded.
+
+* a ``Access-Token`` request header with the access token as the value (without
+  any URI encoding).
+
+If both are present, then the URI-encoded parameter should be discarded.
+
+Here's an example GET request:
+
+.. syntax:: bash
+
+  $ curl "https://www.serviceprovider.com/news?type=feed&access_token=abcd"
+
+And another:
+
+.. syntax:: bash
+
+  $ curl -G -d "access_token=abcd" \
+    https://www.serviceprovider.com/messages
+
+And yet another:
+
+.. syntax:: bash
+
+  $ curl -H "Access-Token: abcd" \
+    https://www.serviceprovider.com/messages
+
+Here's an example POST request with the ``content-type`` set to
+``application/x-www-form-urlencoded``:
+
+.. syntax:: bash
+
+  $ curl -d 'text=Hello%20world' -d 'access_token=abcd' \
+    https://www.serviceprovider.com/message
+
+Here's an example POST request with the ``content-type`` set to
+``multipart/form-data``:
+
+.. syntax:: bash
+
+  $ curl -F 'file=@profile.jpg' -F 'access_token=abcd' \
+    https://www.serviceprovider.com/profile-image
+
+And another:
+
+.. syntax:: bash
+
+  $ curl -F 'file=@profile.jpg' -H "Access-Token: abcd" \
+    https://www.serviceprovider.com/profile-image
+
+For requests needing authorization, Service Providers should look for and
+validate the ``access_token`` for the appropriate ``scope`` before returning a
+successful response. If the token has expired, then the Service Provider MUST
+respond with a ``412 Precondition Failed`` HTTP status code.
+
+If the ``access_token`` is invalid for any other reason, then the Service
+Provider MUST respond with a ``401 Not Authorized`` HTTP status code. The
+``content-type`` header of this response can be whatever and need not contain a
+JSON object with a descriptive ``error`` property -- although that would be
+helpful.
+
+**Client Management**
+
+Apps can manage client registrations via the ``client_management_endpoint``.
+This could be done either manually or programmatically. Manual management
+involves the app developer authenticating with the Service Provider and then
+visiting the endpoint using their browser.
+
+Alternatively, it could be done programmatically by POSTing to the
+``client_management_endpoint`` which accepts the following parameters:
