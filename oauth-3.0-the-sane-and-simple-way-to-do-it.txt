@@ -17,11 +17,11 @@ OAuth 3.0: The Sane and Simple Way To Do It
 I'm a big fan of `OAuth <http://oauth.net/>`_ and I've done my fair share of
 promoting it -- from writing various open source client libraries to
 implementing services using it. However, the `OAuth 2.0 spec
-<http://tools.ietf.org/html/draft-ietf-oauth-v2-08>`_ is a bit of a mess.
+<http://tools.ietf.org/html/draft-ietf-oauth-v2-09>`_ is a bit of a mess.
 
-It's overly prescriptive, inconsistent and poorly written -- the worst that one
-could hope for from an emerging standard. And it sucks so much that I've yet to
-find a single conformant implementation by a major service provider.
+It's overly prescriptive and, given that there isn't a single conformant
+implementation by a major service provider, perhaps too complex for even the big
+boys.
 
 Take Facebook. They boldly claim `OAuth 2.0 support
 <http://developers.facebook.com/docs/authentication/>`_ and yet ignore most of
@@ -30,7 +30,7 @@ it:
 * The spec states that the ``oauth_token`` parameter be used when accessing a
   protected resource. Facebook use the ``access_token`` parameter name instead.
 
-* The spec states that certain requests MUST include the client ``type`` and
+* The spec states that certain requests MUST include the ``response_type`` and
   ``grant_type`` parameters. Facebook enforces no such requirement.
 
 * The spec states that clients MUST be able to authenticate themselves using
@@ -41,7 +41,7 @@ I could go on, but I'm sure you get the picture. The irony here is that `David
 Recordon <http://davidrecordon.com/>`_ from Facebook is actually one of the
 co-authors of the spec. And before anyone starts bashing Facebook for ignoring
 standards, please read `the latest draft of the spec
-<http://tools.ietf.org/html/draft-ietf-oauth-v2-08>`_ -- it is shockingly
+<http://tools.ietf.org/html/draft-ietf-oauth-v2-09>`_ -- it is shockingly
 convoluted for such a simple thing like OAuth.
 
 .. more
@@ -58,7 +58,7 @@ it fails to standardise `service discovery <http://oauth.net/discovery/1.0/>`_,
 client registration, management, etc. Sites like Disqus and Ning make good use
 of APIs like Facebook's `Create Application API
 <http://wiki.developers.facebook.com/index.php/Create_Application_API>`_ -- it'd
-be nice if this was standardised!
+be nice if these were standardised!
 
 .. raw:: html
 
@@ -86,10 +86,9 @@ remote Service Providers. The core process is quite straightforward:
    ``client_id`` and ``client_secret``.
 
 2. Applications use one of three different mechanisms to get hold of an
-   authorized ``access_token`` for a User.
+   authorized Access Token for a User.
 
-3. Applications use the ``access_token`` to perform actions on behalf of the
-   User.
+3. Applications use the Access Token to perform actions on behalf of the User.
 
 **Service Discovery**
 
@@ -114,6 +113,7 @@ We'd find something like:
     "client_management_endpoint": "https://www.serviceprovider.com/oauth/clients",
     "client_registration_challenge": "sha-1:20:serviceprovider.com",
     "client_registration_endpoint": "https://www.serviceprovider.com/oauth/register",
+    "secure_access": true,
     "terms_of_use": "http://www.serviceprovider.com/terms",
     "token_endpoint": "https://www.serviceprovider.com/oauth/token",
     "version": "3.0.0"
@@ -145,21 +145,26 @@ properties MUST be present:
   terms of use and policies for Apps.
 
 * The ``token_endpoint`` defines the HTTPS URI that Apps will communicate with
-  -- in order to get or refresh an authorized ``access_token``.
+  -- in order to get or refresh an authorized Access Token.
 
 * The ``version`` defines the `Semantic Version <http://semver.org/>`_ of the
   OAuth Protocol that the Service Provider is currently supporting.
 
   .. syntax:: coffeescript
 
-    current_version: "3.0.0"
+    current_version: "3.0.0draft-01"
 
-**API Overview**
+The JSON object MAY also include the following properties:
 
-Except for HTTP redirects, all communication between Client Apps and Service
-Providers MUST take place over HTTPS connections -- this is vital for security.
-There are four OAuth-specific APIs exposed at the following Service Provider
-endpoints:
+* The presence of a ``secure_access`` boolean property with the value of
+  ``true`` indicates that the Service Provider will only accept Access Tokens
+  over HTTPS and that it wants Applications to never send them using plain HTTP.
+
+**Core API Overview**
+
+Besides the ``auth_endpoint`` which accepts URI-encoded parameters via GET
+requests and returns responses directly to the User, there are four
+OAuth-specific "Core" APIs exposed at the following Service Provider endpoints:
 
 * ``auth_management_endpoint``
 * ``client_management_endpoint``
@@ -173,7 +178,7 @@ return a JSON encoded response with a ``200 OK`` HTTP status code and
 
 Unsuccessful calls will have either ``4xx`` or ``5xx`` HTTP status codes and
 these may or may not have JSON-encoded error responses -- this can be determined
-by looking for ``application/json`` in the ``content-type`` response header.
+by looking for ``application/json`` in the ``Content-Type`` response header.
 
 The structure of these JSON-encoded error responses are not standardized beyond
 the required presence of an ``error`` property. This property can be of
@@ -200,16 +205,29 @@ Or even something like:
 It is left up to the Service Providers to be as helpful or unhelpful as they
 desire to be with their error responses.
 
+And, finally, Service Providers MAY also expose "web pages" at some of the
+endpoints:
+
+* ``auth_management_endpoint``
+* ``client_management_endpoint``
+* ``client_registration_endpoint``
+
+For example, a Service Provider may allow authenticated Users to manually manage
+the various apps that they have authorized by visiting the
+``auth_management_endpoint`` with their web browser. If a Service Provider
+chooses to do this, then they MUST use the ``Accept`` header to distinguish
+between a direct request by a User and an API call by an Application.
+
+The lack of an ``Accept`` header or one with just ``application/json`` should be
+used to identify a request from an Application. As such, Applications MUST only
+send an ``Accept: application/json`` header -- if they send one at all.
+
 **Client Registration**
 
 Apps register with the Service Provider via the ``client_registration_endpoint``
-in order to be issued with ``client_id`` and ``client_secret`` codes. This could
-be done either manually or programmatically. Manual registration involves the
-app developer authenticating with the Service Provider and then visiting the
-endpoint using their browser.
-
-Alternatively, it could be done programmatically by POSTing to the
-``client_registration_endpoint`` which accepts the following parameters:
+in order to be issued with ``client_id`` and ``client_secret`` codes. Unlike
+previous versions of OAuth, this can now be done programmatically by POSTing to
+the endpoint with the following parameters:
 
 * ``name`` -- the name of the Application encoded as a UTF-8 string `[RFC 3629]
   <http://tools.ietf.org/html/rfc3629>`_ with a maximum length of 100 bytes.
@@ -231,8 +249,9 @@ Alternatively, it could be done programmatically by POSTing to the
   Provider with a maximum length of 100 bytes. See below for more info.
   REQUIRED.
 
-* ``redirect_base_uri`` -- the expected prefix of the "callback" URI to redirect
-  to after a User has authorized an OAuth request. Maximum length of 200 bytes.
+* ``redirect_uri_prefix`` -- the expected prefix of the "callback" HTTP or HTTPS
+  URI to redirect to after a User has authorized an OAuth request. Maximum
+  length of 200 bytes. OPTIONAL.
 
   * If the App will only use the Standard Flow OAuth Request, then it is
     OPTIONAL and will only be checked if set and can be either an HTTP or HTTPS
@@ -264,10 +283,22 @@ Then a successful response would look something like:
     "client_secret": "4d1e7bd053385838838d5c2dea60b531a2c7"
   }
 
-In order to be used as "primary keys" by Applications, the returned
-``client_id`` and ``client_secret`` values MUST be less than 100 bytes long and
-be composed of characters in the range
-``abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-0123456789``.
+The above example demonstrated an "anonymous registration" which will not be
+associated with any specific User. Applications wanting to associate a
+registration with a specific User MUST provide an Access Token authorized for
+the ``:client_registration`` scope, e.g.
+
+.. syntax:: bash
+
+  $ curl -d 'name=Awesome%20App' -d 'accept_terms=yes' \
+    -d 'hashcash=1:20:100629:serviceprovider.com::e302ac179846:18b51f' \
+    -H 'Access-Token: abcd' \
+    https://www.serviceprovider.com/oauth/register
+
+The returned ``client_id`` and ``client_secret`` values from a successful
+registration MUST be less than 100 bytes long and be composed of characters in
+the range ``abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-0123456789``.
+This is so that they can be used as primary keys in a wide range of datastores.
 
 If a random number generator is used to generate the values, bear in mind that
 18 random bytes (which is 36 bytes long in hex-encoding) should be more than
@@ -369,8 +400,8 @@ So, from the previous example, we'd get:
   ... )
   True
 
-The recommended data structure for storing hashcash for checking against double
-spending is something like:
+The recommended data structure for storing such valid hashcash payments for
+checking against double spending is something like:
 
 .. syntax:: python
 
@@ -392,22 +423,21 @@ clients is something like:
       organization = db.TextProperty()
       website = db.ByteStringProperty()
       redirect = db.ByteStringProperty()
-      owner = db.StringProperty(default='')
+      user = db.StringProperty(default='')
       secret = db.ByteStringProperty()
       last_used = db.IntegerProperty()
 
-The ``owner`` field is used to represent the User who authorized the
-registration. This should be set to a null value for "anonymous registrations"
-or to some representation of the User if there was a valid ``access_token`` for
-the ``:client_registration`` scope accompanying the registration call.
+The associated ``user`` field should be set to a distinct value, e.g. null, for
+"anonymous registrations" or to some representation of the User if there was a
+valid Access Token used as part of the registration.
 
-Anonymous registrations are expected to be short-lived and Service Providers may
-remove them after a minimum of 30 days of inactivity. The presence of the
-``last_used`` field is intended to be used to help with such clean up.
+Anonymous registrations are generally expected to be short-lived and Service
+Providers may remove them after a minimum of 30 days of inactivity. The presence
+of the ``last_used`` field is intended to be used to help with such clean up.
 
-And for the love of the Gods of SGML, Service Providers, please escape angle
-brackets and related characters when displaying the submitted data to end users,
-e.g.
+And finally, for the love of the Gods of SGML, Service Providers, please escape
+angle brackets and related characters when displaying the submitted data to end
+users, e.g.
 
 .. syntax:: python
 
@@ -423,6 +453,8 @@ Don't be `like
 
 **Authorization Request**
 
+Following 
+
 .. syntax:: python
 
   def authorize(
@@ -431,15 +463,16 @@ Don't be `like
 
 
 
-Scopes beginning with ``:`` are for use by the OAuth-protocol related API calls.
-Two have already been defined:
+Scopes beginning with ``:`` are referred to as "system scopes" and are reserved
+for use by the Core OAuth-related APIs. Service Providers MUST therefore not
+define such colon-prefixed scopes for their own use. The following system scopes
+have been defined so far:
 
-* ``:auth_management```
-* ``:client_management```
+* ``:auth_management``
+* ``:client_management``
 * ``:client_registration``
 
-Service Providers MUST not define such colon-prefixed scopes for their own use
-as they're reserved for future versions of the OAuth protocol.
+The scope ``:*`` can be used as a synonym for all such system scopes.
 
 **User Agent**
 
@@ -452,31 +485,229 @@ And:
   var randomString = (Math.random() * 0x100000000).toString(16);
   document.cookie = 'expectedState=' + randomString;
 
-A timing-independent string comparison mechanism should be used so as to avoid
-`timing attacks
-<http://rdist.root.org/2009/05/28/timing-attack-in-google-keyczar-library/>`_:
+**Client Management**
 
-.. syntax:: python
+Apps can manage a User's client registrations by sending requests to the
+``client_management_endpoint`` with an Access Token authorized for the
+``:client_management`` scope.
 
-    def constant_time_string_compare(s1, s2, ord=ord):
-        """Return whether two strings are equal."""
+A GET request returns a listing of the current client registrations for the User
+-- batched into "pages" of anything up to 500 items each. To indicate that there
+are more results than can be fit into the current "page", the Service Provider
+would include a ``next`` property in its JSON response.
 
-        if len(s1) != len(s2):
-            return False
-        total = 0
-        for x, y in zip(s1, s2):
-            total |= ord(x) ^ ord(y)
-        return total == 0
+An Application would then need to pass in the provided value as the optional
+``next`` parameter to a future GET request to retrieve the next "page", e.g.
+
+.. syntax:: bash
+
+  $ curl -H 'Access-Token: abcd' \
+    https://www.serviceprovider.com/oauth/clients?next=1234
+
+Of course, there's no ``next`` parameter for the very first "page".
+
+In addition to the optional ``next`` string property, the returned JSON object
+MUST contain a ``clients`` property which will be an array of objects
+representing the registered clients. So, doing:
+
+.. syntax:: bash
+
+  $ curl -H 'Access-Token: abcd' \
+    https://www.serviceprovider.com/oauth/clients
+
+Will return something like:
+
+.. syntax:: javascript
+
+  {
+    "clients": [
+      {
+        "client_id": "c6cbeb7f4ede64c1615ff2d27307030f9612",
+        "client_secret": "4d1e7bd053385838838d5c2dea60b531a2c7",
+        "name": "Awesome App",
+        "website": "",
+        "description": "",
+        "organization": "",
+        "redirect_uri_prefix": "",
+      }
+    ],
+    "next": "1234"
+  }
+
+Each individual client data object will have properties for ``client_id``,
+``client_secret``, ``name``, ``website``, ``description``, ``organization`` and
+``redirect_uri_prefix`` -- with empty values being represented by an empty
+string instead of ``null``.
+
+Apps can update the registered values for any of the clients by POSTing to the
+``client_management_endpoint`` with the following parameters:
+
+* ``client_id`` -- this needs to match the specific client registration that the
+  App wants to update. REQUIRED.
+
+* ``name`` -- this parameter has the same semantics as in the registration
+  process. REQUIRED.
+
+* ``website`` -- this parameter has the same semantics as in the registration
+  process. OPTIONAL.
+
+* ``description`` -- this parameter has the same semantics as in the
+  registration process. OPTIONAL.
+
+* ``organization`` -- this parameter has the same semantics as in the
+  registration process. OPTIONAL.
+
+* ``redirect_uri_prefix`` -- this parameter has the same semantics as in the
+  registration process. OPTIONAL.
+
+On a successful update, the Service Provider will return a JSON object with a
+single ``action`` property with the value of ``updated``, e.g.
+
+.. syntax:: bash
+
+  $ curl -H 'Access-Token: abcd' \
+    -d 'name=Awesome%20App' \
+    -d 'description=This%20lets%20you%20do%20awesome%20things' \
+    -d 'client_id=c6cbeb7f4ede64c1615ff2d27307030f9612' \
+    https://www.serviceprovider.com/oauth/clients
+
+Would return:
+
+.. syntax:: javascript
+
+  { "action": "updated" }
+
+Any optional parameters not sent in the update call will result in them being
+over-written with empty values. For example, if the registration in the example
+above had previously had the ``website`` property set to
+``http://www.aweseomeapp.com``, then it's ``website`` property will be empty
+after the update.
+
+Apps can delete a registered client by POSTing to the
+``client_management_endpoint`` with the following parameters:
+
+* ``action`` -- this needs to be set to ``delete``. REQUIRED.
+
+* ``client_id`` -- this needs to match the specific client registration that the
+  App wants to delete. REQUIRED.
+
+On a successful delete, the Service Provider will return a JSON object with a
+single ``action`` property with the value of ``deleted``, e.g.
+
+.. syntax:: bash
+
+  $ curl -H 'Access-Token: abcd' \
+    -d 'action=delete' \
+    -d 'client_id=c6cbeb7f4ede64c1615ff2d27307030f9612' \
+    https://www.serviceprovider.com/oauth/clients
+
+Would return:
+
+.. syntax:: javascript
+
+  { "action": "deleted" }
+
+**Authorization Management**
+
+Apps can manage a User's authorizations by sending requests to the
+``auth_management_endpoint`` with an Access Token authorized for the
+``:auth_management`` scope.
+
+A GET request returns a listing of the current authorizations by the User --
+batched into "pages" of anything up to 500 items each. The batching works in the
+exact same way as for Client Management and the GET request takes an optional
+``next`` parameter to support this.
+
+In addition to the optional ``next`` string property, the returned JSON object
+will contain an ``auth`` property which will be an array of objects representing
+the authorizations by the User. So, doing:
+
+.. syntax:: bash
+
+  $ curl -H 'Access-Token: abcd' \
+    https://www.serviceprovider.com/oauth/apps
+
+Will return something like:
+
+.. syntax:: javascript
+
+  {
+    "auth": [
+      {
+        "auth_id": "xyz123",
+        "client_id": "c6cbeb7f4ede64c1615ff2d27307030f9612",
+        "app_name": "Awesome App",
+        "app_website": "http://www.awesomeapp.com",
+        "scope": "photos messages",
+        "created": 1270000000,
+        "expiry": 1272592000,
+        "renewal": 1271742400
+      }
+    ],
+    "next": "6789"
+  }
+
+Each individual item about an authorization will have properties for:
+
+* ``auth_id`` -- an identifier representing the authorization and the underlying
+  Access Token.
+
+* ``client_id`` -- the ``client_id`` of the Application which requested the
+  authorization in the first place.
+
+* ``app_name`` -- the name of the Application which requested the authorization.
+
+* ``app_website`` -- the website URI of the Application which requested the
+  authorization.
+
+* ``scope`` -- a space separated list of scopes that the authorization is valid
+  for.
+
+* ``created`` -- the UNIX timestamp when the authorization took place,
+  represented as an integer.
+
+* ``expiry`` -- the UNIX timestamp when the authorization will naturally expire,
+  represented as an integer.
+
+* ``renewal`` -- the UNIX timestamp when the authorization will next need to be
+  renewed, represented as an integer.
+
+Applications can revoke an authorization on the User's behalf by POSTing to the
+``auth_management_endpoint`` with the following parameters:
+
+* ``action`` -- this needs to be set to ``revoke``. REQUIRED.
+
+* ``auth_id`` -- this needs to match the specific authorization that the App
+  wants to revoke. REQUIRED.
+
+On a successful revoke, the Service Provider will return a JSON object with a
+single ``action`` property with the value of ``revoked``, e.g.
+
+.. syntax:: bash
+
+  $ curl -H 'Access-Token: abcd' \
+    -d 'action=revoke' \
+    -d 'auth_id=xyz123' \
+    https://www.serviceprovider.com/oauth/apps
+
+Would return:
+
+.. syntax:: javascript
+
+  { "action": "revoked" }
+
+As soon as an authorization has been revoked, the Service Provider MUST
+invalidate the underlying Access Token.
 
 **Using Access Tokens**
 
-Once an ``access_token`` has been obtained, the Application should store it
-securely and use it to perform actions on a User's behalf. It is intended to be
-compatible with whatever APIs the Service Provider offers and MUST only be sent
-to HTTPS URIs.
+Once an Access Token has been obtained, the Application should store it securely
+and use it to perform actions on a User's behalf. It is intended to be
+compatible with whatever APIs the Service Provider offers and it is HIGHLY
+RECOMMENDED that it only be sent to HTTPS URIs.
 
 The last point is worth re-iterating -- the ``access_token`` MUST only be sent
-across HTTPS channels. Service Provides MUST NOT process access tokens sent in
+across HTTPS channels. Service Provides MUST NOT process Access Tokens sent in
 the clear. Processing power is now cheap enough to warrant such a requirement in
 the interest of security.
 
@@ -486,7 +717,7 @@ For requests supporting OAuth, Service Providers MUST accept:
   as part of the request body for POST requests. If both are present, then the
   value sent in the request URI should be discarded.
 
-* a ``Access-Token`` request header with the access token as the value (without
+* a ``Access-Token`` request header with the Access Token as the value (without
   any URI encoding).
 
 If both are present, then the URI-encoded parameter should be discarded.
@@ -501,17 +732,17 @@ And another:
 
 .. syntax:: bash
 
-  $ curl -G -d "access_token=abcd" \
+  $ curl -G -d 'access_token=abcd' \
     https://www.serviceprovider.com/messages
 
 And yet another:
 
 .. syntax:: bash
 
-  $ curl -H "Access-Token: abcd" \
+  $ curl -H 'Access-Token: abcd' \
     https://www.serviceprovider.com/messages
 
-Here's an example POST request with the ``content-type`` set to
+Here's an example POST request with the ``Content-Type`` set to
 ``application/x-www-form-urlencoded``:
 
 .. syntax:: bash
@@ -519,7 +750,7 @@ Here's an example POST request with the ``content-type`` set to
   $ curl -d 'text=Hello%20world' -d 'access_token=abcd' \
     https://www.serviceprovider.com/message
 
-Here's an example POST request with the ``content-type`` set to
+Here's an example POST request with the ``Content-Type`` set to
 ``multipart/form-data``:
 
 .. syntax:: bash
@@ -531,26 +762,45 @@ And another:
 
 .. syntax:: bash
 
-  $ curl -F 'file=@profile.jpg' -H "Access-Token: abcd" \
+  $ curl -F 'file=@profile.jpg' -H 'Access-Token: abcd' \
     https://www.serviceprovider.com/profile-image
 
 For requests needing authorization, Service Providers should look for and
-validate the ``access_token`` for the appropriate ``scope`` before returning a
-successful response. If the token has expired, then the Service Provider MUST
-respond with a ``412 Precondition Failed`` HTTP status code.
+validate the Access Token for the appropriate ``scope`` before returning a
+successful response. If the token needs to be renewed, then the Service Provider
+MUST respond with a ``412 Precondition Failed`` HTTP status code.
 
-If the ``access_token`` is invalid for any other reason, then the Service
-Provider MUST respond with a ``401 Not Authorized`` HTTP status code. The
-``content-type`` header of this response can be whatever and need not contain a
-JSON object with a descriptive ``error`` property -- although that would be
-helpful.
+If the Access Token is invalid for any other reason -- e.g. it has expired, is
+authorized for the required scope, etc. -- then the Service Provider MUST
+respond with a ``401 Not Authorized`` HTTP status code.
 
-**Client Management**
+The ``Content-Type`` header of these responses can be whatever and need not
+contain a JSON object with a descriptive ``error`` property -- although that
+would be helpful.
 
-Apps can manage client registrations via the ``client_management_endpoint``.
-This could be done either manually or programmatically. Manual management
-involves the app developer authenticating with the Service Provider and then
-visiting the endpoint using their browser.
+**Object Capability**
 
-Alternatively, it could be done programmatically by POSTing to the
-``client_management_endpoint`` which accepts the following parameters:
+If a Service Provider chooses to follow the highly recommended `object
+capability security model
+<http://en.wikipedia.org/wiki/Object-capability_model>`_, then Access Tokens can
+be considered equivalent to capability references.
+
+.. class:: block-section
+
+**Thanks**
+
+* `Mamading Ceesay <http://twitter.com/evangineer>`_ -- reviewed the
+  pre-published drafts.
+
+* `Chris Fuenty <http://zimmy.co.uk/>`_ -- defined the policy for using Access
+  Tokens over HTTPS.
+
+* `Justin Hart <http://www.google.com/profiles/onyxraven>`_ -- defined the
+  delegation of Access Tokens across Applications.
+
+* `James Arthur <http://thruflo.com/>`_
+
+* Everyone who has ever worked on OAuth.
+
+
+Well-behaving applications should not store the user's credentials for future use.
