@@ -1,0 +1,171 @@
+---
+layout: post
+license: Public Domain
+---
+
+==========================
+Will You Peerfund My Work?
+==========================
+
+.. raw:: html
+
+  <div class="float-right">
+    <a href="http://tav.espians.com"><img width="213px" height="191px"
+      src="http://static.ampify.it/profile.sky-and-tav.jpg" /></a>
+  </div>
+
+I'm looking to raise £6,000 to support myself and a `few
+<http://sofiabustamante.com/>`_ `others <http://twitter.com/evangineer>`_ for
+the next 3 months so that we can launch a whole new socio-economic-technological
+infrastructure.
+
+Any contribution you can make -- £60, £300 or even £1,000 -- will be greatly
+appreciated and rewarded. Thank you!
+
+* `Support my work with a PayPal contribution!
+  <https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GP9QRJAASDYJY>`_
+
+**The Supporters So Far:**
+
+  .. class:: borderless-table
+
+  +-----------------------------------------+---------------+
+  | Robert de Souza                         | £300          |
+  +-----------------------------------------+---------------+
+  | **Still Needed**                        | £5,700        |
+  +-----------------------------------------+---------------+
+
+**My Work:**
+
+The core of my work is about creating `Ampify <http://ampify.it>`_ -- an open
+source, decentralised application platform. I've been working on this for over
+10 years and, as proof, you can see:
+
+* The web archive for Espra -- an early attempt in 2000-2001 [`link
+  <http://web.archive.org/web/20010922205916/http://espra.net/>`__]
+
+* The first public discussion with others about the idea -- September 11th 2001
+  [`link <http://chatlogs.planetrdf.com/rdfig/2001-09-11.html#T03-17-00>`__]
+
+* The web archive for Plex -- another attempt in 2001-2002 [`link
+  <http://web.archive.org/web/20020601161948/http://plexdev.org/>`__]
+
+A key aspect of Ampify is Trust Maps -- a way of specifying who you trust and in
+what context. This will be used to help overcome information overload and here's
+`a prototype <http://www.trustmap.org>`_ that was used to explore the idea:
+
+.. raw:: html
+
+  <div class="center">
+  <a href="http://www.trustmap.org"><img src="http://img.skitch.com/20100714-psqy9pswin8pahudjimcsei8p5.medium.jpg"
+     /></a>
+  </div>
+
+And, `here's another prototype <http://tweets.trustmaps.com>`_ that filters and
+searches Twitter streams according to an individual's Trust Map:
+
+.. raw:: html
+
+  <div class="center">
+  <a href="http://www.trustmap.org"><img src="http://img.skitch.com/20100714-x6qkxhr5ep41dsassuj987fwsc.medium.jpg"
+     /></a>
+  </div>
+
+Ampify will also support `Pecus
+<http://thruflo.com/2009/06/09/tav-describes-pecus.html>`_ -- which is intended
+as a foundation for a reputation economy. It'll enable those who share their
+works to be properly rewarded, e.g. open source developers, musicians, blog
+authors, youtube content creators, etc.
+
+.. raw:: html
+
+  <div class="center">
+  <a href="http://static.ampify.it/img.presentation-sample-screen.png"><img
+     src="http://static.ampify.it/img.presentation-sample-screen.png"
+     width="691px" height="518px" class="boxed"
+     /></a>
+  </div>
+
+This will be complemented by `Amp Creds
+<http://groups.google.com/group/espians/browse_thread/thread/c67452fb7d3afa9e>`_
+-- a global reference currency backed by Processing, Storage and Transfer --
+that will hopefully enable a more stable economy than the boom-and-bust cycles
+of the present one.
+
+Ampify will also enable a new form of decentralised collaboration through the
+use of the Confluence model. Here's a `MediaWiki-based prototype
+<http://socialstartuplabs.com/wiki/User:Tav>`_ that tested some of this idea
+[`source code <http://github.com/tav/confluence>`_]:
+
+.. raw:: html
+
+  <div class="center">
+  <a href="http://socialstartuplabs.com/wiki/User:Tav"><img src="http://img.skitch.com/20100714-qkm3athwabfcr6gkd786phk4ai.medium.jpg"
+     /></a>
+  </div>
+
+It's taken a lot of iterations and failures to figure out what works and what
+doesn't -- and I'm confident about having a working version of Ampify by
+October. There's already the start of `some documentation
+<http://ampify.it/planfile.html>`_ and you can `watch the GitHub repository
+<http://github.com/tav/ampify>`_ to follow the open development.
+
+.. raw:: html
+
+  <div class="center"><a href="http://static.ampify.it/img.ampify-overview.original.png"><img
+       src="http://static.ampify.it/img.ampify-overview.original.png" alt=""
+       width="691px" height="518px" class="boxed"
+       /></a></div>
+
+And, finally, your support will also enable my other `various open source
+contributions <http://github.com/tav>`_ and help put on events like `Social
+Startup Labs
+<http://londoncreativelabs.squarespace.com/Social-Startup-Lab-15-06-2010>`_ --
+which helps tackle the issue of jobs creation by helping local communities
+identify the needs and opportunities for `Social Businesses
+<http://en.wikipedia.org/wiki/Social_business>`_:
+
+.. raw:: html
+
+  <div class="center">
+  <a href="http://londoncreativelabs.squarespace.com/Social-Startup-Lab-15-06-2010"><img
+     src="http://farm5.static.flickr.com/4139/4743307216_94b6d2096b.jpg" class="boxed"
+     /></a>
+  </div>
+
+Do drop by and say hello on IRC chat if you're interested in any of this work:
+
+.. raw:: html
+
+  <div style="text-align: center; margin-top: 5px; margin-bottom: 15px">
+      <form action="http://webchat.freenode.net/" method="get">
+        <button style="padding: 2px 6px 3px;">Click to join #esp</button>
+        <input type="hidden" name="channels" value="esp" />
+     </form>
+  </div>
+
+  <pre>
+  server: irc.freenode.net
+  channel: #esp
+  chatlogs: <a href="http://irclogs.ampify.it">irclogs.ampify.it</a>
+  </pre>
+
+I believe my work adds real value and, with your support, I can get it to a
+stage where it could potentially make a substantially positive impact on
+society:
+
+* `Support my work with a PayPal contribution!
+  <https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GP9QRJAASDYJY>`_
+
+.. raw:: html
+
+  <div class="center">
+  <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+  <input type="hidden" name="cmd" value="_s-xclick">
+  <input type="hidden" name="hosted_button_id" value="GP9QRJAASDYJY">
+  <input type="image" src="https://www.paypal.com/en_US/GB/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">
+  <img alt="" border="0" src="https://www.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1">
+  </form>
+  </div>
+
+Thank you.

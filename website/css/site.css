@@ -1001,3 +1001,16 @@ a.buttondown span {
 .footer-info-block {
 	padding: 13px 10px 10px 17px;
 }
+
+.boxed {
+	border: 1px solid #cacaca;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-box-shadow: 0px 0px 7px #cacaca;
+	margin-top: 10px;
+}
+
+table.borderless-table, .borderless-table tr, .borderless-table td {
+	border: 0px !important;
+}
