@@ -1,4 +1,5 @@
 ---
+created: 2010-07-14, 08:34
 layout: post
 license: Public Domain
 ---
@@ -37,6 +38,8 @@ appreciated and rewarded. Thank you!
 
 **My Work:**
 
+.. more
+
 The core of my work is about creating `Ampify <http://ampify.it>`_ -- an open
 source, decentralised application platform. I've been working on this for over
 10 years and, as proof, you can see:
@@ -67,7 +70,7 @@ searches Twitter streams according to an individual's Trust Map:
 .. raw:: html
 
   <div class="center">
-  <a href="http://www.trustmap.org"><img src="http://img.skitch.com/20100714-x6qkxhr5ep41dsassuj987fwsc.medium.jpg"
+  <a href="http://tweets.trustmaps.com"><img src="http://img.skitch.com/20100714-x6qkxhr5ep41dsassuj987fwsc.medium.jpg"
      /></a>
   </div>
 
@@ -151,8 +154,7 @@ Do drop by and say hello on IRC chat if you're interested in any of this work:
   </pre>
 
 I believe my work adds real value and, with your support, I can get it to a
-stage where it could potentially make a substantially positive impact on
-society:
+stage where it could make a really positive impact:
 
 * `Support my work with a PayPal contribution!
   <https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GP9QRJAASDYJY>`_
