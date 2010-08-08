@@ -18,10 +18,10 @@ Anyone Interested in Articles on Using PyPy to Create New Languages?
 `PyPy <http://pypy.org>`_ is famous as an alternative Python implementation. But
 it is also an impressive toolchain for creating your own programming languages
 -- you get features like garbage collection, JIT and even `WebKit integration
-<http://github.com/tav/ampify/tree/master/src/webkit_bridge/>`_ for free.
+<http://github.com/espians/ampify/tree/master/src/webkit_bridge/>`_ for free.
 
 Unfortunately, despite the toolchain being the bulk of the `PyPy code
-<http://github.com/tav/pypy>`_, it's not given much love. So, in an effort to
+<http://github.com/pypy/pypy>`_, it's not given much love. So, in an effort to
 convince fellow hackers to use PyPy, I'll be giving a talk at the `Emerging
 Languages Camp <http://emerginglangs.com/>`_ at `OSCON
 <http://www.oscon.com/oscon2010/public/schedule/detail/15487>`_ -- see below for
@@ -88,6 +88,6 @@ if you'd be interested in such blog posts. Thanks!
       be native or on top of the CLI (.NET/Mono) or the JVM (Java).
 
     * `WebKit bridge
-      <http://github.com/tav/ampify/tree/master/src/webkit_bridge/>`_ — create
+      <http://github.com/espians/ampify/tree/master/src/webkit_bridge/>`_ — create
       browsers which can natively load scripts in your language via script tags
       and even access the DOM, just like JavaScript!

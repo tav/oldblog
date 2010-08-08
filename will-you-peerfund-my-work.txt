@@ -131,7 +131,7 @@ It's taken a lot of iterations and failures to figure out what works and what
 doesn't -- and I'm confident about having a working version of Ampify by
 October. There's already the start of `some documentation
 <http://ampify.it/planfile.html>`_ and you can `watch the GitHub repository
-<http://github.com/tav/ampify>`_ to follow the open development.
+<http://github.com/espians/ampify>`_ to follow the open development.
 
 .. raw:: html
 
