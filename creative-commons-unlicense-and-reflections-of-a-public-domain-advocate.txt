@@ -8,6 +8,13 @@ license: Public Domain
 Creative Commons Unlicense and Reflections of a Public Domain Advocate
 ======================================================================
 
+.. raw:: html
+
+  <div class="float-right">
+    <a href="http://unlicense.org"><img
+       src="http://unlicense.org/pd-icon.png" /></a>
+  </div>
+
 I posted the following to the `Unlicense Google Group
 <http://groups.google.com/group/unlicense>`_ earlier today and figured
 that some of you might be interested in the proposed Creative Commons
