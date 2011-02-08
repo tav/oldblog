@@ -8,8 +8,8 @@ license: Public Domain
 A Minimal Blogging Engine
 =========================
 
-[**Update:** I've since improved the blogging engine -- see the `New Domain for
-Tav <new-domain-for-tav.html>`_ article.]
+**Update:** I've since improved the blogging engine -- see the `New Domain for
+Tav <new-domain-for-tav.html>`_ article.
 
 I became a blogger in 2002 with `Radio Userland <http://radio.userland.com/>`_.
 As the trial expired, I decided to wait till better tools were available. 6

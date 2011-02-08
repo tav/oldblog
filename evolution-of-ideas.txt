@@ -10,7 +10,7 @@ Evolution of Ideas
 
 .. image:: http://upload.wikimedia.org/wikipedia/commons/9/9c/Darwin_ape.jpg
            :alt: Caricature of Charles Darwin
-           :class: float-right
+           :class: float-right-aligned
            :width: 200
            :height: 253
 

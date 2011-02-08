@@ -10,7 +10,7 @@ Love Eternal
 
 .. raw:: html
 
-  <div class="float-right">
+  <div class="float-right-aligned">
   <a href="http://www.flickr.com/photos/greencracker/130427828/" title="Love &amp; Life"><img src="http://farm1.static.flickr.com/44/130427828_232286ab78_m.jpg" alt="Love &amp; Life" /></a><br />
   <div class="image-caption">by <a href="http://www.flickr.com/photos/greencracker/130427828/">dziner</a></div>
   </div>

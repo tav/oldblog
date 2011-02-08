@@ -12,7 +12,7 @@ Fluid & Bounded
            :alt: Boris Vallejo
            :width: 300
            :height: 450
-           :class: float-right
+           :class: float-right-aligned
 
 
 I am a real-time operating system. Alive in the moment. Fluid to all that

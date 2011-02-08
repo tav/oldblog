@@ -13,7 +13,7 @@ spent together in `Ibiza <http://en.wikipedia.org/wiki/Ibiza>`_ last year.
 
 .. raw:: html
 
-  <div class="float-right">
+  <div class="float-right-aligned">
   <a href="http://www.flickr.com/photos/olasofia/3319107592/"><img
   src="http://farm4.static.flickr.com/3612/3319107592_8423d88317.jpg"
   width="400px" height="300px"
@@ -53,7 +53,7 @@ artist called `Eckhard Neumann <http://www.digitalartweb.net/>`_, was absolutely
 gorgeous!
 
 .. image:: http://farm4.static.flickr.com/3641/3349031709_cd32c710cb.jpg
-           :class: float-left
+           :class: float-left-aligned
            :width: 400
            :height: 300
 

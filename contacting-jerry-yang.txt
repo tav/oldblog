@@ -12,7 +12,7 @@ Contacting Jerry Yang
            :alt: Jerry Yang
            :width: 225
            :height: 273
-           :class: float-right
+           :class: float-right-aligned
 
 A fortnight ago, I emailed Jerry Yang, the co-founder and CEO of Yahoo!. It was
 yet another unsolicited `Yahoo! Turnaround Strategy

@@ -13,7 +13,7 @@ been using for a happy and productive life.
 
 .. raw:: html
 
-  <div class="float-right">
+  <div class="float-right-aligned">
     <a href="http://www.flickr.com/photos/pensiero/1211074535/"><img
          src="http://farm2.static.flickr.com/1249/1211074535_6e11519a88.jpg"
          alt="Dream of Prometheus" /></a><br />
@@ -92,7 +92,7 @@ the current research on `mirror neurons
 
 .. raw:: html
 
-  <div class="float-left">
+  <div class="float-left-aligned">
     <a href="http://www.flickr.com/photos/tonivc/2283676770/in/photostream/"><img
          src="http://farm4.static.flickr.com/3214/2283676770_6b53f8b77f.jpg"
          width="400px" height="300px"

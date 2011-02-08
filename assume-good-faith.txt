@@ -12,7 +12,7 @@ Assume Good Faith
            :width: 250
            :alt: Assume Good Faith Plz
            :height: 166
-           :class: float-right
+           :class: float-right-aligned
 
 Earlier this week, I ended up counselling two sets of organisations with regards
 to each other. They were trying to work with each other but had various concerns

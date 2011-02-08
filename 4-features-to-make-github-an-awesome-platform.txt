@@ -10,7 +10,7 @@ license: Public Domain
 
 .. raw:: html
 
-  <div class="float-right">
+  <div class="float-right-aligned">
     <a href="http://github.com"><img
        src="http://img.skitch.com/20100628-t3uk9g8baf27y6rjpgigkk88bj.jpg"
        width="375px" height="300px" /></a>

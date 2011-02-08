@@ -14,7 +14,7 @@ I'm pleased to announce the initial launch of Mamading Ceesay's `Quotessence
 .. raw:: html
 
   <div class="float-right"><a href="http://quotessence.agoraworx.com"><img
-    src="http://quotessence.agoraworx.com/static/images/logo.png"
+    src="gfx/quotessence.png"
     alt="Quotessence Logo" /></a>
   </div>
 

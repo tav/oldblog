@@ -2,7 +2,6 @@
 created: 2009-11-26, 17:24
 layout: post
 license: Public Domain
-type: unpublished
 ---
 
 =========================================
@@ -45,11 +44,9 @@ Not only does it offer a far better social experience, but it's interface is
 much better than what Google Code or `bitbucket <http://bitbucket.org/>`_
 currently offer. Now, to get started with using the Git mirror, just do:
 
-.. raw:: html
+.. syntax:: bash
 
-  <pre class="cmd-line">
-  <span class="cmd-ps1">$</span> git clone git://github.com/tav/go.git
-  </pre>
+  $ git clone git://github.com/tav/go.git
 
 You can then follow the normal `installation instructions
 <http://golang.org/doc/install.html>`_ to set the environment variables and then
@@ -58,11 +55,9 @@ run ``./all.bash`` inside ``$GOROOT/src``.
 Note that by default, the master branch will be checked out -- if you'd rather
 not be on the cutting edge, then check out the ``release`` tag using:
 
-.. raw:: html
+.. syntax:: bash
 
-  <pre class="cmd-line">
-  <span class="cmd-ps1">$</span> git checkout release
-  </pre>
+  $ git checkout release
 
 Besides being able to track the language developments using GitHub, the main
 advantage of the Git mirror is that you can now use it as a ``git submodule``

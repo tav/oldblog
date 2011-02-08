@@ -16,7 +16,7 @@ rumours were that big things were afoot in Bangladesh.
 
 .. raw:: html
 
-  <div class="float-right">
+  <div class="float-right-aligned">
   <a href="http://www.flickr.com/photos/27973032@N07/2676194227/"><img
   src="http://farm4.static.flickr.com/3006/2676194227_d17be85516_m.jpg"
   alt="Grameen HQ" /></a><br />
@@ -53,7 +53,7 @@ Grameen companies -- which cover everything from energy to textiles.
 
 .. raw:: html
 
-  <div class="float-left">
+  <div class="float-left-aligned">
   <a href="http://flickr.com/photos/olasofia/2688315970/in/set-72157606270139832"><img
   src="http://farm4.static.flickr.com/3184/2688315970_2e254f50e8_m.jpg"
   alt="Grameen (Village) Kids" /></a><br />
@@ -86,9 +86,9 @@ and is what makes Grameen so impressive.
 
 .. raw:: html
 
-  <div class="float-right">
-  <a href="http://www.flickr.com/photos/asktav/2681539094/" title="The Dhaka 5
-  With Yunus @ Grameen HQ"><img
+  <hr class="clear" />
+  <div class="float-right-aligned">
+  <a href="http://www.flickr.com/photos/asktav/2681539094/" title="The Dhaka 5 With Yunus @ Grameen HQ"><img
   src="http://farm4.static.flickr.com/3103/2681539094_7f705237e7.jpg"
   width="500" height="433" alt="The Dhaka 5 With Yunus @ Grameen HQ" /></a>
   <br />

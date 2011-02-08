@@ -10,7 +10,7 @@ Will You Peerfund My Work?
 
 .. raw:: html
 
-  <div class="float-right">
+  <div class="float-right-aligned">
     <a href="http://tav.espians.com"><img width="213px" height="191px"
       src="http://static.ampify.it/profile.sky-and-tav.jpg" /></a>
   </div>
@@ -108,10 +108,10 @@ authors, youtube content creators, etc.
 
 .. raw:: html
 
-  <div class="center">
+  <div class="full-width-lined">
   <a href="http://static.ampify.it/img.presentation-sample-screen.png"><img
      src="http://static.ampify.it/img.presentation-sample-screen.png"
-     width="691px" height="518px" class="boxed"
+     width="700px" height="525px"
      /></a>
   </div>
 
@@ -141,9 +141,10 @@ October. There's already the start of `some documentation
 
 .. raw:: html
 
-  <div class="center"><a href="http://static.ampify.it/img.ampify-overview.original.png"><img
+  <div class="full-width-lined"><a
+       href="http://static.ampify.it/img.ampify-overview.original.png"><img
        src="http://static.ampify.it/img.ampify-overview.original.png" alt=""
-       width="691px" height="518px" class="boxed"
+       width="690px" height="518px"
        /></a></div>
 
 And, finally, your support will also enable my other `various open source

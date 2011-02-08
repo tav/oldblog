@@ -1,7 +1,7 @@
 ---
 layout: site
 license: Public Domain
-title: A Blog by Tav
+title: The Journey to Espia
 ---
 
 <div xmlns:py="http://genshi.edgewall.org/">
@@ -34,79 +34,41 @@ title: A Blog by Tav
   .more-link { display: block; }
 </style>
 
-<div id="site-welcome">Thanks for coming to Asktav<em>!</em> Other articles
-you might like:</div>
-
-<ul>
-  <li>
-    <a href="http://www.espians.com/plexnet.html">Plexnet</a>
-	<br /><span class="index-link-info">A Set of Open Web Standards</span>
-  </li>
-</ul>
-
 <div py:for="post in sorted(items, key=lambda x: x['created'], reverse=True)[:60]">
-  <?python
-    post_url = disqus_url = 'http://tav.espians.com/' + set_name(post)
-    if lt(post['created'][:7], "2009-07"):
-      disqus_url = 'http://www.asktav.com' + '/' + post['__name__']
-  ?>
-  <div class="post-title">
-	<div class="post-link"><a href="${set_name(post)}">${Markup(post['title'])}</a></div>
-	<div>
-	  <div class="float-right">
-		<!--<script language="javascript" type="text/javascript">
-		  SHARETHIS.addEntry({
-		  title:"${post['title'].replace('"', r'\"')}",
-		  url:'${post_url}',
-		  }, {button:true});
-		</script>| --><a href="${post['__name__']}#disqus_thread" rel="disqus:${disqus_url}">Comment!</a>
-          <script type="text/javascript">
-		    tweetmeme_url = '${post_url}';
-		    tweetmeme_source = 'tav';
-		    tweetmeme_service = 'bit.ly';
-		    tweetmeme_style = 'compact';
-		</script>
-		| <div class="retweetbutton">
-		<script type="text/javascript" src="http://tweetmeme.com/i/scripts/button.js"></script>
-	    </div>
-	  </div>
-	  &#187; by <span><a href="http://tav.espians.com">tav</a></span> on <span py:with="created=post['created']" class="post-date">${MONTHS[int(created[5:7])]} ${int(created[8:10])}, ${created[:4]} @ <a href="http://github.com/tav/blog/commits/master/${splitext(post['__name__'])[0]}.txt">${created[-5:]}</a></span> <a href="http://creativecommons.org/publicdomain/zero/1.0/"><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Cc-pd.svg/64px-Cc-pd.svg.png" width="20px" height="20px" alt="Public Domain" class="absmiddle" /></a>
+	<?python
+        post_url = disqus_url = 'http://tav.espians.com/' + set_name(post)
+        if lt(post['created'][:7], "2009-07"):
+            disqus_url = 'http://www.asktav.com' + '/' + post['__name__']
+	?>
+	<div class="post-title">
+		<div class="post-link"><a href="${set_name(post)}">${Markup(post['title'])}</a></div>
+		<div class="additional-content-info">
+			<div class="float-right">
+				<a href="${post['__name__']}#disqus_thread" rel="disqus:${disqus_url}">Add a Comment</a>
+				<script>
+					tweetmeme_url = '${post_url}';
+					tweetmeme_source = 'tav';
+					tweetmeme_service = 'bit.ly';
+					tweetmeme_style = 'compact';
+				</script>
+				&middot;&nbsp;
+				<div class="retweetbutton">
+					<script src="http://tweetmeme.com/i/scripts/button.js"></script>
+				</div>
+			</div>
+		</div>
+		<div class="article-info">
+			&#187;&nbsp; by <span><a href="http://tav.espians.com">tav</a></span> on <span py:with="created=post['created']" class="post-date">${MONTHS[int(created[5:7])]} ${int(created[8:10])}, ${created[:4]} @ <a href="http://github.com/tav/blog/commits/master/${splitext(post['__name__'])[0]}.txt">${created[-5:]}</a></span> &nbsp;<a href="http://creativecommons.org/publicdomain/zero/1.0/" title="Public Domain"><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Cc-pd.svg/64px-Cc-pd.svg.png" width="20px" height="20px" alt="Public Domain" class="absmiddle" /></a>
+		</div>
 	</div>
-  </div>
-  <div py:content="Markup(post['__lead_output__'])" class="blog-post" />
-  <div py:if="post['__lead__'] != post['__content__']"><a href="${set_name(post)}">Read more…</a></div>
-  <div class="post-footer">
-	<br /><br />
-  </div>
+	<div class="content">
+		<div py:content="Markup(post['__lead_output__'])" class="blog-post" />
+	</div>
+	<br /><hr class="clear" />
+	<div py:if="post['__lead__'] != post['__content__']"><a href="${set_name(post)}">Read more…</a></div>
+	<div class="post-footer">
+	</div>
 </div>
-<div class="center"><a href="archive.html#article-${last_post_name[0]}">Read Previous Articles</a></div>
-
-<div class="section-info buffer">
-  <table cellspacing="0" cellpadding="0" width="100%">
-	<tr>
-	  <td><strong>${site_author.title()}'s Recent Web Activity</strong></td>
-	  <td class="right">
-		<a href="http://friendfeed.com/${site_author_nick}">Friendfeed Archive</a>
-		<img class="absmiddle" src="${STATIC}/gfx.icon.friendfeed.png" alt="friendfeed" />
-	  </td>
-	</tr>
-  </table>
-</div>
-<script type="text/javascript" src="http://friendfeed.com/embed/widget/${site_author_nick}?v=2&amp;num=10&amp;hide_logo=1&amp;hide_subscribe=1"></script>
-
-<div class="section-info buffer">
-  <table cellspacing="0" cellpadding="0" width="100%">
-	<tr>
-	  <td><strong>Recent Blog Comments</strong></td>
-	  <td class="right">
-		<a href="http://${site_nick}.disqus.com">Disqus Archive</a>
-		<img class="absmiddle" src="${STATIC}/gfx.icon.disqus.png" alt="disqus" />
-	  </td>
-	</tr>
-  </table>
-</div>
-<div id="dsq-recentcomments" class="dsq-widget">
-  <script type="text/javascript" src="http://disqus.com/forums/${site_nick}/recent_comments_widget.js?num_items=20&amp;avatar_size=92"></script>
-</div>
+<div class="center"><a href="archive.html#article-${last_post_name[0]}">Older Articles</a></div>
 
 </div>

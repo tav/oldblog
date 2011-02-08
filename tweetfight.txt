@@ -10,7 +10,7 @@ TweetFight -- Fight Club 2.0
 
 .. raw:: html
 
-  <div class="float-right">
+  <div class="float-right-aligned">
   <a href="http://flickr.com/photos/polinasergeeva/3052374910/"><img
   src="http://farm4.static.flickr.com/3188/3052374910_5cb9f1e734_m.jpg"
   alt="Fight Club Bloodstained Hands" /></a><br />

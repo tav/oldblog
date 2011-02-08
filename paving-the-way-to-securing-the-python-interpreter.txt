@@ -8,12 +8,12 @@ license: Public Domain
 Paving the Way to Securing the Python Interpreter
 =================================================
 
-[**Note:** This article isn't about securing the Python interpreter against
+**Note:** This article isn't about securing the Python interpreter against
 crashes/segfaults or exhaustion of resources attacks. For help with that, take a
 look at the excellent `sandboxing features of PyPy
 <http://codespeak.net/pypy/dist/pypy/doc/sandbox.html>`_. Those of you wanting
 to just know about the practical applications of this, scroll down to the bottom
-of the article =)]
+of the article =)
 
 There have been many attempts to secure the Python interpreter so that untrusted
 code can be safely executed alongside trusted code. Working attempts like
@@ -181,6 +181,8 @@ execution is assumed.
 
 Let's see how this works out in practice:
 
+.. syntax:: pycon
+
   >>> import md5, inspect
 
   >>> def dummy(secret):
@@ -197,15 +199,21 @@ Let's see how this works out in practice:
 
 In normal execution, we can access the ``func_closure`` attribute:
 
+.. syntax:: pycon
+
   >>> get_secret_hash.func_closure
   (<cell at 0x23da10: str object at 0x23ef98>,)
 
 And use that to get at the secret:
 
+.. syntax:: pycon
+
   >>> get_secret_hash.func_closure[0].cell_contents
   'My Secret.'
 
 But if we set the ``__builtins__`` variable, restricted execution mode kicks in:
+
+.. syntax:: pycon
 
   >>> __builtins__ = {}
 
@@ -222,6 +230,8 @@ restricted attributes whilst within restricted execution. The inspect module has
 a useful ``getargspec`` function which accesses restricted attributes to find a
 function's signature. And, as we can see, it works even in restricted execution
 mode:
+
+.. syntax:: pycon
 
   >>> inspect.getargspec(get_secret_hash)
   (['hexdigest'], None, None, (True,))

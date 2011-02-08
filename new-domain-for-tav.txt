@@ -8,8 +8,8 @@ license: Public Domain
 New Domain for Tav
 ==================
 
-[**Update:** I reverted to tav.espians.com as the main domain -- asktav.com
-redirects here so you can use it as a shorter url to type...]
+**Update:** I reverted to tav.espians.com as the main domain -- asktav.com
+redirects here so you can use it as a shorter url to type...
 
 My apologies to all those who have been following this blog through the RSS
 feed. As some of you have noticed, the feed has been behaving rather erratically
@@ -38,12 +38,10 @@ value all of your comments and hope that you understand.
 As part of the migration, I also expanded the backend with some additional
 features:
 
-::
+.. syntax:: console
 
   $ python -m plexnet.tool.article --help
   Usage: article.py [options]
-
-::
 
   Options:
     -h, --help          show this help message and exit

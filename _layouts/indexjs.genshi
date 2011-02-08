@@ -8,7 +8,13 @@ text_template: true
     from simplejson import dumps as encode_json
   except ImportError:
     from json import dumps as encode_json
-    
+
+  def unescape(s):
+    s = s.replace("&lt;", "<")
+    s = s.replace("&gt;", ">")
+    s = s.replace("&amp;", "&")
+    return s
+
 %}
 
 (function(data) {
@@ -28,6 +34,9 @@ text_template: true
     prev = current;
   }
 
-  ${Markup("""$('<table width="100%"><tr><td width="50%" valign="top">&laquo; <a href="'+prev[0]+'#prev=1">'+prev[1]+'</a></td><td width="50%" valign="top" style="text-align: right;"><a href="'+next[0]+'#next=1">'+next[1]+'</a> &raquo;</td></tr></table>').appendTo('.article-nav');""")}
+  $(function () {
+    $('.article-nav').show();
+    ${Markup("""$('<table width="100%"><tr><td valign="top">&laquo;&nbsp;</td><td width="50%" valign="top"><a href="'+prev[0]+'#prev=1">'+prev[1]+'</a></td><td>&nbsp;</td><td width="50%" valign="top" style="text-align: right;"><a href="'+next[0]+'#next=1">'+next[1]+'</a></td><td valign="top">&nbsp;&raquo;</td></tr></table>').appendTo('.article-nav');""")}
+  });
 
-}(${encode_json([[item['__name__'], item['title']] for item in sorted(yatidb.values(), key=lambda i: i.get('created', None)) if (item.get('type', None) == 'post') and (item.get('created', None))])}));
+}(${encode_json([[item['__name__'], unescape(item['title'])] for item in sorted(yatidb.values(), key=lambda i: i.get('created', None)) if (item.get('type', None) == 'post') and (item.get('created', None))])}));

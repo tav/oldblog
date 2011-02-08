@@ -8,9 +8,9 @@ license: Public Domain
 Update on Securing the Python Interpreter
 =========================================
 
-[**Update:** The ``Namespace`` utility function has been made explicit-only with
+**Update:** The ``Namespace`` utility function has been made explicit-only with
 feedback from `Mark Seaborn <http://lackingrhoticity.blogspot.com/>`_. Thanks
-Mark!]
+Mark!
 
 Guido van Rossum posted a `blog article
 <http://neopythonic.blogspot.com/2009/03/capabilities-for-python.html>`_ on

@@ -14,7 +14,7 @@ was limited to saying just one sentence at a time.
 
 .. raw:: html
 
-  <div class="float-right">
+  <div class="float-right-aligned">
   <a href="http://flickr.com/photos/moriza/2565606353/"><img
   src="http://farm4.static.flickr.com/3137/2565606353_d2c7001e2c.jpg"
   alt="Friendlies in conversation" /></a><br />

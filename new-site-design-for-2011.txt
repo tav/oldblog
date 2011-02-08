@@ -1,0 +1,70 @@
+---
+created: 2011-02-05, 01:18
+layout: post
+license: Public Domain
+---
+
+========================
+New Site Design for 2011
+========================
+
+I was going to write a new article but ended up redesigning the site instead. My
+aim with the new design has been to:
+
+* Minimise clutter and improve the reader experience.
+
+* Give the site more of an identity.
+
+Here's what it used to look like:
+
+.. raw:: html
+
+  <div class="center">
+    <a href="https://skitch.com/tav./rpdir/blog-design-header-2011"><img
+    src="http://img.skitch.com/20110205-qm5r8g9e9isgj5jy1twr7mkm8k.png"
+    alt="blog-design-header-2009" width="640px" height="517px" /></a>
+  </div>
+
+.. more
+
+And here's what it looks like now:
+
+.. raw:: html
+
+  <div class="center">
+    <a href="https://skitch.com/tav./rpdw9/blog-design-header-2011"><img
+    src="http://img.skitch.com/20110205-ejg3xs2qqfdba3dkierjmc53he.png"
+    alt="blog-design-header-2011" width="640px" height="517px" /></a>
+  </div>
+
+I was hoping to leverage existing templates and designs, but after spending a
+while looking around, I found most of the work to be heavy and visually
+unappealing. People seem to love their widgets.
+
+The one exception to this was `Vincent Driessen's site <http://nvie.com>`_. I
+found his minimalist aesthetics very appealing and took several cues from it --
+including lifting his code block container style. His content is great too, so
+`give him a visit <http://nvie.com>`_.
+
+And, finally, compare the cluttered footer from before:
+
+.. raw:: html
+
+  <div class="center">
+    <a href="https://skitch.com/tav./rpdat/blog-design-footer-2009"><img
+    src="http://img.skitch.com/20110205-f3f1ju4yg1dm5u85hukeuun31k.png"
+    alt="blog-design-footer-2009" width="640px" height="485px" /></a>
+  </div>
+
+With the new layout:
+
+.. raw:: html
+
+  <div class="center">
+    <a href="https://skitch.com/tav./rpdas/blog-design-footer-2011"><img
+    src="http://img.skitch.com/20110205-g862b9wcq63i3kim74nn6rxdqy.png"
+    alt="blog-design-footer-2011" width="640px" height="485px" /></a>
+  </div>
+
+I hope you find the new design an improvement. Do let me know what you think in
+the comments -- thanks!

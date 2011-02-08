@@ -17,7 +17,8 @@ title: A Blog by Tav
   other = [item for item in yatidb.values() if not (item.get('type', None) == 'post') and (item.get('created', None))]
 
 ?>
-<div class="section-info" id="all-articles"><strong>Blog Posts Archive</strong></div>
+<br/>
+<h1>Blog Posts Archive</h1>
 <ul>
   <li py:for="item in sorted(items, key=lambda x: x['created'], reverse=True)">
     <a id="article-${item['__name__']}" href="${item['__name__']}">${Markup(item['title'])}</a>
@@ -28,7 +29,7 @@ title: A Blog by Tav
 
 <br />
 
-<div class="section-info" id="all-articles"><strong>Other Articles</strong></div>
+<h1>Other Articles</h1>
 <ul>
   <li py:for="item in sorted(other, key=lambda x: x['__name__'])">
     <a id="article-${item['__name__']}" href="${item['__name__']}">${Markup(item['title'])}</a>

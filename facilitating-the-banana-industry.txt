@@ -13,7 +13,7 @@ facilitate and help set up a Multi-Stakeholder Forum for the Banana industry.
 
 .. raw:: html
 
-  <div class="float-right">
+  <div class="float-right-aligned">
   <a href="http://www.flickr.com/photos/olasofia/3177879142/in/set-72157612292777564/"><img
   src="http://farm4.static.flickr.com/3306/3177879142_4eecdcf897.jpg" alt="Tav
   and Sofia facilitating the Multi-Stakeholder Forum" /></a>
@@ -58,7 +58,7 @@ Retail: `Walmart <http://www.walmart.com/>`_, `Carrefour
 <http://www.carrefour.com/>`_ and `Tesco <http://www.tesco.com/>`_.
 
 .. image:: http://farm4.static.flickr.com/3124/3177897284_62477d037b_m.jpg
-           :class: float-left
+           :class: float-left-aligned
 
 So we set to it and over two days a transformation began to take place. The team
 of interpreters bridged the language gaps whilst Sofia and I took everyone

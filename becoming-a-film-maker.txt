@@ -53,11 +53,11 @@ with?
 
 .. raw:: html
 
-  <div class="float-left">
+  <div class="float-left-aligned">
   <a href="http://blog.vincentlaforet.com/2008/11/26/7-days-7-shoots-eos-5d-mkii/"><img
   src="http://cloud.github.com/downloads/tav/plexnet/gfx.photo-vincent-laforet-5d-sample.jpg"
   alt="Sweet Shot" /></a><br />
-  <div>by <a
+  <div class="image-caption">by <a
   href="http://blog.vincentlaforet.com/2008/11/26/7-days-7-shoots-eos-5d-mkii/">Vincent
   Laforet</a></div>
   </div>

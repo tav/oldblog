@@ -9,9 +9,13 @@ license: Public Domain
   from time import time
   from operator import lt
   from posixpath import splitext
-  from urllib import urlencode
+  from urllib import quote_plus, urlencode
 
-  STATIC = 'http://cloud.github.com/downloads/tav/plexnet'
+  def unescape(s):
+    s = s.replace("&lt;", "<")
+    s = s.replace("&gt;", ">")
+    s = s.replace("&amp;", "&")
+    return s
 
   page_url = disqus_url = 'http://tav.espians.com/' + __name__
   if defined('created') and lt(created[:7], "2009-07"):
@@ -25,70 +29,52 @@ license: Public Domain
 
 ?>
 
-<div class="article-nav">
-</div>
 <div class="article-title">
-  <div class="post-link"><a href="${__name__}">${Markup(title)}</a></div>
-  <div class="additional-content-info">
-	<!-- <script language="javascript" type="text/javascript">
-		 SHARETHIS.addEntry({
-		 title:"${page_title.replace('"', r'\"')}",
-		 url:'${page_url}',
-		 }, {button:true});
-		 </script>| --><a href="#disqus_thread" rel="disqus:${disqus_url}">Add a Comment</a>
-	<script type="text/javascript">
-	  tweetmeme_url = '${page_url}';
-	  tweetmeme_source = 'tav';
-	  tweetmeme_service = 'bit.ly';
-	  tweetmeme_style = 'compact';
-	</script>
-	| <div class="retweetbutton">
-	<script type="text/javascript" src="http://tweetmeme.com/i/scripts/button.js"></script>
-  </div>
-  </div>
-  <div class="article-info">
-	&#187; by <a href="http://tav.espians.com">tav</a><span py:if="defined('created')"> on <span class="post-date">${MONTHS[int(created[5:7])]} ${int(created[8:10])}, ${created[:4]} @ <a href="http://github.com/tav/blog/commits/master/${splitext(__name__)[0]}.txt">${created[-5:]}</a></span></span> <a href="http://creativecommons.org/publicdomain/zero/1.0/"><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Cc-pd.svg/64px-Cc-pd.svg.png" width="20px" height="20px" alt="Public Domain" class="absmiddle" /></a>
-  </div>
+	<div class="post-link"><a href="${__name__}">${Markup(title)}</a></div>
+	<div class="additional-content-info">
+		<a href="#disqus_thread" rel="disqus:${disqus_url}">Add a Comment</a>
+		<script type="text/javascript">
+			tweetmeme_url = '${page_url}';
+			tweetmeme_source = 'tav';
+			tweetmeme_service = 'bit.ly';
+			tweetmeme_style = 'compact';
+		</script>
+		&middot;&nbsp;
+		<div class="retweetbutton">
+			<script type="text/javascript" src="http://tweetmeme.com/i/scripts/button.js"></script>
+		</div>
+	</div>
+	<div class="article-info">
+		&#187;&nbsp; by <a href="http://tav.espians.com">tav</a><span py:if="defined('created')"> on <span class="post-date">${MONTHS[int(created[5:7])]} ${int(created[8:10])}, ${created[:4]} @ <a href="http://github.com/tav/blog/commits/master/${splitext(__name__)[0]}.txt">${created[-5:]}</a></span></span>&nbsp; <a href="http://creativecommons.org/publicdomain/zero/1.0/" title="Public Domain"><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Cc-pd.svg/64px-Cc-pd.svg.png" width="20px" height="20px" alt="Public Domain" class="absmiddle" /></a>
+	</div>
 </div>
 <div py:if="not defined('created')" class="attention">
-  This is an early draft. Many sections are incomplete. A lot more is being written.
+	This is an early draft. Many sections are incomplete. A lot more is being written.
 </div>
-<div id="content">
-  <div py:content="Markup(content)"></div>
+<div class="content">
+	<div py:content="Markup(content)"></div>
 </div>
-<br /><hr class="clear" />
-<div class="footer-info">
-	<a class="float-right" href="http://twitter.com/tav"><img
-	src="http://a3.twimg.com/profile_images/463199849/gfx.espra.profile.tav_bigger.jpg"
-	/></a>
-	If you found this article interesting, then do:
-	<div class="footer-info-block">
-		<a href="http://feeds.feedburner.com/asktav" rel="alternate"
-		type="application/rss+xml" title="Subscribe to the Asktav Blog"><img
-		src="http://www.feedburner.com/fb/images/pub/feed-icon16x16.png" /></a>&nbsp;<a
-		href="http://feeds.feedburner.com/asktav" rel="alternate"
-		type="application/rss+xml" title="Subscribe to the Asktav Blog">Subscribe to this Blog</a>&nbsp;<a href="http://twitter.com/tav" title="Follow @tav on Twitter"><img src="http://cloud.github.com/downloads/tav/plexnet/gfx.icon.twitter.png" /></a>&nbsp;<a href="http://twitter.com/tav" title="Follow @tav on Twitter">Follow me on Twitter</a> &nbsp;<a href="http://github.com/tav" title="Follow @tav on GitHub"><img src="http://cloud.github.com/downloads/tav/plexnet/gfx.icon.github.png" /></a>&nbsp;<a href="http://github.com/tav" title="Follow @tav on GitHub">Follow me on GitHub</a>
-	</div>
-	<div style="text-align: right;">&mdash; Cheers, tav.</div>
-	<hr class="clear" />
+<hr class="clear" />
+<div class="share">
+	If you found this post useful, then please<br />
+	<a href="http://www.facebook.com/sharer.php?t=${quote_plus(unescape(title))}&amp;${urlencode({'u': page_url})}" title="Share on Facebook" class="fb-share">share on Facebook</a>
+	<a href="http://twitter.com/share?text=RT+%40tav+${quote_plus(unescape(title))}&amp;${urlencode({'url': page_url})}" title="Retweet" class="twitter-share">or Tweet</a>
 </div>
-<div class="article-nav" style="margin-bottom: 1.5em;">
-  <script type="text/javascript">
+<hr class="clear" />
+<br />
+<script type="text/javascript">
 	ARTICLE_NAME = '${__name__}';
-  </script>
-  <script type="text/javascript" src="index.js?${int(time()/4)}" />
-</div>
+</script>
+<script type="text/javascript" src="index.js?${int(time()/4)}" />
 <div id="disqus-comments-section">
-  <script type="text/javascript">
-	disqus_url = "${disqus_url}";
-	disqus_title = "${Markup(title)}";
-  </script>
-  <div id="disqus_thread"></div><script type="text/javascript"
-  src="http://disqus.com/forums/${site_nick}/embed.js"></script><noscript><a
-  href="http://${site_nick}.disqus.com/?${urlencode({'url': disqus_url})}">View the forum
-  thread.</a></noscript> <a href="http://disqus.com" class="dsq-brlink">Comments powered by <span class="logo-disqus">Disqus</span></a>
+	<script type="text/javascript">
+		disqus_url = "${disqus_url}";
+		disqus_title = "${Markup(title)}";
+	</script>
+	<div id="disqus_thread"></div><script type="text/javascript"
+	src="http://disqus.com/forums/${site_nick}/embed.js"></script><noscript><a
+	href="http://${site_nick}.disqus.com/?${urlencode({'url': disqus_url})}">View the forum
+	thread.</a></noscript>
 </div>
 
-<div><br /><br /></div>
-  
 </div>

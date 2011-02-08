@@ -14,27 +14,11 @@ A Brief History of Tav
 
 :Abstract:
 
-    Tav is an Entrepreneur, Lover, Social Artist, Coder, Writer, Symbiotic
-	Engineer, Musician, World Changer and Espian.
+    I'm Tav, a 28 year old from London. I enjoy working on large-scale social,
+    economic and technological systems and have been pursuing the Espian vision
+    since starting my first company 11 years ago.
 
     This is a draft, pseudo auto-biography written in a simple Q&A style. Enjoy!
-
-.. |follow-tav| raw:: html
-
-	<a href="http://twitter.com/tav"><img
-	src="http://tav.github.com/static/gfx/twitter-icon.png" alt="Twitter" class="absmiddle" /></a> <a
-	href="mailto:tav@espians.com"><img
-	src="http://tav.github.com/static/gfx/gmail-icon.png" alt="GMail" class="absmiddle" /></a> <a
-	href="http://flickr.com/photos/asktav"><img
-	src="http://tav.github.com/static/gfx/flickr-icon.gif" alt="Flickr" class="absmiddle" /></a> <a
-	href="http://vimeo.com/asktav"><img
-	src="http://tav.github.com/static/gfx/vimeo-icon.gif" alt="Vimeo" class="absmiddle" /></a> <a
-	href="http://friendfeed.com/tav"><img
-	src="http://tav.github.com/static/gfx/friendfeed-icon.png" alt="FriendFeed" class="absmiddle" /></a> <a
-	href="http://github.com/tav"><img
-	src="http://tav.github.com/static/gfx/github-icon.png" alt="GitHub" class="absmiddle" /></a> <a
-	href="http://www.facebook.com/people/Tav-Espian/593997068"><img
-	src="http://tav.github.com/static/gfx/facebook-icon.gif" alt="Facebook" class="absmiddle" /></a>
 
 .. contents::   Table of Contents
                 :depth: 2
@@ -54,31 +38,30 @@ motives are made clear.
 
 The personal stuff is what matters. It's what drives people. What affects their
 thoughts. Their actions. One might give reasoning for actions, but it is all
-driven by something very personal. Anyone who thinks otherwise is just deceiving
-themself.
+driven by something very personal.
 
-For example, there was a time when I took a closed source approach. Why? Not
-because I believed in it. But because I was pissed off. Pissed off at an
-ex-collaborator with whom I had disagreements of strategy. I didn't want him to
-benefit from my work if he didn't believe in it.
+For example, there was a time when I took a closed approach. Why? Not because I
+believed in it. But because I was pissed off. Pissed off at an ex-collaborator
+with whom I had disagreements of strategy. I didn't want him to benefit from my
+work if he didn't believe in it.
 
 There was another time when I couldn't focus on my work for months. I was heart
 broken. When people mention heartache they fail to mention that it's not just a
 metaphor, your heart really aches!
 
-Feeing connected. Falling in love. Not being loved back. Being loved back. Being
-warm and safe. The story of the heart defines us. And to be useful to society it
-is paramount that we first understand ourselves. Then by sharing, we let others
-do so too.
+Feeling connected. Falling in love. Being loved back. Not being loved back.
+Being warm and safe. The story of the heart defines us. And to be useful to
+society it is paramount that we first understand ourselves. Then by sharing, we
+let others do so too.
 
 
 Who are you?
 ============
 
-Entrepreneur. Economist. Scientist. Architect. Inventor. Designer. Musician.
-Activist. Producer. Coder. Poet. Spiritual leader. Anthropologist. Writer. I am
-none of these. Yet I find myself playing with a curious mix of it all. Symbiotic
-engineering.
+Entrepreneur. Musician. Engineer. Designer. Economist. Scientist. Architect.
+Inventor. Activist. Producer. Hacker. Poet. Spiritual leader. Anthropologist.
+Writer. I am none of these. Yet I find myself playing with a curious mix of it
+all. Symbiotic engineering.
 
 
 What's your name?
@@ -117,15 +100,16 @@ Vageesan, which also means: creator, lord of knowledge, lord of speech, &c.
 And as I would later find out from an excited Kabbalist at a party sometime, Tav
 is also a letter of the Hebrew alphabet. It supposedly stands for truth
 [Ginsburgh]_ and represents the covenant between God and his people. Or maybe it
-just means a box. Anyone know?
+just means a box.
 
 
 Who is Tav Ino/Espian?
 ======================
 
-Saritah, an old housemate of mine, used to call me "Tavino". So when sign-up
-forms insist on a surname, I give them "Ino". It's not a part of my name. Just
-there to sate the surname requirements of silly websites.
+`Saritah <http://www.saritah.com/>`_, an old housemate of mine, used to call me
+"Tavino". So when sign-up forms insist on a surname, I give them "Ino". It's not
+a part of my name. Just there to sate the surname requirements of silly
+websites.
 
 Likewise with "Tav Espian".
 
@@ -186,6 +170,7 @@ In London (UK) for most of my life:
 * Sudbury Hill
 * Angel
 * Liverpool Street
+* Brixton
 
 With some temporary stay in:
 
@@ -234,11 +219,11 @@ experienced poverty and excess.
 
 To have experienced death at an early age and thus been able to question the
 meaning of life. To have a loving mother. To have a cruel father. To not being
-incapacitated in some form. To have above-average looks. The Universe has been
+incapacitated in some form. To have decent-enough looks. The Universe has been
 good to me.
 
-And even all the suffering I've been through have been beneficial. A real
-education in the School of Life.
+And even the suffering I've experienced has been beneficial -- a real education
+in the School of Life.
 
 
 Where did you go to school?
@@ -257,15 +242,16 @@ whilst I accepted the offer, I never bothered to turn up. Sorry Leeds!
 What academic qualifications do you have?
 =========================================
 
-Nothing really. Unless you count GCSEs and A-levels. I'm mainly self-taught.
+Nothing really. Unless you count GCSEs and A-levels -- The Autodidactic School
+of Polymathy doesn't give out certifications yet.
 
-Did 2 of my 12 GCSEs early at the age of 9 -- in Mathematics and Tamil. Did the
-others at the usual age of 16. Got an A grade in all of them.
+I did 2 of my 12 GCSEs early at the age of 9 -- in Mathematics and Tamil. Did
+the others at the usual age of 16. Got an A grade in all of them.
 
 Did 8 A-levels in: Maths, Ancient History (AS), General Studies, Further Maths,
 French (AS), Physic, Chemistry and English. Got the grades AAABBNUX
 respectively. The last three were because I didn't bother turning up to the
-exams after I got an unconditional offer for university.
+exams after I got the unconditional offer for university.
 
 I also did my SATs for entrance to US universities and think I got a perfect
 score -- maybe that was only in the Maths. My memory is sketchy on that one. Got
@@ -282,7 +268,7 @@ be an exercise in memory rather than understanding.
 
 An example would be my Ancient Hsistory exam. I hadn't attended classes, so my
 teachers predicted a D grade. The day before the exam I read a book on the
-topic. So, when the results arrived and I'd gotten an A grade, the Classics
+topic. So when the results arrived and I'd gotten an A grade, the Classics
 department was rather surprised. Nothing more than short-term memory in action.
 
 And whilst I've never experienced university, people often tell me it's
@@ -305,8 +291,8 @@ somewhere states that I should know some Japanese but I don't (at least not
 anymore).
 
 The most fun I ever had learning a language so far has been Hindi. I was 14 and
-on holiday in South India for 3 months and convinced this North Indian gentleman
-to teach me for a mere £30.
+on holiday in South India for 3 months and convinced a North Indian gentleman to
+teach me for a mere £30.
 
 The deal was that I could turn up at his house any time during the day and he
 would teach me. It turned out that he was just newly wed, and observing the
@@ -317,7 +303,7 @@ Unfortunately, like with Sinhalese and Latin, I can remember very little and
 will be surprised if I recognised even a few letters from the written script
 (Devanagari).
 
-At some point though, I'd like to learn these languages properly. Along with
+At some point though, I'd like to learn these languages properly -- along with
 Russian, Chinese (Mandarin), Arabic, Greek and Spanish. I consider myself very
 lucky to be bilingual. If you have kids, teach them many languages before they
 reach the age of 5. It really helps.
@@ -339,8 +325,8 @@ was my mother. My mother eventually came back for me. And I met my parents for
 the first time a few months before my fourth birthday.
 
 A year and a bit later, I had a little sister and we were about to emigrate to
-the USA. My father had gotten into Berkeley. But news came that my grandmother
-had fallen ill whilst visiting friends and family in India. Bone cancer.
+the USA. My father was going to Berkeley. But news came that my grandmother had
+fallen ill whilst visiting friends and family in India. Bone cancer.
 
 I was rather adamant that we go to India. At least for me to go. Eventually my
 mother, sister and I went to India. My grandmother had her leg amputated. The
@@ -355,9 +341,9 @@ freeze her and preserve her until death could be reversed. You have to do this
 everyone said. So I did.
 
 A few days later I snapped. I was 6. This was my first experience of death. I
-had grown up under shell attacks in Sri Lanka, but had never seen death
-directly. I couldn't understand why we lived. What is the point of life if all
-that you get at the end is death?
+had grown up under shell attacks in Sri Lanka and seen bloodied, mutilated war
+victims, but had never seen death directly. I couldn't understand why we lived.
+What is the point of life if all that you get at the end is death?
 
 The family across the road were Christian. I asked them. I asked their priest.
 The neighbours to the right were Muslim. I asked them. I asked their imam. I
@@ -395,8 +381,8 @@ One's family to not be starving. Otherwise people were willing to screw each
 other over for short term gain.
 
 And if I were to be happy in my life and not be screwed over by others then I
-needed to ensure that others had their needs taken care of. And only if everyone
-had the potential to be happy, could I be happy.
+needed to ensure that others had their needs taken care of. And if everyone had
+the potential to be happy, then I could be happy.
 
 And thus I discovered my life purpose. By adopting the entire world as my
 family. The Espian vision was born.
@@ -412,14 +398,19 @@ situations. One example I'll elaborate here is Pedipeace.
 It was inspired by events that took place during a March 2003 protest as War
 started in Iraq. As I was heading out to join some friends from school, I
 couldn't find my belt. There was a corded PC microphone on the table. I tried it
-out as a belt. It worked, but it looked silly so I took it off.
+out as a belt. It worked, but it looked rather silly so I took it off.
 
 I caught up with my friends at Westminter. One of them had just been to Morocco.
 He had a present for me. A djellaba. I wore the robe over my t-shirt. A few
 hours later I had been adorned further.
 
+.. image:: http://cloud.github.com/downloads/tav/plexnet/gfx.henry-21st-birthday.jpg
+           :class: float-right-aligned
+           :width: 302
+           :height: 204
+
 My scarf was being used as a bandana to hold together a wreath of daffodils
-adorning my head. I was carrying a big stick. The leftovers of an anti-war
+adorning my head. I was carrying a big stick -- the leftovers of an anti-war
 placard. I had used it earlier to make some music on some traffic cones and beer
 bottles.
 
@@ -428,10 +419,7 @@ in all, it had been a lovely afternoon walk with friends. Except for the
 shouting of "No War" constantly, it demonstrated how lovely London would be if
 it was pedestrianised.
 
-.. image:: http://cloud.github.com/downloads/tav/plexnet/gfx.henry-21st-birthday.jpg
-           :class: float-right
-           :width: 302
-           :height: 204
+...
 
 
 What's the story of the Wobbly Bridge?
@@ -497,9 +485,49 @@ should make the best of it. Carpe diem!
 Have you ever lied?
 ===================
 
-Yes, a handful of times.
+Yes, a handful of times. I'm also terrible at lying -- you can see it from a
+mile off!
 
-"concentric circles of bullshit".
+I do however have two habits which are far from my self-image as a Speaker of
+Truth. One is that I occasionally pretend to be ignorant and ask others to
+explain things to me. This can be useful to both get a feel for what the other
+person actually understands as well as a way to stroke their egos.
+
+I don't actually see an issue with this -- as far as I can see it is beneficial
+social lubrication. However I did once hear about Tony Blair getting lambasted
+for similar behaviour, so perhaps there is something sinister that I am missing?
+
+The other habit of mine is related to what my old business partner Ade Thomas
+from green.tv refers to as "concentric circles of bullshit". It could probably
+be best understood by looking at how `green.tv <http://www.green.tv/>`_ came
+into existence.
+
+It started with the idea being pitched to UNEP, Greenpeace and a few others.
+This was before YouTube had become mainstream and they didn't really see the
+value of an online video channel dedicated to environmental issues. Or had even
+heard of podcasts.
+
+They weren't happy to provide any resources, but were okay enough for their
+names to be used as partners. This was all it took for the concentric circles of
+bullshit to go into action!
+
+It became easier to go round to a number of other organisations and say, "Hey,
+UNEP and Greenpeace are backing us, would you like to come on board?". A Paragon
+of Truth would never have been happy with such half-truths but it proved
+effective.
+
+By the time of launch, the circle had come back to the original parties who were
+now willing to provide a lot of support since so many others were on board!
+
+One of the Directors of UNEP was even willing to claim to have been the
+visionary behind the idea in the first place and was more than happy to parade
+the accomplishment in front of other UN agencies.
+
+Now it worked out really well for everyone involved in green.tv, but playing
+with such half-truths can sometimes have painful consequences. However, such
+hustling is unfortunately a necessary trait sometimes when building businesses.
+If anyone can tell me how to achieve the same results without it, I'd be happy
+to learn.
 
 
 Have you ever stolen anything?
@@ -530,9 +558,27 @@ split up. This is my confession.
 Have you ever been disloyal?
 ============================
 
-Sadly, twice. One for real and the other in my head. Both times involved my
-loyalty to friends. I have this rule: never get involved with ex-girlfriends of
-friends.
+Sadly, twice. Once for real and the other time in my head. Both, unsurprisingly,
+involved women.
+
+The first time, a friend asked if his ex could stay at my place -- they were
+going through a separation. Things went great for a while. She was extremely
+lovely and I enjoyed having her around the place.
+
+But once she started making advances, my value system was challenged. Torn
+between my loyalty to my friend and my attraction to her, I am sorry to say that
+I ended up giving in and we ended up having a fling.
+
+The second time, a friend and his girl of many years had broken up. It so
+happened that she was also the sister of another friend of mine. And so we ended
+up spending a fair bit of time together.
+
+During this time I gradually fell for her. Thankfully I am pleased to say that I
+never acted on my feelings for her, but I am still not proud of having had those
+feelings in the first place.
+
+Loyalty is very important to me and I am truly sorry for having let down my
+friends on those two occasions.
 
 
 Are you a bigot?
@@ -553,8 +599,8 @@ New Zealand, Singapore, St. Lucia, Vietnam...
 Ditto with my various flatmates/colleagues -- Australia, Austria, Brazil,
 Canada, China, France, Gambia, Japan, Netherlands, Norway, Sweden, USA, &c.
 
-My father is a homophobic racist. In fact, I would go as far to say that, in
-general, immigrants tend to be more bigoted than "natives". Whilst
+In contrast my dear father is a homophobic racist. In fact, I would go as far to
+say that, in general, immigrants tend to be more bigoted than "natives". Whilst
 unjustifiable, this is in some ways understandable -- a reflection of their
 insecurity and vulnerability.
 
@@ -563,7 +609,7 @@ For example, I was at my sister's 21st birthday. It was at a club down near
 Soho. And I was rather shocked as I walked in.
 
 Why? Because with the exception of about 5 people, everyone else there was
-brown. Not that I'm complaining. Asian girls -- like their south american
+brown. Not that I'm complaining. Asian girls -- like their South American
 counterparts -- tend to be rather pleasant on the eyes.
 
 But when many of these people were speaking to each other in Gujarati, Tamil,
@@ -590,7 +636,7 @@ I want to get past the useless social ghettos that repeatedly form. These serve
 no purpose except to create needless boundaries between otherwise loving beings.
 And, whilst rare, I've experienced bigotry from "natives" too.
 
-THe most surreal one was a pub in east London. I had popped in whilst waiting
+The most surreal one was a pub in east London. I had popped in whilst waiting
 for a girlfriend. It was eerily filled with just white people. Even posh venues
 have a token coloured individual.
 
@@ -604,9 +650,9 @@ lesson in the pointlessness of it. There is so much to be gained in life when
 one keeps an open mind.
 
 One advice I'd like to share is to not suspect bigotry of others. My father
-would suspect any insult or rejection was a racist one. My gay friends would
-express gay pride a bit too much to overcompensate for the oppression they felt
-others had towards them.
+would interpret any insult or rejection as racial discrimination. My gay friends
+would express gay pride a bit too much to overcompensate for the oppression they
+felt others had towards them.
 
 Sure, racism and oppression exist. There is a bigot on every street. But don't
 live in fear of it. Don't suspect it. Just be yourself. And if that is a true
@@ -621,7 +667,7 @@ I was on a train once. Befriended this guy sitting in the same carriage. We'd
 been having an hour long conversation when I asked him how life was as a
 cripple. He went berserk.
 
-Now I hadn't meant to insult him in any way. THat should have been clear from
+Now I hadn't meant to insult him in any way. That should have been clear from
 the tone of my voice. And he was a cripple. At least by any dictionary
 definition that I've seen. But, no. He was a disabled something or other.
 
@@ -634,10 +680,50 @@ yourself.
 Are you gay?
 ============
 
-Sadly, no. I am just a friendly, sensual creature who is very comfortable in his
-skin. My tactile nature shouldn't be misinterpreted for a sexual come-on.
+No. However I have had two experiences relating to the issue. They took place
+just over a decade apart and what surprises me is how similar both scenarios
+were.
 
-Research shows that violence.
+The first took place when I was 16. We were staying over at a family friend's
+house in India and sometime in the early hours of one morning I woke to find one
+of their sons sucking my cock.
+
+My initial thought was to respond with physical violence, but given the matter
+of his teeth around my most delicate part, I instead controlled myself, withdrew
+Mister Helmet from his grasp and explained my lack of interest.
+
+He took the rejection fairly well and went away. To this day I have no idea why
+he thought such behaviour would be okay. What baffles me even more is that a
+similar incident took place 10 years later!
+
+This time it was a friend that I'd made at a party a few weeks prior. I had
+liked his energy and invited him to one of my house parties. He had ended up
+crashing in my room towards the end of the party.
+
+It was not uncommon to go back to my room after a party and find people passed
+out. So I got into my bed and went to sleep. I gradually woke up a little while
+later to find him giving me a blowjob.
+
+I couldn't believe that this was happening again. And perhaps because I was
+still drunk or perhaps because earlier that day I'd had a break up with two of
+the girls that I'd loved, but by that point I really didn't care.
+
+So, this time, I let the guy suck me off. At one point he even moved around
+wanting me to reciprocate -- I pushed him away and he seemed to get the hint.
+And once I'd ejaculated, he put his clothes back on and left.
+
+Now, when I have recounted what had happened to others, some have suggested that
+I might therefore have bi-tendencies. Whilst this might be true, I have never
+fantasised about having sex with a guy or been turned on by it, so I fail to see
+how.
+
+In fact, on that particular night, it really didn't matter that it was a guy. It
+could have just as well have been a `Fleshlight sex toy
+<http://en.wikipedia.org/wiki/Fleshlight>`_ for all I cared. Pure physical
+release and nothing more.
+
+So there you go. I am certainly not homophobic but I have no desire for romantic
+or sexual relationships with guys either.
 
 
 Are you violent?
@@ -646,22 +732,48 @@ Are you violent?
 If you ask everyone who knows me, they will attest that I am one of the calmest
 people you'll ever meet. But, like everyone, I've had my moments.
 
-The worst was this one time when I punched my little sister several times in the
-stomach. Unfortunately we weren't kids then. I had been staying with my family
-for a few weeks and my mother and sister were making each other
+I don't appreciate violent environments, but I am also comfortable with dealing
+with violent individuals. As a consequence I've ended up in various minor fights
+over the years. However, in a few incidents I momentarily lost it and hit women.
 
-[Gandhi-1927]_
+One time I punched my little sister several times in the stomach. Unfortunately
+we weren't kids then. I had been staying with my family for a few weeks and my
+mother and sister were making each other quite miserable.
 
+Unfortunately I intervened and it escalated to a point where I momentarily lost
+it. And to make things worse, years later, I repeated my shameful loss of
+control as an argument with a girlfriend heated up and I hit her.
 
-The second worse experience was not in any way physical, but was just as
-sickening to my soul. I was very violent psychologically.
+I can say how she was the aggressor and how she almost destroyed years of my
+work, but truth is, I should have maintained control. Alas, there is no rewind
+button in life and even a momentary loss of control can't be excused.
+
+At least to make up for my shame, I spent the night in Brixton police station
+and got given a caution. She had called the police and despite her not wanting
+to press any charges, it seems the police had to take the guy into custody.
+
+Having called the police many times when my father was being excessively violent
+towards my mother, I was actually very appreciative of the police action in this
+case. However I wasn't too happy with the caution.
+
+Now, a caution isn't a criminal conviction but I felt it to be unjust. She was
+clearly the aggressor and whilst I was also in the wrong, I felt the
+discrimination based on my sex to be thoroughly unfair.
+
+And to make matters worse, it turns out that if I had simply refused to answer
+the questions in the police interview, then I would have walked away with no
+caution, but since I had been open and honest, I'd fucked myself.
+
+Justice should be contextual and people should be encouraged to be open and
+honest. In any case, like others before me [Gandhi-1927]_, I am not a violent
+individual, but I have sadly had moments where I've lost control.
 
 
 Are you a vegetarian?
 =====================
 
 I used to be. Fervently. For 8 years of my life. From August 1998 till
-December 2006. I would give two explanations for my choice:
+December 2006. I had two rational reasons for my choice:
 
 1. By eating lower down the food chain, it is more efficient and a larger global
    population could be sustained.
@@ -669,9 +781,9 @@ December 2006. I would give two explanations for my choice:
 2. Life is beautiful. And our fellow creatures shouldn't live purely for our
    sake.
 
-Whilst I believe in the above, I also love the taste of meat and think that it
-is natural to be a meat-eater. So the real reason I gave up meat was because of
-a girl. She was a vegetarian.
+But, whilst I believe in the above, I also love the taste of meat and think that
+it is natural to be a meat-eater. So the real reason I gave up meat was because
+of a girl. She was a vegetarian.
 
 She was my first love and though she had never asked me to give up meat, I did
 so willingly. And the fact that I never touched meat was a sign of my commitment
@@ -687,7 +799,7 @@ Have you taken drugs?
 
 Yes. I believe that one should experience as much of what life offers. And not
 suffering from an addictive personality (nicotine excepted), I have had the
-luxury to try out various drugs.
+luxury of trying out various drugs.
 
 .. class:: sidebox
 
@@ -698,12 +810,13 @@ happiness in a packet. And never having had a bad trip, hallucinogens have truly
 helped with my understanding of myself and life around me.
 
 Actually that not having had a bad trip thing isn't quite true. I was at a rave
-once tripping my balls off on acid when two girls decided to stalk me about it.
-The two witches. It was a pleasant trip after I managed to get rid of them.
+once tripping my balls off on acid when two girls decided to stalk me. The two
+witches as I saw them. It was a pleasant trip after I managed to get rid of
+them.
 
-Drugs like cocaine has very little effect on me. They just give me a cold the
-next day. Some of the designer drugs have been fun -- though their effects seem
-to diminish on repeat usage.
+Drugs like cocaine generally have very little effect on me. They just give me a
+cold the next day. Some of the designer drugs have been fun -- though their
+effects seem to diminish on repeat usage.
 
 And, as for marijuana, whilst I've had many pleasant experiences on it, it is
 near the bottom of my drugs list -- along with Ketamine. The reason for this is
@@ -711,21 +824,19 @@ because dope makes you comfortable with not doing anything.
 
 I spent a good six months of my life doing nothing but getting stoned every day.
 A friend of mine was a total pothead and he would start rolling the next joint
-by the time I was finishing smoking the last one.
-
-And, finally, after spending many New Year's Eves on heavy drug cocktails, I
-decided to give up drugs last New Year. Since then I've yet to feel a craving
-for any of the drugs I've taken. Now, if only the same were true for cigarettes.
+by the time I was finishing smoking the last one. And I really don't enjoy not
+being productive.
 
 
 Have you ever paid for sex?
 ===========================
 
-Double bind
+No. But I have had a few interesting experiences with prostitutes.
 
-Soho
+Soho. Crack den
 
-Crack den
+...
+
 
 Have you been hustled?
 ======================
@@ -734,15 +845,15 @@ Yes, four times.
 
 The first time, I was trying to score some brown (powdered heroin) from a pair
 of street dealers. I gave one of them some cash and he owed me a fiver back. He
-claimed to not have any change and said he'd pop down to the local shop 
+claimed to not have any change and said he'd pop down to the local shop.
+
+...
 
 
 Do you have a criminal record?
 ==============================
 
-Not that I am aware of. There was this one time when I got arrested for making trouble.
-
-HMRC.
+No.
 
 
 What do you have against the Vatican City?
@@ -756,26 +867,45 @@ to Rome for a day meeting. The meeting had gone well and my flight back was
 early the next morning. So instead of being cooped up in my hotel room, I
 decided to spend the night checking out Rome.
 
+...
+
 
 How much debt do you have?
 ==========================
 
-I have lived most of my life assuming a gift economy of sorts.
+I have lived most of my life assuming a gift economy of sorts. So my actual
+legal debt is a £14k loan to Halifax which never seems to go down. However, I
+owe just under £200k to friends and family.
 
-Besides the aforementioned debts to friends, family and HMRC, as of this writing
-(May 2008), my outstanding legal debt is a mere £10k loan with my bank, Halifax.
+The bulk of that is to the investors of my first company. The company went
+bankrupt around my 19th birthday and I decided that the honourable thing would
+be to assume their lost investment as debt owed to them from me personally.
 
-Oh, I also used to have an outstanding mobile phone bill which I walked away
-from years ago. Sorry Vodafone! Ditto to my overdrafts with HSBC and Natwest.
+Whilst this is no doubt a stupid stance to take as legally I owe them nothing
+and they knowingly took the risk, I feel that they invested because they
+believed in me and therefore it was my responsibility.
 
-The fourth time wasn't theft. It's more like debt owed. I was a starving artist
-in Berlin. So I made a deal with the local Turkish and Indonesian restaurants.
-They'd feed me daily and I'd eventually settle my debt.
+However I haven't felt the same sense of duty when dealing with large
+corporations and have walked away from an outstanding mobile phone bill with
+Vodafone and overdrafts with HSBC and Natwest. Sorry, I was poor.
 
-I settled the debt after a few months, but asked the Indonesian place to
-continue the deal. These people were lovely. The owner, Surya, and his wife took
-great care of me.
+Besides what I feel I owe to the investors of my first company, I also feel
+guilty for a minor debt of around €50 owed to an Indonesian restaurant. It came
+about whilst I was a starving artist in Berlin.
 
+I didn't have any money, so I made a deal with the local Turkish and Indonesian
+restaurants. They'd feed me daily and I'd eventually settle my debt. I settled
+the debt after a few months and all was good.
+
+I asked the Indonesian place if they'd continue the deal and they kindly agreed.
+These people were lovely. The owner, Surya, and his wife took great care of me.
+However, about a week or so later, tragedy struck.
+
+An uncle of mine died and my mother paid for a flight so that I could get back
+for the funeral. Around the same time I was moving from one part of Berlin to
+another. And, amidst all the commotion, I completely forgot to pay them.
+
+It wasn't intentional and I'd really like to see the debt paid.
 
 
 What jobs have you had?
@@ -793,16 +923,17 @@ My second longest job was as a street cleaner for Islington council. This was
 perhaps the best job I've had. I got to get up early in the morning. And work
 was finished by noon meaning that I had the whole day left.
 
-Unfortunately, after 2 weeks, my ganger called me in and laid me off. Spending
-hours cleaning the cigarette butts out of all
+Unfortunately, after 2 weeks, my ganger called me in and laid me off. I had been
+spending too much time cleaning each and every street. I was laid off for being
+a perfectionist. Heh.
 
-Other jobs include being an art salesman.
+Other jobs include being an art salesman, facilitator, etc. The funniest was
+being an extra for a Sky Sports rugby ad -- imagine that, skinny me being
+portrayed as a rugby player -- friends called in disbelief after seeing the ad.
 
-The funniest was being an extra for a Sky Sports rugby ad.
-
-Then there have been a dozen odd temp jobs which I occassionally tried for a day
-or two before walking out at the incompetency of those who were meant to be my
-managers.
+And, finally, there have been a dozen odd temp jobs which I occassionally tried
+for a day or two before walking out at the incompetency of those who were meant
+to be my managers.
 
 
 What is the worst invention ever?
@@ -812,7 +943,7 @@ Alarm clocks.
 
 The wooshing soound of deadlines as they woosh past.
 
-Procrastinators.
+...
 
 
 What have you done with your life?
@@ -820,16 +951,17 @@ What have you done with your life?
 
 A lot of different things. Mainly centered around the Espian vision.
 
+...
+
 
 What do you want to do with rest of your life?
 ==============================================
 
 A lot. Some of the highlights include:
 
-* Empowering people by creating a better social-economic infrastructure. Toman.
+* Empowering people by creating a better social-economic infrastructure.
 
-* Creating a communications platform that ties together various aspects of
-  computer science into a more people-focused system. Plexnet.
+* Creating a decentralised social platform. Ampify.
 
 * Crafting a multi-genre musical instrument that inspires people. Jintra.
 
@@ -856,6 +988,8 @@ What has been your most self-empowering moment yet?
 ===================================================
 
 It took place sometime during the summer of 2004.
+
+...
 
 
 What inspires you?
@@ -915,7 +1049,7 @@ community.
 The guy who ran the thing and had believed in my abilities was tearing his hair
 out. The friends who had recommended me to him were fucking pissed off. Someone
 decided to steal the front tyre from the bike that I'd gotten from a skip. The
-bike that I'd be using since I couldn't pay for public transport.
+bike that I'd been using since I couldn't pay for public transport.
 
 The "landlord" wasn't too pleased at rent not being paid. Enough was enough he
 said. Please leave. And, oh, in the middle of all this, my relationship with a
@@ -925,9 +1059,9 @@ So I gave my landlord my fancy phone in exchange for rent owed. He gave me the
 brick he owned. I packed up my belongings. As I did so, my laptop decided to
 die. Besides the phone and a bunch of clothes, it was all I had left.
 
-As I left the space I had called home for the last year, I felt more lost than
-when my father had kicked me out four years before. But I knew more people by
-then. So I made two phone calls.
+As I left the space I had called home for the previous year, I felt more lost
+than when my father had kicked me out four years before. But I knew more people
+by then. So I made two phone calls.
 
 I fare dodged and got myself to Greenwich, where a wonderful guy called John
 Lea fixed up my laptop and revived it. I am forever thankful for the kindness he
@@ -954,11 +1088,11 @@ again. I forget how exactly I got myself out of this one, but I am thankful to
 John and Josef. The kindness of strangers and friends is inspiring.
 
 
-What has been your most amazing experience so far?
-==================================================
+What has been your strangest experience so far?
+===============================================
 
 I've been lucky to have had a lot of crazy, fun experiences in life. They mostly
-happened when I was least expecting them. And the most amazing took place one
+happened when I was least expecting them. And the strangest one took place one
 early spring morning.
 
 My housemates and I had been out all night dancing away at The Key. We returned
@@ -979,20 +1113,13 @@ connection to the Universe pulsate through me. I offered myself in service to
 the whole of creation.
 
 
-What are your weaknesses?
-=========================
-
-
-What are your strengths?
-========================
-
-
 What problem have you struggled the most with?
 ==============================================
 
-Double binds
+Double binds. Destiny.
 
-Destiny
+...
+
 
 Why don't you read books?
 =========================
@@ -1019,7 +1146,7 @@ use terms that only a select few would understand.
 The terms gave them clarity and precision. But they became lost in it. Unable to
 communicate with most others. A great loss in my view. Because they have much to
 offer. So I have left it to others to read and simply question them to get an
-understanding.
+understanding for myself.
 
 
 Who are you most thankful for?
@@ -1030,7 +1157,7 @@ always been caring, attentive and loving.
 
 Even when she joked to my father that should he see a woman running down the
 street pulling out her hair in frustration, he should stop and look. For it
-might be her -- tired of my never-ending questions. Even then, she kept
+might be her -- tired of my never-ending questions. But, even then, she kept
 answering my thousands of "Whys?".
 
 She taught me the Arts. The Sciences. Mathematics. Music. History. Linguistics.
@@ -1050,6 +1177,8 @@ These dreams convinced my mother that I was the one prophesised by our
 ancestors. The one who would save his people and make the world a better place.
 Whilst I've grown to take it all with a pinch of salt, I cannot deny that it
 affected me.
+
+Thank you Amma.
 
 
 Is it true that you met with the Tamil Tigers? Are you one?
@@ -1185,7 +1314,7 @@ A while later he led me to an official handling the paperwork who asked me a
 question in Tamil. I stared back blankly. The other guy proceeded to explain
 that I didn't know a word of Tamil. I didn't bother correcting him.
 
-
+...
 
 
 What is so good about Nutella?
@@ -1196,8 +1325,8 @@ What is so good about Nutella?
   "Brown skin, brown skin, you know I love your brown skin!" [Arie-2001]_
 
 Nutella is simply orgasmic. Mixed with a diet of Fruit & Fibre, one could live
-quite healthily. And if Mr Ferrero has a sexy heir, I will gladly marry her in
-exchange for a lifetime supply of Nutella...
+quite healthily. And if Mr. Ferrero has a sexy heir, I would have gladly married
+her in exchange for a lifetime supply of Nutella...
 
 
 How do you justify your large ecological footprint?
@@ -1213,9 +1342,9 @@ hopefully help offset that.
 What do you hope to achieve with this document?
 ===============================================
 
-This is intended as a seed in the valley of imagination and hope. I would really
-appreciate similar seeds from everyone reading this. And, together, our seeds
-will hopefully flourish into beautiful Espia.
+This is intended as a seed in the Valley of Hope. I would really appreciate
+similar seeds from everyone reading this. And, together, our seeds will
+hopefully flourish into beautiful Espia.
 
 True power lies in the look in the eye of each and every one of us. And if we
 can imagine our desired future, there is no power in the 'Verse that can stop
@@ -1227,12 +1356,9 @@ All thoughts, comments and criticisms are very welcome.
 How does someone get in contact with you?
 =========================================
 
-Face to face is best! I'm based in London (very near Liverpool Street station)
-and can often be found in various cafés around Spitalfields, Brick Lane or
-Shoreditch.
-
-If that doesn't work for you, then I would love it if you could use the
-convey-and-notify approach [Celik-2007]_ and drop me a link on:
+Face to face is best! I'm based in London. If that doesn't work for you, then I
+would love it if you could use the convey-and-notify approach [Celik-2007]_ and
+drop me a link on:
 
 * phone/sms: +44 (0) 7809 569 369
 * email/jabber: tav@espians.com

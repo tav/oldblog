@@ -10,7 +10,7 @@ Mile High Club: A HowTo
 
 .. raw:: html
 
-  <div class="float-right">
+  <div class="float-right-aligned">
   <a href="http://www.flickr.com/photos/wongjunhao/2684581600/"><img
      src="http://farm4.static.flickr.com/3076/2684581600_acbec922a9.jpg"
      alt="Singapore Airline Girl" /></a><br />

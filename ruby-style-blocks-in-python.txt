@@ -8,15 +8,15 @@ license: Public Domain
 Ruby-style Blocks in Python
 ===========================
 
-[**Update:** I've updated the proposal to use the ``using`` keyword instead of
+**Update:** I've updated the proposal to use the ``using`` keyword instead of
 overloading the existing semantics of the ``with`` keyword -- thanks Guido and
-Todd Lucas!]
+Todd Lucas!
 
 Blocks are supposedly the `most liked feature in Ruby
 <http://unlimitednovelty.com/2009/03/what-do-rubyists-like-about-ruby.html>`_.
 This proposal would enable a similar feature in Python:
 
-  .. syntax:: python
+.. syntax:: python
 
     using webapp.runner do (config):
         config.time_zone = 'UTC'
@@ -24,7 +24,7 @@ This proposal would enable a similar feature in Python:
 
 Compare that to the Ruby equivalent:
 
-  .. syntax:: ruby
+.. syntax:: ruby
 
     Rails::Initializer.run do |config|
         config.time_zone = 'UTC'
@@ -43,20 +43,20 @@ defining anonymous functions/closures.
 This is already possible in Python using the rather complicated-looking
 ``lambda`` keyword:
 
-  .. syntax:: python
+.. syntax:: python
 
     employees.select(lambda e: e.salary > developer.salary)
 
 In contrast, Ruby provides the really sexy:
 
-  .. syntax:: ruby
+.. syntax:: ruby
 
     employees.select {|e| e.salary > developer.salary}
 
 Where ``lambda`` limits Python developers to just expressions, Ruby allows for
 full multi-line blocks:
 
-  .. syntax:: ruby
+.. syntax:: ruby
 
     employees.select do |emp|
         if emp.salary > developer.salary
@@ -69,7 +69,7 @@ full multi-line blocks:
 This is also possible in Python but at the needless cost of naming and defining
 a function first:
 
-  .. syntax:: python
+.. syntax:: python
 
     def throwaway_function(emp):
         if emp.salary > developer.salary:
@@ -82,7 +82,7 @@ a function first:
 This is where my proposed ``do`` statement comes in, it would simplify the above
 to:
 
-  .. syntax:: python
+.. syntax:: python
 
     using employees.select do (emp):
         if emp.salary > developer.salary:
@@ -118,7 +118,7 @@ its parameter_list and BLOCK_CODE as the function body. Like with import,
 As a starting point for discussion, I would like to propose the following as the
 default __do__ function:
 
-  .. syntax:: python
+.. syntax:: python
 
     def __do__(expr, callback, globals, locals):
         retval = None
@@ -136,6 +136,8 @@ This works thanks to Python's support of coroutines through generators `[PEP
 case of a generator instance being passed in as the EXPR.
 
 And it just so happens to mirror the semantics of Ruby blocks quite beautifully:
+
+.. syntax:: pycon
 
   >>> def generator():
   ...     yield
