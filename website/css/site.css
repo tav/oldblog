@@ -219,11 +219,10 @@ li ul {
 }
 
 code, .literal {
-	background-color: #f0f0f0;
-	border: 1px solid #dadada;
-	padding: 1px 3px;
-	font-family: Monaco, "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace;
-	font-size: 12px;
+	background-color: #fefbf6;
+	border: 1px solid #dbd0be;
+	padding: 2px 4px;
+	font: 14px "inconsolata-1", "inconsolata-2", Monaco, "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace;
 }
 
 .topic-title {
@@ -267,9 +266,20 @@ code, .literal {
 /* toc */
 
 .contents {
-  padding-left: 3em;
-  margin: 10px;
-  display: none;
+	padding-left: 3em;
+	margin: 10px;
+	display: none;
+}
+
+.contents.toc-only {
+	display: block;
+	padding-left: 0;
+	margin: 0;
+}
+
+
+.contents.toc-only .topic-title {
+	display: none;
 }
 
 /* links */
@@ -989,7 +999,7 @@ a.buttondown span {
 .syntax .s { color: #00a33f } /* Literal.String */ /* brightish green */
 .syntax .sb { color: #00a33f } /* Literal.String.Backtick */
 .syntax .sc { color: #00a33f } /* Literal.String.Char */
-.syntax .sd { color: #00a33f } /* Literal.String.Doc */
+.syntax .sd { color: #767676 } /* Literal.String.Doc */
 .syntax .se { color: #00a33f } /* Literal.String.Escape */
 .syntax .sh { color: #00a33f } /* Literal.String.Heredoc */
 .syntax .si { color: #00a33f } /* Literal.String.Interpol */

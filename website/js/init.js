@@ -87,7 +87,7 @@ var setupGoogleAnalytics = function () {
     }
     var script = document.getElementsByTagName('script')[0];
     script.parentNode.insertBefore(ga, script);
-  });
+  })();
 };
 
 var translate = function (elem) {
