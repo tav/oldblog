@@ -1,0 +1,680 @@
+---
+layout: post
+license: Public Domain
+---
+
+=======================================================
+Fabric with Cleaner API and Parallel Deployment Support
+=======================================================
+
+`Fabric <http://fabfile.org/>`_ is an awesome tool. Like `Capistrano
+<https://github.com/capistrano/capistrano/wiki/2.x-Getting-Started>`_ and `Vlad
+<http://rubyhitsquad.com/Vlad_the_Deployer.html>`_, it makes deployments a lot
+simpler than with shell scripts on their own.
+
+.. raw:: html
+
+  <div class="float-right-aligned">
+  <a href="http://www.flickr.com/photos/stars6/4381851322/in/photostream/"><img
+    src="http://farm3.static.flickr.com/2775/4381851322_d46fd7d75e.jpg"
+    alt="Datacenter Work" width="400px" height="267px" /></a><br />
+  <div class="image-caption">
+    by <a href="http://www.flickr.com/photos/stars6/">stars6</a>
+  </div>
+  </div>
+
+However, once the complexity of your setup starts to grow, you very quickly
+start wishing for a cleaner and more powerful API.
+
+And once you are deploying to more than 30 servers, you really wish that Fabric
+would run commands in parallel instead of doing them sequentially, one after
+another.
+
+Having recently experienced this pain, I decided to rework the core of Fabric.
+I've documented it below -- describing all the changes to the `current Fabric
+1.0a <http://docs.fabfile.org/1.0a/>`_.
+
+.. more
+
+.. class:: intro-box
+
+https://github.com/tav/pylibs/tree/master/fabric
+
+
+Task Decorator
+--------------
+
+Traditionally, *all* functions within your ``fabfile.py`` were implicitly
+exposed as Fabric commands. So once you started abstracting your script to be
+more manageable, you had to use ``_underscore`` hacks to stop functions being
+exposed as commands, e.g.
+
+.. syntax:: python
+
+  from support.module import SomeClass as _SomeClass
+  from urllib import urlencode as _urlencode, urlopen as _urlopen
+
+  def _support_function():
+      ...
+
+Not only is this ugly and cumbersome, but it also goes against `The Zen of
+Python <http://www.python.org/dev/peps/pep-0020/>`_ philosophy of "explicit is
+better than implicit". So I've added a ``@task`` decorator to explicitly mark
+functions as Fabric commands, e.g.
+
+.. syntax:: python
+
+  from urllib import urlopen
+  from fabric.api import *
+
+
+  def get_latest_commit():
+      return urlopen('http://commits.server.com/latest').read()
+
+
+  @task
+  def check():
+      """check if local changes have been committed"""
+
+      local_version = local('git rev-parse HEAD')
+
+      if local_version != get_latest_commit():
+          abort("!! Local changes haven't been committed !!")
+
+
+  @task
+  def deploy():
+      """publish the latest version of the app"""
+
+      with cd('/var/app'):
+          run('git remote update')
+          run('git checkout %s' % get_latest_commit())
+
+      sudo("/etc/init.d/apache2 graceful")
+
+The above uses ``@task`` to explicitly mark ``check`` and ``deploy`` as Fabric
+commands so that they can be run as usual, i.e. ``fab check`` and ``fab
+deploy``. Any functions and classes you import or define don't have to be
+"hidden" with the ``_underscore`` hack.
+
+For backwards compatibility, if you never use the ``@task`` decorator, you'll
+continue to get the traditional behaviour.
+
+
+YAML Config
+-----------
+
+It's preferable not to hard-code configurable values into fabfiles. This enables
+you to reuse the same fabfile across different projects and keep it updated
+without having to constantly copy, paste and modify.
+
+So I've added native config support to Fabric. You can enable it by simply
+specifying the ``env.config_file`` variable:
+
+.. syntax:: python
+
+  env.config_file = 'deploy.yaml'
+
+This will load and parse the specified `YAML file
+<http://en.wikipedia.org/wiki/YAML>`_ before running any commands. The
+configuration values will then be accessible from ``env.config``. This object is
+simply a dictionary with dot-attribute access similar to the ``env`` dictionary.
+
+You can then keep your fabfiles clean from hard-coded values, e.g.
+
+.. syntax:: python
+
+  def get_latest_commit():
+      return urlopen(env.config.commits_server).read()
+
+
+  @task
+  def deploy():
+      with cd(env.config.app_directory):
+          ...
+
+
+Script Execution
+----------------
+
+It really helps to be able to quickly iterate the scripts that you will be
+calling with Fabric. And whilst you should eventually create them as individual
+files and sync them as part of your deployment, it'd be nice if you could try
+them out during development.
+
+To help with this I've added a new ``execute`` builtin. This lets you execute
+arbitrary scripts on remote hosts, e.g.
+
+.. syntax:: python
+
+  @task
+  def stats():
+
+      memusage = execute("""
+
+        #! /usr/bin/env python
+        import psutil
+
+        pid = open('pidfile').read()
+        process = psutil.Process(int(pid))
+        print process.get_memory_percent()
+
+      """, 'memusage.py', verbose=False, dir='/var/ampify')
+
+Behind the scenes, ``execute`` will:
+
+* Strip any common leading whitespace from every line in the source.
+
+* Copy the source into a file on the remote server.
+
+* If the optional ``name`` parameter (the 2nd parameter) had been specified,
+  then the given name will be used, otherwise an auto-generated name will be
+  used.
+
+* If the optional ``dir`` parameter was specified, then the file will be created
+  within the given directory, otherwise it'll be created on the remote ``$HOME``
+  directory.
+
+* The file will then be made executable, i.e. ``chmod +x``.
+
+* And, finally, it will be run and the response will be returned. Unless the
+  ``verbose`` parameter is set to ``False``, then it will by default also output
+  the response to the screen.
+
+As you can imagine, ``execute`` makes it very easy to rapidly try out and
+develop your development logic. Your scripts can be in whatever languages you
+can run on your remote hosts -- Ruby, Perl, Bash, Python, JavaScript, whatever.
+
+
+Extension Hooks
+---------------
+
+I've added native hooks support so that you can extend certain aspects of Fabric
+without having to resort to monkey-patching. You attach functions to specific
+hooks by using the new ``@hook`` decorator, e.g.
+
+.. syntax:: python
+
+  @hook('config.loaded')
+  def default_config():
+
+      if 'port' in env.config:
+          return
+
+      port = prompt("port number?", default=8080, validate=int)
+      env.config.port = port
+
+For the moment, only the following hooks are defined. It's possible that I may
+add support for individual ``<command>.before`` and ``<command>.after`` hooks,
+but so far I haven't needed that functionality.
+
++---------------------+-----------------------------+------------------------+
+| Hook Name           | Hook Function Signature     | Description            |
++=====================+=============================+========================+
+| ``exec.before``     | ``func(cmds, cmds_to_run)`` | |hook-exec-before|     |
++---------------------+-----------------------------+------------------------+
+| ``config.loaded``   | ``func()``                  | |hook-config-loaded|   |
++---------------------+-----------------------------+------------------------+
+| ``exec.after``      | ``func()``                  | |hook-exec-after|      |
++---------------------+-----------------------------+------------------------+
+| ``listing.display`` | ``func()``                  | |hook-listing-display| |
++---------------------+-----------------------------+------------------------+
+
+.. |hook-config-loaded| replace::
+
+  Run after any config file has been parsed and loaded.
+
+.. |hook-exec-after| replace::
+
+  Run after all the commands are run.
+
+.. |hook-exec-before| replace::
+
+  Run before all the commands are run (including the config handling).
+
+.. |hook-listing-display| replace::
+
+  Run when the commands listing has finished running in response to ``fab`` or
+  ``fab --list``. Useful for adding extra info.
+
+
+Environment Variable Manager
+----------------------------
+
+Command Strings & Directories
+-----------------------------
+
+Fabric provides a number of builtin functions that let you make command-line
+calls:
+
+* ``local`` -- runs a command on the local host.
+
+* ``run`` -- runs a command on a remote host.
+
+* ``sudo`` -- runs a sudoed command on a remote host.
+
+I've added two optional parameters to these. A ``dir`` parameter can be used to
+specify the directory from within which the command should be run, e.g.
+
+.. syntax:: python
+
+  @task
+  def restart():
+      run("amp restart", dir='/opt/ampify')
+
+And a ``format`` parameter can be used to access the new formatted command
+strings functionality, e.g.
+
+.. syntax:: python
+
+  @task
+  def backup():
+      run("backup.rb {app_directory} {s3_key}", format=True)
+
+This makes use of the `Advanced String Formatting
+<http://www.python.org/dev/peps/pep-3101/>`_ support that is available in Python
+2.6 and later. The ``env`` object is used to look-up the various parameters,
+i.e. the above is equivalent to:
+
+.. syntax:: python
+
+  @task
+  def backup():
+      command = "backup.rb {app_directory} {s3_key}".format(**env)
+      run(command)
+
+By default, ``format`` is set to ``False`` and the command string is run without
+any substitution. But if you happen to find formatting as useful a I do, you can
+enable it as default by setting:
+
+.. syntax:: python
+
+  env.format = True
+
+You can then use it without having to constantly set ``format=True``, e.g.
+
+.. syntax:: python
+
+  @task
+  def backup():
+      run("backup.rb {app_directory} {s3_key}")
+
+
+Fabric Contexts
+---------------
+
+Context Runner
+--------------
+
+Parallel Deployment
+-------------------
+
+Fabric Shell
+------------
+
+Shell Builtins
+--------------
+
+Command Line Listing
+--------------------
+
+When ``fab`` was run without any arguments, it used to spit out the help message
+with the various command line options:
+
+.. syntax:: console
+
+  $ fab
+  Usage: fab [options] <command>[:arg1,arg2=val2,host=foo,hosts='h1;h2',...] ...
+
+  Options:
+    -h, --help            show this help message and exit
+    -V, --version         show program's version number and exit
+    -l, --list            print list of possible commands and exit
+    --shortlist           print non-verbose list of possible commands and exit
+    -d COMMAND, --display=COMMAND
+                          print detailed info about a given command and exit
+  ...
+
+As useful as this was, I figured it'd be more useful to list the various
+commands without having to constantly type ``fab --list``. So now when you run
+``fab`` without any arguments, it lists the available commands instead, e.g.
+
+.. syntax:: console
+
+  $ fab
+  Available commands:
+
+      check    check if local changes have been committed
+      deploy   publish the latest version of the app
+
+You can of course still access the help message by running either ``fab -h`` or
+``fab --help``. And you can hide commands from being listed by specifying
+``display=None`` with the ``@task`` decorator, e.g.
+
+.. syntax:: python
+
+  @task(display=None)
+  def armageddon():
+      ...
+
+
+Staged Deployment
+-----------------
+
+For most serious deployments, you tend to have distinct environments, e.g.
+testing, staging, production, etc. And `existing
+<http://blog.jeremi.info/entry/my-git-workflow-to-deploy-an-application-to-appengine>`_
+`fabric <http://lethain.com/entry/2008/nov/04/deploying-django-with-fabric/>`__
+`setups <https://github.com/bueda/ops>`_ tend to have similarly named commands
+so you can run things like:
+
+.. syntax:: console
+
+  $ fab production deploy
+
+Now, not being a fan of repeatedly adding the same functionality to all my
+fabfiles, I've added staged deployment support to Fabric. You can enable it by
+specifying an ``env.stages`` list value, e.g.
+
+.. syntax:: python
+
+  env.stages = ['staging', 'production']
+
+The first item in the list is taken to be the *default* and overridable commands
+of the following structure are automatically generated for each item:
+
+.. syntax:: python
+
+  @task(display=None)
+  def production():
+      puts("env.stage = production", prefix='system')
+      env.stage = 'production'
+
+That is, it will update ``env.stage`` with the appropriate value and print out a
+message saying so, e.g.
+
+.. syntax:: console
+
+  $ fab production check deploy
+  [system] env.stage = production
+  ...
+
+And if your fab command-line call didn't start with one of the stages, it will
+automatically run the one for the default stage, e.g.
+
+.. syntax:: console
+
+  $ fab check deploy
+  [system] env.stage = staging
+  ...
+
+For added convenience, the environments are also listed when you run ``fab``
+without any arguments, e.g.
+
+.. syntax:: console
+
+  $ fab
+  Available commands:
+
+      check    check if the blog is up-to-date
+      deploy   publish the latest version of the blog
+
+  Available environments:
+
+      staging
+      production
+
+And, for further flexibility, you can override ``env.stages`` with the
+``FAB_STAGES`` environment variable. This takes a comma-separated list of
+environment stages and, again, the first is treated as the default, e.g.
+
+.. syntax:: console
+
+  $ FAB_STAGES=development,production fab deploy
+  [system] env.stage = development
+  ...
+
+
+Hyphenated Commands
+-------------------
+
+This is a minor point, but I find hyphens, e.g. ``deploy-ampify``, to be more
+aesthetically pleasing than underscores, i.e. ``deploy_ampify``. So Fabric now
+displays and supports hyphenated variants of all commands, e.g. for the
+following fabfile:
+
+.. syntax:: python
+
+  from fabric.api import *
+
+  @task
+  def deploy_ampify():
+      """deploy the current version of ampify"""
+      ...
+
+The command listing shows:
+
+.. syntax:: console
+
+  $ fab
+  Available commands:
+
+      deploy-ampify  deploy the current version of ampify
+
+And you can run the command with:
+
+.. syntax:: console
+
+  $ fab deploy-ampify
+
+
+Command Line Env Flags
+----------------------
+
+You can now update the ``env`` object directly from the command line using the
+new env flags syntax:
+
+* ``+<key>`` sets the value of the key to ``True``.
+
+* ``+<key>:<value>`` sets the key to the given string value.
+
+So, for the following content in your fabfile:
+
+.. syntax:: python
+
+  env.config_file = 'deploy.yaml'
+  env.debug = False
+
+Running the following will set ``env.config_file`` to the new value:
+
+.. syntax:: console
+
+  $ fab <commands> +config_file:alt.yaml
+
+And the following will set ``env.debug`` to ``True``:
+
+.. syntax:: console
+
+  $ fab <commands> +debug
+
+The env flags are all set in the order given on the command line and before any
+commands are run (including the config file handling if one is specified). And
+you can, of course, specify as many env flags as you want.
+
+
+Optimisations
+-------------
+
+It won't make much of a difference, but for my own sanity I've made a bunch of
+minor optimisations to Fabric, e.g.
+
+* Removed repeated look-up of attributes within loops.
+
+* Removed repeated local imports within functions.
+
+* Removed redundant double-wrapping of functions within the ``hosts`` and
+  ``roles`` decorators.
+
+
+Colors Support
+--------------
+
+You can enable the optional colors support by setting ``env.colors``, i.e.
+
+.. syntax:: python
+
+  env.colors = True
+
+Here's a screenshot of it in action:
+
+.. raw:: html
+
+  <div class="center">
+    <a href="https://skitch.com/tav./rqge6/fabric-shell"><img
+       src="http://img.skitch.com/20110211-nep3wmpi33qb2c4a13bf7fsgja.png"
+       alt="Fabric with Colors" /></a>
+  </div>
+
+You can customise the colors by modifying the ``env.color_settings`` property.
+By default it is set to:
+
+.. syntax:: python
+
+  env.color_settings = {
+      'abort': yellow,
+      'error': yellow,
+      'finish': cyan,
+      'host_prefix': green,
+      'prefix': red,
+      'prompt': blue,
+      'task': red,
+      'warn': yellow
+      }
+
+You can find the color functions in the ``fabric.colors`` module.
+
+
+Logging Improvements
+--------------------
+
+The builtin ``puts`` and ``fastprint`` logging functions have been extended so
+that instead of having to do something like:
+
+.. syntax:: python
+
+  @task
+  def db_migrate():
+      puts(
+        "[%s] [database] migrating schemas for %s" %
+        (env.host_string, env.db_name)
+        )
+
+You can now just do:
+
+.. syntax:: python
+
+  @task
+  def db_migrate():
+      puts("migrating schemas for {db_name}", 'database')
+
+
+
+Autocompletion
+--------------
+
+`Bash completion <http://www.debian-administration.org/articles/316>`_ is one of
+those features that really helps you to be more productive. Just include the
+following in your ``~/.bashrc`` or equivalent file and you'll be able to use
+Fabric's new command completion support:
+
+.. syntax:: bash
+
+  _fab_completion() {
+      COMPREPLY=( $( \
+      COMP_LINE=$COMP_LINE  COMP_POINT=$COMP_POINT \
+      COMP_WORDS="${COMP_WORDS[*]}"  COMP_CWORD=$COMP_CWORD \
+      OPTPARSE_AUTO_COMPLETE=1 $1 ) )
+  }
+
+  complete -o default -F _fab_completion fab
+
+It completes on all available commands and command line options, e.g.
+
+.. syntax:: console
+
+  $ fab --dis<tab>
+  --disable-known-hosts    --display
+
+Also, since Fabric has no way of knowing which `command line env flags`_ you
+might be using, you can specify additional autocompletion items as an
+``env.autocomplete`` list value, e.g.
+
+.. syntax:: python
+
+  env.autocomplete = ['+config_file:', '+debug']
+
+This will then make those values available for you to autocomplete, i.e.
+
+.. syntax:: console
+
+  $ fab +<tab>
+  +config_file:    +debug
+
+
+Backwards Compatibility
+-----------------------
+
+All these changes should be fully backwards compatible. That is, unless you
+happen to have specified any of the new ``env`` variables like ``env.stages``,
+your existing fabfiles should run as they've always done. Do let me know if this
+is not the case...
+
+.. class:: intro-box
+
+https://github.com/tav/pylibs/tree/master/fabric
+
+
+Usage
+-----
+
+If you'd like to take advantage of these various changes, the simplest thing to
+do is to clone my `pylibs repository <https://github.com/tav/pylibs>`_ and put
+it on your ``$PYTHONPATH``, i.e.
+
+.. syntax:: console
+
+  $ git clone git://github.com/tav/pylibs.git
+
+  $ export PYTHONPATH=$PYTHONPATH:`pwd`/pylibs
+
+Then create a ``fab`` script somewhere on your ``$PATH`` with the following
+content:
+
+.. syntax:: python
+
+  #! /usr/bin/env python
+
+  from fabric.main import main
+
+  main()
+
+Make sure to make the script executable, i.e.
+
+.. syntax:: console
+
+  $ chmod +x fab
+
+And as long as you have Python 2.6+, you should be good to go...
+
+
+Next Steps
+----------
+
+I have been talking to the Fabric maintainers about merging these changes
+upstream. And so far they've been quite positive. But, as you can imagine, there
+are a number of competing ideas about what is best for Fabric's future.
+
+So if you like these features, then do leave a comment expressing your support.
+It'd really help getting these features into the next version of Fabric.
+
+-- Thanks, tav

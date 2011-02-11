@@ -48,9 +48,9 @@ license: Public Domain
 		&#187;&nbsp; by <a href="http://tav.espians.com">tav</a><span py:if="defined('created')"> on <span class="post-date">${MONTHS[int(created[5:7])]} ${int(created[8:10])}, ${created[:4]} @ <a href="http://github.com/tav/blog/commits/master/${splitext(__name__)[0]}.txt">${created[-5:]}</a></span></span>&nbsp; <a href="http://creativecommons.org/publicdomain/zero/1.0/" title="Public Domain"><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Cc-pd.svg/64px-Cc-pd.svg.png" width="20px" height="20px" alt="Public Domain" class="absmiddle" /></a>
 	</div>
 </div>
-<div py:if="not defined('created')" class="attention">
+<!--<div py:if="not defined('created')" class="attention">
 	This is an early draft. Many sections are incomplete. A lot more is being written.
-</div>
+</div>-->
 <div class="content">
 	<div py:content="Markup(content)"></div>
 </div>

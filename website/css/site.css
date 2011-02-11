@@ -295,29 +295,31 @@ a.footnote-reference {
 
 /* tables */
 
+
 table.docutils {
-  margin: 10px;
-  border-spacing: 0px;
-  border-width: 0 0 1px 1px;
-  border-style: solid;
-  border-color: #544554;
+	margin: 20px 30px 0 20px;
+	border-spacing: 0px;
 }
 
+
 table.docutils thead tr th {
-  background-color: #ded0e8;
-  color: #544554;
-  padding: 5px;
-  border-top: 1px solid #544554;
-  border-right: 1px solid #544554;
-  border-left: 0px;
-  border-bottom: 0px;
+	background: #635b54;
+	color: #fff;
+	padding: 7px 10px;
+	font-weight: normal;
 }
 
 table.docutils td {
-  padding: 5px;
-  border-width: 1px 1px 0 0;
-  border-style: solid;
-  border-color: #544554;
+	padding: 7px;
+	border-bottom: 1px dashed #d6d2cf;
+}
+
+table.docutils td .literal {
+	white-space: nowrap;
+}
+
+table.docutils thead tr th:first-child {
+  text-align: right;
 }
 
 table.docutils tr td:first-child {
@@ -325,24 +327,24 @@ table.docutils tr td:first-child {
 }
 
 table.footnote, table.citation {
-  border: 0px;
-  padding: 5px;
-  margin: 5px;
+	border: 0px;
+	padding: 5px;
+	margin: 5px;
 }
 
 table.citation td, table.footnote td {
-  border: 0px;
+	border: 0px;
 }
 
 table.docutils td p, table.footnote td p, table.citation td p {
-  margin-top: 0px;
-  padding-top: 0px;
+	margin-top: 0px;
+	padding-top: 0px;
 }
 
 table.footnote td.label, table.citation td.label {
-  width: 12em;
-  padding-right: 10px;
-  text-align: right;
+	width: 12em;
+	padding-right: 10px;
+	text-align: right;
 }
 
 table.citation td.label a, table.footnote td.label a {
