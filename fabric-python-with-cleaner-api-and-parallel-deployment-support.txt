@@ -1,11 +1,13 @@
 ---
+created: 2011-02-14, 08:54
 layout: post
+type: draft
 license: Public Domain
 ---
 
-=======================================================
-Fabric with Cleaner API and Parallel Deployment Support
-=======================================================
+======================================================
+Fabric Python with Cleaner API and Parallel Deployment
+======================================================
 
 `Fabric <http://fabfile.org/>`_ is an awesome tool. Like `Capistrano
 <https://github.com/capistrano/capistrano/wiki/2.x-Getting-Started>`_ and `Vlad
@@ -416,8 +418,8 @@ without any arguments, e.g.
   $ fab
   Available commands:
 
-      check    check if the blog is up-to-date
-      deploy   publish the latest version of the blog
+      check    check if local changes have been committed
+      deploy   publish the latest version of the app
 
   Available environments:
 
@@ -557,8 +559,9 @@ You can find the color functions in the ``fabric.colors`` module.
 Logging Improvements
 --------------------
 
-The builtin ``puts`` and ``fastprint`` logging functions have been extended so
-that instead of having to do something like:
+The builtin ``puts`` and ``fastprint`` logging functions have also been extended
+with the optional ``format`` parameter and ``env.format`` support similar to the
+``local`` and ``run`` builtins, so that instead of having to do something like:
 
 .. syntax:: python
 
@@ -573,10 +576,42 @@ You can now just do:
 
 .. syntax:: python
 
+  env.format = True
+
   @task
   def db_migrate():
       puts("migrating schemas for {db_name}", 'database')
 
+And it will output something like:
+
+.. syntax:: console
+
+  $ fab db-migrate
+  [somehost.com] [database] migrating schemas for ampify
+
+The second parameter which was previously a boolean-only value that was used to
+control whether the host string was printed or not, can now also be a string
+value -- in which case the string will be used as the prefix instead of the host
+string.
+
+You can still control if a host prefix is *also* printed by using the new
+optional ``show_host`` parameter, e.g.
+
+.. syntax:: python
+
+  @task
+  def db_migrate():
+      puts("migrating schemas for {db_name}", 'database', show_host=False)
+
+Will output something like:
+
+.. syntax:: console
+
+  $ fab db-migrate
+  [database] migrating schemas for ampify
+
+And if you'd enabled ``env.colors``, the prefix will be also colored according
+to your settings!
 
 
 Autocompletion
@@ -629,10 +664,6 @@ happen to have specified any of the new ``env`` variables like ``env.stages``,
 your existing fabfiles should run as they've always done. Do let me know if this
 is not the case...
 
-.. class:: intro-box
-
-https://github.com/tav/pylibs/tree/master/fabric
-
 
 Usage
 -----
@@ -665,6 +696,10 @@ Make sure to make the script executable, i.e.
   $ chmod +x fab
 
 And as long as you have Python 2.6+, you should be good to go...
+
+.. class:: intro-box
+
+https://github.com/tav/pylibs/tree/master/fabric
 
 
 Next Steps

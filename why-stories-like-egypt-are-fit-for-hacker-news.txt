@@ -1,0 +1,60 @@
+---
+created: 2011-02-11, 18:55
+layout: post
+license: Public Domain
+---
+
+==============================================
+Why Stories Like Egypt Are Fit For Hacker News
+==============================================
+
+Every time a story like Egypt appears on `Hacker News
+<http://news.ycombinator.com>`_, some people inevitably comment that it's
+unsuitable for HN. As much as the attempted curation is appreciated, it is these
+comments that are often off topic.
+
+.. raw:: html
+
+  <div class="float-right-aligned">
+    <a href="https://img.skitch.com/20110211-csp26cs7qpin4xejqpxn7t5hia.jpg"
+       title="Egypt Tahrir Square 2011"><img
+       src="https://img.skitch.com/20110211-1yfkkic75xd6ua7s7mj47cmwbi.jpg"
+    /></a>
+    <div class="image-caption">
+      by <a href="http://blogs.aljazeera.net/">Al Jazeera</a>
+    </div>
+  </div>
+
+  <style type="text/css">
+    .content ul {
+      padding-left: 20px;
+      padding-right: 0;
+      margin-left: 0;
+      margin-right: 0;
+    }
+  </style>
+
+If anything, stories like Egypt are well-suited given that:
+
+* It's historic! Just look at the picture to the right! If something truly
+  momentous is happening, then I'd like to see discussion about it on HN -- it
+  tends to be well-informed.
+
+* The `Hacker News Guidelines <http://ycombinator.com/newsguidelines.html>`_
+  explicitly allows for political stories that demonstrate "evidence of some
+  interesting new phenomenon".
+
+* It's arguably more worthy of discussion than the majority of the `Techcrunch
+  posts
+  <http://searchyc.com/submissions/techcrunch.com?only=domain&sort=by_date>`_
+  that we see on HN.
+
+* It's an entrepreneurial opportunity! With a GDP of nearly $500bn, Egypt just
+  became a lot more attractive for innovative startups.
+
+The occasional non-tech/startup post doesn't mean that Hacker News is going to
+the shits. We are not in danger of becoming Reddit 2.0 anytime soon either. So,
+please, can we reserve the comments about off-topic posts to the kind of posts
+that truly are off-topic?
+
+-- Cheers, tav

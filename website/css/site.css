@@ -111,6 +111,13 @@ li ul {
 	line-height: 1.5em;
 }
 
+#intro h1 {
+	font-family: Baskerville, 'Baskerville old face', 'Hoefler Text', Garamond, 'Times New Roman', serif;
+	font-size: 18px;
+	line-height: 27px;
+	margin: 18px 0 24px 0;
+}
+
 #main {
 	margin: 0px auto; 
 	text-align: left;
