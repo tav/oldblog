@@ -34,7 +34,8 @@ another.
 
 Having recently experienced this pain, I decided to rework the core of Fabric.
 I've documented it below -- describing all the changes to the `current Fabric
-1.0a <http://docs.fabfile.org/1.0a/>`_.
+1.0a <http://docs.fabfile.org/1.0a/>`_ -- including funky new features like
+``fab shell`` and staged deployments!
 
 .. more
 
@@ -240,13 +241,10 @@ but so far I haven't needed that functionality.
   ``fab --list``. Useful for adding extra info.
 
 
-Environment Variable Manager
-----------------------------
+Interpolation & Directories Support
+-----------------------------------
 
-Command Strings & Directories
------------------------------
-
-Fabric provides a number of builtin functions that let you make command-line
+Fabric provides a number of builtin functions that let you make command line
 calls:
 
 * ``local`` -- runs a command on the local host.
@@ -264,8 +262,8 @@ specify the directory from within which the command should be run, e.g.
   def restart():
       run("amp restart", dir='/opt/ampify')
 
-And a ``format`` parameter can be used to access the new formatted command
-strings functionality, e.g.
+And a ``format`` parameter can be used to access the new formatted strings
+functionality, e.g.
 
 .. syntax:: python
 
@@ -285,8 +283,8 @@ i.e. the above is equivalent to:
       command = "backup.rb {app_directory} {s3_key}".format(**env)
       run(command)
 
-By default, ``format`` is set to ``False`` and the command string is run without
-any substitution. But if you happen to find formatting as useful a I do, you can
+By default, ``format`` is set to ``False`` and the string is run without any
+substitution. But if you happen to find formatting as useful a I do, you can
 enable it as default by setting:
 
 .. syntax:: python
@@ -305,17 +303,294 @@ You can then use it without having to constantly set ``format=True``, e.g.
 Fabric Contexts
 ---------------
 
+Deployment setups vary tremendously. I've used Fabric for everything from simple
+single-machine deployments to web app deployments across multiple data centers
+to even physical multi-touch installations at the `Museum of Australian
+Democracy
+<http://www.moadoph.gov.au/exhibitions/prime-ministers-of-australia-exhibition/>`_.
+
+Unfortunately, I've consistently found the ``hosts`` and ``roles`` support
+offered by Fabric to be sub-optimal for these dramatically different setups.
+
+And providing an API that covers the various scenarios is hard!
+
+When doing a major upgrade of a web app, you might want to do something like:
+
+* Switch the web servers to show a "planned maintenance" notice.
+
+* Migrate the database to new schemas.
+
+* Upgrade the app servers.
+
+* Update app routing on the configuration servers.
+
+* Enable the web servers to continue serving requests normally.
+
+And the support for ``hosts`` and ``roles`` that Fabric provides is good enough
+in that context. However, 
+
+
 Context Runner
 --------------
 
 Parallel Deployment
 -------------------
 
+Like with the ``run`` context runner call, ``multirun`` also accepts a function
+to execute instead of a command string. The utility ``multilocal`` method
+leverages this functionality to run commands locally for each of the hosts in
+parallel, e.g.
+
+.. syntax:: python
+
+  env.format = True
+
+  @task
+  def db_backup():
+      env('db-servers').multilocal('backup.rb {host}')
+
+Behind the scenes, ``multirun`` uses ``fork`` and `domain sockets
+<http://en.wikipedia.org/wiki/Unix_domain_socket>`_, so it'll only work on Unix
+platforms. You can specify the maximum number of parallel processes to spawn at
+any one time by specifying ``env.multirun_pool_size`` which is set to ``10`` by
+default, e.g.
+
+.. syntax:: python
+
+  env.multirun_pool_size = 200
+
+And, oh, there's also a ``multisudo`` for your convenience.
+
+
 Fabric Shell
 ------------
 
+Sometimes you just want to run a bunch of commands on a number of different
+servers. So I've added a funky new feature -- Fabric shell mode:
+
+.. raw:: html
+
+  <div class="center">
+    <a href="https://skitch.com/tav./rqccu/python" title="Fabric Shell"><img
+       src="http://img.skitch.com/20110212-g8ha9cd5g441m4q3y21gewmnha.png" /></a>
+  </div>
+
+Once you are in the shell, all of your commands will be sequentially ``run()``
+on the respective hosts for your calling context. You can also use the
+``.shell-command`` syntax to call shell builtin commands -- including your own
+custom ones!
+
+You start shells from within your Fabric commands by invoking the ``.shell()``
+method of a context runner. Here's sample code to enable ``fab shell``:
+
+.. syntax:: python
+
+  @task('app-servers', run_per_context=False)
+  def shell():
+      """start a shell within the current context"""
+
+      env().shell(format=True)
+
+The above defaults to the ``app-servers`` context when you run ``fab shell``,
+but you can always override the context from the command line, e.g.
+
+.. syntax:: console
+
+  $ fab shell @db-servers
+
+And if your Python has been compiled with `readline support
+<http://docs.python.org/library/readline.html>`_, then you can also leverage the
+tab-completion support that I've added:
+
+* Terms starting with ``{`` auto-complete on the properties within the ``env``
+  object to make it easy for you to use the string formatting support.
+
+* Terms starting with ``.`` auto-complete on the available shell builtin
+  commands.
+
+* All other terms auto-complete on the list of available executables on your
+  local machine's ``$PATH``.
+
+Other readline features have been enabled too, e.g. command history with up/down
+arrows, ``^r`` search and even cross-session history. You can configure where
+the history is saved by setting ``env.shell_history_file`` which defaults to:
+
+.. syntax:: python
+
+  env.shell_history_file = '~/.fab-shell-history'
+
+
 Shell Builtins
 --------------
+
+As mentioned above, you can call various ``.shell-commands`` from within a
+Fabric shell to do something other than ``run()`` a command on the various
+hosts, e.g.
+
+.. syntax:: irb
+
+  >> .multilocal backup.rb {host_string}
+
+The above will run the equivalent of the following in parallel for each host:
+
+.. syntax:: python
+
+  local("backup.rb {host_string}")
+
+The following builtins are currently available:
+
+* ``.cd`` -- changes the working directory for all future commands.
+
+* ``.help`` -- displays a list of the available shell commands.
+
+* ``.info`` -- list the current context and the respective hosts.
+
+* ``.local`` -- runs the command locally.
+
+* ``.multilocal`` -- runs the command in parallel locally for each host.
+
+* ``.multirun`` -- runs the command in parallel on the various hosts.
+
+* ``.multisudo`` -- runs the sudoed command in parallel on the various hosts.
+
+* ``.sudo`` -- runs the sudoed command on the various hosts.
+
+* ``.toggle-format`` -- toggles string formatting support.
+
+You can define your own by using the new ``@shell`` decorator, e.g.
+
+.. syntax:: python
+
+    @shell
+    def python_version(spec, arg):
+        with hide('running', 'output'):
+            if arg == 'full':
+                version = run('python -c "import sys; print sys.version"')
+            else:
+                version = run(
+                    "python -c 'import sys; print "
+                    '".".join(map(str, sys.version_info[:3]))\''
+                    )
+        puts("python %s" % version)
+
+The above can then be called from within a shell, e.g.
+
+.. syntax:: irb
+
+  >> .python-version
+  [dev1.ampify.it] python 2.5.2
+  [dev3.ampify.it] python 2.7.0
+
+The ``spec`` object is initialised with the various variables that the
+``.shell()`` method was originally called with, e.g. ``dir``, ``format``, etc.
+All changes made, e.g. ``spec.dir = '/var/ampify'``, are persistent and will
+affect all subsequent commands within the shell.
+
+The ``arg`` is a string value of everything following the shell command name,
+e.g. for ``.local echo hi``, it will be ``"echo hi"``. The command name is
+derived from the function name, but you can provide your own as the first
+parameter to the ``@shell`` decorator.
+
+And, finally, you can specify ``single=True`` to the ``@shell`` decorator to
+specify that you only want the command to be run a single time and not
+repeatedly for every host, e.g.
+
+.. syntax:: python
+
+  @shell('hello', single=True)
+  def demo(spec, arg):
+      print "Hello", arg.upper()
+
+The above can then be called from within a shell, e.g.
+
+.. syntax:: irb
+
+  >> .hello tav
+  Hello TAV
+
+The ``env.ctx`` is set for even single-mode shell commands, so you can always
+take advantage of context runners, e.g.
+
+.. syntax:: python
+
+  @shell
+  def backup(spec, arg):
+      env().multirun(...)
+
+
+Environment Variable Manager
+----------------------------
+
+When calling various command line tools, you often have to mess with environment
+variables like ``$PATH``, ``$NODE_PATH``, ``$PYTHONPATH``, etc. To deal with
+this, Fabric forced you to write things like:
+
+.. syntax:: python
+
+  NODE_PATH = "NODE_PATH=$NODE_PATH:%s" % node_libs
+  run("%s vows" % NODE_PATH)
+  run("%s coffee -c amp.coffee" % NODE_PATH)
+
+Instead you can now do:
+
+.. syntax:: python
+
+  with env.NODE_PATH(node_libs):
+      run("vows")
+      run("coffee -c amp.coffee")
+
+That is, if you call a property on the ``env`` object which is composed of only
+the ``ABCDEFGHIJKLMNOPQRSTUVWXYZ_`` characters, then a `Python Context Manager
+<http://www.python.org/dev/peps/pep-0343/>`_ is generated which will manage the
+use of the environment variables for you.
+
+The manager has the following constructor signature:
+
+.. syntax:: python
+
+  manager(value, behaviour='append', sep=os.pathsep, reset=False)
+
+So, if you'd called ``env.PATH(value, behaviour)``, the way the ``value`` is
+treated will depend on the ``behaviour`` parameter which can be one of the
+following:
+
+* ``append`` -- appends value to the current ``$PATH``, i.e.
+  ``PATH=$PATH:<value>``
+
+* ``prepend`` -- prepends value to the current ``$PATH``, i.e.
+  ``PATH=<value>:$PATH``
+
+* ``replace`` -- ignores ``$PATH`` altogether, i.e. ``PATH=<value>``
+
+The ``sep`` defaults to ``:`` on most platforms and determines how the values
+are concatenated. However, if you call the manager with no arguments at all or
+stringify it, it will return the string which would be used during execution,
+e.g.
+
+.. syntax:: python
+
+  print env.NODE_PATH               # NODE_PATH=$NODE_PATH:/opt/ampify/libs/node
+
+The various calls can be also nested, e.g.
+
+.. syntax:: python
+
+  with env.PATH('/usr/local/bin'):
+      with env.PATH('/home/tav/bin'):
+          print env.PATH               # PATH=$PATH:/usr/local/bin:/home/tav/bin
+          with env.PATH('/opt/local/bin', 'replace'):
+              with env.PATH('/bin', 'prepend'):
+                  print env.PATH       # PATH=/bin:/opt/local/bin
+      print env.PATH                   # PATH=$PATH:/usr/local/bin
+
+You can specify ``reset=True`` to discard any nested values, e.g.
+
+.. syntax:: python
+
+  with env.PATH('/opt/ampify/bin', 'prepend'):
+      with env.PATH('/home/tav/bin', reset=True):
+          print env.PATH                              # PATH=$PATH:/home/tav/bin
+
 
 Command Line Listing
 --------------------
@@ -401,7 +676,7 @@ message saying so, e.g.
   [system] env.stage = production
   ...
 
-And if your fab command-line call didn't start with one of the stages, it will
+And if your fab command line call didn't start with one of the stages, it will
 automatically run the one for the default stage, e.g.
 
 .. syntax:: console
@@ -640,13 +915,13 @@ It completes on all available commands and command line options, e.g.
   $ fab --dis<tab>
   --disable-known-hosts    --display
 
-Also, since Fabric has no way of knowing which `command line env flags`_ you
-might be using, you can specify additional autocompletion items as an
-``env.autocomplete`` list value, e.g.
+Also, since Fabric has no way of knowing which `command line env flags`_ and
+contexts you might be using, you can specify additional autocompletion items as
+an ``env.autocomplete`` list value, e.g.
 
 .. syntax:: python
 
-  env.autocomplete = ['+config_file:', '+debug']
+  env.autocomplete = ['+config_file:', '+debug', '@db-servers']
 
 This will then make those values available for you to autocomplete, i.e.
 
@@ -689,7 +964,7 @@ content:
 
   main()
 
-Make sure to make the script executable, i.e.
+Make sure the script is executable, i.e.
 
 .. syntax:: console
 
