@@ -145,7 +145,7 @@ calling with Fabric. And whilst you should eventually create them as individual
 files and sync them as part of your deployment, it'd be nice if you could try
 them out during development.
 
-To help with this I've added a new ``execute`` builtin. This lets you execute
+To help with this I've added a new ``execute()`` builtin. This lets you execute
 arbitrary scripts on remote hosts, e.g.
 
 .. syntax:: python
@@ -164,7 +164,7 @@ arbitrary scripts on remote hosts, e.g.
 
       """, 'memusage.py', verbose=False, dir='/var/ampify')
 
-Behind the scenes, ``execute`` will:
+Behind the scenes, ``execute()`` will:
 
 * Strip any common leading whitespace from every line in the source.
 
@@ -184,9 +184,83 @@ Behind the scenes, ``execute`` will:
   ``verbose`` parameter is set to ``False``, then it will by default also output
   the response to the screen.
 
-As you can imagine, ``execute`` makes it very easy to rapidly try out and
+As you can imagine, ``execute()`` makes it very easy to rapidly try out and
 develop your development logic. Your scripts can be in whatever languages you
 can run on your remote hosts -- Ruby, Perl, Bash, Python, JavaScript, whatever.
+
+
+Environment Variable Manager
+----------------------------
+
+When calling various command line tools, you often have to mess with environment
+variables like ``$PATH``, ``$NODE_PATH``, ``$PYTHONPATH``, etc. To deal with
+this, Fabric forced you to write things like:
+
+.. syntax:: python
+
+  NODE_PATH = "NODE_PATH=$NODE_PATH:%s" % node_libs
+  run("%s vows" % NODE_PATH)
+  run("%s coffee -c amp.coffee" % NODE_PATH)
+
+Instead you can now do:
+
+.. syntax:: python
+
+  with env.NODE_PATH(node_libs):
+      run("vows")
+      run("coffee -c amp.coffee")
+
+That is, if you call a property on the ``env`` object which is composed of only
+the ``ABCDEFGHIJKLMNOPQRSTUVWXYZ_`` characters, then a `Python Context Manager
+<http://www.python.org/dev/peps/pep-0343/>`_ is generated which will manage the
+use of the environment variables for you.
+
+The manager has the following constructor signature:
+
+.. syntax:: python
+
+  manager(value, behaviour='append', sep=os.pathsep, reset=False)
+
+So, if you'd called ``env.PATH(value, behaviour)``, the way the ``value`` is
+treated will depend on the ``behaviour`` parameter which can be one of the
+following:
+
+* ``append`` -- appends value to the current ``$PATH``, i.e.
+  ``PATH=$PATH:<value>``
+
+* ``prepend`` -- prepends value to the current ``$PATH``, i.e.
+  ``PATH=<value>:$PATH``
+
+* ``replace`` -- ignores ``$PATH`` altogether, i.e. ``PATH=<value>``
+
+The ``sep`` defaults to ``:`` on most platforms and determines how the values
+are concatenated. However, if you call the manager with no arguments at all or
+stringify it, it will return the string which would be used during execution,
+e.g.
+
+.. syntax:: python
+
+  print env.NODE_PATH               # NODE_PATH=$NODE_PATH:/opt/ampify/libs/node
+
+The various calls can be also nested, e.g.
+
+.. syntax:: python
+
+  with env.PATH('/usr/local/bin'):
+      with env.PATH('/home/tav/bin'):
+          print env.PATH               # PATH=$PATH:/usr/local/bin:/home/tav/bin
+          with env.PATH('/opt/local/bin', 'replace'):
+              with env.PATH('/bin', 'prepend'):
+                  print env.PATH       # PATH=/bin:/opt/local/bin
+      print env.PATH                   # PATH=$PATH:/usr/local/bin
+
+You can specify ``reset=True`` to discard any nested values, e.g.
+
+.. syntax:: python
+
+  with env.PATH('/opt/ampify/bin', 'prepend'):
+      with env.PATH('/home/tav/bin', reset=True):
+          print env.PATH                              # PATH=$PATH:/home/tav/bin
 
 
 Extension Hooks
@@ -207,9 +281,9 @@ hooks by using the new ``@hook`` decorator, e.g.
       port = prompt("port number?", default=8080, validate=int)
       env.config.port = port
 
-For the moment, only the following hooks are defined. It's possible that I may
-add support for individual ``<command>.before`` and ``<command>.after`` hooks,
-but so far I haven't needed that functionality.
+For the moment, only the following builtin hooks are defined. It's possible that
+I may add support for individual ``<command>.before`` and ``<command>.after``
+hooks, but so far I haven't needed that functionality.
 
 +---------------------+-----------------------------+------------------------+
 | Hook Name           | Hook Function Signature     | Description            |
@@ -240,6 +314,66 @@ but so far I haven't needed that functionality.
   Run when the commands listing has finished running in response to ``fab`` or
   ``fab --list``. Useful for adding extra info.
 
+You can access the functions attached to a specific hook by calling
+``hook.get()``, e.g.
+
+.. syntax:: python
+
+  functions = hook.get('config.loaded')
+
+You can also define your own custom hooks and call the attached functions by
+using ``hook.call()``. This takes the hook name as the first parameter and all
+subsequent parameters are used when calling the hook's attached functions.
+
+Here's an example that shows ``hook.call()`` in action along with ``env.hook``
+and the ability to attach the same function to multiple hooks by passing
+multiple names to the ``@hook`` decorator:
+
+.. syntax:: python
+
+  @hook('deploy.success', 'deploy.failure')
+  def irc_notify(release_id, info=None):
+      client = IrcClient('devbot', 'irc.freenode.net', '#esp')
+      if env.hook == 'deploy.success':
+          client.msg("Successfully deployed: %s" % release_id)
+      else:
+          client.msg("Failed deployment: %s" % release_id)
+
+
+  @hook('deploy.success')
+  def webhook_notify(release_id, info):
+      webhook.post({'id': release_id, 'payload': info})
+
+
+  @task
+  def deploy():
+      release_id = get_release_id()
+      try:
+          ...
+          info = get_release_info()
+      except Exception:
+          hook.call('deploy.failure', release_id)
+      else:
+          hook.call('deploy.success', release_id, info)
+
+And, finally, you can disable specific hooks via the ``--disable-hooks`` command
+line option which takes space-separated patterns, e.g.
+
+.. syntax:: console
+
+  $ fab deploy --disable-hooks 'config.loaded deploy.*'
+
+You can override these disabled hooks in turn with the ``--enable-hooks``
+option, e.g.
+
+.. syntax:: console
+
+  $ fab deploy --disable-hooks 'deploy.*' --enable-hooks 'deploy.success'
+
+Both ``hook.call()`` and ``hook.get()`` respect these command-line parameters,
+so if you ever need to access the raw hook registry dict, you can access it
+directly via ``hook.registry``.
+
 
 Interpolation & Directories Support
 -----------------------------------
@@ -247,11 +381,11 @@ Interpolation & Directories Support
 Fabric provides a number of builtin functions that let you make command line
 calls:
 
-* ``local`` -- runs a command on the local host.
+* ``local()`` -- runs a command on the local host.
 
-* ``run`` -- runs a command on a remote host.
+* ``run()`` -- runs a command on a remote host.
 
-* ``sudo`` -- runs a sudoed command on a remote host.
+* ``sudo()`` -- runs a sudoed command on a remote host.
 
 I've added two optional parameters to these. A ``dir`` parameter can be used to
 specify the directory from within which the command should be run, e.g.
@@ -309,7 +443,7 @@ to even physical multi-touch installations at the `Museum of Australian
 Democracy
 <http://www.moadoph.gov.au/exhibitions/prime-ministers-of-australia-exhibition/>`_.
 
-Unfortunately, I've consistently found the ``hosts`` and ``roles`` support
+Unfortunately, I've consistently found the ``@hosts`` and ``@roles`` support
 offered by Fabric to be sub-optimal for these dramatically different setups.
 
 And providing an API that covers the various scenarios is hard!
@@ -326,9 +460,6 @@ When doing a major upgrade of a web app, you might want to do something like:
 
 * Enable the web servers to continue serving requests normally.
 
-And the support for ``hosts`` and ``roles`` that Fabric provides is good enough
-in that context. However, 
-
 
 Context Runner
 --------------
@@ -336,10 +467,10 @@ Context Runner
 Parallel Deployment
 -------------------
 
-Like with the ``run`` context runner call, ``multirun`` also accepts a function
-to execute instead of a command string. The utility ``multilocal`` method
-leverages this functionality to run commands locally for each of the hosts in
-parallel, e.g.
+Like with the ``.run()`` context runner call, ``.multirun()`` also accepts a
+function to execute instead of a command string. The utility ``.multilocal()``
+method leverages this functionality to run commands locally for each of the
+hosts in parallel, e.g.
 
 .. syntax:: python
 
@@ -349,7 +480,7 @@ parallel, e.g.
   def db_backup():
       env('db-servers').multilocal('backup.rb {host}')
 
-Behind the scenes, ``multirun`` uses ``fork`` and `domain sockets
+Behind the scenes, ``.multirun()`` uses ``fork()`` and `domain sockets
 <http://en.wikipedia.org/wiki/Unix_domain_socket>`_, so it'll only work on Unix
 platforms. You can specify the maximum number of parallel processes to spawn at
 any one time by specifying ``env.multirun_pool_size`` which is set to ``10`` by
@@ -359,7 +490,7 @@ default, e.g.
 
   env.multirun_pool_size = 200
 
-And, oh, there's also a ``multisudo`` for your convenience.
+And, oh, there's also a ``.multisudo()`` for your convenience.
 
 
 Fabric Shell
@@ -516,80 +647,6 @@ take advantage of context runners, e.g.
   @shell
   def backup(spec, arg):
       env().multirun(...)
-
-
-Environment Variable Manager
-----------------------------
-
-When calling various command line tools, you often have to mess with environment
-variables like ``$PATH``, ``$NODE_PATH``, ``$PYTHONPATH``, etc. To deal with
-this, Fabric forced you to write things like:
-
-.. syntax:: python
-
-  NODE_PATH = "NODE_PATH=$NODE_PATH:%s" % node_libs
-  run("%s vows" % NODE_PATH)
-  run("%s coffee -c amp.coffee" % NODE_PATH)
-
-Instead you can now do:
-
-.. syntax:: python
-
-  with env.NODE_PATH(node_libs):
-      run("vows")
-      run("coffee -c amp.coffee")
-
-That is, if you call a property on the ``env`` object which is composed of only
-the ``ABCDEFGHIJKLMNOPQRSTUVWXYZ_`` characters, then a `Python Context Manager
-<http://www.python.org/dev/peps/pep-0343/>`_ is generated which will manage the
-use of the environment variables for you.
-
-The manager has the following constructor signature:
-
-.. syntax:: python
-
-  manager(value, behaviour='append', sep=os.pathsep, reset=False)
-
-So, if you'd called ``env.PATH(value, behaviour)``, the way the ``value`` is
-treated will depend on the ``behaviour`` parameter which can be one of the
-following:
-
-* ``append`` -- appends value to the current ``$PATH``, i.e.
-  ``PATH=$PATH:<value>``
-
-* ``prepend`` -- prepends value to the current ``$PATH``, i.e.
-  ``PATH=<value>:$PATH``
-
-* ``replace`` -- ignores ``$PATH`` altogether, i.e. ``PATH=<value>``
-
-The ``sep`` defaults to ``:`` on most platforms and determines how the values
-are concatenated. However, if you call the manager with no arguments at all or
-stringify it, it will return the string which would be used during execution,
-e.g.
-
-.. syntax:: python
-
-  print env.NODE_PATH               # NODE_PATH=$NODE_PATH:/opt/ampify/libs/node
-
-The various calls can be also nested, e.g.
-
-.. syntax:: python
-
-  with env.PATH('/usr/local/bin'):
-      with env.PATH('/home/tav/bin'):
-          print env.PATH               # PATH=$PATH:/usr/local/bin:/home/tav/bin
-          with env.PATH('/opt/local/bin', 'replace'):
-              with env.PATH('/bin', 'prepend'):
-                  print env.PATH       # PATH=/bin:/opt/local/bin
-      print env.PATH                   # PATH=$PATH:/usr/local/bin
-
-You can specify ``reset=True`` to discard any nested values, e.g.
-
-.. syntax:: python
-
-  with env.PATH('/opt/ampify/bin', 'prepend'):
-      with env.PATH('/home/tav/bin', reset=True):
-          print env.PATH                              # PATH=$PATH:/home/tav/bin
 
 
 Command Line Listing
@@ -789,8 +846,8 @@ minor optimisations to Fabric, e.g.
 
 * Removed repeated local imports within functions.
 
-* Removed redundant double-wrapping of functions within the ``hosts`` and
-  ``roles`` decorators.
+* Removed redundant double-wrapping of functions within the ``@hosts`` and
+  ``@roles`` decorators.
 
 
 Colors Support
@@ -834,9 +891,10 @@ You can find the color functions in the ``fabric.colors`` module.
 Logging Improvements
 --------------------
 
-The builtin ``puts`` and ``fastprint`` logging functions have also been extended
-with the optional ``format`` parameter and ``env.format`` support similar to the
-``local`` and ``run`` builtins, so that instead of having to do something like:
+The builtin ``puts()`` and ``fastprint()`` logging functions have also been
+extended with the optional ``format`` parameter and ``env.format`` support
+similar to the ``local()`` and ``run()`` builtins, so that instead of having to
+do something like:
 
 .. syntax:: python
 
@@ -913,7 +971,7 @@ It completes on all available commands and command line options, e.g.
 .. syntax:: console
 
   $ fab --dis<tab>
-  --disable-known-hosts    --display
+  --disable-known-hosts    --disable-hooks    --display
 
 Also, since Fabric has no way of knowing which `command line env flags`_ and
 contexts you might be using, you can specify additional autocompletion items as
