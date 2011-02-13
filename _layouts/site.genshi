@@ -64,7 +64,7 @@ license: Public Domain
 <div id="main">
 
 	<div id="site-header">
-		<a href="/" id="site-title" title="Tav's Blog">
+		<a href="/" id="site-title" title="${site_title}">
 			Tav's Blog &rarr;
 		</a>
 		<div id="site-links">

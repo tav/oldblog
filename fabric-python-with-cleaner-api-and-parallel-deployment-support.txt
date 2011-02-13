@@ -288,11 +288,11 @@ hooks, but so far I haven't needed that functionality.
 +---------------------+-----------------------------+------------------------+
 | Hook Name           | Hook Function Signature     | Description            |
 +=====================+=============================+========================+
-| ``exec.before``     | ``func(cmds, cmds_to_run)`` | |hook-exec-before|     |
+| ``commands.before`` | ``func(cmds, cmds_to_run)`` | |hook-commands-before| |
 +---------------------+-----------------------------+------------------------+
 | ``config.loaded``   | ``func()``                  | |hook-config-loaded|   |
 +---------------------+-----------------------------+------------------------+
-| ``exec.after``      | ``func()``                  | |hook-exec-after|      |
+| ``commands.after``  | ``func()``                  | |hook-commands-after|  |
 +---------------------+-----------------------------+------------------------+
 | ``listing.display`` | ``func()``                  | |hook-listing-display| |
 +---------------------+-----------------------------+------------------------+
@@ -301,13 +301,13 @@ hooks, but so far I haven't needed that functionality.
 
   Run after any config file has been parsed and loaded.
 
-.. |hook-exec-after| replace::
+.. |hook-commands-after| replace::
 
-  Run after all the commands are run.
+  Run after *all* the commands are run.
 
-.. |hook-exec-before| replace::
+.. |hook-commands-before| replace::
 
-  Run before all the commands are run (including the config handling).
+  Run before *all* the commands are run (including the config handling).
 
 .. |hook-listing-display| replace::
 
@@ -443,8 +443,8 @@ to even physical multi-touch installations at the `Museum of Australian
 Democracy
 <http://www.moadoph.gov.au/exhibitions/prime-ministers-of-australia-exhibition/>`_.
 
-Unfortunately, I've consistently found the ``@hosts`` and ``@roles`` support
-offered by Fabric to be sub-optimal for these dramatically different setups.
+But for anything but the simplest of setups, the support offered by Fabric in
+terms of ``@hosts`` and ``@roles`` is far from satisfactory.
 
 And providing an API that covers the various scenarios is hard!
 
@@ -467,9 +467,106 @@ Context Runner
 Parallel Deployment
 -------------------
 
-Like with the ``.run()`` context runner call, ``.multirun()`` also accepts a
-function to execute instead of a command string. The utility ``.multilocal()``
-method leverages this functionality to run commands locally for each of the
+You no longer have to patiently wait whilst Fabric runs your commands on each
+server one by one. By taking advantage of the ``.multirun()`` context runner
+call, you can now run commands in parallel, e.g.
+
+.. syntax:: python
+
+  @task
+  def deploy():
+      responses = env('app-servers').multirun('make build')
+      if failed(responses):
+          ...
+
+The above will run ``make build`` on the ``app-servers`` in parallel -- reducing
+your deployment time significantly! The returned ``responses`` will be a list of
+the individual responses from each host in order.
+
+If any of the hosts threw an exception, then the corresponding element within
+``responses`` will contain it. Two new builtins are provided to quickly
+determine the nature of the response:
+
+* ``succeeded`` -- returns True if all the response items were successful.
+
+* ``failed`` -- returns True if any of the response items failed or threw an
+  exception.
+
+You can loop through the response and the corresponding host/setting values by
+using the ``.ziphost()`` and ``.zipsetting()`` generator methods on the returned
+list-like ``responses`` object, e.g.
+
+.. syntax:: python
+
+  @task
+  def deploy():
+      responses = env('app-servers').multirun('make build')
+      for response, host in responses.ziphost():
+          ...
+
+By default you see the output from all hosts, but sometimes you just want a
+summary, so you can specify ``condensed=True`` to ``.multirun()`` and it'll
+provide a much quieter, running report instead, e.g.
+
+::
+
+  [multirun] Running 'make build test' on 31 hosts
+  [multirun] Finished on dev2.ampify.it
+  [multirun] Finished on dev7.ampify.it
+  [multirun] 2/31 completed ...
+
+Also, when dealing with large number of servers, you'll run into laggy servers
+from time to time. And depending on your setup, it may not be critical that
+*all* servers run the command. To help with this ``.multirun()`` takes two
+optional parameters:
+
+* ``laggards_timeout`` -- the number of seconds to wait for laggards once the
+  satisfactory number of responses have been received -- needs to be an int
+  value.
+
+* ``wait_for`` -- the number of responses to wait for -- this should be an int,
+  but can also be a float value between ``0.0`` and ``1.0``, in which case it'll
+  be used as the factor of the total number of servers.
+
+So, for the following:
+
+.. syntax:: python
+
+  responses = env('app-servers').multirun(
+      'make build', laggards_timeout=20, wait_for=0.8
+      )
+
+The ``make build`` command will be run on the various ``app-servers`` and once
+80% of the responses have been received, it'll continue to wait up to 20 seconds
+for any laggy servers before returning the responses.
+
+The ``responses`` list will contain the new ``TIMEOUT`` builtin object for the
+servers that didn't return a response in time Like with the ``.run()`` context
+runner call, ``.multirun()`` also accepts a function to execute instead of a
+command string, e.g.
+
+.. syntax:: python
+
+  env.format = True
+
+
+  def migrate_db():
+      run('./manage.py schemamigration --auto {app_name}')
+      run('./manage.py migrate {app_name}')
+
+
+  @task
+  def deploy():
+      env('frontends').multirun('routing --disable')
+      env('app-nodes').multirun(migrate_db)
+      env('frontends').multirun('routing --enable')
+
+
+  @task
+  def migrate():
+      env('app-nodes').multirun(migrate_db)
+
+There's also a ``.multilocal()`` which runs the command locally for each of the
 hosts in parallel, e.g.
 
 .. syntax:: python
@@ -489,6 +586,15 @@ default, e.g.
 .. syntax:: python
 
   env.multirun_pool_size = 200
+
+There's also an ``env.multirun_child_timeout`` which specifies the number of
+seconds a child process will wait to hear from the parent before committing
+suicide. It defaults to ``10`` seconds, but you can configure it to suit your
+setup:
+
+.. syntax:: python
+
+  env.multirun_child_timeout = 24
 
 And, oh, there's also a ``.multisudo()`` for your convenience.
 
