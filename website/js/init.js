@@ -73,7 +73,6 @@ var setupGoogleAnalytics = function () {
     return;
   window._gaq = [
     ['_setAccount', GOOGLE_ANALYTICS_CODE],
-    ['_setDomainName', GOOGLE_ANALYTICS_HOST],
     ['_trackPageview']
     ];
   (function () {
@@ -83,7 +82,7 @@ var setupGoogleAnalytics = function () {
     if (proto === 'https:') {
       ga.src = 'https://ssl.google-analytics.com/ga.js';
     } else {
-      ga.src = 'http://ssl.google-analytics.com/ga.js';
+      ga.src = 'http://www.google-analytics.com/ga.js';
     }
     var script = document.getElementsByTagName('script')[0];
     script.parentNode.insertBefore(ga, script);

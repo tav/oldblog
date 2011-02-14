@@ -57,7 +57,7 @@ license: Public Domain
       Typekit.load();
     } catch(e) {};
   </script>
-  <script src="js/init.js"></script>
+  <script src="js/init.js?decafbad"></script>
 </head>
 <body>
 

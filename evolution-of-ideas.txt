@@ -8,11 +8,9 @@ license: Public Domain
 Evolution of Ideas
 ==================
 
-.. image:: http://upload.wikimedia.org/wikipedia/commons/9/9c/Darwin_ape.jpg
+.. image:: http://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Editorial_cartoon_depicting_Charles_Darwin_as_an_ape_%281871%29.jpg/256px-Editorial_cartoon_depicting_Charles_Darwin_as_an_ape_%281871%29.jpg
            :alt: Caricature of Charles Darwin
            :class: float-right-aligned
-           :width: 200
-           :height: 253
 
 Ideas require the right kind of incubation. They need to be nurtured before
 being taken into the world -- at the right moment in time.
