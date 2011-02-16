@@ -136,6 +136,13 @@ You can then keep your fabfiles clean from hard-coded values, e.g.
       with cd(env.config.app_directory):
           ...
 
+Having configurable values also means that frameworks like Django could ship
+default tasks for you to use, e.g.
+
+.. syntax:: python
+
+  from django.fabric import deploy, test
+
 
 Script Execution
 ----------------
@@ -437,51 +444,99 @@ You can then use it without having to constantly set ``format=True``, e.g.
 Fabric Contexts
 ---------------
 
-Deployment setups vary tremendously. I've used Fabric for everything from simple
-single-machine deployments to web app deployments across multiple data centers
-to even physical multi-touch installations at the `Museum of Australian
-Democracy
+I've used Fabric for everything from simple single-machine deployments to web
+app deployments across multiple data centers to even physical multi-touch
+installations at the `Museum of Australian Democracy
 <http://www.moadoph.gov.au/exhibitions/prime-ministers-of-australia-exhibition/>`_.
 
-But for anything but the simplest of setups, the support offered by Fabric in
-terms of ``@hosts`` and ``@roles`` is far from satisfactory.
+And for everything but the simplest of setups, I've had to work around the
+limited support offered by Fabric's ``@hosts`` and ``@roles`` in terms of:
 
-And providing an API that covers the various scenarios is hard!
+* Managing configurable ``env`` values when dealing with different servers.
 
-When doing a major upgrade of a web app, you might want to do something like:
+* Executing workflows involving distinct sets of servers within the same Fabric
+  command, e.g. app servers, db servers, load balancers, etc.
 
-* Switch the web servers to show a "planned maintenance" notice.
-
-* Migrate the database to new schemas.
-
-* Upgrade the app servers.
-
-* Update app routing on the configuration servers.
-
-* Enable the web servers to continue serving requests normally.
-
-
-Context Runner
---------------
-
-Parallel Deployment
--------------------
-
-You no longer have to patiently wait whilst Fabric runs your commands on each
-server one by one. By taking advantage of the ``.multirun()`` context runner
-call, you can now run commands in parallel, e.g.
+And, clearly, I am `not
+<http://lists.gnu.org/archive/html/fab-user/2009-05/msg00027.html>`_ `the
+<http://lists.nongnu.org/archive/html/fab-user/2010-09/msg00023.html>`_ `only
+<http://lists.nongnu.org/archive/html/fab-user/2010-12/msg00020.html>`_ `one
+<http://lists.nongnu.org/archive/html/fab-user/2011-02/msg00005.html>`_ who has
+experienced this pain. So I've introduced the notion of "contexts" and an
+``env()`` context runner into the Fabric core. This means that you can now do
+things like:
 
 .. syntax:: python
 
-  @task
+  @task('app-servers')
   def deploy():
-      responses = env('app-servers').multirun('make build')
-      if failed(responses):
-          ...
 
-The above will run ``make build`` on the ``app-servers`` in parallel -- reducing
-your deployment time significantly! The returned ``responses`` will be a list of
-the individual responses from each host in order.
+      env().run('./manage.py shutdown {app_directory}')
+      env('build-servers').run('make build')
+      env().run('./manage.py upgrade {app_directory}'
+      env().run('./manage.py start {app_directory}'
+
+
+And run it with a simple:
+
+.. syntax:: console
+
+  $ fab deploy
+
+That's right. You no longer have to run insanely long command strings like:
+
+.. syntax:: console
+
+  $ fab run_tests freeze_requirements update_repository create_snapshot update_virtualenv update_media update_nginx graceful_migrate
+
+You might occasionally want to make a call on a subset of hosts for particular
+contexts. A utility ``.select()`` method is provided to help with this. If you
+pass it an integer value, it'll randomly choose as many values from the
+settings, e.g.
+
+.. syntax:: python
+
+  @task('build-servers')
+  def build():
+      env().select(3).run('{build_command}')
+
+The ``.select()`` method can also take a filter function to let you do more
+custom selection, e.g. to select 2 build servers for each platform, you might do
+something like:
+
+.. syntax:: python
+
+  from itertools import groupby
+  from random import sample
+
+
+  def selector(settings):
+      settings = sorted(settings, key=lambda s: s['platform'])
+      grouped = groupby(settings, lambda s: s['platform'])
+      return [sample(list(group), 2) for platform, group in grouped]
+
+
+  @task('build-servers')
+  def build():
+      env().select(selector).run('{build_command}')
+
+And since deployment setups vary tremendously, instead of trying to make one
+size fit all, I've made it so that you can define your own
+``env.get_settings()`` function, e.g.
+
+.. syntax:: python
+
+  from fabric.network import host_regex
+
+
+  def get_settings(ctx):
+      return [{
+          'host_string': host_string,
+          'host': host_regex.match(host_string).groupdict()['host']
+          } for host_string in ctx]
+
+
+  env.get_settings = get_settings
 
 If any of the hosts threw an exception, then the corresponding element within
 ``responses`` will contain it. Two new builtins are provided to quickly
@@ -503,6 +558,38 @@ list-like ``responses`` object, e.g.
       responses = env('app-servers').multirun('make build')
       for response, host in responses.ziphost():
           ...
+
+You can override the context for a task directly from the command line with the
+new ``@context`` syntax, e.g.
+
+.. syntax:: console
+
+  $ fab example1 @dev1.ampify.it
+  ['dev1.ampify.it']
+
+
+Parallel Deployment
+-------------------
+
+You no longer have to patiently wait whilst Fabric runs your commands on each
+server one by one. By taking advantage of the ``.multirun()`` context runner
+call, you can now run commands in parallel, e.g.
+
+.. syntax:: python
+
+  @task
+  def deploy():
+      responses = env('app-servers').multirun('make build')
+      if failed(responses):
+          ...
+
+The above will run ``make build`` on the ``app-servers`` in parallel -- reducing
+your deployment time significantly! The returned ``responses`` will be a list of
+the individual responses from each host in order, just like with ``.run()``.
+
+If any of the hosts threw an exception, then the corresponding element within
+``responses`` will contain it. Exceptions will not be raised, irregardless of
+whether you'd set ``warn_only`` -- it is up to you to deal with them.
 
 By default you see the output from all hosts, but sometimes you just want a
 summary, so you can specify ``condensed=True`` to ``.multirun()`` and it'll
@@ -541,7 +628,7 @@ The ``make build`` command will be run on the various ``app-servers`` and once
 for any laggy servers before returning the responses.
 
 The ``responses`` list will contain the new ``TIMEOUT`` builtin object for the
-servers that didn't return a response in time Like with the ``.run()`` context
+servers that didn't return a response in time. Like with the ``.run()`` context
 runner call, ``.multirun()`` also accepts a function to execute instead of a
 command string, e.g.
 
@@ -622,7 +709,7 @@ method of a context runner. Here's sample code to enable ``fab shell``:
 
 .. syntax:: python
 
-  @task('app-servers', run_per_context=False)
+  @task('app-servers')
   def shell():
       """start a shell within the current context"""
 
