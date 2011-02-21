@@ -1,7 +1,6 @@
 ---
-created: 2011-02-14, 08:54
+created: 2011-02-21, 05:38
 layout: post
-type: draft
 license: Public Domain
 ---
 
@@ -192,8 +191,8 @@ Behind the scenes, ``execute()`` will:
   the response to the screen.
 
 As you can imagine, ``execute()`` makes it very easy to rapidly try out and
-develop your development logic. Your scripts can be in whatever languages you
-can run on your remote hosts -- Ruby, Perl, Bash, Python, JavaScript, whatever.
+develop your deployment logic. Your scripts can be in whatever languages you can
+run on your remote hosts -- Ruby, Perl, Bash, Python, JavaScript, whatever.
 
 
 Environment Variable Manager
@@ -218,7 +217,7 @@ Instead you can now do:
       run("coffee -c amp.coffee")
 
 That is, if you call a property on the ``env`` object which is composed of only
-the ``ABCDEFGHIJKLMNOPQRSTUVWXYZ_`` characters, then a `Python Context Manager
+upper-case ASCII characters, then a `Python Context Manager
 <http://www.python.org/dev/peps/pep-0343/>`_ is generated which will manage the
 use of the environment variables for you.
 
@@ -238,10 +237,10 @@ following:
 * ``prepend`` -- prepends value to the current ``$PATH``, i.e.
   ``PATH=<value>:$PATH``
 
-* ``replace`` -- ignores ``$PATH`` altogether, i.e. ``PATH=<value>``
+* ``replace`` -- ignores current ``$PATH`` altogether, i.e. ``PATH=<value>``
 
 The ``sep`` defaults to ``:`` on most platforms and determines how the values
-are concatenated. However, if you call the manager with no arguments at all or
+are concatenated. And if you call the manager with no arguments at all or
 stringify it, it will return the string which would be used during execution,
 e.g.
 
@@ -454,7 +453,7 @@ limited support offered by Fabric's ``@hosts`` and ``@roles`` in terms of:
 
 * Managing configurable ``env`` values when dealing with different servers.
 
-* Executing workflows involving distinct sets of servers within the same Fabric
+* Executing workflows involving different sets of servers within the same Fabric
   command, e.g. app servers, db servers, load balancers, etc.
 
 And, clearly, I am `not
@@ -468,14 +467,17 @@ things like:
 
 .. syntax:: python
 
-  @task('app-servers')
+  def purge_caches():
+      run('./purge-redis-cache', dir=env.redis_directory)
+      run('./purge-varnish-cache', dir=env.varnish_directory)
+
+
+  @task
   def deploy():
-
-      env().run('./manage.py shutdown {app_directory}')
-      env('build-servers').run('make build')
-      env().run('./manage.py upgrade {app_directory}'
-      env().run('./manage.py start {app_directory}'
-
+      env('app-servers').run('./manage.py set-read-only {app_directory}')
+      env('db-servers').run('./upgrade.py {db_name}')
+      env('cache-servers').run(purge_caches)
+      env('app-servers').run('./manage.py restart {app_directory}')
 
 And run it with a simple:
 
@@ -483,22 +485,146 @@ And run it with a simple:
 
   $ fab deploy
 
-That's right. You no longer have to run insanely long command strings like:
+That's right. You no longer have to manually manage ``env`` values or run
+insanely long command strings like:
 
 .. syntax:: console
 
   $ fab run_tests freeze_requirements update_repository create_snapshot update_virtualenv update_media update_nginx graceful_migrate
 
+You can call ``env()`` with a sequence of contexts as arguments and it'll act as
+a constructor for the new context runner object, e.g. with multiple contexts:
+
+.. syntax:: python
+
+  env('app-servers', 'db-servers')
+
+And when you call a context runner method, e.g. ``.run()``, it will be run for
+each of the host/settings returned by ``env.get_settings()`` for the given
+contexts. So, for the following:
+
+.. syntax:: python
+
+  env('app-servers').run('./manage.py upgrade {app_directory}')
+
+What happens behind the scenes is somewhat equivalent to:
+
+.. syntax:: python
+
+  ctx = ('app-servers',)
+  responses = []
+
+  for cfg in env.get_settings(ctx):
+      with settings(ctx=ctx, **cfg):
+          response = run('./manage.py upgrade {app_directory}')
+          responses.append(response)
+
+  return responses
+
+That is, it is up to ``env.get_settings()`` to return the appropriate sequence
+of hosts and ``env`` settings for the given contexts, e.g.
+
+.. syntax:: python
+
+  [{'host_string': 'amp@appsrv21.espians.com', 'host': 'appsrv21.espians.com',
+    'app_directory': '/opt/ampify'},
+   {'host_string': 'admin@appsrv23.espians.com', 'host': 'appsrv23.espians.com',
+    'app_directory': '/var/ampify', 'shell': '/bin/tcsh -c'}]
+
+And since deployment setups vary tremendously, instead of trying to make one
+size fit all, I've made it so that you can define your own
+``env.get_settings()`` function, e.g.
+
+.. syntax:: python
+
+  from fabric.network import host_regex
+
+
+  def get_settings(contexts):
+      return [{
+          'host_string': context,
+          'host': host_regex.match(context).groupdict()['host']
+          } for context in contexts]
+
+
+  env.get_settings = get_settings
+
+It doesn't matter to Fabric what "context" means to you. In the above, for
+example, contexts are treated as hosts, e.g.
+
+.. syntax:: python
+
+  env('dev2.ampify.it', 'dev6.ampify.it')
+
+The default ``env.get_settings()`` interprets "contexts" in a specific way and
+this is described in the `Default Settings Manager`_ section. But you can simply
+override it to suit your specific deployment setup.
+
+
+Context Runner
+--------------
+
+The context runner supports a number of methods, including:
+
+* ``.execute()``
+
+* ``.local()``
+
+* ``.reboot()``
+
+* ``.run()``
+
+* ``.sudo()``
+
+They behave in the exact same way as their builtin counterparts. The return
+value for each of the calls will be a list-like object containing the response
+for each host in order, e.g.
+
+.. syntax:: python
+
+  responses = env('app-servers').sudo('make install')
+  for response in responses:
+      ...
+
+You can also pass in a function as the first parameter to ``.run()``. It will
+then be run for each of the hosts/settings. You can specify a ``warn_only=True``
+parameter to suppress and return any exceptions instead of raising them
+directly, e.g.
+
+.. syntax:: python
+
+  responses = env('app-servers').run(some_func, warn_only=True)
+  if succeeded(responses):
+      ...
+
+In addition, two new builtins are provided to quickly determine the nature of
+the responses:
+
+* ``succeeded`` -- returns True if all the response items were successful.
+
+* ``failed`` -- returns True if any of the response items failed or threw an
+  exception.
+
+You can loop through the response and the corresponding host/setting values by
+using the ``.ziphost()`` and ``.zipsetting()`` generator methods on the returned
+list-like ``responses`` object, e.g.
+
+.. syntax:: python
+
+  responses = env('app-servers').multirun('make build')
+  for response, host in responses.ziphost():
+      ...
+
 You might occasionally want to make a call on a subset of hosts for particular
 contexts. A utility ``.select()`` method is provided to help with this. If you
-pass it an integer value, it'll randomly choose as many values from the
+pass it an integer value, it'll randomly sample as many values from the
 settings, e.g.
 
 .. syntax:: python
 
-  @task('build-servers')
+  @task
   def build():
-      env().select(3).run('{build_command}')
+      env('build-servers').select(3).run('{build_command}')
 
 The ``.select()`` method can also take a filter function to let you do more
 custom selection, e.g. to select 2 build servers for each platform, you might do
@@ -516,56 +642,9 @@ something like:
       return [sample(list(group), 2) for platform, group in grouped]
 
 
-  @task('build-servers')
-  def build():
-      env().select(selector).run('{build_command}')
-
-And since deployment setups vary tremendously, instead of trying to make one
-size fit all, I've made it so that you can define your own
-``env.get_settings()`` function, e.g.
-
-.. syntax:: python
-
-  from fabric.network import host_regex
-
-
-  def get_settings(ctx):
-      return [{
-          'host_string': host_string,
-          'host': host_regex.match(host_string).groupdict()['host']
-          } for host_string in ctx]
-
-
-  env.get_settings = get_settings
-
-If any of the hosts threw an exception, then the corresponding element within
-``responses`` will contain it. Two new builtins are provided to quickly
-determine the nature of the response:
-
-* ``succeeded`` -- returns True if all the response items were successful.
-
-* ``failed`` -- returns True if any of the response items failed or threw an
-  exception.
-
-You can loop through the response and the corresponding host/setting values by
-using the ``.ziphost()`` and ``.zipsetting()`` generator methods on the returned
-list-like ``responses`` object, e.g.
-
-.. syntax:: python
-
   @task
-  def deploy():
-      responses = env('app-servers').multirun('make build')
-      for response, host in responses.ziphost():
-          ...
-
-You can override the context for a task directly from the command line with the
-new ``@context`` syntax, e.g.
-
-.. syntax:: console
-
-  $ fab example1 @dev1.ampify.it
-  ['dev1.ampify.it']
+  def build():
+      env('build-servers').select(selector).run('{build_command}')
 
 
 Parallel Deployment
@@ -686,6 +765,64 @@ setup:
 And, oh, there's also a ``.multisudo()`` for your convenience.
 
 
+Contextualised Tasks
+--------------------
+
+If you call ``env()`` without any contexts, it will use the contexts defined in
+the ``env.ctx`` tuple. This is automatically set by the context runner methods,
+but you can also set it by specifying contexts to the ``@task()`` decorator,
+e.g.
+
+.. syntax:: python
+
+  @task('app-servers')
+  def single():
+      print env.ctx
+
+
+  @task('app-servers', 'db-servers')
+  def multiple():
+      print env.ctx
+
+All this does is set ``env.ctx`` to the new tuple value, e.g.
+
+.. syntax:: console
+
+  $ fab single
+  ('app-servers',)
+
+  $ fab multiple
+  ('app-servers', 'db-servers')
+
+This is useful if you want to specify default contexts for a specific Fabric
+command, e.g.
+
+.. syntax:: python
+
+  @task('app-servers')
+  def deploy():
+
+      env().run('./manage.py set-read-only {app_directory}')
+      env('db-servers').run('./upgrade.py {db_name}')
+      env().run('./manage.py restart {app_directory}')
+
+One reason you might want to use default contexts is so that you can later use
+the new command line ``@context`` syntax to override it. So if you wanted to
+deploy to a specific server, perhaps a new one, you could do something like:
+
+.. syntax:: console
+
+  $ fab deploy @serv21.espians.com
+
+And ``serv21.espians.com`` will be used in place of ``app-servers``. You can
+specify multiple ``@context`` parameters on the command line and they will only
+apply to the immediately preceding Fabric command, e.g.
+
+.. syntax:: console
+
+  $ fab build @bld4.espians.com deploy @serv21.espians.com @serv22.espians.com
+
+
 Fabric Shell
 ------------
 
@@ -781,23 +918,18 @@ The following builtins are currently available:
 
 * ``.toggle-format`` -- toggles string formatting support.
 
-You can define your own by using the new ``@shell`` decorator, e.g.
+You can define your own using the new ``@shell`` decorator, e.g.
 
 .. syntax:: python
 
     @shell
     def python_version(spec, arg):
         with hide('running', 'output'):
-            if arg == 'full':
-                version = run('python -c "import sys; print sys.version"')
-            else:
-                version = run(
-                    "python -c 'import sys; print "
-                    '".".join(map(str, sys.version_info[:3]))\''
-                    )
+            version = run('./get-py-version')
         puts("python %s" % version)
 
-The above can then be called from within a shell, e.g.
+And since the above satisfies the necessary ``func(spec, arg)`` function
+signature, it can be called from within a shell, e.g.
 
 .. syntax:: irb
 
@@ -825,7 +957,8 @@ repeatedly for every host, e.g.
   def demo(spec, arg):
       print "Hello", arg.upper()
 
-The above can then be called from within a shell, e.g.
+The above can then be called from within a shell and it won't repeat for every
+host/setting, e.g.
 
 .. syntax:: irb
 
@@ -876,7 +1009,7 @@ commands without having to constantly type ``fab --list``. So now when you run
 
 You can of course still access the help message by running either ``fab -h`` or
 ``fab --help``. And you can hide commands from being listed by specifying
-``display=None`` with the ``@task`` decorator, e.g.
+``display=None`` to the ``@task`` decorator, e.g.
 
 .. syntax:: python
 
@@ -916,9 +1049,17 @@ of the following structure are automatically generated for each item:
   def production():
       puts("env.stage = production", prefix='system')
       env.stage = 'production'
+      config_file = env.config_file
+      if config_file:
+          if not isinstance(config_file, basestring):
+              config_file = '%s.yaml'
+          try:
+              env.config_file = config_file % stage
+          except TypeError:
+              env.config_file = config_file
 
-That is, it will update ``env.stage`` with the appropriate value and print out a
-message saying so, e.g.
+That is, it will update ``env.stage`` and ``env.config_file`` with the
+appropriate values and print out a message, e.g.
 
 .. syntax:: console
 
@@ -960,6 +1101,197 @@ environment stages and, again, the first is treated as the default, e.g.
   $ FAB_STAGES=development,production fab deploy
   [system] env.stage = development
   ...
+
+The staged deployment support is compatible with the `YAML Config`_ support. So
+if you set ``env.config_file`` to ``True``, it will automatically look for a
+``<stage>.yaml`` file, e.g. ``production.yaml``
+
+.. syntax:: python
+
+  env.config_file = True
+
+However if you set it to a string which can be formatted, it will be replaced
+with the name of the staged environment, e.g.
+
+.. syntax:: python
+
+  env.config_file = 'etc/ampify/%s.yaml'
+
+That is, for ``fab development``, the above will use
+``etc/ampify/development.yaml``. And, finally, if ``env.config_file`` is simply
+a string with no formatting characters, it will be used as is, i.e. the same
+config file irregardless of ``env.stage``.
+
+
+Default Settings Manager
+------------------------
+
+The default ``env.get_settings()`` can be found in the ``fabric.contrib.tav``
+module. If ``env.config_file`` support isn't enabled it mimics the traditional
+``@hosts`` behaviour, i.e. all the contexts are treated as host strings, e.g.
+
+.. syntax:: pycon
+
+  >>> env.get_settings(('admin@dev1.ampify.it', 'dev3.ampify.it:2222'))
+  [{'host': 'dev1.ampify.it',
+    'host_string': 'admin@dev1.ampify.it',
+    'port': '22',
+    'user': 'admin'},
+   {'host': 'dev3.ampify.it',
+    'host_string': 'dev3.ampify.it',
+    'port': '2222',
+    'user': 'tav'}]
+
+However, if ``env.config_file`` is enabled, then a YAML config file like the
+following is expected:
+
+.. syntax:: yaml
+
+  default:
+    shell: /bin/bash -l -c
+
+  app-servers:
+    directory: /var/ampify
+    hosts:
+      - dev1.ampify.it:
+          debug: on
+      - dev2.ampify.it
+      - dev3.ampify.it:
+          directory: /opt/ampify
+      - dev4.ampify.it
+
+  build-servers:
+    cmd: make build
+    directory: /var/ampify/build
+    hosts:
+      - build@dev5.ampify.it
+      - dev6.ampify.it:
+          user: tav
+      - dev7.ampify.it
+
+  hostinfo:
+    dev*.ampify.it:
+      user: dev
+      debug: off
+    dev3.ampify.it:
+      shell: /bin/tcsh -c
+    dev7.ampify.it:
+      user: admin
+
+In the root of the config, everything except the ``default`` and ``hostinfo``
+properties are assumed to be contexts. And in each of the contexts, everything
+except the ``hosts`` property is assumed to be an ``env`` value.
+
+Three distinct types of contexts are supported:
+
+* Host contexts -- any context containing the ``.`` character but no slashes,
+  e.g. ``dev1.ampify.it``.
+
+  .. syntax:: pycon
+
+      >>> env.get_settings(
+      ...     ('tav@dev1.ampify.it', 'dev7.ampify.it', 'dev3.ampify.it')
+      ... )
+      [{'debug': False,
+        'host': 'dev1.ampify.it',
+        'host_string': 'tav@dev1.ampify.it',
+        'port': '22',
+        'shell': '/bin/bash -l -c',
+        'user': 'tav'},
+       {'debug': False,
+        'host': 'dev7.ampify.it',
+        'host_string': 'dev7.ampify.it',
+        'port': '22',
+        'shell': '/bin/bash -l -c',
+        'user': 'admin'},
+       {'debug': False,
+        'host': 'dev3.ampify.it',
+        'host_string': 'dev3.ampify.it',
+        'port': '22',
+        'shell': '/bin/tcsh -c',
+        'user': 'dev'}]
+
+  The settings are composed in layers: first, any ``default`` values; any
+  matching ``*patterns`` in ``hostinfo``; any explicit matches within
+  ``hostinfo``; any specific information embedded within the context itself,
+  e.g. ``user@host:port``.
+
+* Non-host contexts, e.g. ``app-servers``.
+
+  .. syntax:: pycon
+
+      >>> env.get_settings(('app-servers',))
+      [{'debug': True,
+        'directory': '/var/ampify',
+        'host': 'dev1.ampify.it',
+        'host_string': 'dev1.ampify.it',
+        'port': '22',
+        'shell': '/bin/bash -l -c',
+        'user': 'dev'},
+       {'debug': False,
+        'directory': '/var/ampify',
+        'host': 'dev2.ampify.it',
+        'host_string': 'dev2.ampify.it',
+        'port': '22',
+        'shell': '/bin/bash -l -c',
+        'user': 'dev'},
+       {'debug': False,
+        'directory': '/opt/ampify',
+        'host': 'dev3.ampify.it',
+        'host_string': 'dev3.ampify.it',
+        'port': '22',
+        'shell': '/bin/tcsh -c',
+        'user': 'dev'},
+       {'debug': False,
+        'directory': '/var/ampify',
+        'host': 'dev4.ampify.it',
+        'host_string': 'dev4.ampify.it',
+        'port': '22',
+        'shell': '/bin/bash -l -c',
+        'user': 'dev'}]
+
+  First, the hosts are looked up in the ``hosts`` property of the specific
+  context and then a similar lookup is done for each of the hosts as with host
+  contexts with two minor differences:
+
+  1. Any context-specific values, e.g. the properties for ``app-servers``, are
+     added as a layer after any ``default`` values.
+
+  2. Any host-specific values defined within the context override everything
+     else.
+
+* Composite contexts -- made up of a non-host context followed by a slash and
+  comma-separated hosts, e.g. ``app-servers/dev1.ampify.it,dev3.ampify.it``.
+
+  .. syntax:: pycon
+
+      >>> env.get_settings(('app-servers/dev1.ampify.it,dev3.ampify.it',))
+      [{'debug': True,
+        'directory': '/var/ampify',
+        'host': 'dev1.ampify.it',
+        'host_string': 'dev1.ampify.it',
+        'port': '22',
+        'shell': '/bin/bash -l -c',
+        'user': 'dev'},
+       {'debug': False,
+        'directory': '/opt/ampify',
+        'host': 'dev3.ampify.it',
+        'host_string': 'dev3.ampify.it',
+        'port': '22',
+        'shell': '/bin/tcsh -c',
+        'user': 'dev'}]
+
+  These are looked up similarly to non-host contexts, except that instead of
+  looking for ``hosts`` within the config, the specified hosts are used. This is
+  particularly useful for overriding contexts to a subset of servers from the
+  command-line.
+
+All in all, I've tried to provide a reasonably flexible default -- but you are
+welcome to override it to suit your particular needs, e.g. you might want to
+load the config dynamically over the network, etc.
+
+Finally, it's worth noting that all responses are cached by the default
+``env.get_settings()`` -- making it very cheap to switch contexts.
 
 
 Hyphenated Commands
