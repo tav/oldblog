@@ -26,6 +26,7 @@ body {
 	font-family: Baskerville, 'Baskerville old face', 'Hoefler Text', Garamond, 'Times New Roman', serif;
 	font-size: 18px;
 	margin: 0;
+	min-width: 1080px;
 	padding: 0;
 	text-align: center;
 }
@@ -1056,9 +1057,9 @@ table.borderless-table, .borderless-table tr, .borderless-table td {
 
 .share {
 	text-align: right;
-	margin: 50px -20px 0px 0;
-	margin: 50px 0px 0px 0;
+	margin-top: 40px;
 	font-size: 14px;
+	float: right;
 }
 
 a.fb-share, a.fb-share:active, a.fb-share:hover, a.fb-share:visited {
@@ -1121,4 +1122,55 @@ a.twitter-share:active {
 
 .twitter-share-button iframe {
 	vertical-align: middle;
+}
+
+.metrics {
+	float: left;
+	text-align: left;
+	font-size: 14px;
+	margin-top: 33px;
+	margin-left: -5px;
+}
+
+.metrics a {
+	color: #000;
+	text-decoration: none;
+}
+
+.metrics a:hover {
+	color: #333;
+	text-decoration: underline;
+}
+
+.metrics span {
+	font-size: 14px;
+}
+
+#share-box {
+	width: 48px;
+	position: fixed;
+	top: 240px;
+	background: #fff;
+	padding: 6px 3px 0px 2px;
+	text-align: center;
+	-webkit-border-bottom-right-radius: 5px;
+	-moz-border-radius-bottomright: 5px;
+	border-bottom-right-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-radius-topright: 5px;
+	border-top-right-radius: 5px;
+	display: none;
+}
+
+#share-box div {
+	margin-bottom: 10px;
+	overflow: hidden;
+}
+
+#share-box a:hover {
+	opacity: 0.8;
+}
+
+#share-box strong {
+	font-size: 20px;
 }

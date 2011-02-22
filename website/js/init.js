@@ -2,6 +2,21 @@
 
 var startup = function () {
 
+  var shareBoxDisplayed = false;
+  var displayShareBox = function () {
+      $(document).unbind('scroll', displayShareBox);
+      setTimeout(function () {
+          if (shareBoxDisplayed) {
+              return;
+          }
+          shareBoxDisplayed = true;
+          $('#share-box').show();
+      }, 1400);
+  };
+
+  $(document).bind('scroll', displayShareBox);
+  setTimeout(displayShareBox, 5000);
+
   var query = '';
   $("a").each(function(idx, elm) {
 	if (elm.rel && elm.rel.indexOf('disqus:') >= 0) {
@@ -11,12 +26,12 @@ var startup = function () {
 
   $.getScript('http://disqus.com/forums/' + DISQUS_FORUM + '/get_num_replies.js?' + query);
 
-  $('.twitter-share').click(function () {
+  $('.share-twitter').click(function () {
     window.open(this.href, 'twitter', 'width=600,height=429,scrollbars=yes');
     return false;
   });
 
-  $('.fb-share').click(function () {
+  $('.share-fb').click(function () {
     window.open(this.href, 'fb', 'width=600,height=400,scrollbars=yes');
     return false;
   });
@@ -94,6 +109,16 @@ var translate = function (elem) {
   if (elem.options[elem.selectedIndex].value !="") {
 	parent.location= url + encodeURIComponent(PAGE_URI) + elem.options[elem.selectedIndex].value;
   }
+};
+
+// -----------------------------------------------------------------------------
+// Load Metrics
+// -----------------------------------------------------------------------------
+
+var loadMetrics = function loadMetrics(data) {
+    $('.twitter-followers').text(data['twitter'] + " followers");
+    $('.github-followers').text(data['github'] + " followers");
+    $('.rss-readers').text(data['rss'] + " readers");
 };
 
 // -----------------------------------------------------------------------------

@@ -57,8 +57,47 @@ license: Public Domain
 <hr class="clear" />
 <div class="share">
 	If you found this post useful, then please<br />
-	<a href="http://www.facebook.com/sharer.php?t=${quote_plus(unescape(title))}&amp;${urlencode({'u': page_url})}" title="Share on Facebook" class="fb-share">share on Facebook</a>
-	<a href="http://twitter.com/share?text=RT+%40tav+${quote_plus(unescape(title))}&amp;${urlencode({'url': page_url})}" title="Retweet" class="twitter-share">or Tweet</a>
+	<a href="http://www.facebook.com/sharer.php?t=${quote_plus(unescape(title))}&amp;${urlencode({'u': page_url})}" title="Share on Facebook" class="fb-share share-fb">share on Facebook</a>
+	<a href="http://twitter.com/share?text=RT+%40tav+${quote_plus(unescape(title))}&amp;${urlencode({'url': page_url})}" title="Retweet" class="twitter-share share-twitter">or Tweet</a>
+</div>
+<div class="metrics">
+	<table cellspacing="0" cellpadding="3px">
+		<tr>
+			<td rowspan="2" width="24px" valign="top">
+				<a href="http://twitter.com/tav" title="Follow @tav on Twitter"><img src="gfx/icon.twitter.png" width="24px" height="24px" /></a>
+			</td>
+			<td valign="top">
+				<a href="http://twitter.com/tav" title="Follow @tav on Twitter"><strong class="twitter-followers">800+ followers</strong></a>
+			</td>
+			<td rowspan="2" width="24px" valign="top">
+				<a href="https://github.com/tav" title="Follow tav on GitHub"><img src="gfx/icon.octocat.png" width="24px" height="24px" /></a>
+			</td>
+			<td valign="top">
+				<a href="https://github.com/tav" title="Follow tav on GitHub"><strong class="github-followers">50+ followers</strong></a>
+			</td>
+			<td rowspan="2" width="24px" valign="top">
+				<a href="http://feeds.feedburner.com/asktav" rel="alternate"
+				 type="application/rss+xml" title="Subscribe to Tav's Blog"><img
+				 src="gfx/icon.rss.png" width="24px" height="24px" /></a>
+			</td>
+			<td valign="top">
+				<a href="http://feeds.feedburner.com/asktav" rel="alternate"
+				 type="application/rss+xml" title="Subscribe to Tav's Blog"><strong class="rss-readers">120+ readers</strong></a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a href="http://twitter.com/tav" title="Follow @tav on Twitter">Follow tav</a>
+			</td>
+			<td>
+				<a href="https://github.com/tav" title="Follow tav on GitHub">Follow on Github</a>
+			</td>
+			<td>
+				<a href="http://feeds.feedburner.com/asktav" rel="alternate"
+				   type="application/rss+xml" title="Subscribe to Tav's Blog">Subscribe via RSS</a>
+			</td>
+		</tr>
+	</table>
 </div>
 <hr class="clear" />
 <br />
@@ -76,5 +115,6 @@ license: Public Domain
 	href="http://${site_nick}.disqus.com/?${urlencode({'url': disqus_url})}">View the forum
 	thread.</a></noscript>
 </div>
+<script type="text/javascript" src="js/metrics.js?${int(time()/4)}" />
 
 </div>

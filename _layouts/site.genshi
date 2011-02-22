@@ -60,7 +60,32 @@ license: Public Domain
   <script src="js/init.js?decafbad"></script>
 </head>
 <body>
+<?python
+  from urllib import quote_plus, urlencode
 
+  def unescape(s):
+    s = s.replace("&lt;", "<")
+    s = s.replace("&gt;", ">")
+    s = s.replace("&amp;", "&")
+    return s
+
+  if __name__ == 'index.html':
+    page_url = 'http://tav.espians.com/'
+    page_title = quote_plus(site_title + u' — '.encode('utf-8') + unescape(title))
+  else:
+    page_url = 'http://tav.espians.com/' + __name__
+    if defined('title'):
+      page_title = quote_plus(unescape(title))
+    else:
+      page_title = site_title
+?>
+<div id="share-box">
+	<div><strong>Share !</strong></div>
+	<div><a href="http://twitter.com/share?text=RT+%40tav+${page_title}&amp;${urlencode({'url': page_url})}" title="Retweet" class="share-twitter"><img src="gfx/icon.twitter.png" width="32px" height="32px" /></a></div>
+	<div><a href="http://news.ycombinator.com/submitlink?${urlencode({'u': page_url})}&amp;t=${page_title}" title="Upvote on Hacker News"><img src="gfx/icon.hackernews.png" width="32px" height="32px" /></a></div>
+	<div><a href="http://www.reddit.com/submit?${urlencode({'url': page_url})}&amp;title=${page_title}" title="Reddit"><img src="gfx/icon.reddit.png" width="32px" height="32px" /></a></div>
+	<div><a href="http://www.facebook.com/sharer.php?t=${page_title}&amp;${urlencode({'u': page_url})}" title="Share on Facebook" class="share-fb"><img src="gfx/icon.facebook.png" width="32px" height="32px" /></a></div>
+</div>
 <div id="main">
 
 	<div id="site-header">
