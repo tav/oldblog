@@ -53,9 +53,6 @@ license: Public Domain
     DISQUS_FORUM = 'asktav';
     PAGE_URI = '${'http://tav.espians.com/' + __name__}'
     facebookXdReceiverPath = 'http://tav.espians.com/external/xd_receiver.html';
-    try{
-      Typekit.load();
-    } catch(e) {};
   </script>
   <script src="js/init.js?decafbad"></script>
 </head>
