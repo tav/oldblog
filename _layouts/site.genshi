@@ -20,7 +20,7 @@ license: Public Domain
 		title="RSS Feed for ${site_title}"
 		href="http://feeds.feedburner.com/asktav" />
   <link rel="stylesheet" type="text/css" media="screen" title="default"
-		href="css/site.css" />
+		href="css/site.css?decafbad2" />
   <style type="text/css" media="print">
     #ignore-this { display: none; }
   </style>
@@ -54,7 +54,7 @@ license: Public Domain
     PAGE_URI = '${'http://tav.espians.com/' + __name__}'
     facebookXdReceiverPath = 'http://tav.espians.com/external/xd_receiver.html';
   </script>
-  <script src="js/init.js?decafbad"></script>
+  <script src="js/init.js?decafbad2"></script>
 </head>
 <body>
 <?python
