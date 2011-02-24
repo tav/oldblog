@@ -1534,7 +1534,11 @@ it on your ``$PYTHONPATH``, i.e.
 
   $ git clone git://github.com/tav/pylibs.git
 
-  $ export PYTHONPATH=$PYTHONPATH:`pwd`/pylibs
+  $ cd pylibs
+
+  $ python setup.py
+
+  $ export PYTHONPATH=$PYTHONPATH:`pwd`
 
 Then create a ``fab`` script somewhere on your ``$PATH`` with the following
 content:
