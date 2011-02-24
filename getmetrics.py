@@ -1,5 +1,6 @@
 #! /usr/bin/env python
 
+from os.path import exists
 from simplejson import dumps as encode_json, loads as decode_json
 from time import sleep, time
 from traceback import print_exc
@@ -19,6 +20,23 @@ feedburner = "http://feedburner.google.com/api/awareness/1.0/GetFeedData?id=pel7
 twitter = "http://api.twitter.com/1/users/show/tav.json"
 
 # ------------------------------------------------------------------------------
+# Get Previous Info
+# ------------------------------------------------------------------------------
+
+prev_data = {}
+
+if exists(output):
+    try:
+        prev_file = open(output, 'rb')
+        prev_stream = prev_file.read().split('(', 1)[1].rsplit(')', 1)[0]
+        prev_raw = decode_json(prev_stream.strip())
+        for key, value in prev_raw.items():
+            prev_data[key] = int(value.replace(',', ''))
+        prev_file.close()
+    except Exception:
+        pass
+
+# ------------------------------------------------------------------------------
 # Get Info
 # ------------------------------------------------------------------------------
 
@@ -31,6 +49,12 @@ def main():
     info = decode_json(urlopen(github).read())
     data['github'] = info['user']['followers_count']
     for key, val in data.items():
+        if key in prev_data:
+            prev_val = prev_data[key]
+            if prev_val > val:
+                val = prev_val
+            else:
+                prev_data[key] = val
         if val > 1000:
             val = '%s,%03d' % divmod(val, 1000)
         else:
