@@ -9,6 +9,8 @@ title: The Journey to Espia
 
   from operator import lt
   from posixpath import splitext
+  from time import time
+  from urllib import quote_plus, urlencode
 
   STATIC = 'http://cloud.github.com/downloads/tav/plexnet'
 
@@ -30,9 +32,54 @@ title: The Journey to Espia
 ?>
 
 <style type="text/css">
+  .metrics { font-size: 16px; }
   .more { display: none; }
   .more-link { display: block; }
 </style>
+
+<div class="metrics">
+	<table cellspacing="0" cellpadding="5px">
+		<tr>
+			<td rowspan="2" width="38px" valign="top">
+				<a href="http://twitter.com/tav" title="Follow @tav on Twitter"><img src="gfx/icon.twitter.png" width="32px" height="32px" /></a>
+			</td>
+			<td valign="top">
+				<a href="http://twitter.com/tav" title="Follow @tav on Twitter"><strong class="twitter-followers">800+ followers</strong></a>
+			</td>
+			<td rowspan="2" width="44px" valign="top" class="center">
+				<a href="https://github.com/tav" title="Follow tav on GitHub"><img src="gfx/icon.octocat.png" width="32px" height="32px" /></a>
+			</td>
+			<td valign="top">
+				<a href="https://github.com/tav" title="Follow tav on GitHub"><strong class="github-followers">50+ followers</strong></a>
+			</td>
+			<td rowspan="2" width="50px" valign="top" class="center">
+				&nbsp;
+				<a href="http://feeds.feedburner.com/asktav" rel="alternate"
+				 type="application/rss+xml" title="Subscribe to Tav's Blog"><img
+				 src="gfx/icon.rss.png" width="32px" height="32px" /></a>
+			</td>
+			<td valign="top">
+				<a href="http://feeds.feedburner.com/asktav" rel="alternate"
+				 type="application/rss+xml" title="Subscribe to Tav's Blog"><strong class="rss-readers">120+ readers</strong></a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a href="http://twitter.com/tav" title="Follow @tav on Twitter">Follow tav</a>
+			</td>
+			<td>
+				<a href="https://github.com/tav" title="Follow tav on GitHub">Follow on Github</a>
+			</td>
+			<td>
+				<a href="http://feeds.feedburner.com/asktav" rel="alternate"
+				   type="application/rss+xml" title="Subscribe to Tav's Blog">Subscribe via RSS</a>
+			</td>
+		</tr>
+	</table>
+</div>
+<hr class="clear" />
+<br />
+<script type="text/javascript" src="js/metrics.js?${int(time()/4)}" />
 
 <div py:for="post in sorted(items, key=lambda x: x['created'], reverse=True)[:60]">
 	<?python
