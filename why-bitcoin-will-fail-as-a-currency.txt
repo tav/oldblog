@@ -1,0 +1,208 @@
+---
+created: 2011-06-07, 13:54
+layout: post
+license: Public Domain
+---
+
+===================================
+Why Bitcoin Will Fail As A Currency
+===================================
+
+`Bitcoin mania <http://www.google.com/trends?q=bitcoin>`_ has now reached such
+worrying heights that some people are even putting `all of their savings into it
+<http://falkvinge.net/2011/05/29/why-im-putting-all-my-savings-into-bitcoin/>`_.
+Unfortunately, Bitcoin is fundamentally flawed and by the time you finish
+reading this article, I hope you will agree with me.
+
+For those of you not familiar with `Bitcoin <http://www.bitcoin.org/>`_, it is
+often described as a "peer-to-peer currency". This geeky video is sorta
+informative:
+
+.. raw:: html
+
+  <div class="center">
+    <iframe width="560" height="349" src="http://www.youtube.com/embed/XQPSwA2Itbs?start=2516" frameborder="0" allowfullscreen></iframe>
+  </div>
+
+There are a lot of good reasons to be excited about the `design behind Bitcoin
+<http://www.bitcoin.org/bitcoin.pdf>`_ -- it enables secure transactions in a
+transparent manner and doesn't require centralised authorities. It really is
+genius and I look forward to seeing it used in other domains.
+
+However, this does not make Bitcoin a suitable currency system.
+
+.. more
+
+**Why?**
+
+Because, by design, there will never be more than `21 million Bitcoins
+<https://en.bitcoin.it/wiki/FAQ#How_are_new_Bitcoins_created?>`_ in existence.
+And thanks to hoarding and attrition, we can be sure that it will eventually
+serve as nothing more than as a `collector's item
+<http://en.wikipedia.org/wiki/Collectable>`_.
+
+**Bitcoin Hoarding**
+
+First, let's take a look at why Bitcoin encourages hoarding. As I write this,
+the `current total <http://blockexplorer.com/q/totalbc>`_ of Bitcoins mined so
+far is just short of 6.5 million:
+
+.. syntax:: pycon
+
+  >>> bitcoin.currentTotal()
+  6459900
+
+That is, nearly a third of all Bitcoins that could ever exist are already
+sitting on people's computers. Now let's assume for a moment that Bitcoin really
+is useful and in the next decade grows to an `economy the size of Mexico
+<http://en.wikipedia.org/wiki/Economy_of_Mexico>`_, i.e. a trillion dollars.
+
+In this context, if you had 50 Bitcoins they would be worth:
+
+.. syntax:: pycon
+
+  >>> (50. / 21000000) * 1000000000000
+  2380952.3809523806
+
+That is, 50 Bitcoins would be worth over 2 million dollars!! Knowing this,
+unless you were super desperate, would you really spend those Bitcoins today?
+
+In the early days, when Bitcoin was just a fun experiment, it might have made
+sense to spend it. But given that people are `now willing <https://mtgox.com/>`_
+to `accept it as a currency <https://en.bitcoin.it/wiki/Trade>`_, you would be
+an idiot not to hoard it.
+
+And, unlike currencies `backed by gold
+<http://en.wikipedia.org/wiki/Gold_standard>`_ or oil, where there is always the
+chance of someone discovering new gold mines or `oil fields
+<http://www.ogj.com/index/article-display/8070349727/articles/oil-gas-journal/exploration-development-2/area-drilling/20100/june-2011/uganda_-tullow_wells.html>`_,
+you know for certain that no-one will ever be able to dilute your share of the
+total Bitcoin.
+
+Now, despite the hoarders, there will still be an initial spike in the demand
+for Bitcoins due to:
+
+* Non-hoarders experimenting with the system and unwittingly increasing the
+  value of the Bitcoins held by the hoarders.
+
+* Greedy hoarders trying to buy up as much Bitcoins as they can so as to
+  increase the size of their potential future wealth.
+
+* Scammers manipulating the market with trades so as to make a quick buck from
+  `greater fools <http://en.wikipedia.org/wiki/Greater_fool_theory>`_ before it
+  all comes crashing down.
+
+Unfortunately it won't last long. For starters, the non-hoarders (the actual
+spenders) will gradually discover that hoarding is the best strategy for
+maximising the value of their Bitcoins -- causing them to either abandon the
+system or start hoarding themselves.
+
+It would also become increasingly apparent that the majority are hoarding and
+that only a `fraction of Bitcoins are in actual circulation
+<https://forum.bitcoin.org/index.php?topic=9456.0>`_. At this point, it is
+effectively game over for Bitcoin as a currency. An economy really can't
+function if nobody spends any money!!
+
+Since there will be a slow trickle of new users and cautious hoarders gradually
+dumping some of their Bitcoins, I doubt the Bitcoin economy will come to a total
+standstill anytime soon. But there is no doubt that the majority of the activity
+will be driven by speculation.
+
+It should hopefully now be obvious that Bitcoin is simply a store of speculative
+value. In some ways, it's a lot like `publicly traded shares
+<http://en.wikipedia.org/wiki/Share_(finance)>`_. But it's worse, because at
+least with most shares you get a share of the underlying corporate assets and
+profits.
+
+Also, unlike shares, where you can generally expect recurring `speculative
+bubbles <http://en.wikipedia.org/wiki/Economic_bubble>`_, Bitcoin is not
+impacted in positive ways by underlying conditions, e.g. corporate acquisitions,
+new share issues, growing profits, etc. Thus the capacity for multiple Bitcoin
+bubbles is extremely low.
+
+If anything, potential changes in external factors pretty much all lead to a
+negative impact for Bitcoin speculators, e.g. financial regulation,
+technological breakthroughs, forked block chains, etc.
+
+**Bitcoin Attrition**
+
+The effect of hoarding is made worse by the inevitable attrition of the number
+of available Bitcoins. That is, as time goes by, there will be fewer Bitcoins
+available in proportion to the total number of Bitcoins.
+
+This happens for a variety of reasons:
+
+* Many users, especially early-adopters, having experimented with Bitcoin and
+  generated some coins, have then just forgotten about it.
+
+* You can't access your Bitcoins unless you have your private keys backed up
+  somewhere. Hundreds of people have failed to backup their wallets and have
+  lost these keys permanently.
+
+* Technical issues in how the client generated keys has led to users losing
+  Bitcoins even when they tried to backup properly, e.g. `these
+  <http://forum.bitcoin.org/index.php?topic=11104.0>`_ `two
+  <http://forum.bitcoin.org/index.php?topic=782.0>`_ have each lost what would
+  today be worth about $130k and $160k due to technical glitches. Ouch!
+
+If it were possible to determine it, I would be willing to bet that over a sixth
+of the Bitcoins mined thus far are already not accessible. In our hypothetical
+scenario above, that would translate to over 50 billion dollars worth that has
+simply been "lost".
+
+As time goes by, this figure is only guaranteed to increase. And since we can
+safely assume that hoarders will be a lot more careful than the experimenters,
+most of the attrition will likely come from the actual spenders in the economy.
+
+Thus, limiting the actual number of Bitcoins in active circulation even further!
+I could go on, but I hope the point is relatively clear. Hoarding and attrition
+make Bitcoin unsuitable as a currency. Now, let's look at some
+counter-arguments.
+
+**What about creating new block chains without the 21 million coin limit?**
+
+Yes, you could create new block chains, EuroCoin, ChinaCoin, etc. However, this
+would be not be fixing the problem with Bitcoin in any way. You would simply be
+introducing competing alternative systems which may or may not fix the
+fundamental issue.
+
+**What about extending the Bitcoin client to keep on issuing new Bitcoins?**
+
+I don't think you could keep on calling this Bitcoin. For starters, it violates
+what most people understand as Bitcoin -- that it is totally decentralised and
+cannot be controlled by any one party.
+
+By imposing such a fundamental change, you would be violating the core
+assumptions made by those who have invested in Bitcoins. I doubt most of the
+anti-gov folk who seem to have taken to Bitcoin would be interested in having
+such changes dictated to them.
+
+**What about using consensus to change the protocol?**
+
+This is super easy to say and almost impossible to achieve. How would you
+achieve this consensus? Would it be majority/mob rule? By lottery? What about
+those who disagree with the result? Who decides on the process?
+
+I fear that the opportunity to fix this has long since gone. If anything, future
+decentralised currency designers should take this as a lesson to specify, ahead
+of time, a process to use in order to make protocol changes.
+
+That way, beneficial changes can be made without violating any implicit
+assumptions that people might have made.
+
+**Conclusion**
+
+Bitcoin is not a viable currency. It is a store of speculative value -- much
+like investing in stamps, comic books and vintage shoes. The fixed limit of the
+number of Bitcoins is subject to attrition and encourages hoarding which will
+inevitably lead to mainly speculative activity.
+
+Whilst Bitcoin is a perfectly viable speculative instrument, it will be far too
+volatile to serve as a medium of exchange. I would like to call upon the Bitcoin
+community to stop referring to it as a digital currency. This is misleading and
+harmful.
+
+Finally, forgive me if I haven't been clear enough with any of the explanations
+and do let me know what you think.
+
+-- Thanks, tav
