@@ -497,10 +497,10 @@ I don't actually see an issue with this -- as far as I can see it is beneficial
 social lubrication. However I did once hear about Tony Blair getting lambasted
 for similar behaviour, so perhaps there is something sinister that I am missing?
 
-The other habit of mine is related to what my old business partner Ade Thomas
-from green.tv refers to as "concentric circles of bullshit". It could probably
-be best understood by looking at how `green.tv <http://www.green.tv/>`_ came
-into existence.
+The other habit of mine is related to what an old business partner of mine
+refers to as "concentric circles of bullshit". It could probably be best
+understood by looking at how `green.tv <http://www.green.tv/>`_ came into
+existence.
 
 It started with the idea being pitched to UNEP, Greenpeace and a few others.
 This was before YouTube had become mainstream and they didn't really see the
