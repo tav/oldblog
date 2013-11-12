@@ -16,7 +16,7 @@ work/vision. Their belief, inspiration, energy, encouragement, suggestions,
 criticisms, support (both emotional and financial), tasty treats and hard work
 has been phenomenal!
 
-I'd like to reward them with some life-time tav-branded `pecu allocations
+I'd like to reward them with some tav-branded `pecu allocations
 <http://www.thruflo.com/2009/06/09/tav-describes-pecus.html>`_.
 
 Since I'm not making any pecu payouts at the moment, they're not worth much yet
@@ -32,16 +32,15 @@ like to reward them with **200,000** pecus each:
 
 .. class:: double-column
 
-* Alex Tomkins
+* Alex Tomkins (+50,000)
 * Brian Deegan
-* Chris Macrae
 * Cris Pearson
 * Daniel Biddle
 * Danny Bruder
 * David Pinto
 * Inderpaul Johar
 * James Arthur (+200,000)
-* Jeffry Archambeault
+* Jeffry Archambeault (+50,000)
 * John McCane-Whitney
 * Liliana Avrushin
 * Luke Graybill
@@ -57,10 +56,11 @@ like to reward them with **200,000** pecus each:
 * Øyvind Selbek (+200,000)
 * Sofia Bustamante
 * Sean B. Palmer (+100,000)
+* Seyi Ogunyemi
 * Stefan Plantikow
 * Tim Jenks
 * Tiziano Cirillo
-* Tom Salfield
+* Tom Salfield (+50,000)
 * Yan Minagawa
 
 The following beautiful creatures have helped at various critical junctures or
@@ -69,11 +69,12 @@ laid key foundations. For this they get **20,000** pecus each:
 .. class:: double-column
 
 * Aaron Swartz
-* Adam Langley
+* Adam Langley (+20,000)
 * Ade Thomas
 * Adnan Hadzi
 * Alex Greiner
-* Alex Pappajohn
+* Alex Pappajohn (+80,000)
+* Alice Fung
 * Allen Short
 * Andreas Dietrich
 * Andrew Kenneth Milton
@@ -83,6 +84,7 @@ laid key foundations. For this they get **20,000** pecus each:
 * Bryce Wilcox-O'Hearn
 * Charles Goodier
 * Chris Wood
+* Christina Rebel
 * Claire Assis
 * David Bovill
 * Derek Richards
@@ -94,7 +96,7 @@ laid key foundations. For this they get **20,000** pecus each:
 * Fenton Whelan
 * Fergus Doyle
 * Gary Alexander
-* Gloria Charles
+* Gloria Davies-Coates
 * Guido van Rossum
 * Guilhem Buzenet
 * Howard Rheingold
@@ -107,7 +109,7 @@ laid key foundations. For this they get **20,000** pecus each:
 * Joe Short
 * Joerg Baach
 * John Hurliman
-* Josef Davies-Coates
+* Josef Davies-Coates (+20,000)
 * Henri Cattan
 * Henry Hicks
 * Ka Ho Chan
@@ -118,7 +120,7 @@ laid key foundations. For this they get **20,000** pecus each:
 * Laura Tov
 * Lesley Donna Williams
 * Lucie Rey-Grange
-* Maciej Fijalkowski
+* Maciej Fijalkowski (+20,000)
 * Mark Poole
 * Maria Glauser
 * Maria Chatzichristodoulou
@@ -128,6 +130,7 @@ laid key foundations. For this they get **20,000** pecus each:
 * Mia Bittar
 * Mohan Selladurai
 * Neythal (Sri Lanka)
+* Nick Ierodiaconou
 * Nolan Darilek
 * Olga Zueva
 * Paul Böhm
@@ -166,9 +169,9 @@ These lovely supporters get **2,000** pecus each:
 * Agathe Pouget-Abadie
 * Al Tepper
 * Alan Wagenberg
+* Alastair Parvin
 * Alex Bustamante
 * Alexander Wait (USA)
-* Alice Fung
 * Andreas Kotes
 * Andreas Schwarz
 * Andrius Kulikauskas
@@ -288,6 +291,7 @@ These lovely supporters get **2,000** pecus each:
 * Ian Clarke
 * Ian Hogarth
 * Ida Norheim-Hagtun
+* Ifung Lu
 * Igor Tojcic
 * Ilze Black
 * Inge Rochette
@@ -318,6 +322,7 @@ These lovely supporters get **2,000** pecus each:
 * Jon Bootland
 * Jonathan Robinson
 * Joni Davis ?
+* Joni Steiner
 * Jose Esquer
 * Joseph O'Kelly (UK)
 * Joy Green
@@ -376,6 +381,7 @@ These lovely supporters get **2,000** pecus each:
 * Matt Cooperrider
 * Matthew Devney
 * Mattis Manzel
+* Maximilian Kampik
 * Mayra Vivo Torres
 * Meghan Benton
 * Meera Shah
@@ -384,6 +390,7 @@ These lovely supporters get **2,000** pecus each:
 * Michael Maranda
 * Michael Sparks
 * Michel Bauwens
+* Mike Kazantsev
 * Mike Linksvayer
 * Mikey Weinkove
 * Mitchell Jacobs
@@ -393,7 +400,6 @@ These lovely supporters get **2,000** pecus each:
 * Navindu Katugampola
 * Nathalie Follen
 * Nick Hart-Williams
-* Nick Ierodiaconou
 * Nick Szabo
 * Nicolas David
 * Niels Boeing (Germany)
@@ -402,6 +408,7 @@ These lovely supporters get **2,000** pecus each:
 * Nishant Shah
 * Noa Harvey
 * Noah Slater
+* Olivia Tusinski
 * Oliver Morrison
 * Oliver Sylvester-Bradley
 * Oz Mose
@@ -503,6 +510,7 @@ These lovely supporters get **2,000** pecus each:
 * Wayne Siron
 * Wes Felter
 * Wybo Wiersma
+* Zoe Cremer
 * Zoe Young
 
 And, finally, whilst I'm not currently making any pecu allocations to them, I
