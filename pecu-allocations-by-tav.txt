@@ -33,16 +33,14 @@ like to reward them with **200,000** pecus each:
 .. class:: double-column
 
 * Alex Tomkins (+50,000)
+* Alice Fung (+200,000)
 * Brian Deegan
 * Cris Pearson
 * Daniel Biddle
 * Danny Bruder
 * David Pinto
-* Inderpaul Johar
-* James Arthur (+200,000)
 * Jeffry Archambeault (+50,000)
 * John McCane-Whitney
-* Liliana Avrushin
 * Luke Graybill
 * Mamading Ceesay (+100,000)
 * Martyn Hurt
@@ -50,14 +48,14 @@ like to reward them with **200,000** pecus each:
 * Mathew Ryden (+100,000)
 * Nadine Gahr
 * Nathan Staab
-* Narmatha Murugananda
 * Navaratnam Para
 * Nicholas Midgley
 * Øyvind Selbek (+200,000)
 * Sofia Bustamante
 * Sean B. Palmer (+100,000)
-* Seyi Ogunyemi
+* Seyi Ogunyemi (+50,000)
 * Stefan Plantikow
+* Thamilarasi Siva
 * Tim Jenks
 * Tiziano Cirillo
 * Tom Salfield (+50,000)
@@ -70,16 +68,11 @@ laid key foundations. For this they get **20,000** pecus each:
 
 * Aaron Swartz
 * Adam Langley (+20,000)
-* Ade Thomas
-* Adnan Hadzi
-* Alex Greiner
 * Alex Pappajohn (+80,000)
-* Alice Fung
 * Allen Short
 * Andreas Dietrich
 * Andrew Kenneth Milton
 * Anne Biggs
-* Anne Helene Wirstad
 * Anette Hvolbæk
 * Bryce Wilcox-O'Hearn
 * Charles Goodier
@@ -89,50 +82,40 @@ laid key foundations. For this they get **20,000** pecus each:
 * David Bovill
 * Derek Richards
 * Eric Hopper
-* Eric Wahlforss
 * Erik Möller
 * Erol Ziya
-* Ephraim Spiro
 * Fenton Whelan
-* Fergus Doyle
 * Gary Alexander
 * Gloria Davies-Coates
 * Guido van Rossum
-* Guilhem Buzenet
 * Howard Rheingold
+* Inderpaul Johar
 * Itamar Shtull-Trauring
 * Jacob Everist
+* James Arthur
 * Jan Ludewig
-* Jill Lundquist
 * Jim Carrico
 * Jo Walsh
-* Joe Short
 * Joerg Baach
 * John Hurliman
 * Josef Davies-Coates (+20,000)
 * Henri Cattan
-* Henry Hicks
 * Ka Ho Chan
 * Karin Kylander
 * Karina Arthur
 * Katie Miller
 * Kisiyane Roberts
 * Laura Tov
-* Lesley Donna Williams
-* Lucie Rey-Grange
+* Liliana Avrushin
 * Maciej Fijalkowski (+20,000)
-* Mark Poole
-* Maria Glauser
 * Maria Chatzichristodoulou
 * Matthew Sellwood
-* Matthew Skinner
+* Maximilian Kampik
 * Mayra Graybill
-* Mia Bittar
 * Mohan Selladurai
+* Narmatha Murugananda
 * Neythal (Sri Lanka)
-* Nick Ierodiaconou
 * Nolan Darilek
-* Olga Zueva
 * Paul Böhm
 * Phillip J. Eby
 * Pierre-Antoine Tetard
@@ -145,19 +128,14 @@ laid key foundations. For this they get **20,000** pecus each:
 * Simon Michael
 * Simon Fox
 * Simon Reynolds
-* Stephan Karpischek
 * Steve Alexander
 * Suhanya Babu
 * Tavin Cole
-* Thamilarasi Siva
 * Tim Berners-Lee
 * Tom Owen-Smith
-* Vanda Petanjek
 * Xiao Xuan Guo
 
 These lovely supporters get **2,000** pecus each:
-
-.. Ana Sandra Ruiz Entrecanales
 
 .. class:: double-column
 
@@ -165,12 +143,14 @@ These lovely supporters get **2,000** pecus each:
 * Adam Karpierz (Poland)
 * Adam Perfect
 * Adam Wern
+* Ade Thomas
 * Adir Tov
+* Adnan Hadzi
 * Agathe Pouget-Abadie
 * Al Tepper
 * Alan Wagenberg
-* Alastair Parvin
 * Alex Bustamante
+* Alex Greiner
 * Alexander Wait (USA)
 * Andreas Kotes
 * Andreas Schwarz
@@ -184,13 +164,13 @@ These lovely supporters get **2,000** pecus each:
 * Anna Rothkopf
 * Annalisa Fagan
 * Anne Doyle
+* Anne Helene Wirstad
 * Anselm Hook
 * Ante Pavlov
 * Arani Siva
 * Ash Gerrish
 * Ashley Siple
 * Auro Tom Foxtrot
-* Azra Gül
 * Beatrice Wessolowski
 * Ben Pirt
 * Ben Swartz
@@ -254,12 +234,14 @@ These lovely supporters get **2,000** pecus each:
 * Elmar Geese
 * Emma Wigley
 * Emmanuel Baidoo
+* Ephraim Spiro
+* Eric Wahlforss
 * Erik Stewart
 * Fabian Kyrielis
-* Farhan Rehman
-* Femi Longe
 * Felicity Wood
 * Felix Iskwei
+* Femi Longe
+* Fergus Doyle
 * Florence David
 * Francesca Cerletti (UK)
 * Francesca Romana Giordano
@@ -280,12 +262,14 @@ These lovely supporters get **2,000** pecus each:
 * Grant Stapleton
 * Greg Timms
 * Gregor J. Rothfuss
+* Guilhem Buzenet
 * Guy Kawasaki
 * Hannah Harris
 * Harriet Harris
 * Heather Wilkinson
 * Helen Aldritch
 * Henry Bowen
+* Henry Hicks
 * Holly Lloyd
 * Holly Porter
 * Ian Clarke
@@ -309,10 +293,12 @@ These lovely supporters get **2,000** pecus each:
 * Jeannie Cool
 * Jeremie Miller
 * Jessica Bridges-Palmer
+* Jill Lundquist
 * Jim Ley
 * Jimmy Wales
 * Joanna O'Donnell
 * Joe Geldart (UK)
+* Joe Short
 * Joey DeVilla
 * John Bywater
 * John Cassidy
@@ -352,6 +338,7 @@ These lovely supporters get **2,000** pecus each:
 * Lauri Love
 * Leon Rocha
 * Lena Nalbach
+* Lesley Donna Williams
 * Leslie Vuchot
 * Lewis Hart
 * Libby Miller
@@ -369,9 +356,11 @@ These lovely supporters get **2,000** pecus each:
 * Manuel Sauer
 * Maor Bar-Ziv
 * Marco Herry
+* Maria Glauser
 * Mark Brown
 * Mark Chaplin
 * Mark Hodge
+* Mark Poole
 * Mark S. Miller
 * Markus Quarta
 * Marguerite Smith
@@ -380,12 +369,13 @@ These lovely supporters get **2,000** pecus each:
 * Mary Fee
 * Matt Cooperrider
 * Matthew Devney
+* Matthew Skinner
 * Mattis Manzel
-* Maximilian Kampik
 * Mayra Vivo Torres
 * Meghan Benton
 * Meera Shah
 * Menka Parekh
+* Mia Bittar
 * Michael Linton
 * Michael Maranda
 * Michael Sparks
@@ -400,6 +390,7 @@ These lovely supporters get **2,000** pecus each:
 * Navindu Katugampola
 * Nathalie Follen
 * Nick Hart-Williams
+* Nick Ierodiaconou
 * Nick Szabo
 * Nicolas David
 * Niels Boeing (Germany)
@@ -408,6 +399,7 @@ These lovely supporters get **2,000** pecus each:
 * Nishant Shah
 * Noa Harvey
 * Noah Slater
+* Olga Zueva
 * Olivia Tusinski
 * Oliver Morrison
 * Oliver Sylvester-Bradley
@@ -471,6 +463,7 @@ These lovely supporters get **2,000** pecus each:
 * Simon Bartlet
 * Simon Persoff
 * Simon Rawles
+* Siva Selladurai
 * Sonia Ali
 * Sophie ? (Austria)
 * Sophie Le Barbier
@@ -480,6 +473,7 @@ These lovely supporters get **2,000** pecus each:
 * Steffi Dayalan
 * Stella Boeva
 * Stephan Dohrn
+* Stephan Karpischek
 * Stephen Wilmot
 * Steve Jenson
 * Steve Peake
@@ -505,6 +499,7 @@ These lovely supporters get **2,000** pecus each:
 * Tony Cook
 * Tyler Eaves
 * Ushani Suresh
+* Vanda Petanjek
 * Veeral ?
 * William Wardlaw-Rogers
 * Wayne Siron
